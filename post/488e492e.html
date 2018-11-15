@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>常用Git命令清单 | Safran Blog</title>
+  <title>关于PC端缩小浏览器窗口，右边背景空白并出现滚动条 | Safran Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Git常用命令请前往阮一峰的文章常用 Git 命令清单 增加 resetgit bash 清除屏幕的方式">
-<meta name="keywords" content="Git">
+  <meta name="description" content="出现原因 因为出现空白的元素设置了宽度100%，缩小窗口相当于减小了宽度值，那么为什么出现滚动条呢？是因为页面中至少有一个元素a的width大于窗口的width，导致把页面撑开，出现了滚动条，而此时那个width：100%的元素宽度等于窗口宽度且小于元素a的宽度，所以右侧的空白长度=a的宽度-窗口宽度。   解决这个问题其实很简单 给body设置最小宽度min-width,在ie6下不兼容 123">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用Git命令清单">
-<meta property="og:url" content="http://blog.vmccc.cn/post/724c121.html">
+<meta property="og:title" content="关于PC端缩小浏览器窗口，右边背景空白并出现滚动条">
+<meta property="og:url" content="http://blog.vmccc.cn/post/488e492e.html">
 <meta property="og:site_name" content="Safran Blog">
-<meta property="og:description" content="Git常用命令请前往阮一峰的文章常用 Git 命令清单 增加 resetgit bash 清除屏幕的方式">
+<meta property="og:description" content="出现原因 因为出现空白的元素设置了宽度100%，缩小窗口相当于减小了宽度值，那么为什么出现滚动条呢？是因为页面中至少有一个元素a的width大于窗口的width，导致把页面撑开，出现了滚动条，而此时那个width：100%的元素宽度等于窗口宽度且小于元素a的宽度，所以右侧的空白长度=a的宽度-窗口宽度。   解决这个问题其实很简单 给body设置最小宽度min-width,在ie6下不兼容 123">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-02T16:51:31.518Z">
+<meta property="og:updated_time" content="2018-11-15T14:24:58.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用Git命令清单">
-<meta name="twitter:description" content="Git常用命令请前往阮一峰的文章常用 Git 命令清单 增加 resetgit bash 清除屏幕的方式">
+<meta name="twitter:title" content="关于PC端缩小浏览器窗口，右边背景空白并出现滚动条">
+<meta name="twitter:description" content="出现原因 因为出现空白的元素设置了宽度100%，缩小窗口相当于减小了宽度值，那么为什么出现滚动条呢？是因为页面中至少有一个元素a的width大于窗口的width，导致把页面撑开，出现了滚动条，而此时那个width：100%的元素宽度等于窗口宽度且小于元素a的宽度，所以右侧的空白长度=a的宽度-窗口宽度。   解决这个问题其实很简单 给body设置最小宽度min-width,在ie6下不兼容 123">
   
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
@@ -226,11 +226,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-常用Git命令清单" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-关于PC端缩小浏览器窗口，右边背景空白并出现滚动条" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/post/724c121.html" class="article-date">
-      <time datetime="2018-10-02T16:16:31.000Z" itemprop="datePublished">2018-10-03</time>
+      <a href="/post/488e492e.html" class="article-date">
+      <time datetime="2018-11-15T14:23:30.000Z" itemprop="datePublished">2018-11-15</time>
 </a>
     </div>
   
@@ -243,7 +243,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      常用Git命令清单
+      关于PC端缩小浏览器窗口，右边背景空白并出现滚动条
     </h1>
   
 
@@ -252,13 +252,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Git/">Git</a>
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -268,9 +268,18 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h1><p>请前往阮一峰的文章<a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a></p>
-<h2 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h2><ul>
-<li><code>reset</code>git bash 清除屏幕的方式 </li>
+        <p>出现原因</p>
+<p>因为出现空白的元素设置了宽度100%，缩小窗口相当于减小了宽度值，那么为什么出现滚动条呢？是因为页面中至少有一个元素a的width大于窗口的width，导致把页面撑开，出现了滚动条，而此时那个width：100%的元素宽度等于窗口宽度且小于元素a的宽度，所以右侧的空白长度=a的宽度-窗口宽度。  </p>
+<h3 id="解决这个问题其实很简单"><a href="#解决这个问题其实很简单" class="headerlink" title="解决这个问题其实很简单"></a>解决这个问题其实很简单</h3><ul>
+<li><p>给body设置最小宽度<code>min-width</code>,在ie6下不兼容</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">     <span class="attribute">min-width</span>: <span class="number">1000px</span>;</span><br><span class="line">     <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>还可以给div元素设置最小宽度，如果页面元素复杂，要一个个设置</p>
+</li>
+<li><p>给CSS样式设置<code>width:expression(document.body.clientWidth &lt;= 960? &quot;960px&quot;: &quot;auto&quot;);</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#wrap</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#ddd</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="built_in">expression</span>(document.body.clientWidth &lt;= 960? <span class="string">"960px"</span>: <span class="string">"auto"</span>);</span><br><span class="line">    <span class="attribute">min-width</span>:<span class="number">960px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>推荐第一种</p>
+</li>
 </ul>
 
       
@@ -281,13 +290,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/post/724c121.html">常用Git命令清单</a></p>
+        <p><span>本文标题:</span><a href="/post/488e492e.html">关于PC端缩小浏览器窗口，右边背景空白并出现滚动条</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Safran 的个人博客">Safran</a></p>
-        <p><span>发布时间:</span>2018年10月03日 - 00时16分</p>
-        <p><span>最后更新:</span>2018年10月03日 - 00时51分</p>
+        <p><span>发布时间:</span>2018年11月15日 - 22时23分</p>
+        <p><span>最后更新:</span>2018年11月15日 - 22时24分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/post/724c121.html" title="常用Git命令清单">http://blog.vmccc.cn/post/724c121.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.vmccc.cn/post/724c121.html　　作者: Safran" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/post/488e492e.html" title="关于PC端缩小浏览器窗口，右边背景空白并出现滚动条">http://blog.vmccc.cn/post/488e492e.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.vmccc.cn/post/488e492e.html　　作者: Safran" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -300,18 +309,9 @@
 
 <nav id="article-nav">
   
-    <a href="/post/undefined.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          垂直居中的几种方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/post/9a98d601.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Github搭建Hexo博客</div>
+    <a href="/post/0.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -322,7 +322,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git常用命令"><span class="toc-number">1.</span> <span class="toc-text">Git常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#增加"><span class="toc-number">1.1.</span> <span class="toc-text">增加</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解决这个问题其实很简单"><span class="toc-number">1.</span> <span class="toc-text">解决这个问题其实很简单</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -388,13 +388,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/post/undefined.html" title="上一篇: 垂直居中的几种方法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/post/9a98d601.html" title="下一篇: Github搭建Hexo博客">
+            <a href="/post/0.html" title="下一篇: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         
