@@ -24,7 +24,7 @@
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="img/favicon.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Safran</a></h1>
@@ -84,7 +84,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/safranyu" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -108,7 +108,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="img/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Safran</h1>
@@ -127,7 +127,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/safranyu" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -207,27 +207,6 @@
 <h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.index()</span><br><span class="line">.index( selector )</span><br><span class="line">.index( element )</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">   &lt;a&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">   &lt;a&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">   &lt;li id=<span class="string">"test1"</span>&gt;<span class="number">1</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">   &lt;li id="test2"&gt;2&lt;/</span>li&gt;</span><br><span class="line">   &lt;li id=<span class="string">"test3"</span>&gt;<span class="number">3</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">   &lt;li id=<span class="string">"test4"</span>&gt;<span class="number">4</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">   &lt;li id="test5"&gt;5&lt;/</span>li&gt;</span><br><span class="line">   &lt;li id=<span class="string">"test6"</span>&gt;<span class="number">6</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">$(<span class="string">"#exec"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> v = $(<span class="string">"#animation"</span>).val();</span><br><span class="line">    <span class="keyword">var</span> $span = $(<span class="string">"span"</span>);</span><br><span class="line">    $span.empty();</span><br><span class="line">    <span class="keyword">if</span> (v == <span class="string">"1"</span>) &#123;</span><br><span class="line">        <span class="comment">//找到第一个li的同辈节点中的索引位置</span></span><br><span class="line">        $span.text($(<span class="string">"li"</span>).index())<span class="comment">//2</span></span><br><span class="line">        <span class="comment">//通过传递dom查找      $span.text($("li").index(d$("#test5")))//4</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (v == <span class="string">"3"</span>) &#123;</span><br><span class="line">        <span class="comment">//通过传递jQuery对象查找</span></span><br><span class="line">                 $span.text($(<span class="string">"li"</span>).index($(<span class="string">"#test6"</span>)))<span class="comment">//5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -320,6 +299,8 @@
   </div>
 </article>
 
+
+
   
 <nav id="article-nav">
   
@@ -358,7 +339,42 @@
 </aside>
 
 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '936d2bda95c3eeaf787a',
+        clientSecret: '2d209670548d6a9c5b89f0ecc4e36b161ce5813e',
+        id: window.location.pathname,
+        repo: 'safranyu.github.io',
+        owner: 'safranyu',
+        admin: 'safranyu'
+    })
+    gitalk.render('gitalk-container')
+</script>
 
+
+
+
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '936d2bda95c3eeaf787a',
+        clientSecret: '2d209670548d6a9c5b89f0ecc4e36b161ce5813e',
+        id: window.location.pathname,
+        repo: 'safranyu.github.io',
+        owner: 'safranyu',
+        admin: 'safranyu'
+    })
+    gitalk.render('gitalk-container')
+</script>
+  
+ 
   
   
   
@@ -504,11 +520,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,10 +537,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">小程序反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
             
             <div class="clearfix"></div>
