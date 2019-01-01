@@ -159,68 +159,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hexo添加Gitalik评论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="hexo添加Gitalik评论"><a href="#hexo添加Gitalik评论" class="headerlink" title="hexo添加Gitalik评论"></a>hexo添加Gitalik评论</h1><p>我使用的是hexo模板是Yilia的，会有些不同。</p>
-<p><a href="https://knightcai.github.io/2017/12/19/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" target="_blank" rel="noopener">参考文档</a></p>
-<p>1、在模板文件里创建一个<code>gitalk.ejs</code>文件，把下面的代码复制进去</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://unpkg.com/gitalk/dist/gitalk.css"</span>&gt;</span><br><span class="line">&lt;div id=<span class="string">"gitalk-container"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"https://unpkg.com/gitalk/dist/gitalk.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> gitalk = <span class="keyword">new</span> Gitalk(&#123;</span><br><span class="line">        clientID: <span class="string">'&lt;%= theme.gitalk.clientID %&gt;'</span>,</span><br><span class="line">        clientSecret: <span class="string">'&lt;%= theme.gitalk.clientSecret %&gt;'</span>,</span><br><span class="line">        id: <span class="built_in">window</span>.location.pathname,</span><br><span class="line">        repo: <span class="string">'&lt;%= theme.gitalk.repo %&gt;'</span>,</span><br><span class="line">        owner: <span class="string">'&lt;%= theme.gitalk.owner %&gt;'</span>,</span><br><span class="line">        admin: <span class="string">'&lt;%= theme.gitalk.admin %&gt;'</span>,</span><br><span class="line">        distractionFreeMode: <span class="string">'&lt;%= theme.gitalk.shade %&gt;'</span>,</span><br><span class="line">        enableHotKey: <span class="string">'&lt;%= theme.gitalk.enableHotKey %&gt;'</span>,</span><br><span class="line">       </span><br><span class="line">    &#125;)</span><br><span class="line">    gitalk.render(<span class="string">'gitalk-container'</span>)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2、在文章页面添加这个模板，一般是在这个路径下<code>layout\_partial\article.ejs</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (theme.gitalk.enable)&#123; %&gt;</span><br><span class="line">    &lt;%- partial(<span class="string">'_partial/post/gitalk'</span>) %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<p>3、在模板的配置文件里添加</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#gitalk settings</span><br><span class="line">gitalk:</span><br><span class="line">  enable: true #用来做启用判断可以不用</span><br><span class="line">  owner: <span class="string">'Github 用户名'</span></span><br><span class="line">  repo: 'Github 仓库名' #例：safranyu.github.io</span><br><span class="line">  admin: <span class="string">'Github 用户名'</span></span><br><span class="line">  clientID: <span class="string">'Github Application clientID'</span></span><br><span class="line">  clientSecret: <span class="string">'Github Application clientSecret'</span></span><br><span class="line">  shade: true # 遮罩</span><br><span class="line">  enableHotKey: true #启用热键（cmd | ctrl + enter）提交评论</span><br></pre></td></tr></table></figure>
-<p>4、Gitalk 需要一个 <strong>Github Application</strong></p>
-<p><a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">申请页面</a></p>
-<p>填写下面参数：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fmm7jaib6fj30jo0gaacs.jpg" alt=""></p>
-<p>会得到<code>Client ID</code>和<code>Client Secret</code>在配置文件里填好就行。</p>
-<p>我遇到报<code>Error: Bad credentials</code>错误，通过加单引号解决了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/0.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
     <article id="post-关于PC端缩小浏览器窗口，右边背景空白并出现滚动条" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -322,6 +260,21 @@
     <article id="post-Windows环境下安装最新MySQL服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/0.html">Windows环境下安装最新MySQL服务</a>
+    </h1>
+  
+
+        
+        <a href="/post/0.html" class="archive-article-date">
+  	<time datetime="2018-10-09T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><p>在开发领域我们存储数据一般都是使用专门的数据库服务器专门提供的数据库服务，如果需要让自己的机器也可以 提供数据库服务，那么就需要安装特定的数据库服务器软件，这种类型的软件也有很多：</p>
@@ -375,7 +328,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -446,6 +421,113 @@
 <h5 id="Js部分"><a href="#Js部分" class="headerlink" title="Js部分"></a>Js部分</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给元素绑定表情 option里参数参照上面官方</span></span><br><span class="line">$(<span class="string">"#message"</span>).emoji(&#123;</span><br><span class="line">        button:<span class="string">"#face"</span>,</span><br><span class="line">        showTab: <span class="literal">true</span>,</span><br><span class="line">        animation: <span class="string">'fade'</span>,</span><br><span class="line">        icons: [&#123;</span><br><span class="line">            name: <span class="string">"贴吧表情"</span>,</span><br><span class="line">            path: <span class="string">"lib/eshengsky-jQuery-emoji/dist/img/tieba/"</span>,</span><br><span class="line">            maxNum: <span class="number">50</span>,</span><br><span class="line">            file: <span class="string">".jpg"</span>,</span><br><span class="line">            placeholder: <span class="string">"[emoji_&#123;alias&#125;]"</span>,</span><br><span class="line"></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: <span class="string">"QQ高清"</span>,</span><br><span class="line">            path: <span class="string">"lib/eshengsky-jQuery-emoji/dist/img/qq/"</span>,</span><br><span class="line">            maxNum: <span class="number">91</span>,</span><br><span class="line">            excludeNums: [<span class="number">41</span>, <span class="number">45</span>, <span class="number">54</span>],</span><br><span class="line">            file: <span class="string">".gif"</span>,</span><br><span class="line">            placeholder: <span class="string">"[qq_&#123;alias&#125;]"</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: <span class="string">"emoji高清"</span>,</span><br><span class="line">            path: <span class="string">"lib/eshengsky-jQuery-emoji/dist/img/emoji/"</span>,</span><br><span class="line">            maxNum: <span class="number">84</span>,</span><br><span class="line">            file: <span class="string">".png"</span>,</span><br><span class="line">            placeholder: <span class="string">"[em_&#123;alias&#125;]"</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">// 解析方法</span></span><br><span class="line">$(<span class="string">'#btn'</span>).click(funtion()&#123;</span><br><span class="line">	<span class="keyword">var</span> contents = $(<span class="string">'#message'</span>).val();</span><br><span class="line">	contents = replace_em(contents);</span><br><span class="line">	onsole.log(contents)；</span><br><span class="line">    $(<span class="string">'#content'</span>).html(contents);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 手动解析规则</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">replace_em</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">        str = str.replace(<span class="regexp">/\&lt;/g</span>,<span class="string">'&amp;lt;'</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\&gt;/g</span>,<span class="string">'&amp;gt;'</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\n/g</span>,<span class="string">'&lt;br/&gt;'</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\[qq_([0-9]*)\]/g</span>,<span class="string">"&lt;img src='lib/eshengsky-jQuery-emoji/dist/img/qq/$1.gif' /&gt;"</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\[em_([0-9]*)\]/g</span>,<span class="string">"&lt;img src='lib/eshengsky-jQuery-emoji/dist/img/emoji/$1.png'  /&gt;"</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\[emoji_([0-9]*)\]/g</span>,<span class="string">"&lt;img src='lib/eshengsky-jQuery-emoji/dist/img/tieba/$1.jpg' /&gt;"</span>);</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>官方转换方法有点复杂，转换不了<code>&lt;textarea&gt;</code>输入的值，可能要修改官方的解析方法。</p>
 <p><a href="https://github.com/li914/emoji_jQuery" target="_blank" rel="noopener">延伸插件</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jQuer//" class="article-tag-list-link color1">jQuer</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jQuer/JS插件//" class="article-tag-list-link color5">JS插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/59c352fb.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-hexo添加Gitalik评论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/59c352fb.html">hexo添加Gitalik评论</a>
+    </h1>
+  
+
+        
+        <a href="/post/59c352fb.html" class="archive-article-date">
+  	<time datetime="2018-10-08T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我使用的是hexo模板是Yilia的，会有些不同。</p>
+<p><a href="https://knightcai.github.io/2017/12/19/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" target="_blank" rel="noopener">参考文档</a></p>
+<p>1、在模板文件里创建一个<code>gitalk.ejs</code>文件，把下面的代码复制进去</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://unpkg.com/gitalk/dist/gitalk.css"</span>&gt;</span><br><span class="line">&lt;div id=<span class="string">"gitalk-container"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;script src=<span class="string">"https://unpkg.com/gitalk/dist/gitalk.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> gitalk = <span class="keyword">new</span> Gitalk(&#123;</span><br><span class="line">        clientID: <span class="string">'&lt;%= theme.gitalk.clientID %&gt;'</span>,</span><br><span class="line">        clientSecret: <span class="string">'&lt;%= theme.gitalk.clientSecret %&gt;'</span>,</span><br><span class="line">        id: <span class="built_in">window</span>.location.pathname,</span><br><span class="line">        repo: <span class="string">'&lt;%= theme.gitalk.repo %&gt;'</span>,</span><br><span class="line">        owner: <span class="string">'&lt;%= theme.gitalk.owner %&gt;'</span>,</span><br><span class="line">        admin: <span class="string">'&lt;%= theme.gitalk.admin %&gt;'</span>,</span><br><span class="line">        distractionFreeMode: <span class="string">'&lt;%= theme.gitalk.shade %&gt;'</span>,</span><br><span class="line">        enableHotKey: <span class="string">'&lt;%= theme.gitalk.enableHotKey %&gt;'</span>,</span><br><span class="line">       </span><br><span class="line">    &#125;)</span><br><span class="line">    gitalk.render(<span class="string">'gitalk-container'</span>)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2、在文章页面添加这个模板，一般是在这个路径下<code>layout\_partial\article.ejs</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (theme.gitalk.enable)&#123; %&gt;</span><br><span class="line">    &lt;%- partial(<span class="string">'_partial/post/gitalk'</span>) %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>3、在模板的配置文件里添加</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#gitalk settings</span><br><span class="line">gitalk:</span><br><span class="line">  enable: true #用来做启用判断可以不用</span><br><span class="line">  owner: <span class="string">'Github 用户名'</span></span><br><span class="line">  repo: 'Github 仓库名' #例：safranyu.github.io</span><br><span class="line">  admin: <span class="string">'Github 用户名'</span></span><br><span class="line">  clientID: <span class="string">'Github Application clientID'</span></span><br><span class="line">  clientSecret: <span class="string">'Github Application clientSecret'</span></span><br><span class="line">  shade: true # 遮罩</span><br><span class="line">  enableHotKey: true #启用热键（cmd | ctrl + enter）提交评论</span><br></pre></td></tr></table></figure>
+<p>4、Gitalk 需要一个 <strong>Github Application</strong></p>
+<p><a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">申请页面</a></p>
+<p>填写下面参数：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fmm7jaib6fj30jo0gaacs.jpg" alt=""></p>
+<p>会得到<code>Client ID</code>和<code>Client Secret</code>在配置文件里填好就行。</p>
+<p>我遇到报<code>Error: Bad credentials</code>错误，通过加单引号解决了</p>
 
       
 
@@ -1448,7 +1530,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Safran
+    		&copy; 2019 Safran
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1535,15 +1617,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1555,14 +1637,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
               </li>
              
@@ -1571,7 +1645,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1583,6 +1661,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
@@ -1591,7 +1677,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
             
             <div class="clearfix"></div>
