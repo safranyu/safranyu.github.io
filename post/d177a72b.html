@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.vmccc.cn">
-  <title>Tag: 小程序 | Safran Blog</title>
+  <title>多行文本溢出隐藏 | Safran Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习总结 思考感悟 知识管理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Safran Blog">
-<meta property="og:url" content="http://blog.vmccc.cn/tags/小程序/index.html">
+  <meta name="description" content="text-overflow:ellipsis 显示省略符号来代表被修剪的文本。还有其他两个属性clip 修剪文本string 使用给定的字符串来代表被修剪的文本 实现单行隐藏12345div &amp;#123;    overflow: hidden;    text-overflow: ellipsis;    white-space: nowrap;&amp;#125; 适用于WebKit浏览器或移动端的页">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多行文本溢出隐藏">
+<meta property="og:url" content="http://blog.vmccc.cn/post/d177a72b.html">
 <meta property="og:site_name" content="Safran Blog">
-<meta property="og:description" content="学习总结 思考感悟 知识管理">
+<meta property="og:description" content="text-overflow:ellipsis 显示省略符号来代表被修剪的文本。还有其他两个属性clip 修剪文本string 使用给定的字符串来代表被修剪的文本 实现单行隐藏12345div &amp;#123;    overflow: hidden;    text-overflow: ellipsis;    white-space: nowrap;&amp;#125; 适用于WebKit浏览器或移动端的页">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-19T15:20:38.066Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Safran Blog">
-<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
+<meta name="twitter:title" content="多行文本溢出隐藏">
+<meta name="twitter:description" content="text-overflow:ellipsis 显示省略符号来代表被修剪的文本。还有其他两个属性clip 修剪文本string 使用给定的字符串来代表被修剪的文本 实现单行隐藏12345div &amp;#123;    overflow: hidden;    text-overflow: ellipsis;    white-space: nowrap;&amp;#125; 适用于WebKit浏览器或移动端的页">
   
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
@@ -157,134 +159,194 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-多行文本溢出隐藏" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/3f741c8d.html" class="archive-article-date">
-  	<time datetime="2019-03-19T14:49:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/3f741c8d.html">小程序开发问题集</a>
+    <h1 class="article-title" itemprop="name">
+      多行文本溢出隐藏
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/post/d177a72b.html" class="archive-article-date">
+  	<time datetime="2019-03-19T15:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>text-overflow:ellipsis</code> 显示省略符号来代表被修剪的文本。还有其他两个属性<br><code>clip</code> 修剪文本<br><code>string</code> 使用给定的字符串来代表被修剪的文本</p>
+<h3 id="实现单行隐藏"><a href="#实现单行隐藏" class="headerlink" title="实现单行隐藏"></a>实现单行隐藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    white-space: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>适用于WebKit浏览器或移动端的页面<br><code>display: -webkit-box</code> 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示<br><code>-webkit-box-orient</code>必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式<br><code>text-overflow: ellipsis</code> 可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本</p>
+<h3 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h3><p>需要设置元素的高度，也一样适用于WebKit内核浏览器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    display: -webkit-box;</span><br><span class="line">    -webkit-line-clamp: 2;</span><br><span class="line">    -webkit-box-orient: vertical;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="设置相对定位的容器高度，用包含省略号-…-的元素模拟实现"><a href="#设置相对定位的容器高度，用包含省略号-…-的元素模拟实现" class="headerlink" title="设置相对定位的容器高度，用包含省略号(…)的元素模拟实现"></a>设置相对定位的容器高度，用包含省略号(…)的元素模拟实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    position: relative;</span><br><span class="line">    line-height: 1.4em;</span><br><span class="line">    height: 2.8em;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    div::after &#123;</span><br><span class="line">        content: &quot;...&quot;;</span><br><span class="line">        font-weight: bold;</span><br><span class="line">        position: absolute;</span><br><span class="line">        bottom: 0;</span><br><span class="line">        right: 0;</span><br><span class="line">        padding: 0 20px 1px 45px;</span><br><span class="line">        background: url(http://css88.b0.upaiyun.com/css88/2014/09/ellipsis_bg.png) repeat-y;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意：<br>height高度真好是line-height的倍数；</p>
+<p>结束的省略好用了半透明的png做了减淡的效果，或者设置背景颜色；</p>
+<p>IE6-7不显示content内容，所以要兼容IE6-7可以是在内容中加入一个标签，比如用<code>&lt;span class=&quot;line-clamp&quot;&gt;...&lt;/span&gt;</code>去模拟；</p>
+<p>要支持IE8，需要将::after替换成:after；</p>
+<h3 id="jQuery插件-jQuery-dotdotdot-实现"><a href="#jQuery插件-jQuery-dotdotdot-实现" class="headerlink" title="jQuery插件-jQuery.dotdotdot 实现"></a>jQuery插件-jQuery.dotdotdot 实现</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/小程序//" class="article-tag-list-link color4">小程序</a>
+        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.vmccc.cn/post/d177a72b.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+<nav id="article-nav">
+  
+  
+    <a href="/post/2665f262.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">bootstrap导航缩小折叠问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/1021e908.html" class="archive-article-date">
-  	<time datetime="2018-10-05T14:43:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/1021e908.html">小程序反编译</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">小程序反编译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/小程序//" class="article-tag-list-link color4">小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<style>
+    #gitalk-container{
+
+    }
+</style>
+<div id="gitalk-container" class="article article-entry"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '936d2bda95c3eeaf787a',
+        clientSecret: '2d209670548d6a9c5b89f0ecc4e36b161ce5813e',
+        id: window.location.pathname,
+        repo: 'safranyu.github.io',
+        owner: 'safranyu',
+        admin: 'safranyu',
+        distractionFreeMode: 'true',
+        enableHotKey: 'true',
+       
+    })
+    gitalk.render('gitalk-container')
+</script>
+  
+ 
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -307,9 +369,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
