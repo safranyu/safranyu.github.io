@@ -159,6 +159,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-IOS端微信页面下拉刷新会触发滚动事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/9b47786.html">IOS端微信页面下拉刷新会触发滚动事件</a>
+    </h1>
+  
+
+        
+        <a href="/post/9b47786.html" class="archive-article-date">
+  	<time datetime="2019-03-21T15:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在开发的过程中如果设置了滚动加载数据，在ios微信端下拉触发了滚动事件因此重复加载了一次数据。</p>
+<p>解决：判断当前文档的高度有没有大于浏览器视口高度</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> token = <span class="literal">true</span>;</span><br><span class="line">    $(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> AllHeight = $(<span class="built_in">document</span>).height(); <span class="comment">//整个文档高度</span></span><br><span class="line">        <span class="keyword">let</span>  visual = $(<span class="built_in">window</span>).height() <span class="comment">// 浏览器的高度</span></span><br><span class="line">        <span class="keyword">let</span> heightNow = $(<span class="built_in">window</span>).scrollTop(); <span class="comment">// 滚动卷去的高度</span></span><br><span class="line">        <span class="keyword">if</span>((AllHeight - heightNow) &lt; visual+<span class="number">150</span> &amp;&amp; token &amp;&amp; AllHeight &gt; visual)&#123;</span><br><span class="line">            token = <span class="literal">false</span>;</span><br><span class="line">            getList();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/9b47786.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-js或jquery如何获取父、子、兄元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1060,113 +1148,6 @@
 
 
   
-    <article id="post-hexo添加Gitalik评论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/59c352fb.html">hexo添加Gitalik评论</a>
-    </h1>
-  
-
-        
-        <a href="/post/59c352fb.html" class="archive-article-date">
-  	<time datetime="2018-10-08T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我使用的是hexo模板是Yilia的，会有些不同。</p>
-<p><a href="https://knightcai.github.io/2017/12/19/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" target="_blank" rel="noopener">参考文档</a></p>
-<p>1、在模板文件里创建一个<code>gitalk.ejs</code>文件，把下面的代码复制进去</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://unpkg.com/gitalk/dist/gitalk.css"</span>&gt;</span><br><span class="line">&lt;div id=<span class="string">"gitalk-container"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"https://unpkg.com/gitalk/dist/gitalk.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> gitalk = <span class="keyword">new</span> Gitalk(&#123;</span><br><span class="line">        clientID: <span class="string">'&lt;%= theme.gitalk.clientID %&gt;'</span>,</span><br><span class="line">        clientSecret: <span class="string">'&lt;%= theme.gitalk.clientSecret %&gt;'</span>,</span><br><span class="line">        id: <span class="built_in">window</span>.location.pathname,</span><br><span class="line">        repo: <span class="string">'&lt;%= theme.gitalk.repo %&gt;'</span>,</span><br><span class="line">        owner: <span class="string">'&lt;%= theme.gitalk.owner %&gt;'</span>,</span><br><span class="line">        admin: <span class="string">'&lt;%= theme.gitalk.admin %&gt;'</span>,</span><br><span class="line">        distractionFreeMode: <span class="string">'&lt;%= theme.gitalk.shade %&gt;'</span>,</span><br><span class="line">        enableHotKey: <span class="string">'&lt;%= theme.gitalk.enableHotKey %&gt;'</span>,</span><br><span class="line">       </span><br><span class="line">    &#125;)</span><br><span class="line">    gitalk.render(<span class="string">'gitalk-container'</span>)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2、在文章页面添加这个模板，一般是在这个路径下<code>layout\_partial\article.ejs</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (theme.gitalk.enable)&#123; %&gt;</span><br><span class="line">    &lt;%- partial(<span class="string">'_partial/post/gitalk'</span>) %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<p>3、在模板的配置文件里添加</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#gitalk settings</span><br><span class="line">gitalk:</span><br><span class="line">  enable: true #用来做启用判断可以不用</span><br><span class="line">  owner: <span class="string">'Github 用户名'</span></span><br><span class="line">  repo: 'Github 仓库名' #例：safranyu.github.io</span><br><span class="line">  admin: <span class="string">'Github 用户名'</span></span><br><span class="line">  clientID: <span class="string">'Github Application clientID'</span></span><br><span class="line">  clientSecret: <span class="string">'Github Application clientSecret'</span></span><br><span class="line">  shade: true # 遮罩</span><br><span class="line">  enableHotKey: true #启用热键（cmd | ctrl + enter）提交评论</span><br></pre></td></tr></table></figure>
-<p>4、Gitalk 需要一个 <strong>Github Application</strong></p>
-<p><a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">申请页面</a></p>
-<p>填写下面参数：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fmm7jaib6fj30jo0gaacs.jpg" alt=""></p>
-<p>会得到<code>Client ID</code>和<code>Client Secret</code>在配置文件里填好就行。</p>
-<p>我遇到报<code>Error: Bad credentials</code>错误，通过加单引号解决了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jQuer//" class="article-tag-list-link color1">jQuer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jQuer/JS插件//" class="article-tag-list-link color5">JS插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/59c352fb.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1272,19 +1253,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1308,15 +1289,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jQuer动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1336,15 +1317,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">小程序反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
