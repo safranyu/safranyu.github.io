@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.vmccc.cn">
-  <title>Archives: 2018 | Safran Blog</title>
+  <title>js或jquery如何获取父、子、兄元素 | Safran Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习总结 思考感悟 知识管理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Safran Blog">
-<meta property="og:url" content="http://blog.vmccc.cn/archives/2018/index.html">
+  <meta name="description" content="原生javascript方法: 12345678var a = document.getElementById(&quot;dom&quot;);del_space(a); //清理空格var b = a.childNodes; //获取a的全部子节点；var c = a.parentNode; //获取a的父节点；var d = a.nextSibling; //获取a的下一个兄弟节点var e = a.previ">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js或jquery如何获取父、子、兄元素">
+<meta property="og:url" content="http://blog.vmccc.cn/post/b72c2fe5.html">
 <meta property="og:site_name" content="Safran Blog">
-<meta property="og:description" content="学习总结 思考感悟 知识管理">
+<meta property="og:description" content="原生javascript方法: 12345678var a = document.getElementById(&quot;dom&quot;);del_space(a); //清理空格var b = a.childNodes; //获取a的全部子节点；var c = a.parentNode; //获取a的父节点；var d = a.nextSibling; //获取a的下一个兄弟节点var e = a.previ">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-21T14:58:12.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Safran Blog">
-<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
+<meta name="twitter:title" content="js或jquery如何获取父、子、兄元素">
+<meta name="twitter:description" content="原生javascript方法: 12345678var a = document.getElementById(&quot;dom&quot;);del_space(a); //清理空格var b = a.childNodes; //获取a的全部子节点；var c = a.parentNode; //获取a的父节点；var d = a.nextSibling; //获取a的下一个兄弟节点var e = a.previ">
   
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
@@ -157,142 +159,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js或jquery如何获取父、子、兄元素" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js或jquery如何获取父、子、兄元素
+    </h1>
+  
+
+        
+        <a href="/post/b72c2fe5.html" class="archive-article-date">
+  	<time datetime="2019-03-21T14:55:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原生javascript方法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementById(<span class="string">"dom"</span>);</span><br><span class="line">del_space(a); <span class="comment">//清理空格</span></span><br><span class="line"><span class="keyword">var</span> b = a.childNodes; <span class="comment">//获取a的全部子节点；</span></span><br><span class="line"><span class="keyword">var</span> c = a.parentNode; <span class="comment">//获取a的父节点；</span></span><br><span class="line"><span class="keyword">var</span> d = a.nextSibling; <span class="comment">//获取a的下一个兄弟节点</span></span><br><span class="line"><span class="keyword">var</span> e = a.previousSibling; <span class="comment">//获取a的上一个兄弟节点</span></span><br><span class="line"><span class="keyword">var</span> f = a.firstChild; <span class="comment">//获取a的第一个子节点</span></span><br><span class="line"><span class="keyword">var</span> g = a.lastChild; <span class="comment">//获取a的最后一个子节点</span></span><br></pre></td></tr></table></figure>
+<p>jQuery方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">jQuery.parent(expr) <span class="comment">//找父亲节点，可以传入expr进行过滤，比如$("span").parent()或者$("span").parent(".class")</span></span><br><span class="line"></span><br><span class="line">jQuery.parents(expr) <span class="comment">//类似于jQuery.parents(expr),但是是查找所有祖先元素，不限于父元素</span></span><br><span class="line"></span><br><span class="line">jQuery.children(expr) <span class="comment">//返回所有子节点，这个方法只会返回直接的孩子节点，不会返回所有的子孙节点</span></span><br><span class="line"></span><br><span class="line">jQuery.contents() <span class="comment">//返回下面的所有内容，包括节点和文本。这个方法和children()的区别就在于，包括空白文本，也会被作为一个jQuery对象返回，children()则只会返回节点</span></span><br><span class="line"></span><br><span class="line">jQuery.prev() <span class="comment">//返回上一个兄弟节点，不是所有的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.prevAll() <span class="comment">//返回所有之前的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.next() <span class="comment">//返回下一个兄弟节点，不是所有的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.nextAll() <span class="comment">//返回所有之后的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.siblings() <span class="comment">//返回兄弟姐妹节点，不分前后</span></span><br><span class="line"></span><br><span class="line">jQuery.find(expr)  <span class="comment">//跟jQuery.filter(expr)完全不一样。</span></span><br><span class="line"></span><br><span class="line">jQuery.filter() <span class="comment">//是从初始的jQuery对象集合中筛选出一部分，而jQuery.find()的返回结果，不会有初始集合中的内容，比如$("p"),find("span"),是从p元素开始找,等同于$("p span").</span></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/488e492e.html" class="archive-article-date">
-  	<time datetime="2018-11-15T14:23:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/488e492e.html">关于PC端缩小浏览器窗口，右边背景空白并出现滚动条</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/0.html" class="archive-article-date">
-  	<time datetime="2018-10-09T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/0.html">Windows环境下安装最新MySQL服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/59c352fb.html" class="archive-article-date">
-  	<time datetime="2018-10-08T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/59c352fb.html">hexo添加Gitalik评论</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
@@ -300,143 +202,144 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/jQuer//" class="article-tag-list-link color1">jQuer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jQuer/JS插件//" class="article-tag-list-link color5">JS插件</a>
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.vmccc.cn/post/b72c2fe5.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/59c352fb.html" class="archive-article-date">
-  	<time datetime="2018-10-08T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/post/d9939f07.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pulltorefresh.js插件滚动重复刷新</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/59c352fb.html">Web端使用jquerer_emoji表情</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jQuer//" class="article-tag-list-link color1">jQuer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jQuer/JS插件//" class="article-tag-list-link color5">JS插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/21b2441f.html" class="archive-article-date">
-  	<time datetime="2018-10-08T13:20:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/21b2441f.html">webstorm永久激活</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Webstrom</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<style>
+    #gitalk-container{
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Webstorm//" class="article-tag-list-link color4">Webstorm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    }
+</style>
+<div id="gitalk-container" class="article article-entry"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '936d2bda95c3eeaf787a',
+        clientSecret: '2d209670548d6a9c5b89f0ecc4e36b161ce5813e',
+        id: window.location.pathname,
+        repo: 'safranyu.github.io',
+        owner: 'safranyu',
+        admin: 'safranyu',
+        distractionFreeMode: 'true',
+        enableHotKey: 'true',
+       
+    })
+    gitalk.render('gitalk-container')
+</script>
+  
+ 
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -460,8 +363,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
