@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.vmccc.cn">
-  <title>Archives | Safran Blog</title>
+  <title>pulltorefresh.js插件滚动重复刷新 | Safran Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习总结 思考感悟 知识管理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Safran Blog">
-<meta property="og:url" content="http://blog.vmccc.cn/archives/page/2/index.html">
+  <meta name="description" content="触发下拉事件 采用这个属性解决  shouldPullToRefresh（函数）pullToRefresh要触发哪个条件？- 默认为!window.scrollY  123456789101112PullToRefresh.init(&amp;#123;    mainElement: &apos;.atmosphere&apos;,    // triggerElement:&apos;.atmosphere&apos;, //哪个元素应该触">
+<meta name="keywords" content="JavaScript,js插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pulltorefresh.js插件滚动重复刷新">
+<meta property="og:url" content="http://blog.vmccc.cn/post/d9939f07.html">
 <meta property="og:site_name" content="Safran Blog">
-<meta property="og:description" content="学习总结 思考感悟 知识管理">
+<meta property="og:description" content="触发下拉事件 采用这个属性解决  shouldPullToRefresh（函数）pullToRefresh要触发哪个条件？- 默认为!window.scrollY  123456789101112PullToRefresh.init(&amp;#123;    mainElement: &apos;.atmosphere&apos;,    // triggerElement:&apos;.atmosphere&apos;, //哪个元素应该触">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-21T14:51:40.852Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Safran Blog">
-<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
+<meta name="twitter:title" content="pulltorefresh.js插件滚动重复刷新">
+<meta name="twitter:description" content="触发下拉事件 采用这个属性解决  shouldPullToRefresh（函数）pullToRefresh要触发哪个条件？- 默认为!window.scrollY  123456789101112PullToRefresh.init(&amp;#123;    mainElement: &apos;.atmosphere&apos;,    // triggerElement:&apos;.atmosphere&apos;, //哪个元素应该触">
   
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
@@ -157,304 +159,193 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-pulltorefresh-js插件滚动重复刷新" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/c37c62e0.html" class="archive-article-date">
-  	<time datetime="2019-03-18T15:23:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/c37c62e0.html">在Chrome中模拟微信浏览器</a>
+    <h1 class="article-title" itemprop="name">
+      pulltorefresh.js插件滚动重复刷新
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/post/d9939f07.html" class="archive-article-date">
+  	<time datetime="2019-03-21T14:49:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>触发下拉事件</p>
+<p>采用这个属性解决</p>
+<ul>
+<li><strong>shouldPullToRefresh</strong>（函数）pullToRefresh要触发哪个条件？<br>- 默认为<code>!window.scrollY</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PullToRefresh.init(&#123;</span><br><span class="line">    mainElement: <span class="string">'.atmosphere'</span>,</span><br><span class="line">    <span class="comment">// triggerElement:'.atmosphere', //哪个元素应该触发刷新</span></span><br><span class="line">    shouldPullToRefresh: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !(<span class="built_in">document</span>.documentElement.scrollTop||<span class="built_in">document</span>.body.scrollTop)</span><br><span class="line">    &#125;,</span><br><span class="line">    onRefresh: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  <span class="comment">//get请求</span></span><br><span class="line">    <span class="comment">// console.log('加载中。。。')</span></span><br><span class="line">    alert(<span class="string">'加载中。。。'</span>)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信//" class="article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信/调试工具//" class="article-tag-list-link color5">调试工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/488e492e.html" class="archive-article-date">
-  	<time datetime="2018-11-15T14:23:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/488e492e.html">关于PC端缩小浏览器窗口，右边背景空白并出现滚动条</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/0.html" class="archive-article-date">
-  	<time datetime="2018-10-09T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/0.html">Windows环境下安装最新MySQL服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/59c352fb.html" class="archive-article-date">
-  	<time datetime="2018-10-08T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/59c352fb.html">Web端使用jquerer_emoji表情</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js插件</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/jQuer//" class="article-tag-list-link color1">jQuer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jQuer/JS插件//" class="article-tag-list-link color5">JS插件</a>
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.vmccc.cn/post/d9939f07.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/59c352fb.html" class="archive-article-date">
-  	<time datetime="2018-10-08T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/post/d177a72b.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多行文本溢出隐藏</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/59c352fb.html">hexo添加Gitalik评论</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jQuer//" class="article-tag-list-link color1">jQuer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jQuer/JS插件//" class="article-tag-list-link color5">JS插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-    </nav>
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<style>
+    #gitalk-container{
+
+    }
+</style>
+<div id="gitalk-container" class="article article-entry"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '936d2bda95c3eeaf787a',
+        clientSecret: '2d209670548d6a9c5b89f0ecc4e36b161ce5813e',
+        id: window.location.pathname,
+        repo: 'safranyu.github.io',
+        owner: 'safranyu',
+        admin: 'safranyu',
+        distractionFreeMode: 'true',
+        enableHotKey: 'true',
+       
+    })
+    gitalk.render('gitalk-container')
+</script>
+  
+ 
+  
+  
+  
+
+  
+
+  
+
   
 
 
@@ -478,8 +369,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
