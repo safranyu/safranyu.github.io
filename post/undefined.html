@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.vmccc.cn">
-  <title>垂直居中的几种方法 | Safran Blog</title>
+  <title>Markdown基本语法 | Safran Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CSS垂直居中方法一：line-height 适用场景：单行文字垂直居中 方法二：line-height + display: inline-block 适用场景：多对象垂直居中 方法三：before +inline-block 适用场景：多对象CSS垂直居中 方法四：absolut + margin 适用场景：多行文字的垂直居中 方法五：absolut + margin auto 适用场景：多行">
-<meta name="keywords" content="CSS">
+  <meta name="description" content="markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。 一、标题在想要设置为标题的文字前面加#来表示一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。 注：标准语法一般在#后跟个空格再写文字，貌似简书不加空格也行。 示例： 123456# 这是一级标题## 这是二级标题### 这是三级标题#### 这是四级标题##### 这是五级标题####">
+<meta name="keywords" content="Markdown">
 <meta property="og:type" content="article">
-<meta property="og:title" content="垂直居中的几种方法">
+<meta property="og:title" content="Markdown基本语法">
 <meta property="og:url" content="http://blog.vmccc.cn/post/undefined.html">
 <meta property="og:site_name" content="Safran Blog">
-<meta property="og:description" content="CSS垂直居中方法一：line-height 适用场景：单行文字垂直居中 方法二：line-height + display: inline-block 适用场景：多对象垂直居中 方法三：before +inline-block 适用场景：多对象CSS垂直居中 方法四：absolut + margin 适用场景：多行文字的垂直居中 方法五：absolut + margin auto 适用场景：多行">
+<meta property="og:description" content="markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。 一、标题在想要设置为标题的文字前面加#来表示一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。 注：标准语法一般在#后跟个空格再写文字，貌似简书不加空格也行。 示例： 123456# 这是一级标题## 这是二级标题### 这是三级标题#### 这是四级标题##### 这是五级标题####">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-05T03:36:27.343Z">
+<meta property="og:updated_time" content="2018-10-05T13:25:22.586Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="垂直居中的几种方法">
-<meta name="twitter:description" content="CSS垂直居中方法一：line-height 适用场景：单行文字垂直居中 方法二：line-height + display: inline-block 适用场景：多对象垂直居中 方法三：before +inline-block 适用场景：多对象CSS垂直居中 方法四：absolut + margin 适用场景：多行文字的垂直居中 方法五：absolut + margin auto 适用场景：多行">
+<meta name="twitter:title" content="Markdown基本语法">
+<meta name="twitter:description" content="markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。 一、标题在想要设置为标题的文字前面加#来表示一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。 注：标准语法一般在#后跟个空格再写文字，貌似简书不加空格也行。 示例： 123456# 这是一级标题## 这是二级标题### 这是三级标题#### 这是四级标题##### 这是五级标题####">
   
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
@@ -159,72 +159,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="w-垂直居中的几种方法" class="article article-type-w " itemscope itemprop="blogPost">
+            <article id="w-Markdown基本语法" class="article article-type-w " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      垂直居中的几种方法
+      Markdown基本语法
     </h1>
   
 
         
         <a href="/post/undefined.html" class="archive-article-date">
-  	<time datetime="2018-10-05T02:43:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
+  	<time datetime="2018-10-05T04:15:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CSS垂直居中"><a href="#CSS垂直居中" class="headerlink" title="CSS垂直居中"></a>CSS垂直居中</h1><p><strong>方法一：<code>line-height</code></strong></p>
-<p>适用场景：单行文字垂直居中</p>
-<p><strong>方法二：<code>line-height + display: inline-block</code></strong></p>
-<p>适用场景：多对象垂直居中</p>
-<p><strong>方法三：<code>before +inline-block</code></strong></p>
-<p>适用场景：多对象CSS垂直居中</p>
-<p><strong>方法四：<code>absolut + margin</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法五：<code>absolut + margin auto</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法六：<code>absolut + transform: translate(X,Y);</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法七：<code>display: flex; + align-items: center;</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法八：<code>display: flex; + margin</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法九：<code>display: flex; + :before + flex-grow</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十：<code>display: flex; + align-self</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十一：<code>display: flex; + align-content</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十二：<code>grid + template</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十三：<code>grid + align-items</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十四：<code>grid + align-content</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十五：<code>grid + align-self</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十六：<code>grid + place-items</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十七：<code>grid + place-content</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十八：<code>grid + margin</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十九：<code>display:table-cell</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十：<code>calc</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十一：<code>relative + translate</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十二：<code>padding</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十三：<code>writing-mode</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
+        <p>markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
+<h2 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h2><p>在想要设置为标题的文字前面加#来表示<br>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</p>
+<p>注：标准语法一般在#后跟个空格再写文字，貌似简书不加空格也行。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
+<h2 id="二、字体"><a href="#二、字体" class="headerlink" title="二、字体"></a>二、字体</h2><ul>
+<li><h5 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h5></li>
+</ul>
+<p>要加粗的文字左右分别用两个*号包起来</p>
+<ul>
+<li><h5 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h5></li>
+</ul>
+<p>要倾斜的文字左右分别用一个*号包起来</p>
+<ul>
+<li><h5 id="斜体加粗"><a href="#斜体加粗" class="headerlink" title="斜体加粗"></a>斜体加粗</h5></li>
+</ul>
+<p>要倾斜和加粗的文字左右分别用三个*号包起来</p>
+<ul>
+<li><h5 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h5></li>
+</ul>
+<p>要加删除线的文字左右分别用两个~~号包起来</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em>`<br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p>
+<hr>
+<h2 id="三、引用"><a href="#三、引用" class="headerlink" title="三、引用"></a>三、引用</h2><p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;<br>n个…<br>貌似可以一直加下去，但没神马卵用</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<p>这是引用的内容</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<hr>
+<h2 id="四、分割线"><a href="#四、分割线" class="headerlink" title="四、分割线"></a>四、分割线</h2><p>三个或者三个以上的 - 或者 * 都可以。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<hr>
+<hr>
+<h2 id="五、图片"><a href="#五、图片" class="headerlink" title="五、图片"></a>五、图片</h2><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 &apos;&apos;图片title&apos;&apos;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
 
       
 
@@ -238,7 +242,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
         		</li>
       		
 		</ul>
@@ -250,7 +254,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
+        			<a href="/categories/Markdown//" class="article-tag-list-link color4">Markdown</a>
         		</li>
       		
 		</ul>
@@ -321,18 +325,18 @@
   
 <nav id="article-nav">
   
-    <a href="/post/undefined.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/post/cd5ef747.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Markdown基本语法
+          CSS鼠标点击穿透Div
         
       </div>
     </a>
   
   
-    <a href="/post/724c121.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">常用Git命令清单</div>
+    <a href="/post/d5466a5b.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">垂直居中的几种方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -484,23 +488,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,6 +512,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
               </li>
              
@@ -528,7 +528,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
+                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,19 +540,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,7 +552,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">微信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,6 +573,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">小程序反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">

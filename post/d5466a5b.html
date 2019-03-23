@@ -6,26 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.vmccc.cn">
-  <title>在Chrome中模拟微信浏览器 | Safran Blog</title>
+  <title>垂直居中的几种方法 | Safran Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Chrome 修改 user agent 简单模拟微信内置浏览器 微信和QQ内置浏览器UA 安卓QQ内置浏览器UA:  1Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &amp;gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &amp;gt; Chrome/37.0.0.0 Mobile">
-<meta name="keywords" content="微信,调试">
+  <meta name="description" content="CSS垂直居中方法一：line-height 适用场景：单行文字垂直居中 方法二：line-height + display: inline-block 适用场景：多对象垂直居中 方法三：before +inline-block 适用场景：多对象CSS垂直居中 方法四：absolut + margin 适用场景：多行文字的垂直居中 方法五：absolut + margin auto 适用场景：多行">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Chrome中模拟微信浏览器">
-<meta property="og:url" content="http://blog.vmccc.cn/post/c37c62e0.html">
+<meta property="og:title" content="垂直居中的几种方法">
+<meta property="og:url" content="http://blog.vmccc.cn/post/d5466a5b.html">
 <meta property="og:site_name" content="Safran Blog">
-<meta property="og:description" content="Chrome 修改 user agent 简单模拟微信内置浏览器 微信和QQ内置浏览器UA 安卓QQ内置浏览器UA:  1Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &amp;gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &amp;gt; Chrome/37.0.0.0 Mobile">
+<meta property="og:description" content="CSS垂直居中方法一：line-height 适用场景：单行文字垂直居中 方法二：line-height + display: inline-block 适用场景：多对象垂直居中 方法三：before +inline-block 适用场景：多对象CSS垂直居中 方法四：absolut + margin 适用场景：多行文字的垂直居中 方法五：absolut + margin auto 适用场景：多行">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/6aedb651gw1fazm90jatmj20bc09ggof.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/6aedb651gw1fazma2xwtqj206n06ewew.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/6aedb651gw1fazmhu5yg4j20br06v74o.jpg">
-<meta property="og:updated_time" content="2019-03-18T15:27:35.031Z">
+<meta property="og:updated_time" content="2019-03-23T15:49:22.910Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Chrome中模拟微信浏览器">
-<meta name="twitter:description" content="Chrome 修改 user agent 简单模拟微信内置浏览器 微信和QQ内置浏览器UA 安卓QQ内置浏览器UA:  1Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &amp;gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &amp;gt; Chrome/37.0.0.0 Mobile">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/6aedb651gw1fazm90jatmj20bc09ggof.jpg">
+<meta name="twitter:title" content="垂直居中的几种方法">
+<meta name="twitter:description" content="CSS垂直居中方法一：line-height 适用场景：单行文字垂直居中 方法二：line-height + display: inline-block 适用场景：多对象垂直居中 方法三：before +inline-block 适用场景：多对象CSS垂直居中 方法四：absolut + margin 适用场景：多行文字的垂直居中 方法五：absolut + margin auto 适用场景：多行">
   
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
@@ -165,60 +159,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-在Chrome中模拟微信浏览器" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-垂直居中的几种方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      在Chrome中模拟微信浏览器
+      垂直居中的几种方法
     </h1>
   
 
         
-        <a href="/post/c37c62e0.html" class="archive-article-date">
-  	<time datetime="2019-03-18T15:23:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
+        <a href="/post/d5466a5b.html" class="archive-article-date">
+  	<time datetime="2018-10-05T02:43:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Chrome 修改 user agent 简单模拟微信内置浏览器</p>
-<h2 id="微信和QQ内置浏览器UA"><a href="#微信和QQ内置浏览器UA" class="headerlink" title="微信和QQ内置浏览器UA"></a>微信和QQ内置浏览器UA</h2><ul>
-<li>安卓QQ内置浏览器UA:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &gt; Chrome/37.0.0.0 Mobile Safari/537.36 V1_AND_SQ_5.3.1_196_YYB_D &gt; QQ/5.3.1.2335 NetType/WIFI</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安卓微信内置浏览器UA:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &gt; Chrome/37.0.0.0 Mobile Safari/537.36 &gt; MicroMessenger/6.0.2.56_r958800.520 NetType/WIFI</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>IOSQQ内置浏览器UA:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) &gt; AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 &gt; QQ/5.2.1.302 NetType/WIFI Mem/28</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>IOS微信内置浏览器UA:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) &gt; AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 &gt; MicroMessenger/6.0.1 NetType/WIFI</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="在Chrome添加UA"><a href="#在Chrome添加UA" class="headerlink" title="在Chrome添加UA"></a>在Chrome添加UA</h3><ul>
-<li><p>打开Chrome调试工具（F12），点击右上角竖着的三个点，如下图</p>
-<p><img src="http://ww3.sinaimg.cn/large/6aedb651gw1fazm90jatmj20bc09ggof.jpg" alt=""></p>
-</li>
-<li><p>打开后选择Setting，如下图</p>
-<p><img src="http://ww1.sinaimg.cn/large/6aedb651gw1fazma2xwtqj206n06ewew.jpg" alt=""></p>
-</li>
-<li><p>选择左边栏Devices，如下图</p>
-<p><img src="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg" alt=""></p>
-</li>
-<li><p>选择右边栏Add custom device</p>
-<p><img src="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg" alt=""></p>
-</li>
-<li><p>填写要模拟的设备，添加，如下图</p>
-<p><img src="http://ww4.sinaimg.cn/large/6aedb651gw1fazmhu5yg4j20br06v74o.jpg" alt=""></p>
-</li>
-</ul>
+        <h1 id="CSS垂直居中"><a href="#CSS垂直居中" class="headerlink" title="CSS垂直居中"></a>CSS垂直居中</h1><p><strong>方法一：<code>line-height</code></strong></p>
+<p>适用场景：单行文字垂直居中</p>
+<p><strong>方法二：<code>line-height + display: inline-block</code></strong></p>
+<p>适用场景：多对象垂直居中</p>
+<p><strong>方法三：<code>before +inline-block</code></strong></p>
+<p>适用场景：多对象CSS垂直居中</p>
+<p><strong>方法四：<code>absolut + margin</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法五：<code>absolut + margin auto</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法六：<code>absolut + transform: translate(X,Y);</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法七：<code>display: flex; + align-items: center;</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法八：<code>display: flex; + margin</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法九：<code>display: flex; + :before + flex-grow</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法十：<code>display: flex; + align-self</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法十一：<code>display: flex; + align-content</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法十二：<code>grid + template</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法十三：<code>grid + align-items</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法十四：<code>grid + align-content</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法十五：<code>grid + align-self</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法十六：<code>grid + place-items</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法十七：<code>grid + place-content</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法十八：<code>grid + margin</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法十九：<code>display:table-cell</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法二十：<code>calc</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法二十一：<code>relative + translate</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法二十二：<code>padding</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
+<p><strong>方法二十三：<code>writing-mode</code></strong></p>
+<p>适用场景：多行文字的垂直居中</p>
 
       
 
@@ -232,11 +238,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
         		</li>
       		
 		</ul>
@@ -248,11 +250,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/微信//" class="article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信/调试工具//" class="article-tag-list-link color5">调试工具</a>
+        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
         		</li>
       		
 		</ul>
@@ -307,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://blog.vmccc.cn/post/c37c62e0.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.vmccc.cn/post/d5466a5b.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,18 +321,18 @@
   
 <nav id="article-nav">
   
-    <a href="/post/34da003d.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/post/undefined.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          网页结构命名
+          Markdown基本语法
         
       </div>
     </a>
   
   
-    <a href="/post/488e492e.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于PC端缩小浏览器窗口，右边背景空白并出现滚动条</div>
+    <a href="/post/724c121.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常用Git命令清单</div>
       <i class="icon-circle-right"></i>
     </a>
   

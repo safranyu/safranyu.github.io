@@ -6,26 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.vmccc.cn">
-  <title>在Chrome中模拟微信浏览器 | Safran Blog</title>
+  <title>vue-cli3下的Axios封装 | Safran Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Chrome 修改 user agent 简单模拟微信内置浏览器 微信和QQ内置浏览器UA 安卓QQ内置浏览器UA:  1Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &amp;gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &amp;gt; Chrome/37.0.0.0 Mobile">
-<meta name="keywords" content="微信,调试">
+  <meta name="description" content="axios 简介首先要明白的是axios是什么：axios是基于promise（诺言）用于浏览器和node.js是http客户端。 axios的作用是什么：axios主要是用于向后台发起请求的，还有在请求中做更多是可控功能。  从浏览器中创建 XMLHttpRequest 从 node.js 发出 http 请求 支持 Promise API 拦截请求和响应 转换请求和响应数据 取消请求 自动转换">
+<meta name="keywords" content="Vue,Axios,vue-cli3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Chrome中模拟微信浏览器">
-<meta property="og:url" content="http://blog.vmccc.cn/post/c37c62e0.html">
+<meta property="og:title" content="vue-cli3下的Axios封装">
+<meta property="og:url" content="http://blog.vmccc.cn/post/9bbb323.html">
 <meta property="og:site_name" content="Safran Blog">
-<meta property="og:description" content="Chrome 修改 user agent 简单模拟微信内置浏览器 微信和QQ内置浏览器UA 安卓QQ内置浏览器UA:  1Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &amp;gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &amp;gt; Chrome/37.0.0.0 Mobile">
+<meta property="og:description" content="axios 简介首先要明白的是axios是什么：axios是基于promise（诺言）用于浏览器和node.js是http客户端。 axios的作用是什么：axios主要是用于向后台发起请求的，还有在请求中做更多是可控功能。  从浏览器中创建 XMLHttpRequest 从 node.js 发出 http 请求 支持 Promise API 拦截请求和响应 转换请求和响应数据 取消请求 自动转换">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/6aedb651gw1fazm90jatmj20bc09ggof.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/6aedb651gw1fazma2xwtqj206n06ewew.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/6aedb651gw1fazmhu5yg4j20br06v74o.jpg">
-<meta property="og:updated_time" content="2019-03-18T15:27:35.031Z">
+<meta property="og:image" content="http://pan.vmccc.cn/?/images/2019/03/23/YbxfrFGHXM/hexoVue.png">
+<meta property="og:updated_time" content="2019-03-23T15:49:08.701Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Chrome中模拟微信浏览器">
-<meta name="twitter:description" content="Chrome 修改 user agent 简单模拟微信内置浏览器 微信和QQ内置浏览器UA 安卓QQ内置浏览器UA:  1Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &amp;gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &amp;gt; Chrome/37.0.0.0 Mobile">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/6aedb651gw1fazm90jatmj20bc09ggof.jpg">
+<meta name="twitter:title" content="vue-cli3下的Axios封装">
+<meta name="twitter:description" content="axios 简介首先要明白的是axios是什么：axios是基于promise（诺言）用于浏览器和node.js是http客户端。 axios的作用是什么：axios主要是用于向后台发起请求的，还有在请求中做更多是可控功能。  从浏览器中创建 XMLHttpRequest 从 node.js 发出 http 请求 支持 Promise API 拦截请求和响应 转换请求和响应数据 取消请求 自动转换">
+<meta name="twitter:image" content="http://pan.vmccc.cn/?/images/2019/03/23/YbxfrFGHXM/hexoVue.png">
   
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
@@ -165,60 +161,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-在Chrome中模拟微信浏览器" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue-cli3下的Axios封装" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      在Chrome中模拟微信浏览器
+      vue-cli3下的Axios封装
     </h1>
   
 
         
-        <a href="/post/c37c62e0.html" class="archive-article-date">
-  	<time datetime="2019-03-18T15:23:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
+        <a href="/post/9bbb323.html" class="archive-article-date">
+  	<time datetime="2019-03-23T15:25:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Chrome 修改 user agent 简单模拟微信内置浏览器</p>
-<h2 id="微信和QQ内置浏览器UA"><a href="#微信和QQ内置浏览器UA" class="headerlink" title="微信和QQ内置浏览器UA"></a>微信和QQ内置浏览器UA</h2><ul>
-<li>安卓QQ内置浏览器UA:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &gt; Chrome/37.0.0.0 Mobile Safari/537.36 V1_AND_SQ_5.3.1_196_YYB_D &gt; QQ/5.3.1.2335 NetType/WIFI</span><br></pre></td></tr></table></figure>
+        <h2 id="axios-简介"><a href="#axios-简介" class="headerlink" title="axios 简介"></a>axios 简介</h2><p>首先要明白的是axios是什么：axios是基于promise（诺言）用于浏览器和node.js是http客户端。</p>
+<p>axios的作用是什么：axios主要是用于向后台发起请求的，还有在请求中做更多是可控功能。</p>
 <ul>
-<li>安卓微信内置浏览器UA:</li>
+<li>从浏览器中创建 XMLHttpRequest</li>
+<li>从 node.js 发出 http 请求</li>
+<li>支持 Promise API</li>
+<li>拦截请求和响应</li>
+<li>转换请求和响应数据</li>
+<li>取消请求</li>
+<li>自动转换JSON数据</li>
+<li>客户端支持防止 CSRF/XSRF</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &gt; Chrome/37.0.0.0 Mobile Safari/537.36 &gt; MicroMessenger/6.0.2.56_r958800.520 NetType/WIFI</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>IOSQQ内置浏览器UA:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) &gt; AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 &gt; QQ/5.2.1.302 NetType/WIFI Mem/28</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>IOS微信内置浏览器UA:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) &gt; AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 &gt; MicroMessenger/6.0.1 NetType/WIFI</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="在Chrome添加UA"><a href="#在Chrome添加UA" class="headerlink" title="在Chrome添加UA"></a>在Chrome添加UA</h3><ul>
-<li><p>打开Chrome调试工具（F12），点击右上角竖着的三个点，如下图</p>
-<p><img src="http://ww3.sinaimg.cn/large/6aedb651gw1fazm90jatmj20bc09ggof.jpg" alt=""></p>
-</li>
-<li><p>打开后选择Setting，如下图</p>
-<p><img src="http://ww1.sinaimg.cn/large/6aedb651gw1fazma2xwtqj206n06ewew.jpg" alt=""></p>
-</li>
-<li><p>选择左边栏Devices，如下图</p>
-<p><img src="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg" alt=""></p>
-</li>
-<li><p>选择右边栏Add custom device</p>
-<p><img src="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg" alt=""></p>
-</li>
-<li><p>填写要模拟的设备，添加，如下图</p>
-<p><img src="http://ww4.sinaimg.cn/large/6aedb651gw1fazmhu5yg4j20br06v74o.jpg" alt=""></p>
-</li>
-</ul>
+<h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><h5 id="首先当然还是要安装啦："><a href="#首先当然还是要安装啦：" class="headerlink" title="首先当然还是要安装啦："></a>首先当然还是要安装啦：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure>
+<p>之后我们新建一个api文件夹用来放接口和axios的配置。<br>先给大家看看我配置好之后的文件夹目录结构：</p>
+<p><img src="http://pan.vmccc.cn/?/images/2019/03/23/YbxfrFGHXM/hexoVue.png" alt=""></p>
+<p>可以说这次配置是我划分的比较详细的配置方法了，具体每个文件都分别做什么用，我们现在来看看吧。</p>
+<h5 id="axios-js"><a href="#axios-js" class="headerlink" title="axios.js"></a>axios.js</h5><p>这个文件主要创建axios实例并对拦截器进行配置，不理解拦截器的同学可以看看下图：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 axios 实例</span></span><br><span class="line"><span class="keyword">let</span> service = axios.create(&#123;</span><br><span class="line">  <span class="comment">// headers: &#123;'Content-Type': 'application/json'&#125;,</span></span><br><span class="line">  timeout: <span class="number">60000</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 post、put 默认 Content-Type</span></span><br><span class="line">service.defaults.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span></span><br><span class="line">service.defaults.headers.put[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加请求拦截器</span></span><br><span class="line">service.interceptors.request.use(</span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (config.method === <span class="string">'post'</span> || config.method === <span class="string">'put'</span>) &#123;</span><br><span class="line">      <span class="comment">// post、put 提交时，将对象转换为string, 为处理Java后台解析问题</span></span><br><span class="line">      config.data = <span class="built_in">JSON</span>.stringify(config.data)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 请求发送前进行处理</span></span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 请求错误处理</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加响应拦截器</span></span><br><span class="line">service.interceptors.response.use(</span><br><span class="line">  (response) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> &#123; data &#125; = response</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> info = &#123;&#125;,</span><br><span class="line">      &#123; status, statusText, data &#125; = error.response</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!error.response) &#123;</span><br><span class="line">      info = &#123;</span><br><span class="line">        code: <span class="number">5000</span>,</span><br><span class="line">        msg: <span class="string">'Network Error'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 此处整理错误信息格式</span></span><br><span class="line">      info = &#123;</span><br><span class="line">        code: status,</span><br><span class="line">        data: data,</span><br><span class="line">        msg: statusText</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建统一封装过的 axios 实例</span></span><br><span class="line"><span class="comment"> * @return &#123;AxiosInstance&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> service</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h5><p>index.js文件主要封装我们几个常用的方法，get、post、put、delete</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'./axios'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance = axios()</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  get(url, params, headers) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">      options.params = params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.get(url, options)</span><br><span class="line">  &#125;,</span><br><span class="line">  post(url, params, headers, data) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">      options.params = params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.post(url, data, options)</span><br><span class="line">  &#125;,</span><br><span class="line">  put(url, params, headers) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.put(url, params, options)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">delete</span>(url, params, headers) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">      options.params = params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.delete(url, options)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="install-js"><a href="#install-js" class="headerlink" title="install.js"></a>install.js</h5><p>install.js文件可以把我们所有的api接口安装到全局，之后我们在main.js文件中导入就可以了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> apiList <span class="keyword">from</span> <span class="string">'./apiList'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> install = <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (install.installed) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  install.installed = <span class="literal">true</span></span><br><span class="line">  <span class="built_in">Object</span>.defineProperties(Vue.prototype, &#123;</span><br><span class="line">    $api: &#123;</span><br><span class="line">      get() &#123;</span><br><span class="line">        <span class="keyword">return</span> apiList</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  install</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>main.js中添加：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">'./api/install'</span></span><br><span class="line">Vue.use(api)</span><br></pre></td></tr></table></figure>
+<h5 id="apiList-js"><a href="#apiList-js" class="headerlink" title="apiList.js"></a>apiList.js</h5><p>把我们所有的api文件夹导入到这一个文件中来。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matches <span class="keyword">from</span> <span class="string">'./matches'</span></span><br><span class="line"><span class="keyword">import</span> user <span class="keyword">from</span> <span class="string">'./user'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches,</span><br><span class="line">  user</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="baseUrl-js"><a href="#baseUrl-js" class="headerlink" title="baseUrl.js"></a>baseUrl.js</h5><p>根据不同的环境设定不同的baseUrl，在配置这个文件前，我们先需要做如下几件事：<br>1.根目录新建<code>.env.dev</code>文件并在文件内写入<code>NODE_ENV = &#39;dev&#39;</code><br>2.在<code>package.json</code>文件内添加：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"build:dev"</span>: <span class="string">"vue-cli-service build --mode dev"</span>,</span><br><span class="line"><span class="string">"build:pre"</span>: <span class="string">"vue-cli-service build --mode pre"</span>,</span><br></pre></td></tr></table></figure>
+<p>以下是baseUrl.js的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> baseUrl = <span class="string">'/api'</span> <span class="comment">// 本地代理</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (process.env.NODE_ENV) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'dev'</span>:</span><br><span class="line">    baseUrl = <span class="string">'http://testserver.feleti.cn/'</span> <span class="comment">// 测试环境url</span></span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'pre'</span>:</span><br><span class="line">    baseUrl = <span class="string">'https://pre-server.feleti.cn'</span> <span class="comment">// 预上线环境url</span></span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'production'</span>:</span><br><span class="line">    baseUrl = <span class="string">'https://api.feleti.cn'</span> <span class="comment">// 生产环境url</span></span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> baseUrl</span><br></pre></td></tr></table></figure>
+<h5 id="matches、user"><a href="#matches、user" class="headerlink" title="matches、user"></a>matches、user</h5><p>这两个文件夹都是根据api类型进行区分的，在项目以后也建议大家根据api类型划分出不同的文件存放，在小项目中这样做可能显得很麻烦，但如果项目比较大，这样做的优势就体现出来了。</p>
+<p>我们就只看看matches文件夹下的内容：</p>
+<h6 id="urls-js"><a href="#urls-js" class="headerlink" title="urls.js"></a>urls.js</h6><p>把一个类型下的所有url接口放入这一个文件，我只放了一个暂时，可以继续添加。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> baseUrl <span class="keyword">from</span> <span class="string">'../baseUrl'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches: baseUrl + <span class="string">'/matches'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="index-js-1"><a href="#index-js-1" class="headerlink" title="index.js"></a>index.js</h6><p>有些接口需要在header中添加token或是其他，可以按如下配置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">'../index'</span></span><br><span class="line"><span class="keyword">import</span> urls <span class="keyword">from</span> <span class="string">'./urls'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> header = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches(params) &#123;</span><br><span class="line">    <span class="comment">// return出去了一个promise</span></span><br><span class="line">    <span class="keyword">return</span> api.get(urls.matches, params, header)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置完上述全部文件就算是大功告成了，下面我们看看如何使用吧。</p>
+<h3 id="组件中调用"><a href="#组件中调用" class="headerlink" title="组件中调用"></a>组件中调用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.matches()</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="keyword">async</span> matches() &#123;</span><br><span class="line">      <span class="comment">// 这里用try catch包裹，请求失败的时候就执行catch里的</span></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//定义参数对象</span></span><br><span class="line">        <span class="keyword">let</span> params = &#123;</span><br><span class="line">          type: <span class="string">'zc'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="keyword">this</span>.$api.matches.matches(params)</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'getMatches -&gt; res'</span>, res)</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'catch -&gt; e'</span>, e)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>之后我们就可以在控制台看到我们调用成功的输出日志啦：</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>在实际工作中，我们尽量要把项目做的细致一些，尤其是项目开始之前的配置，今天所涉及到的很多文件在之后的配置中还会有进步的更改，比如配置用户相关的接口、配置全局loading等，大家只要能把今天的内容完全理解，之后再配置这里就很容易啦。</p>
 
       
 
@@ -232,11 +234,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Axios</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue-cli3</a>
         		</li>
       		
 		</ul>
@@ -248,11 +254,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/微信//" class="article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信/调试工具//" class="article-tag-list-link color5">调试工具</a>
+        			<a href="/categories/Vue//" class="article-tag-list-link color4">Vue</a>
         		</li>
       		
 		</ul>
@@ -307,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://blog.vmccc.cn/post/c37c62e0.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.vmccc.cn/post/9bbb323.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,18 +325,9 @@
   
 <nav id="article-nav">
   
-    <a href="/post/34da003d.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          网页结构命名
-        
-      </div>
-    </a>
   
-  
-    <a href="/post/488e492e.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于PC端缩小浏览器窗口，右边背景空白并出现滚动条</div>
+    <a href="/post/c64071c3.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">下拉刷新上拉加载组件</div>
       <i class="icon-circle-right"></i>
     </a>
   
