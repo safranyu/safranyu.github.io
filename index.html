@@ -159,6 +159,139 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="w-vue-cli3下的Axios封装" class="article article-type-w  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/undefined.html">vue-cli3下的Axios封装</a>
+    </h1>
+  
+
+        
+        <a href="/post/undefined.html" class="archive-article-date">
+  	<time datetime="2019-03-23T15:25:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="axios-简介"><a href="#axios-简介" class="headerlink" title="axios 简介"></a>axios 简介</h2><p>首先要明白的是axios是什么：axios是基于promise（诺言）用于浏览器和node.js是http客户端。</p>
+<p>axios的作用是什么：axios主要是用于向后台发起请求的，还有在请求中做更多是可控功能。</p>
+<ul>
+<li>从浏览器中创建 XMLHttpRequest</li>
+<li>从 node.js 发出 http 请求</li>
+<li>支持 Promise API</li>
+<li>拦截请求和响应</li>
+<li>转换请求和响应数据</li>
+<li>取消请求</li>
+<li>自动转换JSON数据</li>
+<li>客户端支持防止 CSRF/XSRF</li>
+</ul>
+<h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><h5 id="首先当然还是要安装啦："><a href="#首先当然还是要安装啦：" class="headerlink" title="首先当然还是要安装啦："></a>首先当然还是要安装啦：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure>
+<p>之后我们新建一个api文件夹用来放接口和axios的配置。<br>先给大家看看我配置好之后的文件夹目录结构：</p>
+<p><img src="http://pan.vmccc.cn/?/images/2019/03/23/YbxfrFGHXM/hexoVue.png" alt=""></p>
+<p>可以说这次配置是我划分的比较详细的配置方法了，具体每个文件都分别做什么用，我们现在来看看吧。</p>
+<h5 id="axios-js"><a href="#axios-js" class="headerlink" title="axios.js"></a>axios.js</h5><p>这个文件主要创建axios实例并对拦截器进行配置，不理解拦截器的同学可以看看下图：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 axios 实例</span></span><br><span class="line"><span class="keyword">let</span> service = axios.create(&#123;</span><br><span class="line">  <span class="comment">// headers: &#123;'Content-Type': 'application/json'&#125;,</span></span><br><span class="line">  timeout: <span class="number">60000</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 post、put 默认 Content-Type</span></span><br><span class="line">service.defaults.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span></span><br><span class="line">service.defaults.headers.put[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加请求拦截器</span></span><br><span class="line">service.interceptors.request.use(</span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (config.method === <span class="string">'post'</span> || config.method === <span class="string">'put'</span>) &#123;</span><br><span class="line">      <span class="comment">// post、put 提交时，将对象转换为string, 为处理Java后台解析问题</span></span><br><span class="line">      config.data = <span class="built_in">JSON</span>.stringify(config.data)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 请求发送前进行处理</span></span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 请求错误处理</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加响应拦截器</span></span><br><span class="line">service.interceptors.response.use(</span><br><span class="line">  (response) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> &#123; data &#125; = response</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> info = &#123;&#125;,</span><br><span class="line">      &#123; status, statusText, data &#125; = error.response</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!error.response) &#123;</span><br><span class="line">      info = &#123;</span><br><span class="line">        code: <span class="number">5000</span>,</span><br><span class="line">        msg: <span class="string">'Network Error'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 此处整理错误信息格式</span></span><br><span class="line">      info = &#123;</span><br><span class="line">        code: status,</span><br><span class="line">        data: data,</span><br><span class="line">        msg: statusText</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建统一封装过的 axios 实例</span></span><br><span class="line"><span class="comment"> * @return &#123;AxiosInstance&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> service</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h5><p>index.js文件主要封装我们几个常用的方法，get、post、put、delete</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'./axios'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance = axios()</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  get(url, params, headers) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">      options.params = params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.get(url, options)</span><br><span class="line">  &#125;,</span><br><span class="line">  post(url, params, headers, data) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">      options.params = params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.post(url, data, options)</span><br><span class="line">  &#125;,</span><br><span class="line">  put(url, params, headers) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.put(url, params, options)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">delete</span>(url, params, headers) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">      options.params = params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.delete(url, options)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="install-js"><a href="#install-js" class="headerlink" title="install.js"></a>install.js</h5><p>install.js文件可以把我们所有的api接口安装到全局，之后我们在main.js文件中导入就可以了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> apiList <span class="keyword">from</span> <span class="string">'./apiList'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> install = <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (install.installed) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  install.installed = <span class="literal">true</span></span><br><span class="line">  <span class="built_in">Object</span>.defineProperties(Vue.prototype, &#123;</span><br><span class="line">    $api: &#123;</span><br><span class="line">      get() &#123;</span><br><span class="line">        <span class="keyword">return</span> apiList</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  install</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>main.js中添加：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">'./api/install'</span></span><br><span class="line">Vue.use(api)</span><br></pre></td></tr></table></figure>
+<h5 id="apiList-js"><a href="#apiList-js" class="headerlink" title="apiList.js"></a>apiList.js</h5><p>把我们所有的api文件夹导入到这一个文件中来。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matches <span class="keyword">from</span> <span class="string">'./matches'</span></span><br><span class="line"><span class="keyword">import</span> user <span class="keyword">from</span> <span class="string">'./user'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches,</span><br><span class="line">  user</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="baseUrl-js"><a href="#baseUrl-js" class="headerlink" title="baseUrl.js"></a>baseUrl.js</h5><p>根据不同的环境设定不同的baseUrl，在配置这个文件前，我们先需要做如下几件事：<br>1.根目录新建<code>.env.dev</code>文件并在文件内写入<code>NODE_ENV = &#39;dev&#39;</code><br>2.在<code>package.json</code>文件内添加：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"build:dev"</span>: <span class="string">"vue-cli-service build --mode dev"</span>,</span><br><span class="line"><span class="string">"build:pre"</span>: <span class="string">"vue-cli-service build --mode pre"</span>,</span><br></pre></td></tr></table></figure>
+<p>以下是baseUrl.js的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> baseUrl = <span class="string">'/api'</span> <span class="comment">// 本地代理</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (process.env.NODE_ENV) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'dev'</span>:</span><br><span class="line">    baseUrl = <span class="string">'http://testserver.feleti.cn/'</span> <span class="comment">// 测试环境url</span></span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'pre'</span>:</span><br><span class="line">    baseUrl = <span class="string">'https://pre-server.feleti.cn'</span> <span class="comment">// 预上线环境url</span></span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'production'</span>:</span><br><span class="line">    baseUrl = <span class="string">'https://api.feleti.cn'</span> <span class="comment">// 生产环境url</span></span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> baseUrl</span><br></pre></td></tr></table></figure>
+<h5 id="matches、user"><a href="#matches、user" class="headerlink" title="matches、user"></a>matches、user</h5><p>这两个文件夹都是根据api类型进行区分的，在项目以后也建议大家根据api类型划分出不同的文件存放，在小项目中这样做可能显得很麻烦，但如果项目比较大，这样做的优势就体现出来了。</p>
+<p>我们就只看看matches文件夹下的内容：</p>
+<h6 id="urls-js"><a href="#urls-js" class="headerlink" title="urls.js"></a>urls.js</h6><p>把一个类型下的所有url接口放入这一个文件，我只放了一个暂时，可以继续添加。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> baseUrl <span class="keyword">from</span> <span class="string">'../baseUrl'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches: baseUrl + <span class="string">'/matches'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="index-js-1"><a href="#index-js-1" class="headerlink" title="index.js"></a>index.js</h6><p>有些接口需要在header中添加token或是其他，可以按如下配置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">'../index'</span></span><br><span class="line"><span class="keyword">import</span> urls <span class="keyword">from</span> <span class="string">'./urls'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> header = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches(params) &#123;</span><br><span class="line">    <span class="comment">// return出去了一个promise</span></span><br><span class="line">    <span class="keyword">return</span> api.get(urls.matches, params, header)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置完上述全部文件就算是大功告成了，下面我们看看如何使用吧。</p>
+<h3 id="组件中调用"><a href="#组件中调用" class="headerlink" title="组件中调用"></a>组件中调用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.matches()</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="keyword">async</span> matches() &#123;</span><br><span class="line">      <span class="comment">// 这里用try catch包裹，请求失败的时候就执行catch里的</span></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//定义参数对象</span></span><br><span class="line">        <span class="keyword">let</span> params = &#123;</span><br><span class="line">          type: <span class="string">'zc'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="keyword">this</span>.$api.matches.matches(params)</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'getMatches -&gt; res'</span>, res)</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'catch -&gt; e'</span>, e)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>之后我们就可以在控制台看到我们调用成功的输出日志啦：</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>在实际工作中，我们尽量要把项目做的细致一些，尤其是项目开始之前的配置，今天所涉及到的很多文件在之后的配置中还会有进步的更改，比如配置用户相关的接口、配置全局loading等，大家只要能把今天的内容完全理解，之后再配置这里就很容易啦。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Axios</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue-cli3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Vue//" class="article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/undefined.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-下拉刷新上拉加载组件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1042,104 +1175,6 @@
 
 
   
-    <article id="post-关于PC端缩小浏览器窗口，右边背景空白并出现滚动条" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/488e492e.html">关于PC端缩小浏览器窗口，右边背景空白并出现滚动条</a>
-    </h1>
-  
-
-        
-        <a href="/post/488e492e.html" class="archive-article-date">
-  	<time datetime="2018-11-15T14:23:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>出现原因</p>
-<p>因为出现空白的元素设置了宽度100%，缩小窗口相当于减小了宽度值，那么为什么出现滚动条呢？是因为页面中至少有一个元素a的width大于窗口的width，导致把页面撑开，出现了滚动条，而此时那个width：100%的元素宽度等于窗口宽度且小于元素a的宽度，所以右侧的空白长度=a的宽度-窗口宽度。  </p>
-<h3 id="解决这个问题其实很简单"><a href="#解决这个问题其实很简单" class="headerlink" title="解决这个问题其实很简单"></a>解决这个问题其实很简单</h3><ul>
-<li><p>给body设置最小宽度<code>min-width</code>,在ie6下不兼容</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">     <span class="attribute">min-width</span>: <span class="number">1000px</span>;</span><br><span class="line">     <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>还可以给div元素设置最小宽度，如果页面元素复杂，要一个个设置</p>
-</li>
-<li><p>给CSS样式设置<code>width:expression(document.body.clientWidth &lt;= 960? &quot;960px&quot;: &quot;auto&quot;);</code></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#wrap</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#ddd</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="built_in">expression</span>(document.body.clientWidth &lt;= 960? <span class="string">"960px"</span>: <span class="string">"auto"</span>);</span><br><span class="line">    <span class="attribute">min-width</span>:<span class="number">960px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>推荐第一种</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/488e492e.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1241,19 +1276,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,11 +1300,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">微信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1285,27 +1352,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1317,11 +1364,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
