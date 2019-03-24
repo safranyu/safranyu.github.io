@@ -159,6 +159,110 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-AutoJs学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/adc7e5ef.html">AutoJs学习</a>
+    </h1>
+  
+
+        
+        <a href="/post/adc7e5ef.html" class="archive-article-date">
+  	<time datetime="2019-03-24T08:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="AutoJs学习"><a href="#AutoJs学习" class="headerlink" title="AutoJs学习"></a>AutoJs学习</h3><blockquote>
+<p><strong>不需要Root权限</strong>的JavaScript自动化软件</p>
+</blockquote>
+<p><a href="https://hyb1996.github.io/AutoJs-Docs/#/" target="_blank" rel="noopener">官方文档</a></p>
+<h4 id="常见单个控件"><a href="#常见单个控件" class="headerlink" title="常见单个控件"></a>常见单个控件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TextView <span class="comment">//文本控件</span></span><br><span class="line">ImageView <span class="comment">//图片控件</span></span><br><span class="line">CheckBox <span class="comment">//勾选控件</span></span><br><span class="line">EditText <span class="comment">//输入控件</span></span><br><span class="line">View <span class="comment">//视图控件</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>有图片的不一定是图片控件</li>
+</ul>
+<h4 id="常见容器控件"><a href="#常见容器控件" class="headerlink" title="常见容器控件"></a>常见容器控件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LinearLayout <span class="comment">//线性布局容器</span></span><br><span class="line">RelativeLayout <span class="comment">//相对布局容器</span></span><br><span class="line">FrameLayout <span class="comment">//帧布局</span></span><br><span class="line">ListView <span class="comment">//列表容器</span></span><br><span class="line">RecyclerView <span class="comment">//列表容器</span></span><br><span class="line">ScrollView <span class="comment">//滚动容器</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>容器与容器之间可以相互嵌套</li>
+</ul>
+<h4 id="单个控件的操作"><a href="#单个控件的操作" class="headerlink" title="单个控件的操作"></a>单个控件的操作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">click	<span class="comment">//点击</span></span><br><span class="line">longClick <span class="comment">//长按</span></span><br><span class="line">scroll... <span class="comment">//滚动</span></span><br><span class="line">setText	<span class="comment">//设置文本</span></span><br><span class="line">children <span class="comment">//遍历</span></span><br><span class="line">find	<span class="comment">//子控件查找</span></span><br><span class="line">parent	<span class="comment">// 父控件查找</span></span><br></pre></td></tr></table></figure>
+<h4 id="获取控件"><a href="#获取控件" class="headerlink" title="获取控件"></a>获取控件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">id(<span class="string">"xxxx"</span>).findOne(<span class="number">1000</span>)</span><br><span class="line">className(<span class="string">"xxxx"</span>).findOne(<span class="number">1000</span>).find(id(<span class="string">"xxxx"</span>))</span><br><span class="line">text(<span class="string">"xxx"</span>)</span><br><span class="line">desc(<span class="string">"xxx"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//完全匹配</span></span><br><span class="line">Contains <span class="comment">//包含</span></span><br><span class="line">StartWith <span class="comment">//开头</span></span><br><span class="line">EndWith <span class="comment">//结尾</span></span><br><span class="line">Matches <span class="comment">//正则</span></span><br></pre></td></tr></table></figure>
+<h4 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">log(<span class="string">"xxxx"</span>) <span class="comment">//控制面板输出</span></span><br><span class="line">toast(<span class="string">"xxxx"</span>) <span class="comment">//手机屏幕上输出</span></span><br></pre></td></tr></table></figure>
+<h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto.waitFor()</span><br><span class="line">auto();<span class="comment">// 自动打开无障碍服务</span></span><br><span class="line">launchApp(<span class="string">"app名字"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ol>
+<li>有时候手机重新连接vs code总是连接不上，应该是没有正常退出占用端口，最简单的是重启电脑</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">AutoJs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/adc7e5ef.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-vue-cli3下的Axios封装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -799,7 +903,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar navbar-inverse navbar-fixed-top mr-nav "</span>&gt;</span><br><span class="line">       &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container"</span>&gt;</span><br><span class="line">           &lt;div id=<span class="string">"navbar"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"collapse navbar-collapse"</span>&gt;</span><br><span class="line">               &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"nav navbar-nav"</span>&gt;</span><br><span class="line">                   &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"active"</span>&gt;&lt;a href="#"&gt;首页&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                   &lt;li&gt;&lt;a href="#about"&gt;关于我们&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                   &lt;li&gt;&lt;a href="product.html"&gt;产品介绍&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                   &lt;li&gt;&lt;a href="joinus.html"&gt;加入我们&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                   &lt;li&gt;&lt;a href="series.html"&gt;联系我们&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">               &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">           &lt;/</span>div&gt;</span><br><span class="line">       &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">   &lt;/</span>nav&gt;</span><br></pre></td></tr></table></figure>
+        <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar navbar-inverse navbar-fixed-top mr-nav "</span>&gt;</span><br><span class="line">       &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container"</span>&gt;</span><br><span class="line">           &lt;div id=<span class="string">"navbar"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"collapse navbar-collapse"</span>&gt;</span><br><span class="line">               &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"nav navbar-nav"</span>&gt;</span><br><span class="line">                   &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"active"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#about"</span>&gt;</span>关于我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"product.html"</span>&gt;</span>产品介绍<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"joinus.html"</span>&gt;</span>加入我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"series.html"</span>&gt;</span>联系我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">               &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">           &lt;/</span>div&gt;</span><br><span class="line">       &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">   &lt;/</span>nav&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="css解决办法"><a href="#css解决办法" class="headerlink" title="css解决办法"></a>css解决办法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*解决bootstarp导航缩小折叠问题*/</span></span><br><span class="line">@media (max-width: <span class="number">768</span>px)&#123;</span><br><span class="line">    .navbar-nav &#123;</span><br><span class="line">        visibility: visible;</span><br><span class="line">        width: <span class="number">1000</span>px;</span><br><span class="line">        margin: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.navbar-collapse&#123;</span><br><span class="line">    display: block !important;</span><br><span class="line">    height: auto !important;</span><br><span class="line">    padding-bottom: <span class="number">0</span>;</span><br><span class="line">    overflow: visible !important;</span><br><span class="line">    visibility: visible !important;</span><br><span class="line">&#125;</span><br><span class="line">.nav&gt;li&#123;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">#navbar&#123;</span><br><span class="line">    border: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
@@ -1048,133 +1152,6 @@
 
 
   
-    <article id="post-在Chrome中模拟微信浏览器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/c37c62e0.html">在Chrome中模拟微信浏览器</a>
-    </h1>
-  
-
-        
-        <a href="/post/c37c62e0.html" class="archive-article-date">
-  	<time datetime="2019-03-18T15:23:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Chrome 修改 user agent 简单模拟微信内置浏览器</p>
-<h2 id="微信和QQ内置浏览器UA"><a href="#微信和QQ内置浏览器UA" class="headerlink" title="微信和QQ内置浏览器UA"></a>微信和QQ内置浏览器UA</h2><ul>
-<li>安卓QQ内置浏览器UA:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &gt; Chrome/37.0.0.0 Mobile Safari/537.36 V1_AND_SQ_5.3.1_196_YYB_D &gt; QQ/5.3.1.2335 NetType/WIFI</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安卓微信内置浏览器UA:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &gt; Chrome/37.0.0.0 Mobile Safari/537.36 &gt; MicroMessenger/6.0.2.56_r958800.520 NetType/WIFI</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>IOSQQ内置浏览器UA:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) &gt; AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 &gt; QQ/5.2.1.302 NetType/WIFI Mem/28</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>IOS微信内置浏览器UA:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) &gt; AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 &gt; MicroMessenger/6.0.1 NetType/WIFI</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="在Chrome添加UA"><a href="#在Chrome添加UA" class="headerlink" title="在Chrome添加UA"></a>在Chrome添加UA</h3><ul>
-<li><p>打开Chrome调试工具（F12），点击右上角竖着的三个点，如下图</p>
-<p><img src="http://ww3.sinaimg.cn/large/6aedb651gw1fazm90jatmj20bc09ggof.jpg" alt=""></p>
-</li>
-<li><p>打开后选择Setting，如下图</p>
-<p><img src="http://ww1.sinaimg.cn/large/6aedb651gw1fazma2xwtqj206n06ewew.jpg" alt=""></p>
-</li>
-<li><p>选择左边栏Devices，如下图</p>
-<p><img src="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg" alt=""></p>
-</li>
-<li><p>选择右边栏Add custom device</p>
-<p><img src="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg" alt=""></p>
-</li>
-<li><p>填写要模拟的设备，添加，如下图</p>
-<p><img src="http://ww4.sinaimg.cn/large/6aedb651gw1fazmhu5yg4j20br06v74o.jpg" alt=""></p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信//" class="article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信/调试工具//" class="article-tag-list-link color5">调试工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/c37c62e0.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1272,19 +1249,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Bootstrap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1296,11 +1269,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Bootstrap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1309,22 +1290,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1337,6 +1302,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1360,11 +1333,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
             
             <div class="clearfix"></div>
