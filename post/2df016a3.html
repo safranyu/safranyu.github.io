@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.vmccc.cn">
-  <title>Tag: Axios | Safran Blog</title>
+  <title>axios+mockjs在vue中使用 | Safran Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习总结 思考感悟 知识管理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Safran Blog">
-<meta property="og:url" content="http://blog.vmccc.cn/tags/Axios/index.html">
+  <meta name="description" content="mockjs官网 参考文档 1、npm安装mockjs1npm intsall mockjs --save-dev ２、在src目录下建立文件夹mock，mock文件夹下建立mock.js文件，js文件代码如下：1234567import Mock from &apos;mockjs&apos;;//es6语法引入mock模块export default Mock.mock(&apos;http://test.cn/buyRe">
+<meta name="keywords" content="mockjs,vue,axios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="axios+mockjs在vue中使用">
+<meta property="og:url" content="http://blog.vmccc.cn/post/2df016a3.html">
 <meta property="og:site_name" content="Safran Blog">
-<meta property="og:description" content="学习总结 思考感悟 知识管理">
+<meta property="og:description" content="mockjs官网 参考文档 1、npm安装mockjs1npm intsall mockjs --save-dev ２、在src目录下建立文件夹mock，mock文件夹下建立mock.js文件，js文件代码如下：1234567import Mock from &apos;mockjs&apos;;//es6语法引入mock模块export default Mock.mock(&apos;http://test.cn/buyRe">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-30T15:30:22.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Safran Blog">
-<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
+<meta name="twitter:title" content="axios+mockjs在vue中使用">
+<meta name="twitter:description" content="mockjs官网 参考文档 1、npm安装mockjs1npm intsall mockjs --save-dev ２、在src目录下建立文件夹mock，mock文件夹下建立mock.js文件，js文件代码如下：1234567import Mock from &apos;mockjs&apos;;//es6语法引入mock模块export default Mock.mock(&apos;http://test.cn/buyRe">
   
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
@@ -157,52 +159,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-axios-mockjs在vue中使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/e4ed1a3d.html" class="archive-article-date">
-  	<time datetime="2019-03-24T13:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/e4ed1a3d.html">Axios解决post请求数据错误的问题</a>
+    <h1 class="article-title" itemprop="name">
+      axios+mockjs在vue中使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/post/2df016a3.html" class="archive-article-date">
+  	<time datetime="2019-03-30T15:29:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://mockjs.com/" target="_blank" rel="noopener">mockjs官网</a></p>
+<p><a href="https://juejin.im/post/5b17ffcc51882513eb62e985" target="_blank" rel="noopener">参考文档</a></p>
+<h4 id="1、npm安装mockjs"><a href="#1、npm安装mockjs" class="headerlink" title="1、npm安装mockjs"></a>1、npm安装mockjs</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm intsall mockjs --save-dev</span><br></pre></td></tr></table></figure>
+<h4 id="２、在src目录下建立文件夹mock，mock文件夹下建立mock-js文件，js文件代码如下："><a href="#２、在src目录下建立文件夹mock，mock文件夹下建立mock-js文件，js文件代码如下：" class="headerlink" title="２、在src目录下建立文件夹mock，mock文件夹下建立mock.js文件，js文件代码如下："></a>２、在src目录下建立文件夹mock，mock文件夹下建立mock.js文件，js文件代码如下：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'mockjs'</span>;<span class="comment">//es6语法引入mock模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Mock.mock(<span class="string">'http://test.cn/buyRecord'</span>, &#123;<span class="comment">//输出数据</span></span><br><span class="line">  <span class="string">'name'</span>: <span class="string">'@name'</span>,<span class="comment">//随机生成姓名</span></span><br><span class="line">  <span class="string">'age|1-10'</span>: <span class="number">10</span></span><br><span class="line">  <span class="comment">//还可以自定义其他数据</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="3、在vue组件中使用"><a href="#3、在vue组件中使用" class="headerlink" title="3、在vue组件中使用"></a>3、在vue组件中使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import data from &apos;../../assets/js/api/mock/mock.js&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="4、演示请求接口"><a href="#4、演示请求接口" class="headerlink" title="4、演示请求接口"></a>4、演示请求接口</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.$http.get(<span class="string">'http://test.cn/buyRecord'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res.data);</span><br><span class="line">        <span class="keyword">this</span>.msg = res.data.name;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.msg)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二-安装和使用axios"><a href="#二-安装和使用axios" class="headerlink" title="二.安装和使用axios"></a>二.安装和使用axios</h3><p>这里我把mockjs封装到一起，可以前往<a href="https://safranyu.github.io/post/9bbb323.html" target="_blank" rel="noopener">axios封装</a>。目录结构：</p>
+<h4 id="1、在api目录下建立文件夹mock，mock文件夹下建立mock-js"><a href="#1、在api目录下建立文件夹mock，mock文件夹下建立mock-js" class="headerlink" title="1、在api目录下建立文件夹mock，mock文件夹下建立mock.js"></a>1、在api目录下建立文件夹mock，mock文件夹下建立mock.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'mockjs'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Mock.mock(<span class="string">'http://test.cn/buyRecord'</span>, &#123;</span><br><span class="line">  <span class="string">'name'</span>: <span class="string">'@name'</span>,</span><br><span class="line">  <span class="string">'age|1-10'</span>: <span class="number">10</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="2、在mock文件在新建mockUrl-js用来存放请求的url"><a href="#2、在mock文件在新建mockUrl-js用来存放请求的url" class="headerlink" title="2、在mock文件在新建mockUrl.js用来存放请求的url"></a>2、在mock文件在新建mockUrl.js用来存放请求的url</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * mock 模拟数据</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> baseUrl = <span class="string">'http://test.cn'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">// 首页轮播图</span></span><br><span class="line">  getBuyRecord: baseUrl + <span class="string">'/buyRecord'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3、在当前文件新建index-js配置请求方法"><a href="#3、在当前文件新建index-js配置请求方法" class="headerlink" title="3、在当前文件新建index.js配置请求方法"></a>3、在当前文件新建index.js配置请求方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">'../index'</span></span><br><span class="line"><span class="keyword">import</span> urls <span class="keyword">from</span> <span class="string">'./mockUrl'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> header = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  getBuyRecord(params) &#123;</span><br><span class="line">    <span class="keyword">return</span> api.get(urls.getBuyRecord, params, header)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4、在api目录下apiList-js引入刚配置的请求方法"><a href="#4、在api目录下apiList-js引入刚配置的请求方法" class="headerlink" title="4、在api目录下apiList.js引入刚配置的请求方法"></a>4、在api目录下apiList.js引入刚配置的请求方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matches <span class="keyword">from</span> <span class="string">'./matches'</span></span><br><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'./mock'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches,</span><br><span class="line">  Mock</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5、页面引用"><a href="#5、页面引用" class="headerlink" title="5、页面引用"></a>5、页面引用</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'../../assets/js/api/mock/mock.js'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	methods: &#123;</span><br><span class="line">        <span class="keyword">async</span> getBuyRecord() &#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> params = &#123;&#125;</span><br><span class="line">            <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="keyword">this</span>.$api.Mock.getBuyRecord(params)</span><br><span class="line">            <span class="built_in">console</span>.log(res)</span><br><span class="line">          &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(err)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    created() &#123;</span><br><span class="line">       <span class="keyword">this</span>.getBuyRecord()   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">mockjs</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Axios</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">axios</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -215,74 +231,132 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.vmccc.cn/post/2df016a3.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/9bbb323.html" class="archive-article-date">
-  	<time datetime="2019-03-23T15:25:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/post/36597039.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue-router query和params传参(接收参数) 的区别</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/9bbb323.html">vue-cli3下的Axios封装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Axios</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue-cli3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Vue//" class="article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<style>
+    #gitalk-container{
+
+    }
+</style>
+<div id="gitalk-container" class="article article-entry"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '936d2bda95c3eeaf787a',
+        clientSecret: '2d209670548d6a9c5b89f0ecc4e36b161ce5813e',
+        id: window.location.pathname,
+        repo: 'safranyu.github.io',
+        owner: 'safranyu',
+        admin: 'safranyu',
+        distractionFreeMode: 'true',
+        enableHotKey: 'true',
+       
+    })
+    gitalk.render('gitalk-container')
+</script>
+  
+ 
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -305,9 +379,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

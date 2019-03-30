@@ -159,6 +159,111 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-axios-mockjs在vue中使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/2df016a3.html">axios+mockjs在vue中使用</a>
+    </h1>
+  
+
+        
+        <a href="/post/2df016a3.html" class="archive-article-date">
+  	<time datetime="2019-03-30T15:29:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://mockjs.com/" target="_blank" rel="noopener">mockjs官网</a></p>
+<p><a href="https://juejin.im/post/5b17ffcc51882513eb62e985" target="_blank" rel="noopener">参考文档</a></p>
+<h4 id="1、npm安装mockjs"><a href="#1、npm安装mockjs" class="headerlink" title="1、npm安装mockjs"></a>1、npm安装mockjs</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm intsall mockjs --save-dev</span><br></pre></td></tr></table></figure>
+<h4 id="２、在src目录下建立文件夹mock，mock文件夹下建立mock-js文件，js文件代码如下："><a href="#２、在src目录下建立文件夹mock，mock文件夹下建立mock-js文件，js文件代码如下：" class="headerlink" title="２、在src目录下建立文件夹mock，mock文件夹下建立mock.js文件，js文件代码如下："></a>２、在src目录下建立文件夹mock，mock文件夹下建立mock.js文件，js文件代码如下：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'mockjs'</span>;<span class="comment">//es6语法引入mock模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Mock.mock(<span class="string">'http://test.cn/buyRecord'</span>, &#123;<span class="comment">//输出数据</span></span><br><span class="line">  <span class="string">'name'</span>: <span class="string">'@name'</span>,<span class="comment">//随机生成姓名</span></span><br><span class="line">  <span class="string">'age|1-10'</span>: <span class="number">10</span></span><br><span class="line">  <span class="comment">//还可以自定义其他数据</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="3、在vue组件中使用"><a href="#3、在vue组件中使用" class="headerlink" title="3、在vue组件中使用"></a>3、在vue组件中使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import data from &apos;../../assets/js/api/mock/mock.js&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="4、演示请求接口"><a href="#4、演示请求接口" class="headerlink" title="4、演示请求接口"></a>4、演示请求接口</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.$http.get(<span class="string">'http://test.cn/buyRecord'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res.data);</span><br><span class="line">        <span class="keyword">this</span>.msg = res.data.name;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.msg)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二-安装和使用axios"><a href="#二-安装和使用axios" class="headerlink" title="二.安装和使用axios"></a>二.安装和使用axios</h3><p>这里我把mockjs封装到一起，可以前往<a href="https://safranyu.github.io/post/9bbb323.html" target="_blank" rel="noopener">axios封装</a>。目录结构：</p>
+<h4 id="1、在api目录下建立文件夹mock，mock文件夹下建立mock-js"><a href="#1、在api目录下建立文件夹mock，mock文件夹下建立mock-js" class="headerlink" title="1、在api目录下建立文件夹mock，mock文件夹下建立mock.js"></a>1、在api目录下建立文件夹mock，mock文件夹下建立mock.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'mockjs'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Mock.mock(<span class="string">'http://test.cn/buyRecord'</span>, &#123;</span><br><span class="line">  <span class="string">'name'</span>: <span class="string">'@name'</span>,</span><br><span class="line">  <span class="string">'age|1-10'</span>: <span class="number">10</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="2、在mock文件在新建mockUrl-js用来存放请求的url"><a href="#2、在mock文件在新建mockUrl-js用来存放请求的url" class="headerlink" title="2、在mock文件在新建mockUrl.js用来存放请求的url"></a>2、在mock文件在新建mockUrl.js用来存放请求的url</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * mock 模拟数据</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> baseUrl = <span class="string">'http://test.cn'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">// 首页轮播图</span></span><br><span class="line">  getBuyRecord: baseUrl + <span class="string">'/buyRecord'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3、在当前文件新建index-js配置请求方法"><a href="#3、在当前文件新建index-js配置请求方法" class="headerlink" title="3、在当前文件新建index.js配置请求方法"></a>3、在当前文件新建index.js配置请求方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">'../index'</span></span><br><span class="line"><span class="keyword">import</span> urls <span class="keyword">from</span> <span class="string">'./mockUrl'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> header = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  getBuyRecord(params) &#123;</span><br><span class="line">    <span class="keyword">return</span> api.get(urls.getBuyRecord, params, header)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4、在api目录下apiList-js引入刚配置的请求方法"><a href="#4、在api目录下apiList-js引入刚配置的请求方法" class="headerlink" title="4、在api目录下apiList.js引入刚配置的请求方法"></a>4、在api目录下apiList.js引入刚配置的请求方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matches <span class="keyword">from</span> <span class="string">'./matches'</span></span><br><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'./mock'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches,</span><br><span class="line">  Mock</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5、页面引用"><a href="#5、页面引用" class="headerlink" title="5、页面引用"></a>5、页面引用</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'../../assets/js/api/mock/mock.js'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	methods: &#123;</span><br><span class="line">        <span class="keyword">async</span> getBuyRecord() &#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> params = &#123;&#125;</span><br><span class="line">            <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="keyword">this</span>.$api.Mock.getBuyRecord(params)</span><br><span class="line">            <span class="built_in">console</span>.log(res)</span><br><span class="line">          &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(err)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    created() &#123;</span><br><span class="line">       <span class="keyword">this</span>.getBuyRecord()   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">mockjs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">axios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Vue//" class="article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/2df016a3.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-vue-router-query和params传参-接收参数-的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -284,7 +389,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取所有参数转化为数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseQuery</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> queryObj=&#123;&#125;;</span><br><span class="line">  <span class="keyword">let</span> reg=<span class="regexp">/[?&amp;]([^=&amp;#]+)=([^&amp;#]*)/g</span>;</span><br><span class="line">  <span class="keyword">let</span> querys=url.match(reg);</span><br><span class="line">  <span class="keyword">if</span>(querys)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> querys)&#123;</span><br><span class="line">      <span class="keyword">let</span> query=querys[i].split(<span class="string">'='</span>);</span><br><span class="line">      <span class="keyword">let</span> key=query[<span class="number">0</span>].substr(<span class="number">1</span>),</span><br><span class="line">      <span class="keyword">let</span> value=query[<span class="number">1</span>];</span><br><span class="line">      queryObj[key]?queryObj[key]=[].concat(queryObj[key],value):queryObj[key]=value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> queryObj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取某个字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryByName</span>(<span class="params">url,name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'[?&amp;]'</span>+name+<span class="string">'=([^&amp;#]+)'</span>);</span><br><span class="line">  <span class="keyword">var</span> query=url.match(reg);</span><br><span class="line">  <span class="keyword">return</span> query?query[<span class="number">1</span>]:<span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取所有参数转化为数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseQuery</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> queryObj=&#123;&#125;;</span><br><span class="line">  <span class="keyword">let</span> reg=<span class="regexp">/[?&amp;]([^=&amp;#]+)=([^&amp;#]*)/g</span>;</span><br><span class="line">  <span class="keyword">let</span> querys=url.match(reg);</span><br><span class="line">  <span class="keyword">if</span>(querys)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> querys)&#123;</span><br><span class="line">      <span class="keyword">let</span> query=querys[i].split(<span class="string">'='</span>);</span><br><span class="line">      <span class="keyword">let</span> key=query[<span class="number">0</span>].substr(<span class="number">1</span>),</span><br><span class="line">      value=query[<span class="number">1</span>];</span><br><span class="line">      queryObj[key]?queryObj[key]=[].concat(queryObj[key],value):queryObj[key]=value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> queryObj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取某个字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryByName</span>(<span class="params">url,name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'[?&amp;]'</span>+name+<span class="string">'=([^&amp;#]+)'</span>);</span><br><span class="line">  <span class="keyword">var</span> query=url.match(reg);</span><br><span class="line">  <span class="keyword">return</span> query?query[<span class="number">1</span>]:<span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -1074,101 +1179,6 @@
 
 
   
-    <article id="post-多行文本溢出隐藏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/d177a72b.html">多行文本溢出隐藏</a>
-    </h1>
-  
-
-        
-        <a href="/post/d177a72b.html" class="archive-article-date">
-  	<time datetime="2019-03-19T15:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>text-overflow:ellipsis</code> 显示省略符号来代表被修剪的文本。还有其他两个属性<br><code>clip</code> 修剪文本<br><code>string</code> 使用给定的字符串来代表被修剪的文本</p>
-<h3 id="实现单行隐藏"><a href="#实现单行隐藏" class="headerlink" title="实现单行隐藏"></a>实现单行隐藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    white-space: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>适用于WebKit浏览器或移动端的页面<br><code>display: -webkit-box</code> 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示<br><code>-webkit-box-orient</code>必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式<br><code>text-overflow: ellipsis</code> 可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本</p>
-<h3 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h3><p>需要设置元素的高度，也一样适用于WebKit内核浏览器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    display: -webkit-box;</span><br><span class="line">    -webkit-line-clamp: 2;</span><br><span class="line">    -webkit-box-orient: vertical;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="设置相对定位的容器高度，用包含省略号-…-的元素模拟实现"><a href="#设置相对定位的容器高度，用包含省略号-…-的元素模拟实现" class="headerlink" title="设置相对定位的容器高度，用包含省略号(…)的元素模拟实现"></a>设置相对定位的容器高度，用包含省略号(…)的元素模拟实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    position: relative;</span><br><span class="line">    line-height: 1.4em;</span><br><span class="line">    height: 2.8em;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    div::after &#123;</span><br><span class="line">        content: &quot;...&quot;;</span><br><span class="line">        font-weight: bold;</span><br><span class="line">        position: absolute;</span><br><span class="line">        bottom: 0;</span><br><span class="line">        right: 0;</span><br><span class="line">        padding: 0 20px 1px 45px;</span><br><span class="line">        background: url(http://css88.b0.upaiyun.com/css88/2014/09/ellipsis_bg.png) repeat-y;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>需要注意：<br>height高度真好是line-height的倍数；</p>
-<p>结束的省略好用了半透明的png做了减淡的效果，或者设置背景颜色；</p>
-<p>IE6-7不显示content内容，所以要兼容IE6-7可以是在内容中加入一个标签，比如用<code>&lt;span class=&quot;line-clamp&quot;&gt;...&lt;/span&gt;</code>去模拟；</p>
-<p>要支持IE8，需要将::after替换成:after；</p>
-<h3 id="jQuery插件-jQuery-dotdotdot-实现"><a href="#jQuery插件-jQuery-dotdotdot-实现" class="headerlink" title="jQuery插件-jQuery.dotdotdot 实现"></a>jQuery插件-jQuery.dotdotdot 实现</h3>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/d177a72b.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1266,7 +1276,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1278,15 +1296,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1294,7 +1304,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mockjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">axios</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1306,7 +1332,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1322,7 +1352,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1330,15 +1360,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1358,23 +1384,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>

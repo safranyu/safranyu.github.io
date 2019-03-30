@@ -159,6 +159,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-多行文本溢出隐藏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/d177a72b.html">多行文本溢出隐藏</a>
+    </h1>
+  
+
+        
+        <a href="/post/d177a72b.html" class="archive-article-date">
+  	<time datetime="2019-03-19T15:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>text-overflow:ellipsis</code> 显示省略符号来代表被修剪的文本。还有其他两个属性<br><code>clip</code> 修剪文本<br><code>string</code> 使用给定的字符串来代表被修剪的文本</p>
+<h3 id="实现单行隐藏"><a href="#实现单行隐藏" class="headerlink" title="实现单行隐藏"></a>实现单行隐藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    white-space: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>适用于WebKit浏览器或移动端的页面<br><code>display: -webkit-box</code> 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示<br><code>-webkit-box-orient</code>必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式<br><code>text-overflow: ellipsis</code> 可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本</p>
+<h3 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h3><p>需要设置元素的高度，也一样适用于WebKit内核浏览器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    display: -webkit-box;</span><br><span class="line">    -webkit-line-clamp: 2;</span><br><span class="line">    -webkit-box-orient: vertical;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="设置相对定位的容器高度，用包含省略号-…-的元素模拟实现"><a href="#设置相对定位的容器高度，用包含省略号-…-的元素模拟实现" class="headerlink" title="设置相对定位的容器高度，用包含省略号(…)的元素模拟实现"></a>设置相对定位的容器高度，用包含省略号(…)的元素模拟实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    position: relative;</span><br><span class="line">    line-height: 1.4em;</span><br><span class="line">    height: 2.8em;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    div::after &#123;</span><br><span class="line">        content: &quot;...&quot;;</span><br><span class="line">        font-weight: bold;</span><br><span class="line">        position: absolute;</span><br><span class="line">        bottom: 0;</span><br><span class="line">        right: 0;</span><br><span class="line">        padding: 0 20px 1px 45px;</span><br><span class="line">        background: url(http://css88.b0.upaiyun.com/css88/2014/09/ellipsis_bg.png) repeat-y;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意：<br>height高度真好是line-height的倍数；</p>
+<p>结束的省略好用了半透明的png做了减淡的效果，或者设置背景颜色；</p>
+<p>IE6-7不显示content内容，所以要兼容IE6-7可以是在内容中加入一个标签，比如用<code>&lt;span class=&quot;line-clamp&quot;&gt;...&lt;/span&gt;</code>去模拟；</p>
+<p>要支持IE8，需要将::after替换成:after；</p>
+<h3 id="jQuery插件-jQuery-dotdotdot-实现"><a href="#jQuery插件-jQuery-dotdotdot-实现" class="headerlink" title="jQuery插件-jQuery.dotdotdot 实现"></a>jQuery插件-jQuery.dotdotdot 实现</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/d177a72b.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-bootstrap导航缩小折叠问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1092,93 +1187,6 @@
 
 
   
-    <article id="post-sublime编辑器Ctrl-E快捷键无效" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/8280745d.html">sublime编辑器Ctrl+E快捷键无效</a>
-    </h1>
-  
-
-        
-        <a href="/post/8280745d.html" class="archive-article-date">
-  	<time datetime="2018-10-06T10:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>出现此情况有两种原因，一种没有安装Emmet，另一种就是安装出现了问题<br>安装Emmet<br>首先下载package control<br>过程如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(1) 打开sublime，</span><br><span class="line">(2) 按Ctrl+`，调出命令框</span><br><span class="line">(3) 在框中根据sublime版本输入代码</span><br><span class="line">打开sublime，通过Ctrl+Shift+P快捷键调出命令面板，在命令面板中输入install package（sublime有模糊搜索功能），并按回车打开</span><br><span class="line">在出来的命令框中输入emmet并按回车进行下载</span><br><span class="line">结束（完美）。</span><br></pre></td></tr></table></figure></p>
-<p>安装Emmet出现错误<br>去gihub下载<a href="https://link.jianshu.com/?t=https://github.com/emmetio/pyv8-binaries#readme" target="_blank" rel="noopener">pyV8</a><br>然后找到你的Sublime的packages的安装包路径<br>解压文件至Packages\PyV8文件夹内(Preferences – Browser Packages)<br>结束（完美）。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Sublime</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Sublime//" class="article-tag-list-link color3">Sublime</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/8280745d.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1276,7 +1284,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1288,15 +1304,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1304,7 +1312,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mockjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">axios</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1316,7 +1340,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1332,7 +1360,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1340,15 +1368,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1368,23 +1392,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
