@@ -159,6 +159,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-小程序wxml页面进行数据替换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/fc17f2c8.html">小程序wxml页面进行数据替换</a>
+    </h1>
+  
+
+        
+        <a href="/post/fc17f2c8.html" class="archive-article-date">
+  	<time datetime="2019-04-01T15:39:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考1.<a href="https://blog.csdn.net/cangahi09025566/article/details/82589831" target="_blank" rel="noopener">微信小程序WXML页面上直接进行字符串截取实现方式</a></p>
+<p>参考2.<a href="https://www.aiyingli.com/51529.html" target="_blank" rel="noopener">wxs replace 正则用法该怎么用？？？？</a></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//顶部引用</span><br><span class="line"><span class="comment">&lt;!-- 引入wxs脚本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">src</span>=<span class="string">"./subutil.wxs"</span> <span class="attr">module</span>=<span class="string">"tools"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'nameSite'</span>&gt;</span>&#123;&#123;tools.subs(addressModel.address_city)&#125;&#125; <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>wxs脚本文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sub = <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (val.length == <span class="number">0</span> || val == <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> reg = getRegExp(<span class="string">"(\|)"</span>, <span class="string">"g"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(reg);</span><br><span class="line">    <span class="keyword">return</span> val.replace(reg, <span class="string">' '</span>);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.sub = sub;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/小程序//" class="article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/fc17f2c8.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-Vue使用路由的钩子函改变单页面的颜色" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1086,98 +1176,9 @@
 
 
   
-    <article id="post-js或jquery如何获取父、子、兄元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/b72c2fe5.html">js或jquery如何获取父、子、兄元素</a>
-    </h1>
-  
-
-        
-        <a href="/post/b72c2fe5.html" class="archive-article-date">
-  	<time datetime="2019-03-21T14:55:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原生javascript方法:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementById(<span class="string">"dom"</span>);</span><br><span class="line">del_space(a); <span class="comment">//清理空格</span></span><br><span class="line"><span class="keyword">var</span> b = a.childNodes; <span class="comment">//获取a的全部子节点；</span></span><br><span class="line"><span class="keyword">var</span> c = a.parentNode; <span class="comment">//获取a的父节点；</span></span><br><span class="line"><span class="keyword">var</span> d = a.nextSibling; <span class="comment">//获取a的下一个兄弟节点</span></span><br><span class="line"><span class="keyword">var</span> e = a.previousSibling; <span class="comment">//获取a的上一个兄弟节点</span></span><br><span class="line"><span class="keyword">var</span> f = a.firstChild; <span class="comment">//获取a的第一个子节点</span></span><br><span class="line"><span class="keyword">var</span> g = a.lastChild; <span class="comment">//获取a的最后一个子节点</span></span><br></pre></td></tr></table></figure>
-<p>jQuery方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">jQuery.parent(expr) <span class="comment">//找父亲节点，可以传入expr进行过滤，比如$("span").parent()或者$("span").parent(".class")</span></span><br><span class="line"></span><br><span class="line">jQuery.parents(expr) <span class="comment">//类似于jQuery.parents(expr),但是是查找所有祖先元素，不限于父元素</span></span><br><span class="line"></span><br><span class="line">jQuery.children(expr) <span class="comment">//返回所有子节点，这个方法只会返回直接的孩子节点，不会返回所有的子孙节点</span></span><br><span class="line"></span><br><span class="line">jQuery.contents() <span class="comment">//返回下面的所有内容，包括节点和文本。这个方法和children()的区别就在于，包括空白文本，也会被作为一个jQuery对象返回，children()则只会返回节点</span></span><br><span class="line"></span><br><span class="line">jQuery.prev() <span class="comment">//返回上一个兄弟节点，不是所有的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.prevAll() <span class="comment">//返回所有之前的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.next() <span class="comment">//返回下一个兄弟节点，不是所有的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.nextAll() <span class="comment">//返回所有之后的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.siblings() <span class="comment">//返回兄弟姐妹节点，不分前后</span></span><br><span class="line"></span><br><span class="line">jQuery.find(expr)  <span class="comment">//跟jQuery.filter(expr)完全不一样。</span></span><br><span class="line"></span><br><span class="line">jQuery.filter() <span class="comment">//是从初始的jQuery对象集合中筛选出一部分，而jQuery.find()的返回结果，不会有初始集合中的内容，比如$("p"),find("span"),是从p元素开始找,等同于$("p span").</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/b72c2fe5.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1284,14 +1285,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
               </li>
              
@@ -1300,11 +1293,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1328,19 +1329,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jQuer动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jQuer动画</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1352,7 +1353,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
+                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1360,7 +1361,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
+                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1380,15 +1381,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
             
             <div class="clearfix"></div>
