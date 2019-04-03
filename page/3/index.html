@@ -159,6 +159,115 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web端使用jquerer-emoji表情" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/59c352fb.html">Web端使用jquerer_emoji表情</a>
+    </h1>
+  
+
+        
+        <a href="/post/59c352fb.html" class="archive-article-date">
+  	<time datetime="2018-10-08T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/eshengsky/jQuery-emoji" target="_blank" rel="noopener">参考emoji_jquery</a></p>
+<p>在使用这个插件的时候解析过程比较困扰，在<code>&lt;textarea&gt;</code>文本框的情况下无法解析他的值，因此找到手动解析的方法。</p>
+<h3 id="安装install"><a href="#安装install" class="headerlink" title="安装install"></a>安装install</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install --save jQuery-emoji</span><br></pre></td></tr></table></figure>
+<h3 id="页面引用"><a href="#页面引用" class="headerlink" title="页面引用"></a>页面引用</h3><ul>
+<li>首先在页面上引用css文件和js文件，css文件一般在<code>&lt;head&gt;</code>中添加，js文件一般在<code>&lt;/body&gt;</code>之前添加。注意要先引用jquery和jquery.mCustomScrollbar，再引用该js。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--the css for jquery.mCustomScrollbar--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"lib/css/jquery.mCustomScrollbar.min.css"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--the css for this plugin--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/jquery.emoji.css"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.bootcss.com/jquery/1.11.3/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--(Optional) the js for jquery.mCustomScrollbar's addon--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/script/jquery.mousewheel-3.0.6.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--the js for jquery.mCustomScrollbar--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/script/jquery.mCustomScrollbar.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--the js for this plugin--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.emoji.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h3><ul>
+<li>在文本框或可编辑div上初始化emoji</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#content"</span>).emoji(options);</span><br></pre></td></tr></table></figure>
+<p><a href="http://eshengsky.github.io/jQuery-emoji/" target="_blank" rel="noopener">options参数和方法</a></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h5 id="Html部分"><a href="#Html部分" class="headerlink" title="Html部分"></a>Html部分</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ic</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">"message"</span> <span class="attr">placeholder</span>=<span class="string">"请在此输入文本或上传图片"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="Js部分"><a href="#Js部分" class="headerlink" title="Js部分"></a>Js部分</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给元素绑定表情 option里参数参照上面官方</span></span><br><span class="line">$(<span class="string">"#message"</span>).emoji(&#123;</span><br><span class="line">        button:<span class="string">"#face"</span>,</span><br><span class="line">        showTab: <span class="literal">true</span>,</span><br><span class="line">        animation: <span class="string">'fade'</span>,</span><br><span class="line">        icons: [&#123;</span><br><span class="line">            name: <span class="string">"贴吧表情"</span>,</span><br><span class="line">            path: <span class="string">"lib/eshengsky-jQuery-emoji/dist/img/tieba/"</span>,</span><br><span class="line">            maxNum: <span class="number">50</span>,</span><br><span class="line">            file: <span class="string">".jpg"</span>,</span><br><span class="line">            placeholder: <span class="string">"[emoji_&#123;alias&#125;]"</span>,</span><br><span class="line"></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: <span class="string">"QQ高清"</span>,</span><br><span class="line">            path: <span class="string">"lib/eshengsky-jQuery-emoji/dist/img/qq/"</span>,</span><br><span class="line">            maxNum: <span class="number">91</span>,</span><br><span class="line">            excludeNums: [<span class="number">41</span>, <span class="number">45</span>, <span class="number">54</span>],</span><br><span class="line">            file: <span class="string">".gif"</span>,</span><br><span class="line">            placeholder: <span class="string">"[qq_&#123;alias&#125;]"</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: <span class="string">"emoji高清"</span>,</span><br><span class="line">            path: <span class="string">"lib/eshengsky-jQuery-emoji/dist/img/emoji/"</span>,</span><br><span class="line">            maxNum: <span class="number">84</span>,</span><br><span class="line">            file: <span class="string">".png"</span>,</span><br><span class="line">            placeholder: <span class="string">"[em_&#123;alias&#125;]"</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">// 解析方法</span></span><br><span class="line">$(<span class="string">'#btn'</span>).click(funtion()&#123;</span><br><span class="line">	<span class="keyword">var</span> contents = $(<span class="string">'#message'</span>).val();</span><br><span class="line">	contents = replace_em(contents);</span><br><span class="line">	onsole.log(contents)；</span><br><span class="line">    $(<span class="string">'#content'</span>).html(contents);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 手动解析规则</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">replace_em</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">        str = str.replace(<span class="regexp">/\&lt;/g</span>,<span class="string">'&amp;lt;'</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\&gt;/g</span>,<span class="string">'&amp;gt;'</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\n/g</span>,<span class="string">'&lt;br/&gt;'</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\[qq_([0-9]*)\]/g</span>,<span class="string">"&lt;img src='lib/eshengsky-jQuery-emoji/dist/img/qq/$1.gif' /&gt;"</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\[em_([0-9]*)\]/g</span>,<span class="string">"&lt;img src='lib/eshengsky-jQuery-emoji/dist/img/emoji/$1.png'  /&gt;"</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\[emoji_([0-9]*)\]/g</span>,<span class="string">"&lt;img src='lib/eshengsky-jQuery-emoji/dist/img/tieba/$1.jpg' /&gt;"</span>);</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>官方转换方法有点复杂，转换不了<code>&lt;textarea&gt;</code>输入的值，可能要修改官方的解析方法。</p>
+<p><a href="https://github.com/li914/emoji_jQuery" target="_blank" rel="noopener">延伸插件</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jQuer//" class="article-tag-list-link color1">jQuer</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jQuer/JS插件//" class="article-tag-list-link color5">JS插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/59c352fb.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-hexo添加Gitalik评论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -206,11 +315,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
         		</li>
       		
 		</ul>
@@ -1447,95 +1556,6 @@
 
 
   
-    <article id="post-常用Git命令清单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/724c121.html">常用Git命令清单</a>
-    </h1>
-  
-
-        
-        <a href="/post/724c121.html" class="archive-article-date">
-  	<time datetime="2018-10-02T16:16:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h1><p>请前往阮一峰的文章<a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a></p>
-<h2 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h2><ul>
-<li><code>reset</code>git bash 清除屏幕的方式 </li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Git//" class="article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/724c121.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1633,15 +1653,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Axios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1653,6 +1677,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -1661,23 +1689,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mockjs</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1697,6 +1721,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
               </li>
              
@@ -1705,23 +1737,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1741,15 +1765,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
             
             <div class="clearfix"></div>
