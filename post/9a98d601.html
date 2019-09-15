@@ -8,18 +8,28 @@
   <link rel="dns-prefetch" href="http://blog.vmccc.cn">
   <title>Github搭建Hexo博客 | Safran Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录 系统要求 设置FLutter镜像(非必须) 获取Flutter SDK iOS开发环境设置 Android开发环境设置 安装Flutter插件  系统要求在Mac上要安装并运行Flutter要满足以下最低要求:  操作系统: macOS (64-bit) 磁盘空间: 700 MB (不包括Xcode或Android Studio的磁盘空间）. 工具: Flutter 依赖下面这些命令行工具：">
+  <meta name="description" content="Github 搭建Hexo博客利用Github page搭建一个人博客，在没有特殊需求，又想快速拥有一个个人博客，hexo是个不错的选择，搭建简单，无需另外购买服务器空间和域名，只需要有个Github账号即可。搭建简单，能够坚持维护和写文章难。。。  环境准备1.安装Node.js Hexo是基于nodeJS环境的静态博客 前往Node官网下载最新版本,一路安装即可。 查看是否安装好了，打开cdm">
 <meta name="keywords" content="Blog,Github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Github搭建Hexo博客">
 <meta property="og:url" content="http://blog.vmccc.cn/post/9a98d601.html">
 <meta property="og:site_name" content="Safran Blog">
-<meta property="og:description" content="目录 系统要求 设置FLutter镜像(非必须) 获取Flutter SDK iOS开发环境设置 Android开发环境设置 安装Flutter插件  系统要求在Mac上要安装并运行Flutter要满足以下最低要求:  操作系统: macOS (64-bit) 磁盘空间: 700 MB (不包括Xcode或Android Studio的磁盘空间）. 工具: Flutter 依赖下面这些命令行工具：">
+<meta property="og:description" content="Github 搭建Hexo博客利用Github page搭建一个人博客，在没有特殊需求，又想快速拥有一个个人博客，hexo是个不错的选择，搭建简单，无需另外购买服务器空间和域名，只需要有个Github账号即可。搭建简单，能够坚持维护和写文章难。。。  环境准备1.安装Node.js Hexo是基于nodeJS环境的静态博客 前往Node官网下载最新版本,一路安装即可。 查看是否安装好了，打开cdm">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T13:26:10.393Z">
+<meta property="og:image" content="http://pan.vmccc.cn/images/2018/10/02/8jDSlPigzd/githexo.jpg">
+<meta property="og:image" content="http://pan.vmccc.cn/images/2018/10/03/FWonyhHnxo/git-dir.jpg">
+<meta property="og:image" content="http://pan.vmccc.cn/images/2018/10/03/59D6ETwVgq/git-user.jpg">
+<meta property="og:image" content="http://pan.vmccc.cn/images/2018/10/03/FYeGRdAdw7/githubUser.jpg">
+<meta property="og:image" content="http://pan.vmccc.cn/images/2018/10/03/hy3IQ1Z73j/gitssh.jpg">
+<meta property="og:image" content="http://pan.vmccc.cn/images/2018/10/03/FueQEPx6Lf/settings.jpg">
+<meta property="og:image" content="http://pan.vmccc.cn/images/2018/10/03/FcbkdhRQul/gitsshkey.jpg">
+<meta property="og:image" content="http://pan.vmccc.cn/images/2018/10/05/MVFBcdDSgc/blog-cname.jpg">
+<meta property="og:image" content="http://pan.vmccc.cn/images/2018/10/05/jfma6xvxOz/blog-yuming.jpg">
+<meta property="og:updated_time" content="2018-10-05T14:30:16.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github搭建Hexo博客">
-<meta name="twitter:description" content="目录 系统要求 设置FLutter镜像(非必须) 获取Flutter SDK iOS开发环境设置 Android开发环境设置 安装Flutter插件  系统要求在Mac上要安装并运行Flutter要满足以下最低要求:  操作系统: macOS (64-bit) 磁盘空间: 700 MB (不包括Xcode或Android Studio的磁盘空间）. 工具: Flutter 依赖下面这些命令行工具：">
+<meta name="twitter:description" content="Github 搭建Hexo博客利用Github page搭建一个人博客，在没有特殊需求，又想快速拥有一个个人博客，hexo是个不错的选择，搭建简单，无需另外购买服务器空间和域名，只需要有个Github账号即可。搭建简单，能够坚持维护和写文章难。。。  环境准备1.安装Node.js Hexo是基于nodeJS环境的静态博客 前往Node官网下载最新版本,一路安装即可。 查看是否安装好了，打开cdm">
+<meta name="twitter:image" content="http://pan.vmccc.cn/images/2018/10/02/8jDSlPigzd/githexo.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
@@ -159,7 +169,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-快速搭建Flutter环境-Mac" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-github搭建hexo博客" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -179,136 +189,169 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li>系统要求</li>
-<li>设置FLutter镜像(非必须)</li>
-<li>获取Flutter SDK</li>
-<li>iOS开发环境设置</li>
-<li>Android开发环境设置</li>
-<li>安装Flutter插件</li>
-</ul>
-<h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><p>在Mac上要安装并运行Flutter要满足以下最低要求:</p>
+        <h1 id="Github-搭建Hexo博客"><a href="#Github-搭建Hexo博客" class="headerlink" title="Github 搭建Hexo博客"></a>Github 搭建Hexo博客</h1><p>利用Github page搭建一个人博客，在没有特殊需求，又想快速拥有一个个人博客，hexo是个不错的选择，搭建简单，无需另外购买服务器空间和域名，只需要有个Github账号即可。搭建简单，能够坚持维护和写文章难。。。</p>
+<hr>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>1.安装Node.js</p>
+<p>Hexo是基于nodeJS环境的静态博客</p>
+<p>前往<a href="https://nodejs.org/" target="_blank" rel="noopener">Node官网</a>下载最新版本,一路安装即可。</p>
+<p>查看是否安装好了，打开cdm 运行<code>node -V</code>查看版本号 </p>
+<p>2.安装Git</p>
+<p><a href="https://git-scm.com/downloads/" target="_blank" rel="noopener">官网下载</a></p>
+<p>右键打Git Bash查看版本 <code>git version</code></p>
+<p>3.Sublime</p>
+<p>随便一款文本编辑器，这里我用<a href="http://www.sublimetext.com/3" target="_blank" rel="noopener">Sublime</a>。支持各种编程语言和文件格式，当然也支持Markdown语法 。</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>1.安装Hexo</p>
 <ul>
-<li>操作系统: macOS (64-bit)</li>
-<li>磁盘空间: 700 MB (不包括Xcode或Android Studio的磁盘空间）.</li>
-<li>工具: Flutter 依赖下面这些命令行工具：<code>bash curl git 2.x mkdir rm unzip which</code></li>
+<li><p>先创建一个文件夹（用来存放所有blog的东西）然后<code>cd</code>到该文件夹下</p>
+</li>
+<li><p>安装hexo命令：<code>npm i +g hexo</code></p>
+</li>
+<li><p>安装完后查看版本</p>
+<p><img src="http://pan.vmccc.cn/images/2018/10/02/8jDSlPigzd/githexo.jpg" alt=""></p>
+</li>
+<li><p>初始化命令：<code>hexo init</code> ，初始化完成之后打开所在的文件夹可以看到以下文件：</p>
+</li>
 </ul>
-<h2 id="设置FLutter镜像-非必须"><a href="#设置FLutter镜像-非必须" class="headerlink" title="设置FLutter镜像(非必须)"></a>设置FLutter镜像(非必须)</h2><p>由于在国内访问Flutter可能会受到限制，Flutter官方为中国开发者搭建了临时镜像，大家可以将如下环境变量加入到用户环境变量中：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Macintosh HD⁩ ▸ ⁨Users⁩ ▸ ⁨你的用户名 ▸ ⁨.bash_profile</span></span><br><span class="line"><span class="keyword">export</span> PUB_HOSTED_URL=https:<span class="comment">//pub.flutter-io.cn</span></span><br><span class="line"><span class="keyword">export</span> FLUTTER_STORAGE_BASE_URL=https:<span class="comment">//storage.flutter-io.cn</span></span><br></pre></td></tr></table></figure>
-<p>注意：此镜像为临时镜像，并不能保证一直可用，大家可以从 <a href="https://flutter.dev/community/china" target="_blank" rel="noopener">Using Flutter in China</a> 上获得有关镜像服务器的最新动态。</p>
-<h2 id="获取Flutter-SDK"><a href="#获取Flutter-SDK" class="headerlink" title="获取Flutter SDK"></a>获取Flutter SDK</h2><p><strong>1.点Flutter官网下载其最新可用的安装包。</strong></p>
-<p><strong>2.解压安装包到你想安装的目录，如：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd ~/development</span><br><span class="line"><span class="meta">$</span> unzip ~/Downloads/flutter_macos_v1.2.1-stable.zip</span><br></pre></td></tr></table></figure>
-<p><strong>3.添加flutter相关工具到path中：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> PATH=<span class="string">"$PATH:`pwd`/flutter/bin"</span></span><br></pre></td></tr></table></figure>
-<p>此代码只能暂时针对当前命令行窗口设置PATH环境变量，要想永久将Flutter添加到PATH中请参考下面做法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd ~</span><br><span class="line"><span class="meta">$</span> vim .bash_profile</span><br></pre></td></tr></table></figure>
-<p>然后添加：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> PATH=<span class="regexp">/Users/</span>safran/Documents/flutter/bin:$PATH</span><br></pre></td></tr></table></figure>
-<p>之后记得保存文件。</p>
-<h3 id="运行-flutter-doctor"><a href="#运行-flutter-doctor" class="headerlink" title="运行 flutter doctor"></a>运行 flutter doctor</h3><p>上面path配置完成之后，需要关闭终端重新打开，然后运行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter doctor</span><br></pre></td></tr></table></figure>
-<p>该命令检查你的环境并在终端窗口中显示报告。Dart SDK已经在捆绑在Flutter里了，没有必要单独安装Dart。 仔细检查命令行输出以获取可能需要安装的其他软件或进一步需要执行的任务（以粗体显示）：</p>
-<p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[-] Android toolchain - develop for Android devices</span><br><span class="line">    • Android SDK at /Users/obiwan/Library/Android/sdk</span><br><span class="line">    ✗ Android SDK is missing command line tools; download from https://goo.gl/XxQghQ</span><br><span class="line">    • Try re-installing or updating your Android SDK,</span><br><span class="line">      visit https://flutter.dev/setup/#android-setup for detailed instructions.</span><br></pre></td></tr></table></figure>
-<p>一般的错误会是XCode或Android Studio版本太低、或者没有<code>ANDROID_HOME</code>环境变量等，可参考一下环境变量的配置来检查你的环境变量：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>flutter环境变量</span><br><span class="line">export PATH=/Users/safran/Desktop/flutter/bin:$PATH</span><br><span class="line"><span class="meta">#</span> flutter镜像</span><br><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br><span class="line"><span class="meta">#</span>Android 环境变量</span><br><span class="line">export ANDROID_HOME=/Users/safran/Library/Android/sdk</span><br><span class="line"><span class="meta">#</span>Android 模拟器路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/emulator</span><br><span class="line"><span class="meta">#</span>Android tools路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/tools</span><br><span class="line"><span class="meta">#</span>Android 平台工具路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/platform-tools</span><br><span class="line"><span class="meta">#</span>Android NDK路径</span><br><span class="line">ANDROID_NDK_HOME=/Users/safran/Library/Android/ndk/android-ndk-r10e</span><br></pre></td></tr></table></figure>
+<p><img src="http://pan.vmccc.cn/images/2018/10/03/FWonyhHnxo/git-dir.jpg" alt=""></p>
+<ul>
+<li><p>解释一下：</p>
+<ul>
+<li>node_modules：是依赖包</li>
+<li>public：存放的是生成的页面</li>
+<li>scaffolds：命令生成文章等的模板</li>
+<li>source：用命令创建的各种文章</li>
+<li>themes：主题</li>
+<li>_config.yml：整个博客的配置</li>
+<li>db.json：source解析所得到的</li>
+<li>package.json：项目所需模块项目的配置信息</li>
+</ul>
+</li>
+<li><p>做好这些前置工作之后接下来的就是各种配配配置了。</p>
+</li>
+</ul>
+<h3 id="Github注册与配置"><a href="#Github注册与配置" class="headerlink" title="Github注册与配置"></a>Github注册与配置</h3><p>1.注册<br>访问：<a href="https://luuman.github.io/2015/12/27/Hexo/GitHubHexo/0" target="_blank" rel="noopener">GitHub</a>，注册你的username和邮箱，邮箱十分重要，GitHub上很多通知都是通过邮箱的。注册过程比较简单。</p>
+<p>2.配置和使用Github</p>
+<ul>
+<li>创建一个repo，名称为<code>safranyu.github.io</code>, 其中safranyu是你的github名称，按照这个规则创建才有用哦，如下：(由于我已经提前创建好了，所以提示这个库已经存在)</li>
+</ul>
+<p><img src="http://pan.vmccc.cn/images/2018/10/03/59D6ETwVgq/git-user.jpg" alt=""></p>
+<ul>
+<li>回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的）：</li>
+</ul>
+<p><img src="http://pan.vmccc.cn/images/2018/10/03/FYeGRdAdw7/githubUser.jpg" alt=""></p>
+<ul>
+<li>创建SSH<br>在gitbash中输入：<code>ssh-keygen -t rsa -C &quot;youremail@example.com</code>，生成ssh。然后按下图的方式找到<code>id_rsa.pub</code>文件的内容。</li>
+</ul>
+<p><img src="http://pan.vmccc.cn/images/2018/10/03/hy3IQ1Z73j/gitssh.jpg" alt=""></p>
+<ul>
+<li><p>将上面获取的ssh放到github中：</p>
+<p><img src="http://pan.vmccc.cn/images/2018/10/03/FueQEPx6Lf/settings.jpg" alt=""></p>
+<p><img src="http://pan.vmccc.cn/images/2018/10/03/FcbkdhRQul/gitsshkey.jpg" alt=""></p>
+</li>
+</ul>
+<p>添加一个 <code>New SSH key</code> ，title随便取，key就填刚刚那一段。</p>
+<ul>
+<li><p>在gitbash中验证是否添加成功：<code>ssh +T git@github.com</code></p>
+</li>
+<li><p>完成下一步你就成功啦！</p>
+</li>
+</ul>
+<p>3.配置</p>
+<ul>
+<li><p>用编辑器打开你的blog项目，修改<code>_config.yml</code>文件的一些配置(冒号之后都是有一个半角空格的)：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="comment">//github.com/YourgithubName/YourgithubName.github.io.git</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回到gitbash中，进入你的blog目录，分别执行以下命令：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开浏览器输入：<code>http://localhost:4000</code></p>
+</li>
+</ul>
+<ul>
+<li><p>命令解释：</p>
+<ul>
+<li>清除public，当 source 文件夹中的部分资源更改过之后，特别是对文件进行了删除或者路径的改变之后，需要执行这个命令，然后重新编译。</li>
+<li>编译，一般部署上去的时候都需要编译一下，编译后，会出现一个 public 文件夹，将所有的md文件编译成html文件</li>
+<li>开启本地服务</li>
+</ul>
+</li>
+</ul>
+<p>4.上传到github</p>
+<ul>
+<li>执行命令(建议每次都按照如下步骤部署,可简写)：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br><span class="line"><span class="comment">//简写</span></span><br><span class="line"><span class="comment">//hexo c</span></span><br><span class="line"><span class="comment">//hexo g</span></span><br><span class="line"><span class="comment">//hexo d</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在浏览器中输入<code>http://safranyu.github.io</code>就可以看到你的个人博客啦，是不是很兴奋！</li>
+</ul>
+<ul>
+<li>感觉GitBash中东西太多的时候输入<code>clear</code>命令清空</li>
+</ul>
+<p>5.绑定个人域名</p>
+<ul>
+<li><p>不想绑定的自行忽略</p>
+</li>
+<li><p>第一步购买域名：随便在哪个网站买一个就好了。</p>
+</li>
+<li><p>第二步添加CNAME：添加记录，添加你的域名或者二级域名，比如我添加的是二级域名<code>blog</code>，记录值里填你Github里的域名,比如<code>safranyu.github.io</code>，<br> <img src="http://pan.vmccc.cn/images/2018/10/05/MVFBcdDSgc/blog-cname.jpg" alt=""></p>
+</li>
+<li><p>填写完后回到Github进入里的Blog库，设置里添加你的域名保存即可</p>
+<p> <img src="http://pan.vmccc.cn/images/2018/10/05/jfma6xvxOz/blog-yuming.jpg" alt=""></p>
+</li>
+</ul>
+<h2 id="Hexo博客配置"><a href="#Hexo博客配置" class="headerlink" title="Hexo博客配置"></a>Hexo博客配置</h2><h3 id="新建博文"><a href="#新建博文" class="headerlink" title="新建博文"></a>新建博文</h3><p>在Git Bash输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;新博文的名字&quot;</span><br></pre></td></tr></table></figure>
+<p>即可在 Hexo\source_posts 目录中找到”新博文的名字.md”这个文件。你就可以使用maekdown编辑器打开进行编写博客内容了。</p>
 <blockquote>
-<p><em>第一次运行一个flutter命令（如flutter doctor）时，它会下载它自己的依赖项并自行编译。以后再运行就会快得多。</em></p>
+<p>hexo new [layout] “postName” #新建文章</p>
 </blockquote>
-<h2 id="iOS开发环境设置"><a href="#iOS开发环境设置" class="headerlink" title="iOS开发环境设置"></a>iOS开发环境设置</h2><h3 id="安装-Xcode"><a href="#安装-Xcode" class="headerlink" title="安装 Xcode"></a>安装 Xcode</h3><p>要用Flutter开发iOS App需要Xcode 9.0 或更高版本:</p>
-<p><strong>1.安装Xcode 9.0或更新版本(通过链接下载或苹果应用商店)</strong></p>
-<p><strong>2.配置Xcode命令行工具以使用新安装的Xcode版本</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</span><br></pre></td></tr></table></figure>
-<p>以上路径时对于最新版Xcode的路径。如果你需要使用不同的Xcode版本，需要指定相应路径。</p>
-<p><strong>3.确保Xcode许可协议是通过打开一次Xcode或通过命令sudo xcodebuild -license同意过了</strong></p>
-<p>接下来就可以使用Xcode，在iOS设备或模拟器上运行Flutter App了。</p>
-<h3 id="设置iOS模拟器"><a href="#设置iOS模拟器" class="headerlink" title="设置iOS模拟器"></a>设置iOS模拟器</h3><p>要准备在iOS模拟器上运行并测试您的Flutter应用，请按以下步骤操作：</p>
-<p><strong>1.在终端输入如下命令打开一个iOS模拟器：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> open -a Simulator</span><br></pre></td></tr></table></figure>
-<p><strong>2.通过模拟器菜单栏的 硬件&gt;设备 ，确保你打开是64位 iPhone 5s或更新的模拟器</strong></p>
-<p><strong>3.如果模拟器过大，可以通过模拟器的 Window&gt; Scale 菜单下设置设备比例</strong></p>
-<h3 id="创建和运行一个简单的Flutter项目"><a href="#创建和运行一个简单的Flutter项目" class="headerlink" title="创建和运行一个简单的Flutter项目"></a>创建和运行一个简单的Flutter项目</h3><p><strong>1.通过如下命令创建一个Flutter项目</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter create my_app</span><br></pre></td></tr></table></figure>
-<p><strong>2.命令运行完成之后会在当前目录下创建一个名为my_app的Flutter项目，然后通过一下命令可以运行它：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd my_app</span><br><span class="line"><span class="meta">$</span> flutter run</span><br></pre></td></tr></table></figure>
-<h3 id="如何将Flutter安装到iOS真机上？"><a href="#如何将Flutter安装到iOS真机上？" class="headerlink" title="如何将Flutter安装到iOS真机上？"></a>如何将Flutter安装到iOS真机上？</h3><p>要通过<code>lutter run</code>将Flutter应用安装到iOS真机设备，需要一些额外的工具和一个Apple帐户，还需要在Xcode中进行设置：</p>
-<blockquote>
-<p>当然，用XCode来将Flutter运行在真机上更简单，只需要点一下<code>run</code>按钮即可，可以根据需要进行选择这两种不同的运行方式；</p>
-</blockquote>
-<p><strong>1.安装 Homebrew （如果已经安装了brew,跳过此步骤）.</strong></p>
-<p><strong>2.确保homebrew已更新</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew update</span><br></pre></td></tr></table></figure>
-<p><strong>3.打开终端并运行这些命令来安装用于将Flutter应用安装到iOS设备的工具</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew install --HEAD usbmuxd</span><br><span class="line"><span class="meta">$</span> brew link usbmuxd</span><br><span class="line"><span class="meta">$</span> brew install --HEAD libimobiledevice</span><br><span class="line"><span class="meta">$</span> brew install ideviceinstaller ios-deploy cocoapods</span><br><span class="line"><span class="meta">$</span> pod setup</span><br></pre></td></tr></table></figure>
-<p>如果这些命令中的任何一个失败并出现错误，可运行<code>brew doctor</code>并按照说明解决问题。</p>
-<p><strong>4.遵循Xcode签名流程来配置您的项目:</strong></p>
+<p>其中layout是可选参数，默认值为post。有哪些layout呢，请到scaffolds目录下查看，这些文件名称就是layout名称。当然你可以添加自己的layout，方法就是添加一个文件即可，同时你也可以编辑现有的layout，比如post的layout默认是hexo\scaffolds\post.md</p>
+<h3 id="预览和发表"><a href="#预览和发表" class="headerlink" title="预览和发表"></a>预览和发表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p>你可以在<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">Themes·Hexo</a>或者<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo主题</a>上选择你喜欢的主题，我使用的SPFK主题</p>
+<h4 id="安装SPFK主题"><a href="#安装SPFK主题" class="headerlink" title="安装SPFK主题"></a>安装SPFK主题</h4><ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/luuman/hexo-theme-spfk.git themes/spfk</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd themes/spfk</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置</p>
+<p>主题配置文件在主目录下的<code>_config.yml</code>：<a href="http://luuman.github.io/2015/12/21/GitHub+Hexo/" target="_blank" rel="noopener">_config.yml</a></p>
+<p>相关插件的安装：请参照<a href="http://localhost:4000/2015/12/27/Hexo-plug/" target="_blank" rel="noopener">Hexo插件安装</a></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">### Header</span><br><span class="line">D:\blog\themes\spfk\_config.yml</span><br><span class="line">menu:</span><br><span class="line">  主页: /</span><br><span class="line">  所有文章: /archives</span><br><span class="line">  # 随笔: /tags/随笔</span><br><span class="line">    #是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key（http://duoshuo-key.duoshuo.com/）</span><br><span class="line">    #若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论</span><br><span class="line">    duoshuo: true</span><br><span class="line">网页侧边栏背景:</span><br><span class="line"># Background | 背景</span><br><span class="line">## &quot;background_sum&quot;: show images form /source/background/的图片数目background_sum: 24</span><br><span class="line">## &quot;on: true&quot;: 自动随机显示这5张图片</span><br><span class="line">## &quot;on: false&quot;: 自定义显示图片设置，background_image: 109</span><br><span class="line">background:</span><br><span class="line">  on: true</span><br><span class="line">  #on: false</span><br><span class="line">  background_sum: 24</span><br><span class="line">  background_image: 109</span><br></pre></td></tr></table></figure>
 <ul>
-<li>在你Flutter项目目录中通过 <code>open ios/Runner.xcworkspace</code> 打开默认的Xcode workspace</li>
-<li>在Xcode中，选择导航面板左侧中的Runner项目</li>
-<li>在Runner target设置页面中，确保在 常规&gt;签名&gt;团队 下选择了您的开发团队。当您选择一个团队时，Xcode会创建并下载开发证书，向您的设备注册您的帐户，并创建和下载配置文件（如果需要）<ul>
-<li>要开始您的第一个iOS开发项目，您可能需要使用您的Apple ID登录Xcode</li>
+<li>多说评论</li>
 </ul>
-</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">duoshuo: </span><br><span class="line">  on: true</span><br><span class="line">  domain: luuman</span><br><span class="line">  # 是否开启多说评论，http://duoshuo.com/create-site/</span><br><span class="line">  # 使用上面网址登陆你的多说，然后创建站点，在 domain 中填入你设定的域名前半部分</span><br><span class="line">  # http://&lt;要填的部分&gt;.duoshuo.com (domain只填上&lt;&gt;里的内容，不要填整个网址)</span><br><span class="line">J:\Hexo\Hexo\themes\spfk\source\css\多说.css</span><br></pre></td></tr></table></figure>
+<p>添加方法：打开「后台」 &gt; 「多说评论」 &gt; 「设置」 &gt; 「基本设置」 &gt; 然后把样式粘贴到「自定义CSS」文本框 &gt; 「保存」</p>
+<p>具体样式请参照：<a href="https://github.com/luuman/luuman.github.io/blob/master/resoures/%E5%A4%9A%E8%AF%B4.css" target="_blank" rel="noopener">多说.css</a></p>
 <ul>
-<li>任何Apple ID都支持开发和测试，但如果要将应用发布到App Store则需要一个99美刀的开发者账号。</li>
-<li>当你第一次attach真机设备进行iOS开发时，需要同时信任你的Mac和该设备上的开发证书。首次将iOS设备连接到Mac时,请在对话框中选择 <code>Trust</code>。</li>
+<li>头像</li>
 </ul>
-<p>然后，转到iOS设备上的设置应用程序，选择 常规&gt;设备管理 并信任您的证书。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 头像尺寸大概200*200px</span><br><span class="line">D:\blog\themes\spfk\source\img\head.jpg</span><br></pre></td></tr></table></figure>
 <ul>
-<li>如果Xcode中的自动签名失败，请验证项目的 General &gt; Identity &gt; Bundle Identifier 值是否唯一。</li>
+<li>icon 图标</li>
 </ul>
-<p><strong>5.通过flutter run运行启动项目</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter run</span><br></pre></td></tr></table></figure>
-<h2 id="Android开发环境设置-amp-Flutter插件安装"><a href="#Android开发环境设置-amp-Flutter插件安装" class="headerlink" title="Android开发环境设置&amp;Flutter插件安装"></a>Android开发环境设置&amp;Flutter插件安装</h2><h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><p><strong>1.下载并安装 Android Studio</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">替换路径: /spfk/source/apple-touch-icon.png</span><br><span class="line">D:\blog\themes\spfk\source\img\favicon.png</span><br></pre></td></tr></table></figure>
 <ul>
-<li><a href="https://developer.android.com/studio" target="_blank" rel="noopener">https://developer.android.com/studio</a></li>
-<li><a href="https://developer.android.google.cn/studio" target="_blank" rel="noopener">https://developer.android.google.cn/studio</a></li>
+<li>背景</li>
 </ul>
-<blockquote>
-<p>因为Android网站设在国外，如果你的网络无法访问第一个地址，可以选择使用Google为中国开发者提供的中国网址进行访问。</p>
-</blockquote>
-<p>另外，关于Android Studio的安装和配置，Android官方有比较详细的说明文档<a href="https://developer.android.google.cn/studio/intro，大家可以根据需要进行查阅；" target="_blank" rel="noopener">https://developer.android.google.cn/studio/intro，大家可以根据需要进行查阅；</a></p>
-<p><strong>2.启动Android Studio，然后执行“Android Studio安装向导”。这将安装最新的Android SDK，Android SDK平台工具和Android SDK构建工具</strong></p>
-<h3 id="Flutter插件安装"><a href="#Flutter插件安装" class="headerlink" title="Flutter插件安装"></a>Flutter插件安装</h3><ul>
-<li>打开Android Studio</li>
-<li>打开Preferences &gt; Plugins (macOS), File &gt; Settings &gt; Plugins (Windows &amp; Linux)</li>
-<li>选择 Browse repositories, 搜索 Flutter plugin</li>
-<li>然后点击安装，然后安装Dart插件</li>
-<li>完成之后选择重启Android Studio</li>
-</ul>
-<h3 id="如何在Android模拟器上运行Flutter？"><a href="#如何在Android模拟器上运行Flutter？" class="headerlink" title="如何在Android模拟器上运行Flutter？"></a>如何在Android模拟器上运行Flutter？</h3><p>要准备在Android模拟器上运行并测试您的Flutter应用，需要按照以下步骤操作：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Background | 背景</span><br><span class="line"><span class="meta">#</span> "background_sum": show images form /source/background/的图片数目</span><br><span class="line"><span class="meta">#</span> "on: true": 自动随机显示这5张图片</span><br><span class="line"><span class="meta">#</span> "on: false": 自定义显示图片设置 background_image: 5</span><br><span class="line">background:</span><br><span class="line">  on: true</span><br><span class="line"><span class="meta">  #</span>on: false</span><br><span class="line">  background_sum: 24</span><br><span class="line">  background_image: 109</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>在你的机器上启用 <a href="https://developer.android.com/studio/run/emulator-acceleration.html#vm-mac" target="_blank" rel="noopener">VM acceleration</a>；</p>
-</li>
-<li><p>启动 Android Studio&gt;Tools&gt;Android&gt;AVD Manager 并选择 <code>Create Virtual Device</code>；</p>
-</li>
-<li><p>选择一个设备并选择 Next；</p>
-</li>
-<li><p>为要模拟的Android版本选择一个或多个系统映像，然后选择 Next. 建议使用 x86 或 x86_64 的镜像；</p>
-</li>
-<li><p>在 Emulated Performance下, 选择 Hardware - GLES 2.0 以启用硬件加速；</p>
-</li>
-<li><p>验证AVD配置是否正确，然后选择 Finish；</p>
-<p>如果对以上步骤还有不清楚的可以参阅Android官方的 <a href="https://developer.android.com/studio/run/managing-avds.html" target="_blank" rel="noopener">Managing AVDs</a>文档。</p>
-</li>
-<li><p>在 Android Virtual Device Manager中, 点击工具栏的 <code>Run</code>，模拟器启动并显示所选操作系统版本或设备的启动画面；</p>
-</li>
-<li><p>通过<code>flutter run</code>运行启动项目；</p>
-</li>
+<li>文章摘要</li>
 </ul>
-<h3 id="如何在Android真机运行？"><a href="#如何在Android真机运行？" class="headerlink" title="如何在Android真机运行？"></a>如何在Android真机运行？</h3><p>要准备在Android设备上运行并测试您的Flutter应用，您需要安装Android 4.1（API level 16）或更高版本的Android设备</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">title: 前端知识体系</span><br><span class="line">date: 2018-10-07 22:08:02</span><br><span class="line">description: </span><br><span class="line">categories:</span><br><span class="line">- HTML 书籍</span><br><span class="line">- HTML 书籍</span><br><span class="line">tags:</span><br><span class="line">- HTML 标签 </span><br><span class="line">- HTML 标签</span><br><span class="line">toc: true 文章目录</span><br><span class="line">author:</span><br><span class="line">comments:</span><br><span class="line">original:</span><br><span class="line">permalink: </span><br><span class="line">---</span><br><span class="line">　　** 前端知识体系：**&lt;Excerpt in index | 首页摘要&gt; </span><br><span class="line">+ &lt;!-- more --&gt;</span><br><span class="line">&lt;The rest of contents | 余下全文&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>在你的设备上启用 <code>开发人员选项</code> 和 <code>USB调试</code> 。详细说明可在<a href="https://developer.android.com/studio/debug/dev-options.html" target="_blank" rel="noopener">Android文档</a>中找到；</li>
-<li>使用USB将手机插入电脑，如果有授权提示需要同意授权；</li>
-<li>在终端中，运行<code>flutter devices</code> 命令以验证Flutter是否识别你连接的Android设备；</li>
-<li>通过<code>flutter run</code>运行启动项目；</li>
+<li>404 Page:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page 404</span><br><span class="line"><span class="meta">#</span>And then set permalink: /404 in /source/404/index.md front matter.</span><br><span class="line"><span class="meta">#</span>在 Hexo 中创建匹配主题的404页面</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>默认情况下，Flutter使用的Android SDK版本是基于你的 <code>adb</code> 工具版本， 如果你想让Flutter使用不同版本的Android SDK，则必须将该 <code>ANDROID_HOME</code> 环境变量修改SDK的目录。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="http://www.devio.org/2019/04/03/development-environment-mac/" target="_blank" rel="noopener">两分钟带你快速搭建Flutter开发环境(Mac)</a></li>
-</ul>
+<h3 id="主题结构"><a href="#主题结构" class="headerlink" title="主题结构"></a>主题结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── languages            #多语言</span><br><span class="line">|   ├── default.yml      #默认语言</span><br><span class="line">|   └── zh-CN.yml        #中文语言</span><br><span class="line">├── layout               #布局，根目录下的*.ejs文件是对主页，分页，存档等的控制</span><br><span class="line">|   ├── _partial         #局部的布局，此目录下的*.ejs是对头尾等局部的控制</span><br><span class="line">|   └── _widget          #小挂件的布局，页面下方小挂件的控制</span><br><span class="line">├── source               #源码</span><br><span class="line">|   ├── css              #css源码 </span><br><span class="line">|   |   ├── _base        #*.styl基础css</span><br><span class="line">|   |   ├── _partial     #*.styl局部css</span><br><span class="line">|   |   ├── fonts        #字体</span><br><span class="line">|   |   ├── images       #图片</span><br><span class="line">|   |   └── style.styl   #*.styl引入需要的css源码</span><br><span class="line">|   ├── fancybox         #fancybox效果源码</span><br><span class="line">|   └── js               #javascript源代码</span><br><span class="line">├── _config.yml          #主题配置文件</span><br><span class="line">└── README.md            #用GitHub的都知道</span><br></pre></td></tr></table></figure>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo官方文档</a></p>
+<p><a href="https://github.com/luuman" target="_blank" rel="noopener">luuman</a></p>
+<p><a href="https://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="noopener">hexo从零开始到搭建完整</a></p>
+<p><a href="https://cherryblog.site/Use-Gitpagehexo-to-develop-their-own-blog.html" target="_blank" rel="noopener">Cherryblog</a></p>
 
       
 
@@ -409,11 +452,11 @@
   
 <nav id="article-nav">
   
-    <a href="/post/9a98d601.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/post/724c121.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Github搭建Hexo博客
+          常用Git命令清单
         
       </div>
     </a>
@@ -579,15 +622,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,7 +630,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,19 +642,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mockjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,19 +662,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
+                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,7 +690,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
+                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,7 +706,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,11 +718,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>

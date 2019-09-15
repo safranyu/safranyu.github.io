@@ -159,6 +159,134 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Windows环境下安装最新MySQL服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/0.html">Windows环境下安装最新MySQL服务</a>
+    </h1>
+  
+
+        
+        <a href="/post/0.html" class="archive-article-date">
+  	<time datetime="2018-10-09T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><p>在开发领域我们存储数据一般都是使用专门的数据库服务器专门提供的数据库服务，如果需要让自己的机器也可以 提供数据库服务，那么就需要安装特定的数据库服务器软件，这种类型的软件也有很多：</p>
+<ul>
+<li><p>Oracle </p>
+</li>
+<li><p>MySQL </p>
+</li>
+<li><p>SQL Server</p>
+</li>
+</ul>
+<p>这里我们选择一个很常见的数据库服务器软件：MySQL<br>MySQL 的安装同样建议采用解压版（目的是了解那些自动安装过程都做了哪些事）</p>
+<blockquote>
+<p>下载地址：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+</blockquote>
+<h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><ol>
+<li><p>解压到纯英文路径 2</p>
+</li>
+<li><p>解压目录添加 my.ini （可选）</p>
+</li>
+</ol>
+<blockquote>
+<p>参考：</p>
+<p><a href="http://www.cnblogs.com/Ray-xujianguo/p/3322455.html" target="_blank" rel="noopener">http://www.cnblogs.com/Ray-xujianguo/p/3322455.html</a> </p>
+<p><a href="https://gist.github.com/hanjong/1205199" target="_blank" rel="noopener">https://gist.github.com/hanjong/1205199</a> </p>
+<p><a href="https://dev.mysql.com/doc/refman/5.5/en/mysqld-option-tables.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/5.5/en/mysqld-option-tables.html</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[mysqld] </span><br><span class="line"># MySQL 安装目录 </span><br><span class="line">	basedir=C:/Develop/mysql </span><br><span class="line"># 数据文件所在目录 </span><br><span class="line">	datadir=C:/Develop/mysql/data</span><br></pre></td></tr></table></figure>
+<p>3.以管理员身份运行 CMD 执行以下命令，安装一个 MySQL 服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 定位到安装目录下的 bin 文件夹 </span><br><span class="line">$ cd &lt;MySQL安装目录&gt;/bin </span><br><span class="line"># 初始化数据所需文件以及获取一个临时的访问密码 </span><br><span class="line">$ mysqld ‐‐initialize ‐‐user=mysql ‐‐console </span><br><span class="line"># 将 MySQL 安装为服务 可以指定服务名称 </span><br><span class="line">$ mysqld ‐‐install MySQL</span><br></pre></td></tr></table></figure>
+<p> 4.登入 MySQL 服务器，重置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 先通过用户名密码进入 MySQL 操作环境 </span><br><span class="line">$ mysql ‐u root ‐p </span><br><span class="line">Enter password: # 输入临时密码   </span><br><span class="line"># 设置数据库访问密码，一定要加分号 </span><br><span class="line">mysql&gt; set password for &apos;root&apos;@&apos;localhost&apos; = password(&apos;123456&apos;);</span><br><span class="line"></span><br><span class="line">#这一步可能会报错 ERROR 1064 (42000) 提示SQL语法错误</span><br><span class="line">#尝试这条命令</span><br><span class="line">mysql&gt; alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;123&apos;;</span><br><span class="line"># 或</span><br><span class="line">mysql&gt; update mysql.user set authentication_string=password(&apos;123456&apos;) where user=&apos;root&apos; and Host = &apos;localhost&apos;;</span><br></pre></td></tr></table></figure>
+<p>解释：上面可能会报错的原因是MySQL5.7.6版本以后，password属性已经取消（使用SELECT  Password）</p>
+<p><img src="http://pan.vmccc.cn/images/2018/10/09/0fWpIoI6N4/mysql-error1064.jpg" alt=""></p>
+<p><img src="http://pan.vmccc.cn/images/2018/10/09/RRArT1cL4q/mysql-error1820.jpg" alt=""></p>
+<h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><h3 id="数据库管理工具"><a href="#数据库管理工具" class="headerlink" title="数据库管理工具"></a>数据库管理工具</h3><p>数据库管理工具本质上就是一个使用数据库服务器软件（Server）提供的服务的数据库客户端（Client）。</p>
+<h3 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h3><p>一般如果只是简单操作数据库，推荐使用 MySQL 内置的命令行工具完成：</p>
+<p>通过命令行运行解压目录下 bin 目录中的 mysql.exe ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 定位到 bin 目录 </span><br><span class="line">$ cd &lt;解压目录&gt;/bin </span><br><span class="line"># 运行 mysql，‐u 指定数据库用户名，‐p 指定密码 </span><br><span class="line">$ mysql ‐u root ‐p wanglei </span><br><span class="line"># 一般不建议在命令中填写密码，因为这样会暴露你的密码，一般只加一个 ‐p 但是不给值 </span><br><span class="line">$ mysql ‐u root ‐p </span><br><span class="line">Enter password: # 这时会要求你输入密码</span><br></pre></td></tr></table></figure>
+<p>进入 MySQL 客户端的 REPL 环境过后，可以通过标准的 SQL 语句操作数据库。<br>常见的操作指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show databases;  ‐‐ 显示全部数据库 </span><br><span class="line">mysql&gt; create database &lt;db‐name&gt;;  ‐‐ 创建一个指定名称的数据库 </span><br><span class="line">mysql&gt; use &lt;db‐name&gt;;  ‐‐ 使用一个数据库，相当于进入指定的数据库 </span><br><span class="line">mysql&gt; show tables;  ‐‐ 显示当前数据库中有哪些表 </span><br><span class="line">mysql&gt; create table &lt;table‐name&gt; (id int, name varchar(20), age int);  ‐‐ 创建一个指定名称的数据 表，并添加 3 个列 </span><br><span class="line">mysql&gt; desc &lt;table‐name&gt;;  ‐‐ 查看指定表结构 </span><br><span class="line">mysql&gt; source ./path/to/sql‐file.sql  ‐‐ 执行本地 SQL 文件中的 SQL 语句 mysql&gt; drop table &lt;table‐name&gt;;  ‐‐ 删除一个指定名称的数据表 </span><br><span class="line">mysql&gt; drop database &lt;db‐name&gt;;  ‐‐ 删除一个指定名称的数据库 </span><br><span class="line">mysql&gt; exit|quit;  ‐‐ 退出数据库终端</span><br></pre></td></tr></table></figure>
+<h3 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h3><p>如果需要复杂的操作，推荐 Navicat Premium</p>
+<blockquote>
+<p>下载地址：<a href="http://www.navicat.com.cn/download/navicat-premium" target="_blank" rel="noopener">http://www.navicat.com.cn/download/navicat-premium</a><br>这是一个付费软件，可以免费试用 14 天</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/0.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-Web端使用jquerer-emoji表情" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1425,137 +1553,6 @@
 
 
   
-    <article id="post-垂直居中的几种方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/d5466a5b.html">垂直居中的几种方法</a>
-    </h1>
-  
-
-        
-        <a href="/post/d5466a5b.html" class="archive-article-date">
-  	<time datetime="2018-10-05T02:43:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="CSS垂直居中"><a href="#CSS垂直居中" class="headerlink" title="CSS垂直居中"></a>CSS垂直居中</h1><p><strong>方法一：<code>line-height</code></strong></p>
-<p>适用场景：单行文字垂直居中</p>
-<p><strong>方法二：<code>line-height + display: inline-block</code></strong></p>
-<p>适用场景：多对象垂直居中</p>
-<p><strong>方法三：<code>before +inline-block</code></strong></p>
-<p>适用场景：多对象CSS垂直居中</p>
-<p><strong>方法四：<code>absolut + margin</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法五：<code>absolut + margin auto</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法六：<code>absolut + transform: translate(X,Y);</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法七：<code>display: flex; + align-items: center;</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法八：<code>display: flex; + margin</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法九：<code>display: flex; + :before + flex-grow</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十：<code>display: flex; + align-self</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十一：<code>display: flex; + align-content</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十二：<code>grid + template</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十三：<code>grid + align-items</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十四：<code>grid + align-content</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十五：<code>grid + align-self</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十六：<code>grid + place-items</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十七：<code>grid + place-content</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十八：<code>grid + margin</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十九：<code>display:table-cell</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十：<code>calc</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十一：<code>relative + translate</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十二：<code>padding</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十三：<code>writing-mode</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/d5466a5b.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1665,15 +1662,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1681,7 +1670,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1689,19 +1682,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mockjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1717,19 +1702,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
+                <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Sublime</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1741,7 +1730,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
+                <a href="javascript:void(0)" class="js-tag color5">js插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1753,7 +1746,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1765,11 +1758,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
