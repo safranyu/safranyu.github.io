@@ -500,6 +500,225 @@
 
 
   
+    <article id="post-快速搭建Flutter环境-Mac" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/9a98d601.html">Github搭建Hexo博客</a>
+    </h1>
+  
+
+        
+        <a href="/post/9a98d601.html" class="archive-article-date">
+  	<time datetime="2018-10-02T10:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>系统要求</li>
+<li>设置FLutter镜像(非必须)</li>
+<li>获取Flutter SDK</li>
+<li>iOS开发环境设置</li>
+<li>Android开发环境设置</li>
+<li>安装Flutter插件</li>
+</ul>
+<h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><p>在Mac上要安装并运行Flutter要满足以下最低要求:</p>
+<ul>
+<li>操作系统: macOS (64-bit)</li>
+<li>磁盘空间: 700 MB (不包括Xcode或Android Studio的磁盘空间）.</li>
+<li>工具: Flutter 依赖下面这些命令行工具：<code>bash curl git 2.x mkdir rm unzip which</code></li>
+</ul>
+<h2 id="设置FLutter镜像-非必须"><a href="#设置FLutter镜像-非必须" class="headerlink" title="设置FLutter镜像(非必须)"></a>设置FLutter镜像(非必须)</h2><p>由于在国内访问Flutter可能会受到限制，Flutter官方为中国开发者搭建了临时镜像，大家可以将如下环境变量加入到用户环境变量中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Macintosh HD⁩ ▸ ⁨Users⁩ ▸ ⁨你的用户名 ▸ ⁨.bash_profile</span></span><br><span class="line"><span class="keyword">export</span> PUB_HOSTED_URL=https:<span class="comment">//pub.flutter-io.cn</span></span><br><span class="line"><span class="keyword">export</span> FLUTTER_STORAGE_BASE_URL=https:<span class="comment">//storage.flutter-io.cn</span></span><br></pre></td></tr></table></figure>
+<p>注意：此镜像为临时镜像，并不能保证一直可用，大家可以从 <a href="https://flutter.dev/community/china" target="_blank" rel="noopener">Using Flutter in China</a> 上获得有关镜像服务器的最新动态。</p>
+<h2 id="获取Flutter-SDK"><a href="#获取Flutter-SDK" class="headerlink" title="获取Flutter SDK"></a>获取Flutter SDK</h2><p><strong>1.点Flutter官网下载其最新可用的安装包。</strong></p>
+<p><strong>2.解压安装包到你想安装的目录，如：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd ~/development</span><br><span class="line"><span class="meta">$</span> unzip ~/Downloads/flutter_macos_v1.2.1-stable.zip</span><br></pre></td></tr></table></figure>
+<p><strong>3.添加flutter相关工具到path中：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> PATH=<span class="string">"$PATH:`pwd`/flutter/bin"</span></span><br></pre></td></tr></table></figure>
+<p>此代码只能暂时针对当前命令行窗口设置PATH环境变量，要想永久将Flutter添加到PATH中请参考下面做法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd ~</span><br><span class="line"><span class="meta">$</span> vim .bash_profile</span><br></pre></td></tr></table></figure>
+<p>然后添加：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> PATH=<span class="regexp">/Users/</span>safran/Documents/flutter/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>之后记得保存文件。</p>
+<h3 id="运行-flutter-doctor"><a href="#运行-flutter-doctor" class="headerlink" title="运行 flutter doctor"></a>运行 flutter doctor</h3><p>上面path配置完成之后，需要关闭终端重新打开，然后运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter doctor</span><br></pre></td></tr></table></figure>
+<p>该命令检查你的环境并在终端窗口中显示报告。Dart SDK已经在捆绑在Flutter里了，没有必要单独安装Dart。 仔细检查命令行输出以获取可能需要安装的其他软件或进一步需要执行的任务（以粗体显示）：</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[-] Android toolchain - develop for Android devices</span><br><span class="line">    • Android SDK at /Users/obiwan/Library/Android/sdk</span><br><span class="line">    ✗ Android SDK is missing command line tools; download from https://goo.gl/XxQghQ</span><br><span class="line">    • Try re-installing or updating your Android SDK,</span><br><span class="line">      visit https://flutter.dev/setup/#android-setup for detailed instructions.</span><br></pre></td></tr></table></figure>
+<p>一般的错误会是XCode或Android Studio版本太低、或者没有<code>ANDROID_HOME</code>环境变量等，可参考一下环境变量的配置来检查你的环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>flutter环境变量</span><br><span class="line">export PATH=/Users/safran/Desktop/flutter/bin:$PATH</span><br><span class="line"><span class="meta">#</span> flutter镜像</span><br><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br><span class="line"><span class="meta">#</span>Android 环境变量</span><br><span class="line">export ANDROID_HOME=/Users/safran/Library/Android/sdk</span><br><span class="line"><span class="meta">#</span>Android 模拟器路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/emulator</span><br><span class="line"><span class="meta">#</span>Android tools路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/tools</span><br><span class="line"><span class="meta">#</span>Android 平台工具路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/platform-tools</span><br><span class="line"><span class="meta">#</span>Android NDK路径</span><br><span class="line">ANDROID_NDK_HOME=/Users/safran/Library/Android/ndk/android-ndk-r10e</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><em>第一次运行一个flutter命令（如flutter doctor）时，它会下载它自己的依赖项并自行编译。以后再运行就会快得多。</em></p>
+</blockquote>
+<h2 id="iOS开发环境设置"><a href="#iOS开发环境设置" class="headerlink" title="iOS开发环境设置"></a>iOS开发环境设置</h2><h3 id="安装-Xcode"><a href="#安装-Xcode" class="headerlink" title="安装 Xcode"></a>安装 Xcode</h3><p>要用Flutter开发iOS App需要Xcode 9.0 或更高版本:</p>
+<p><strong>1.安装Xcode 9.0或更新版本(通过链接下载或苹果应用商店)</strong></p>
+<p><strong>2.配置Xcode命令行工具以使用新安装的Xcode版本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</span><br></pre></td></tr></table></figure>
+<p>以上路径时对于最新版Xcode的路径。如果你需要使用不同的Xcode版本，需要指定相应路径。</p>
+<p><strong>3.确保Xcode许可协议是通过打开一次Xcode或通过命令sudo xcodebuild -license同意过了</strong></p>
+<p>接下来就可以使用Xcode，在iOS设备或模拟器上运行Flutter App了。</p>
+<h3 id="设置iOS模拟器"><a href="#设置iOS模拟器" class="headerlink" title="设置iOS模拟器"></a>设置iOS模拟器</h3><p>要准备在iOS模拟器上运行并测试您的Flutter应用，请按以下步骤操作：</p>
+<p><strong>1.在终端输入如下命令打开一个iOS模拟器：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> open -a Simulator</span><br></pre></td></tr></table></figure>
+<p><strong>2.通过模拟器菜单栏的 硬件&gt;设备 ，确保你打开是64位 iPhone 5s或更新的模拟器</strong></p>
+<p><strong>3.如果模拟器过大，可以通过模拟器的 Window&gt; Scale 菜单下设置设备比例</strong></p>
+<h3 id="创建和运行一个简单的Flutter项目"><a href="#创建和运行一个简单的Flutter项目" class="headerlink" title="创建和运行一个简单的Flutter项目"></a>创建和运行一个简单的Flutter项目</h3><p><strong>1.通过如下命令创建一个Flutter项目</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter create my_app</span><br></pre></td></tr></table></figure>
+<p><strong>2.命令运行完成之后会在当前目录下创建一个名为my_app的Flutter项目，然后通过一下命令可以运行它：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd my_app</span><br><span class="line"><span class="meta">$</span> flutter run</span><br></pre></td></tr></table></figure>
+<h3 id="如何将Flutter安装到iOS真机上？"><a href="#如何将Flutter安装到iOS真机上？" class="headerlink" title="如何将Flutter安装到iOS真机上？"></a>如何将Flutter安装到iOS真机上？</h3><p>要通过<code>lutter run</code>将Flutter应用安装到iOS真机设备，需要一些额外的工具和一个Apple帐户，还需要在Xcode中进行设置：</p>
+<blockquote>
+<p>当然，用XCode来将Flutter运行在真机上更简单，只需要点一下<code>run</code>按钮即可，可以根据需要进行选择这两种不同的运行方式；</p>
+</blockquote>
+<p><strong>1.安装 Homebrew （如果已经安装了brew,跳过此步骤）.</strong></p>
+<p><strong>2.确保homebrew已更新</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew update</span><br></pre></td></tr></table></figure>
+<p><strong>3.打开终端并运行这些命令来安装用于将Flutter应用安装到iOS设备的工具</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew install --HEAD usbmuxd</span><br><span class="line"><span class="meta">$</span> brew link usbmuxd</span><br><span class="line"><span class="meta">$</span> brew install --HEAD libimobiledevice</span><br><span class="line"><span class="meta">$</span> brew install ideviceinstaller ios-deploy cocoapods</span><br><span class="line"><span class="meta">$</span> pod setup</span><br></pre></td></tr></table></figure>
+<p>如果这些命令中的任何一个失败并出现错误，可运行<code>brew doctor</code>并按照说明解决问题。</p>
+<p><strong>4.遵循Xcode签名流程来配置您的项目:</strong></p>
+<ul>
+<li>在你Flutter项目目录中通过 <code>open ios/Runner.xcworkspace</code> 打开默认的Xcode workspace</li>
+<li>在Xcode中，选择导航面板左侧中的Runner项目</li>
+<li>在Runner target设置页面中，确保在 常规&gt;签名&gt;团队 下选择了您的开发团队。当您选择一个团队时，Xcode会创建并下载开发证书，向您的设备注册您的帐户，并创建和下载配置文件（如果需要）<ul>
+<li>要开始您的第一个iOS开发项目，您可能需要使用您的Apple ID登录Xcode</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>任何Apple ID都支持开发和测试，但如果要将应用发布到App Store则需要一个99美刀的开发者账号。</li>
+<li>当你第一次attach真机设备进行iOS开发时，需要同时信任你的Mac和该设备上的开发证书。首次将iOS设备连接到Mac时,请在对话框中选择 <code>Trust</code>。</li>
+</ul>
+<p>然后，转到iOS设备上的设置应用程序，选择 常规&gt;设备管理 并信任您的证书。</p>
+<ul>
+<li>如果Xcode中的自动签名失败，请验证项目的 General &gt; Identity &gt; Bundle Identifier 值是否唯一。</li>
+</ul>
+<p><strong>5.通过flutter run运行启动项目</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter run</span><br></pre></td></tr></table></figure>
+<h2 id="Android开发环境设置-amp-Flutter插件安装"><a href="#Android开发环境设置-amp-Flutter插件安装" class="headerlink" title="Android开发环境设置&amp;Flutter插件安装"></a>Android开发环境设置&amp;Flutter插件安装</h2><h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><p><strong>1.下载并安装 Android Studio</strong></p>
+<ul>
+<li><a href="https://developer.android.com/studio" target="_blank" rel="noopener">https://developer.android.com/studio</a></li>
+<li><a href="https://developer.android.google.cn/studio" target="_blank" rel="noopener">https://developer.android.google.cn/studio</a></li>
+</ul>
+<blockquote>
+<p>因为Android网站设在国外，如果你的网络无法访问第一个地址，可以选择使用Google为中国开发者提供的中国网址进行访问。</p>
+</blockquote>
+<p>另外，关于Android Studio的安装和配置，Android官方有比较详细的说明文档<a href="https://developer.android.google.cn/studio/intro，大家可以根据需要进行查阅；" target="_blank" rel="noopener">https://developer.android.google.cn/studio/intro，大家可以根据需要进行查阅；</a></p>
+<p><strong>2.启动Android Studio，然后执行“Android Studio安装向导”。这将安装最新的Android SDK，Android SDK平台工具和Android SDK构建工具</strong></p>
+<h3 id="Flutter插件安装"><a href="#Flutter插件安装" class="headerlink" title="Flutter插件安装"></a>Flutter插件安装</h3><ul>
+<li>打开Android Studio</li>
+<li>打开Preferences &gt; Plugins (macOS), File &gt; Settings &gt; Plugins (Windows &amp; Linux)</li>
+<li>选择 Browse repositories, 搜索 Flutter plugin</li>
+<li>然后点击安装，然后安装Dart插件</li>
+<li>完成之后选择重启Android Studio</li>
+</ul>
+<h3 id="如何在Android模拟器上运行Flutter？"><a href="#如何在Android模拟器上运行Flutter？" class="headerlink" title="如何在Android模拟器上运行Flutter？"></a>如何在Android模拟器上运行Flutter？</h3><p>要准备在Android模拟器上运行并测试您的Flutter应用，需要按照以下步骤操作：</p>
+<ul>
+<li><p>在你的机器上启用 <a href="https://developer.android.com/studio/run/emulator-acceleration.html#vm-mac" target="_blank" rel="noopener">VM acceleration</a>；</p>
+</li>
+<li><p>启动 Android Studio&gt;Tools&gt;Android&gt;AVD Manager 并选择 <code>Create Virtual Device</code>；</p>
+</li>
+<li><p>选择一个设备并选择 Next；</p>
+</li>
+<li><p>为要模拟的Android版本选择一个或多个系统映像，然后选择 Next. 建议使用 x86 或 x86_64 的镜像；</p>
+</li>
+<li><p>在 Emulated Performance下, 选择 Hardware - GLES 2.0 以启用硬件加速；</p>
+</li>
+<li><p>验证AVD配置是否正确，然后选择 Finish；</p>
+<p>如果对以上步骤还有不清楚的可以参阅Android官方的 <a href="https://developer.android.com/studio/run/managing-avds.html" target="_blank" rel="noopener">Managing AVDs</a>文档。</p>
+</li>
+<li><p>在 Android Virtual Device Manager中, 点击工具栏的 <code>Run</code>，模拟器启动并显示所选操作系统版本或设备的启动画面；</p>
+</li>
+<li><p>通过<code>flutter run</code>运行启动项目；</p>
+</li>
+</ul>
+<h3 id="如何在Android真机运行？"><a href="#如何在Android真机运行？" class="headerlink" title="如何在Android真机运行？"></a>如何在Android真机运行？</h3><p>要准备在Android设备上运行并测试您的Flutter应用，您需要安装Android 4.1（API level 16）或更高版本的Android设备</p>
+<ul>
+<li>在你的设备上启用 <code>开发人员选项</code> 和 <code>USB调试</code> 。详细说明可在<a href="https://developer.android.com/studio/debug/dev-options.html" target="_blank" rel="noopener">Android文档</a>中找到；</li>
+<li>使用USB将手机插入电脑，如果有授权提示需要同意授权；</li>
+<li>在终端中，运行<code>flutter devices</code> 命令以验证Flutter是否识别你连接的Android设备；</li>
+<li>通过<code>flutter run</code>运行启动项目；</li>
+</ul>
+<p>默认情况下，Flutter使用的Android SDK版本是基于你的 <code>adb</code> 工具版本， 如果你想让Flutter使用不同版本的Android SDK，则必须将该 <code>ANDROID_HOME</code> 环境变量修改SDK的目录。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.devio.org/2019/04/03/development-environment-mac/" target="_blank" rel="noopener">两分钟带你快速搭建Flutter开发环境(Mac)</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Blog</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Blog//" class="article-tag-list-link color5">Blog</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/9a98d601.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
@@ -609,19 +828,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,7 +856,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -657,19 +880,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jQuer动画</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,15 +892,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jQuer动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue-cli3</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,6 +913,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Webstrom</a>
               </li>
              
               <li class="article-tag-list-item">
