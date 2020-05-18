@@ -159,72 +159,558 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-垂直居中的几种方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-多行文本溢出隐藏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/d5466a5b.html">垂直居中的几种方法</a>
+      <a class="article-title" href="/post/d177a72b.html">多行文本溢出隐藏</a>
     </h1>
   
 
         
-        <a href="/post/d5466a5b.html" class="archive-article-date">
-  	<time datetime="2018-10-05T02:43:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
+        <a href="/post/d177a72b.html" class="archive-article-date">
+  	<time datetime="2019-03-19T15:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CSS垂直居中"><a href="#CSS垂直居中" class="headerlink" title="CSS垂直居中"></a>CSS垂直居中</h1><p><strong>方法一：<code>line-height</code></strong></p>
-<p>适用场景：单行文字垂直居中</p>
-<p><strong>方法二：<code>line-height + display: inline-block</code></strong></p>
-<p>适用场景：多对象垂直居中</p>
-<p><strong>方法三：<code>before +inline-block</code></strong></p>
-<p>适用场景：多对象CSS垂直居中</p>
-<p><strong>方法四：<code>absolut + margin</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法五：<code>absolut + margin auto</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法六：<code>absolut + transform: translate(X,Y);</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法七：<code>display: flex; + align-items: center;</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法八：<code>display: flex; + margin</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法九：<code>display: flex; + :before + flex-grow</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十：<code>display: flex; + align-self</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十一：<code>display: flex; + align-content</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十二：<code>grid + template</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十三：<code>grid + align-items</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十四：<code>grid + align-content</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十五：<code>grid + align-self</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十六：<code>grid + place-items</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十七：<code>grid + place-content</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十八：<code>grid + margin</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法十九：<code>display:table-cell</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十：<code>calc</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十一：<code>relative + translate</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十二：<code>padding</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
-<p><strong>方法二十三：<code>writing-mode</code></strong></p>
-<p>适用场景：多行文字的垂直居中</p>
+        <p><code>text-overflow:ellipsis</code> 显示省略符号来代表被修剪的文本。还有其他两个属性<br><code>clip</code> 修剪文本<br><code>string</code> 使用给定的字符串来代表被修剪的文本</p>
+<h3 id="实现单行隐藏"><a href="#实现单行隐藏" class="headerlink" title="实现单行隐藏"></a>实现单行隐藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    white-space: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>适用于WebKit浏览器或移动端的页面<br><code>display: -webkit-box</code> 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示<br><code>-webkit-box-orient</code>必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式<br><code>text-overflow: ellipsis</code> 可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本</p>
+<h3 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h3><p>需要设置元素的高度，也一样适用于WebKit内核浏览器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    display: -webkit-box;</span><br><span class="line">    -webkit-line-clamp: 2;</span><br><span class="line">    -webkit-box-orient: vertical;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="设置相对定位的容器高度，用包含省略号-…-的元素模拟实现"><a href="#设置相对定位的容器高度，用包含省略号-…-的元素模拟实现" class="headerlink" title="设置相对定位的容器高度，用包含省略号(…)的元素模拟实现"></a>设置相对定位的容器高度，用包含省略号(…)的元素模拟实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    position: relative;</span><br><span class="line">    line-height: 1.4em;</span><br><span class="line">    height: 2.8em;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    div::after &#123;</span><br><span class="line">        content: &quot;...&quot;;</span><br><span class="line">        font-weight: bold;</span><br><span class="line">        position: absolute;</span><br><span class="line">        bottom: 0;</span><br><span class="line">        right: 0;</span><br><span class="line">        padding: 0 20px 1px 45px;</span><br><span class="line">        background: url(http://css88.b0.upaiyun.com/css88/2014/09/ellipsis_bg.png) repeat-y;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意：<br>height高度真好是line-height的倍数；</p>
+<p>结束的省略好用了半透明的png做了减淡的效果，或者设置背景颜色；</p>
+<p>IE6-7不显示content内容，所以要兼容IE6-7可以是在内容中加入一个标签，比如用<code>&lt;span class=&quot;line-clamp&quot;&gt;...&lt;/span&gt;</code>去模拟；</p>
+<p>要支持IE8，需要将::after替换成:after；</p>
+<h3 id="jQuery插件-jQuery-dotdotdot-实现"><a href="#jQuery插件-jQuery-dotdotdot-实现" class="headerlink" title="jQuery插件-jQuery.dotdotdot 实现"></a>jQuery插件-jQuery.dotdotdot 实现</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/d177a72b.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-bootstrap导航缩小折叠问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/2665f262.html">bootstrap导航缩小折叠问题</a>
+    </h1>
+  
+
+        
+        <a href="/post/2665f262.html" class="archive-article-date">
+  	<time datetime="2019-03-19T14:57:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar navbar-inverse navbar-fixed-top mr-nav "</span>&gt;</span><br><span class="line">       &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container"</span>&gt;</span><br><span class="line">           &lt;div id=<span class="string">"navbar"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"collapse navbar-collapse"</span>&gt;</span><br><span class="line">               &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"nav navbar-nav"</span>&gt;</span><br><span class="line">                   &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"active"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#about"</span>&gt;</span>关于我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"product.html"</span>&gt;</span>产品介绍<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"joinus.html"</span>&gt;</span>加入我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"series.html"</span>&gt;</span>联系我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">               &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">           &lt;/</span>div&gt;</span><br><span class="line">       &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">   &lt;/</span>nav&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="css解决办法"><a href="#css解决办法" class="headerlink" title="css解决办法"></a>css解决办法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*解决bootstarp导航缩小折叠问题*/</span></span><br><span class="line">@media (max-width: <span class="number">768</span>px)&#123;</span><br><span class="line">    .navbar-nav &#123;</span><br><span class="line">        visibility: visible;</span><br><span class="line">        width: <span class="number">1000</span>px;</span><br><span class="line">        margin: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.navbar-collapse&#123;</span><br><span class="line">    display: block !important;</span><br><span class="line">    height: auto !important;</span><br><span class="line">    padding-bottom: <span class="number">0</span>;</span><br><span class="line">    overflow: visible !important;</span><br><span class="line">    visibility: visible !important;</span><br><span class="line">&#125;</span><br><span class="line">.nav&gt;li&#123;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">#navbar&#123;</span><br><span class="line">    border: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bootstrap</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/2665f262.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-小程序开发问题集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/3f741c8d.html">小程序开发问题集</a>
+    </h1>
+  
+
+        
+        <a href="/post/3f741c8d.html" class="archive-article-date">
+  	<time datetime="2019-03-19T14:49:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>目录</p>
+<ul>
+<li><a href="#IllegalBuffer报错(小程序开发解密encryptedData">Illegal Buffer报错(小程序开发解密encryptedData)</a>)<ul>
+<li><a href="#提出问题">提出问题</a></li>
+</ul>
+</li>
+<li><a href="#UniApp小程序使用Echarts">UniApp小程序使用Echarts</a></li>
+<li><a href="#小程序中使用echarts-tooltip遇到的问题">小程序中使用echarts-tooltip遇到的问题</a></li>
+<li><a href="#extAppid没有授权">extAppid没有授权</a>;</li>
+</ul>
+<h2 id="Illegal-Buffer报错-小程序开发解密encryptedData"><a href="#Illegal-Buffer报错-小程序开发解密encryptedData" class="headerlink" title="Illegal Buffer报错(小程序开发解密encryptedData)"></a>Illegal Buffer报错(小程序开发解密encryptedData)</h2><blockquote>
+<p><a href="https://blog.csdn.net/xgangzai/article/details/90107311" target="_blank" rel="noopener">https://blog.csdn.net/xgangzai/article/details/90107311</a></p>
+</blockquote>
+<h3 id="提出问题"><a href="#提出问题" class="headerlink" title="提出问题:"></a>提出问题:</h3><p>最近在搞一下小程序授权登录(用户注册功能)，在密钥，appId等内容都没问题的情况下，请求授权注册接口等时候一直报错 Illegal Buffer。</p>
+<h3 id="问题原因："><a href="#问题原因：" class="headerlink" title="问题原因："></a>问题原因：</h3><p>在解密encryptedData数据的时候，传过来的数据里面可能会有+等符号，<br>如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">encryptedData: &apos;BQRDHWz16TcmEOkp1yV0eMd8L0a7orJeA1y8uNZycPHO41MBZmYm1jbMMh36tozePbtnbdxovStZhEbMKW9fYBpUKcXDedcChyowIXuYNic2CSItr4lv9TI47kfmBrhYE39wGE20BMtj8ORVQ2xM5A3X1uL7HHI5IZbnEqQS1W38PzGbJBW8IkybFQHXwtvigWquekDe1DmV1LA8vEFflUIjfuA5cWgGJJstzxi8bjtUMjQC/hcPRb+7pNzpo+jmtE0jU9F/a5V95lK6foYTu1ErWjEezaJ3YwujWK5oq581/b5TIL+vJPUn+vdXj71plfrH7WnSoC0ZS3yF6ToBcH17GAZsyaiGqOl88NVtkuwCA/WGMqpvnAUfromw5kaZj1QFA6U/N/lF43HdOyhjQUAkPsIMJLaHkfso6Aww0IYTcIc+qXOV8Rcrh0h61R34Dqkn11iE4mo1fmUc14ynvd4d6KXB2AvqOl+dHOd+SnRGYwTINAkPuyhxQRA/Yqj2F6MlUdKZxth73w2JEUYkoA==&apos;,</span><br><span class="line">iv: &apos;GcF/mmbBBQA7kJOSR9I/7w==&apos;</span><br></pre></td></tr></table></figure>
+<p>这些符号传递给服务器就会消失，导致微信提供等解密函数一直报错。</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法:"></a>解决办法:</h3><p>前端在传递encryptedData和iv向量等时候需要进行encodeURIComponent编码</p>
+<h2 id="UniApp小程序使用Echarts"><a href="#UniApp小程序使用Echarts" class="headerlink" title="UniApp小程序使用Echarts"></a>UniApp小程序使用Echarts</h2><blockquote>
+<p><a href="https://www.jianshu.com/p/5537e5053dc1" target="_blank" rel="noopener">https://www.jianshu.com/p/5537e5053dc1</a><br><a href="https://github.com/Zhuyi731/echarts-for-wx-uniapp" target="_blank" rel="noopener">https://github.com/Zhuyi731/echarts-for-wx-uniapp</a></p>
+</blockquote>
+<h3 id="问题？"><a href="#问题？" class="headerlink" title="问题？"></a>问题？</h3><h4 id="1-通过uniapp打包的小程序formatter-function-不能用"><a href="#1-通过uniapp打包的小程序formatter-function-不能用" class="headerlink" title="1.通过uniapp打包的小程序formatter: function 不能用"></a>1.通过uniapp打包的小程序<code>formatter: function</code> 不能用</h4><p>场景解决：通过隐藏一条<code>series</code>数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    //name,</span><br><span class="line">    type: &apos;line&apos;,</span><br><span class="line">    data: penData,</span><br><span class="line">    yAxisIndex: 0,</span><br><span class="line">    smooth: true,</span><br><span class="line">    symbolSize: 0, // symbol的大小设置为0</span><br><span class="line">    showSymbol: false, // 不显示symbol</span><br><span class="line">    lineStyle: &#123;</span><br><span class="line">      width: 0, // 线宽是0</span><br><span class="line">      color: &apos;rgba(0, 0, 0, 0)&apos;, // 线的颜色是透明的</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h2 id="小程序中使用echarts-tooltip遇到的问题"><a href="#小程序中使用echarts-tooltip遇到的问题" class="headerlink" title="小程序中使用echarts-tooltip遇到的问题"></a>小程序中使用echarts-tooltip遇到的问题</h2><p><a href="https://github.com/ecomfe/echarts-for-weixin/issues/478" target="_blank" rel="noopener">reference</a></p>
+<h3 id="1、如何换行？"><a href="#1、如何换行？" class="headerlink" title="1、如何换行？"></a>1、如何换行？</h3><p>用<code>\n</code>换行，小程序版echarts使用富文本渲染，不支持<code>html</code></p>
+<h3 id="2、怎么显示图例的小圆点？"><a href="#2、怎么显示图例的小圆点？" class="headerlink" title="2、怎么显示图例的小圆点？"></a>2、怎么显示图例的小圆点？</h3><p>用 formatter，彩色的圆点用 <code>&#39;{marker0at0|}&#39;</code>, <code>{marker1at0|}</code>, <code>{marker2at0|}</code>‘ 分别表示第 <code>0、1、2</code> 个系列，可能实现得不是很美，但是至少暂时可以这么用着。</p>
+<h3 id="3、不支持renderMode-html"><a href="#3、不支持renderMode-html" class="headerlink" title="3、不支持renderMode: html"></a>3、不支持<code>renderMode: html</code></h3><p>最终解决🚀</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">formatter : function(params) &#123;</span><br><span class="line">  // 可以打印一下params自行查看</span><br><span class="line">  let res = `$&#123;params[0].name&#125;\n`</span><br><span class="line">  res += `&#123;marker0at0|&#125; $&#123;params[0].seriesName&#125;: $&#123;params[0].value[1]&#125;\n`</span><br><span class="line">  res += `&#123;marker1at0|&#125; $&#123;params[1].seriesName&#125;: $&#123;params[1].value[2]&#125;\n`</span><br><span class="line">  res += `&#123;marker2at0|&#125; $&#123;params[2].seriesName&#125;: $&#123;params[2].value[3]&#125;`</span><br><span class="line">  return res</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="extAppid没有授权"><a href="#extAppid没有授权" class="headerlink" title="extAppid没有授权"></a>extAppid没有授权</h2><p>确保第三代平台已经授权了小程序<br><code>extAppid</code>和<code>appid</code>可以一样</p>
+<h2 id="小程序-请求wx-requestPayment-返回支付场景非法"><a href="#小程序-请求wx-requestPayment-返回支付场景非法" class="headerlink" title="小程序 请求wx.requestPayment 返回支付场景非法"></a>小程序 请求wx.requestPayment 返回支付场景非法</h2><p>记录一下我遇到的这个问题，先确保前端的数据有没有错，没有的话一般出现在接口的问题。</p>
+<p>后端需要排查：</p>
+<ul>
+<li>openID要添加还有一个类型要改成JSAPI</li>
+<li>签名方式也要注意是不是根据文档一致</li>
+</ul>
+<h2 id="小程序-经常报Length错误。"><a href="#小程序-经常报Length错误。" class="headerlink" title="小程序 经常报Length错误。"></a>小程序 经常报Length错误。</h2><p>当然页面出现<code>length = 0</code>或<code>length != &#39;0&#39;</code>容易出现数据类型错误</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/小程序//" class="article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/3f741c8d.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-网页结构命名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/34da003d.html">网页结构命名</a>
+    </h1>
+  
+
+        
+        <a href="/post/34da003d.html" class="archive-article-date">
+  	<time datetime="2019-03-18T15:34:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>按功能命名：<br>头：header<br>内容：content/container<br>页脚：footer<br>导航：nav<br>子导航：subnav<br>侧栏：sidebar<br>栏目：column<br>广告条：banner<br>主体：main<br>左中右：left/right/center<br>菜单：menu<br>子菜单：submenu<br>注册：register<br>登陆：login<br>标志：logo<br>按钮：btn<br>图标：icon<br>热点：hot<br>新闻：news<br>下载：download<br>搜索：search<br>滚动条：scroll<br>标签页：tab<br>小技巧：tips<br>标题：title<br>加入：joinus<br>文章列表：list<br>注释：note<br>友情链接：friendlink<br>服务：service<br>状态：status<br>合作伙伴：partner<br>摘要：summary<br>版权：copyright<br>指南：guid<br>提示信息：msg</p>
+<p>按页面结构命名：<br>容器：container 。就是将页面中的所有元素包在一起的部分，这部分还可以命名为：“wrapper”，“wrap”，”page”.<br>页头：header。网站页面的头部部分，包含网站的logo和一些其他元素。还可以命名为“page-header”(或pageHeader).<br>内容：content/container<br>页面主体：main。<br>页尾：footer。包含网站的一些附加信息。还可以命名为copyright。<br>导航：nav。等同于横向的导航栏，还可以命名为：“navigation”，“nav-wrapper”,” navbar”.<br>侧栏：sidebar。可以包含网站的次要内容，比如最近更新内容列表、关于网站的介绍或广告元素等。还可以命名为：subNav、side-panel、secondary-content。<br>栏目：column</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/HTML//" class="article-tag-list-link color5">HTML</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/34da003d.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-在Chrome中模拟微信浏览器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/c37c62e0.html">在Chrome中模拟微信浏览器</a>
+    </h1>
+  
+
+        
+        <a href="/post/c37c62e0.html" class="archive-article-date">
+  	<time datetime="2019-03-18T15:23:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Chrome 修改 user agent 简单模拟微信内置浏览器</p>
+<h2 id="微信和QQ内置浏览器UA"><a href="#微信和QQ内置浏览器UA" class="headerlink" title="微信和QQ内置浏览器UA"></a>微信和QQ内置浏览器UA</h2><ul>
+<li>安卓QQ内置浏览器UA:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &gt; Chrome/37.0.0.0 Mobile Safari/537.36 V1_AND_SQ_5.3.1_196_YYB_D &gt; QQ/5.3.1.2335 NetType/WIFI</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安卓微信内置浏览器UA:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &gt; Chrome/37.0.0.0 Mobile Safari/537.36 &gt; MicroMessenger/6.0.2.56_r958800.520 NetType/WIFI</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>IOSQQ内置浏览器UA:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) &gt; AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 &gt; QQ/5.2.1.302 NetType/WIFI Mem/28</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>IOS微信内置浏览器UA:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) &gt; AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 &gt; MicroMessenger/6.0.1 NetType/WIFI</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="在Chrome添加UA"><a href="#在Chrome添加UA" class="headerlink" title="在Chrome添加UA"></a>在Chrome添加UA</h3><ul>
+<li><p>打开Chrome调试工具（F12），点击右上角竖着的三个点，如下图</p>
+<p><img src="http://ww3.sinaimg.cn/large/6aedb651gw1fazm90jatmj20bc09ggof.jpg" alt=""></p>
+</li>
+<li><p>打开后选择Setting，如下图</p>
+<p><img src="http://ww1.sinaimg.cn/large/6aedb651gw1fazma2xwtqj206n06ewew.jpg" alt=""></p>
+</li>
+<li><p>选择左边栏Devices，如下图</p>
+<p><img src="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg" alt=""></p>
+</li>
+<li><p>选择右边栏Add custom device</p>
+<p><img src="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg" alt=""></p>
+</li>
+<li><p>填写要模拟的设备，添加，如下图</p>
+<p><img src="http://ww4.sinaimg.cn/large/6aedb651gw1fazmhu5yg4j20br06v74o.jpg" alt=""></p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微信//" class="article-tag-list-link color3">微信</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微信/调试工具//" class="article-tag-list-link color5">调试工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/c37c62e0.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-关于PC端缩小浏览器窗口，右边背景空白并出现滚动条" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/488e492e.html">关于PC端缩小浏览器窗口，右边背景空白并出现滚动条</a>
+    </h1>
+  
+
+        
+        <a href="/post/488e492e.html" class="archive-article-date">
+  	<time datetime="2018-11-15T14:23:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>出现原因</p>
+<p>因为出现空白的元素设置了宽度100%，缩小窗口相当于减小了宽度值，那么为什么出现滚动条呢？是因为页面中至少有一个元素a的width大于窗口的width，导致把页面撑开，出现了滚动条，而此时那个width：100%的元素宽度等于窗口宽度且小于元素a的宽度，所以右侧的空白长度=a的宽度-窗口宽度。  </p>
+<h3 id="解决这个问题其实很简单"><a href="#解决这个问题其实很简单" class="headerlink" title="解决这个问题其实很简单"></a>解决这个问题其实很简单</h3><ul>
+<li><p>给body设置最小宽度<code>min-width</code>,在ie6下不兼容</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">     <span class="attribute">min-width</span>: <span class="number">1000px</span>;</span><br><span class="line">     <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>还可以给div元素设置最小宽度，如果页面元素复杂，要一个个设置</p>
+</li>
+<li><p>给CSS样式设置<code>width:expression(document.body.clientWidth &lt;= 960? &quot;960px&quot;: &quot;auto&quot;);</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#wrap</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#ddd</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="built_in">expression</span>(document.body.clientWidth &lt;= 960? <span class="string">"960px"</span>: <span class="string">"auto"</span>);</span><br><span class="line">    <span class="attribute">min-width</span>:<span class="number">960px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>推荐第一种</p>
+</li>
+</ul>
 
       
 
@@ -259,7 +745,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/d5466a5b.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/488e492e.html">展开全文 >></a>
         </p>
       
 
@@ -290,30 +776,69 @@
 
 
   
-    <article id="post-常用Git命令清单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Windows环境下安装最新MySQL服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/724c121.html">常用Git命令清单</a>
+      <a class="article-title" href="/post/0.html">Windows环境下安装最新MySQL服务</a>
     </h1>
   
 
         
-        <a href="/post/724c121.html" class="archive-article-date">
-  	<time datetime="2018-10-02T16:16:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-03</time>
+        <a href="/post/0.html" class="archive-article-date">
+  	<time datetime="2018-10-09T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h1><p>请前往阮一峰的文章<a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a></p>
-<h2 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h2><ul>
-<li><code>reset</code>git bash 清除屏幕的方式 </li>
+        <h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><p>在开发领域我们存储数据一般都是使用专门的数据库服务器专门提供的数据库服务，如果需要让自己的机器也可以 提供数据库服务，那么就需要安装特定的数据库服务器软件，这种类型的软件也有很多：</p>
+<ul>
+<li><p>Oracle </p>
+</li>
+<li><p>MySQL </p>
+</li>
+<li><p>SQL Server</p>
+</li>
 </ul>
+<p>这里我们选择一个很常见的数据库服务器软件：MySQL<br>MySQL 的安装同样建议采用解压版（目的是了解那些自动安装过程都做了哪些事）</p>
+<blockquote>
+<p>下载地址：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+</blockquote>
+<h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><ol>
+<li><p>解压到纯英文路径 2</p>
+</li>
+<li><p>解压目录添加 my.ini （可选）</p>
+</li>
+</ol>
+<blockquote>
+<p>参考：</p>
+<p><a href="http://www.cnblogs.com/Ray-xujianguo/p/3322455.html" target="_blank" rel="noopener">http://www.cnblogs.com/Ray-xujianguo/p/3322455.html</a> </p>
+<p><a href="https://gist.github.com/hanjong/1205199" target="_blank" rel="noopener">https://gist.github.com/hanjong/1205199</a> </p>
+<p><a href="https://dev.mysql.com/doc/refman/5.5/en/mysqld-option-tables.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/5.5/en/mysqld-option-tables.html</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[mysqld] </span><br><span class="line"># MySQL 安装目录 </span><br><span class="line">	basedir=C:/Develop/mysql </span><br><span class="line"># 数据文件所在目录 </span><br><span class="line">	datadir=C:/Develop/mysql/data</span><br></pre></td></tr></table></figure>
+<p>3.以管理员身份运行 CMD 执行以下命令，安装一个 MySQL 服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 定位到安装目录下的 bin 文件夹 </span><br><span class="line">$ cd &lt;MySQL安装目录&gt;/bin </span><br><span class="line"># 初始化数据所需文件以及获取一个临时的访问密码 </span><br><span class="line">$ mysqld ‐‐initialize ‐‐user=mysql ‐‐console </span><br><span class="line"># 将 MySQL 安装为服务 可以指定服务名称 </span><br><span class="line">$ mysqld ‐‐install MySQL</span><br></pre></td></tr></table></figure>
+<p> 4.登入 MySQL 服务器，重置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 先通过用户名密码进入 MySQL 操作环境 </span><br><span class="line">$ mysql ‐u root ‐p </span><br><span class="line">Enter password: # 输入临时密码   </span><br><span class="line"># 设置数据库访问密码，一定要加分号 </span><br><span class="line">mysql&gt; set password for &apos;root&apos;@&apos;localhost&apos; = password(&apos;123456&apos;);</span><br><span class="line"></span><br><span class="line">#这一步可能会报错 ERROR 1064 (42000) 提示SQL语法错误</span><br><span class="line">#尝试这条命令</span><br><span class="line">mysql&gt; alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;123&apos;;</span><br><span class="line"># 或</span><br><span class="line">mysql&gt; update mysql.user set authentication_string=password(&apos;123456&apos;) where user=&apos;root&apos; and Host = &apos;localhost&apos;;</span><br></pre></td></tr></table></figure>
+<p>解释：上面可能会报错的原因是MySQL5.7.6版本以后，password属性已经取消（使用SELECT  Password）</p>
+<p><img src="http://pan.vmccc.cn/images/2018/10/09/0fWpIoI6N4/mysql-error1064.jpg" alt=""></p>
+<p><img src="http://pan.vmccc.cn/images/2018/10/09/RRArT1cL4q/mysql-error1820.jpg" alt=""></p>
+<h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><h3 id="数据库管理工具"><a href="#数据库管理工具" class="headerlink" title="数据库管理工具"></a>数据库管理工具</h3><p>数据库管理工具本质上就是一个使用数据库服务器软件（Server）提供的服务的数据库客户端（Client）。</p>
+<h3 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h3><p>一般如果只是简单操作数据库，推荐使用 MySQL 内置的命令行工具完成：</p>
+<p>通过命令行运行解压目录下 bin 目录中的 mysql.exe ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 定位到 bin 目录 </span><br><span class="line">$ cd &lt;解压目录&gt;/bin </span><br><span class="line"># 运行 mysql，‐u 指定数据库用户名，‐p 指定密码 </span><br><span class="line">$ mysql ‐u root ‐p wanglei </span><br><span class="line"># 一般不建议在命令中填写密码，因为这样会暴露你的密码，一般只加一个 ‐p 但是不给值 </span><br><span class="line">$ mysql ‐u root ‐p </span><br><span class="line">Enter password: # 这时会要求你输入密码</span><br></pre></td></tr></table></figure>
+<p>进入 MySQL 客户端的 REPL 环境过后，可以通过标准的 SQL 语句操作数据库。<br>常见的操作指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show databases;  ‐‐ 显示全部数据库 </span><br><span class="line">mysql&gt; create database &lt;db‐name&gt;;  ‐‐ 创建一个指定名称的数据库 </span><br><span class="line">mysql&gt; use &lt;db‐name&gt;;  ‐‐ 使用一个数据库，相当于进入指定的数据库 </span><br><span class="line">mysql&gt; show tables;  ‐‐ 显示当前数据库中有哪些表 </span><br><span class="line">mysql&gt; create table &lt;table‐name&gt; (id int, name varchar(20), age int);  ‐‐ 创建一个指定名称的数据 表，并添加 3 个列 </span><br><span class="line">mysql&gt; desc &lt;table‐name&gt;;  ‐‐ 查看指定表结构 </span><br><span class="line">mysql&gt; source ./path/to/sql‐file.sql  ‐‐ 执行本地 SQL 文件中的 SQL 语句 mysql&gt; drop table &lt;table‐name&gt;;  ‐‐ 删除一个指定名称的数据表 </span><br><span class="line">mysql&gt; drop database &lt;db‐name&gt;;  ‐‐ 删除一个指定名称的数据库 </span><br><span class="line">mysql&gt; exit|quit;  ‐‐ 退出数据库终端</span><br></pre></td></tr></table></figure>
+<h3 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h3><p>如果需要复杂的操作，推荐 Navicat Premium</p>
+<blockquote>
+<p>下载地址：<a href="http://www.navicat.com.cn/download/navicat-premium" target="_blank" rel="noopener">http://www.navicat.com.cn/download/navicat-premium</a><br>这是一个付费软件，可以免费试用 14 天</p>
+</blockquote>
 
       
 
@@ -327,7 +852,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -339,7 +864,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Git//" class="article-tag-list-link color4">Git</a>
+        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -348,7 +873,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/724c121.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/0.html">展开全文 >></a>
         </p>
       
 
@@ -379,189 +904,42 @@
 
 
   
-    <article id="post-github搭建hexo博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Web端使用jquerer-emoji表情" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/9a98d601.html">Github搭建Hexo博客</a>
+      <a class="article-title" href="/post/59c352fb.html">Web端使用jquerer_emoji表情</a>
     </h1>
   
 
         
-        <a href="/post/9a98d601.html" class="archive-article-date">
-  	<time datetime="2018-10-02T10:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-02</time>
+        <a href="/post/59c352fb.html" class="archive-article-date">
+  	<time datetime="2018-10-08T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Github-搭建Hexo博客"><a href="#Github-搭建Hexo博客" class="headerlink" title="Github 搭建Hexo博客"></a>Github 搭建Hexo博客</h1><p>利用Github page搭建一个人博客，在没有特殊需求，又想快速拥有一个个人博客，hexo是个不错的选择，搭建简单，无需另外购买服务器空间和域名，只需要有个Github账号即可。搭建简单，能够坚持维护和写文章难。。。</p>
-<hr>
-<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>1.安装Node.js</p>
-<p>Hexo是基于nodeJS环境的静态博客</p>
-<p>前往<a href="https://nodejs.org/" target="_blank" rel="noopener">Node官网</a>下载最新版本,一路安装即可。</p>
-<p>查看是否安装好了，打开cdm 运行<code>node -V</code>查看版本号 </p>
-<p>2.安装Git</p>
-<p><a href="https://git-scm.com/downloads/" target="_blank" rel="noopener">官网下载</a></p>
-<p>右键打Git Bash查看版本 <code>git version</code></p>
-<p>3.Sublime</p>
-<p>随便一款文本编辑器，这里我用<a href="http://www.sublimetext.com/3" target="_blank" rel="noopener">Sublime</a>。支持各种编程语言和文件格式，当然也支持Markdown语法 。</p>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>1.安装Hexo</p>
-<ul>
-<li><p>先创建一个文件夹（用来存放所有blog的东西）然后<code>cd</code>到该文件夹下</p>
-</li>
-<li><p>安装hexo命令：<code>npm i +g hexo</code></p>
-</li>
-<li><p>安装完后查看版本</p>
-<p><img src="http://pan.vmccc.cn/images/2018/10/02/8jDSlPigzd/githexo.jpg" alt=""></p>
-</li>
-<li><p>初始化命令：<code>hexo init</code> ，初始化完成之后打开所在的文件夹可以看到以下文件：</p>
-</li>
+        <p><a href="https://github.com/eshengsky/jQuery-emoji" target="_blank" rel="noopener">参考emoji_jquery</a></p>
+<p>在使用这个插件的时候解析过程比较困扰，在<code>&lt;textarea&gt;</code>文本框的情况下无法解析他的值，因此找到手动解析的方法。</p>
+<h3 id="安装install"><a href="#安装install" class="headerlink" title="安装install"></a>安装install</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install --save jQuery-emoji</span><br></pre></td></tr></table></figure>
+<h3 id="页面引用"><a href="#页面引用" class="headerlink" title="页面引用"></a>页面引用</h3><ul>
+<li>首先在页面上引用css文件和js文件，css文件一般在<code>&lt;head&gt;</code>中添加，js文件一般在<code>&lt;/body&gt;</code>之前添加。注意要先引用jquery和jquery.mCustomScrollbar，再引用该js。</li>
 </ul>
-<p><img src="http://pan.vmccc.cn/images/2018/10/03/FWonyhHnxo/git-dir.jpg" alt=""></p>
-<ul>
-<li><p>解释一下：</p>
-<ul>
-<li>node_modules：是依赖包</li>
-<li>public：存放的是生成的页面</li>
-<li>scaffolds：命令生成文章等的模板</li>
-<li>source：用命令创建的各种文章</li>
-<li>themes：主题</li>
-<li>_config.yml：整个博客的配置</li>
-<li>db.json：source解析所得到的</li>
-<li>package.json：项目所需模块项目的配置信息</li>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--the css for jquery.mCustomScrollbar--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"lib/css/jquery.mCustomScrollbar.min.css"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--the css for this plugin--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/jquery.emoji.css"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.bootcss.com/jquery/1.11.3/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--(Optional) the js for jquery.mCustomScrollbar's addon--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/script/jquery.mousewheel-3.0.6.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--the js for jquery.mCustomScrollbar--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/script/jquery.mCustomScrollbar.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--the js for this plugin--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.emoji.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h3><ul>
+<li>在文本框或可编辑div上初始化emoji</li>
 </ul>
-</li>
-<li><p>做好这些前置工作之后接下来的就是各种配配配置了。</p>
-</li>
-</ul>
-<h3 id="Github注册与配置"><a href="#Github注册与配置" class="headerlink" title="Github注册与配置"></a>Github注册与配置</h3><p>1.注册<br>访问：<a href="https://luuman.github.io/2015/12/27/Hexo/GitHubHexo/0" target="_blank" rel="noopener">GitHub</a>，注册你的username和邮箱，邮箱十分重要，GitHub上很多通知都是通过邮箱的。注册过程比较简单。</p>
-<p>2.配置和使用Github</p>
-<ul>
-<li>创建一个repo，名称为<code>safranyu.github.io</code>, 其中safranyu是你的github名称，按照这个规则创建才有用哦，如下：(由于我已经提前创建好了，所以提示这个库已经存在)</li>
-</ul>
-<p><img src="http://pan.vmccc.cn/images/2018/10/03/59D6ETwVgq/git-user.jpg" alt=""></p>
-<ul>
-<li>回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的）：</li>
-</ul>
-<p><img src="http://pan.vmccc.cn/images/2018/10/03/FYeGRdAdw7/githubUser.jpg" alt=""></p>
-<ul>
-<li>创建SSH<br>在gitbash中输入：<code>ssh-keygen -t rsa -C &quot;youremail@example.com</code>，生成ssh。然后按下图的方式找到<code>id_rsa.pub</code>文件的内容。</li>
-</ul>
-<p><img src="http://pan.vmccc.cn/images/2018/10/03/hy3IQ1Z73j/gitssh.jpg" alt=""></p>
-<ul>
-<li><p>将上面获取的ssh放到github中：</p>
-<p><img src="http://pan.vmccc.cn/images/2018/10/03/FueQEPx6Lf/settings.jpg" alt=""></p>
-<p><img src="http://pan.vmccc.cn/images/2018/10/03/FcbkdhRQul/gitsshkey.jpg" alt=""></p>
-</li>
-</ul>
-<p>添加一个 <code>New SSH key</code> ，title随便取，key就填刚刚那一段。</p>
-<ul>
-<li><p>在gitbash中验证是否添加成功：<code>ssh +T git@github.com</code></p>
-</li>
-<li><p>完成下一步你就成功啦！</p>
-</li>
-</ul>
-<p>3.配置</p>
-<ul>
-<li><p>用编辑器打开你的blog项目，修改<code>_config.yml</code>文件的一些配置(冒号之后都是有一个半角空格的)：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="comment">//github.com/YourgithubName/YourgithubName.github.io.git</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>回到gitbash中，进入你的blog目录，分别执行以下命令：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开浏览器输入：<code>http://localhost:4000</code></p>
-</li>
-</ul>
-<ul>
-<li><p>命令解释：</p>
-<ul>
-<li>清除public，当 source 文件夹中的部分资源更改过之后，特别是对文件进行了删除或者路径的改变之后，需要执行这个命令，然后重新编译。</li>
-<li>编译，一般部署上去的时候都需要编译一下，编译后，会出现一个 public 文件夹，将所有的md文件编译成html文件</li>
-<li>开启本地服务</li>
-</ul>
-</li>
-</ul>
-<p>4.上传到github</p>
-<ul>
-<li>执行命令(建议每次都按照如下步骤部署,可简写)：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br><span class="line"><span class="comment">//简写</span></span><br><span class="line"><span class="comment">//hexo c</span></span><br><span class="line"><span class="comment">//hexo g</span></span><br><span class="line"><span class="comment">//hexo d</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>在浏览器中输入<code>http://safranyu.github.io</code>就可以看到你的个人博客啦，是不是很兴奋！</li>
-</ul>
-<ul>
-<li>感觉GitBash中东西太多的时候输入<code>clear</code>命令清空</li>
-</ul>
-<p>5.绑定个人域名</p>
-<ul>
-<li><p>不想绑定的自行忽略</p>
-</li>
-<li><p>第一步购买域名：随便在哪个网站买一个就好了。</p>
-</li>
-<li><p>第二步添加CNAME：添加记录，添加你的域名或者二级域名，比如我添加的是二级域名<code>blog</code>，记录值里填你Github里的域名,比如<code>safranyu.github.io</code>，<br> <img src="http://pan.vmccc.cn/images/2018/10/05/MVFBcdDSgc/blog-cname.jpg" alt=""></p>
-</li>
-<li><p>填写完后回到Github进入里的Blog库，设置里添加你的域名保存即可</p>
-<p> <img src="http://pan.vmccc.cn/images/2018/10/05/jfma6xvxOz/blog-yuming.jpg" alt=""></p>
-</li>
-</ul>
-<h2 id="Hexo博客配置"><a href="#Hexo博客配置" class="headerlink" title="Hexo博客配置"></a>Hexo博客配置</h2><h3 id="新建博文"><a href="#新建博文" class="headerlink" title="新建博文"></a>新建博文</h3><p>在Git Bash输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;新博文的名字&quot;</span><br></pre></td></tr></table></figure>
-<p>即可在 Hexo\source_posts 目录中找到”新博文的名字.md”这个文件。你就可以使用maekdown编辑器打开进行编写博客内容了。</p>
-<blockquote>
-<p>hexo new [layout] “postName” #新建文章</p>
-</blockquote>
-<p>其中layout是可选参数，默认值为post。有哪些layout呢，请到scaffolds目录下查看，这些文件名称就是layout名称。当然你可以添加自己的layout，方法就是添加一个文件即可，同时你也可以编辑现有的layout，比如post的layout默认是hexo\scaffolds\post.md</p>
-<h3 id="预览和发表"><a href="#预览和发表" class="headerlink" title="预览和发表"></a>预览和发表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p>你可以在<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">Themes·Hexo</a>或者<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo主题</a>上选择你喜欢的主题，我使用的SPFK主题</p>
-<h4 id="安装SPFK主题"><a href="#安装SPFK主题" class="headerlink" title="安装SPFK主题"></a>安装SPFK主题</h4><ul>
-<li><p>安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/luuman/hexo-theme-spfk.git themes/spfk</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd themes/spfk</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置</p>
-<p>主题配置文件在主目录下的<code>_config.yml</code>：<a href="http://luuman.github.io/2015/12/21/GitHub+Hexo/" target="_blank" rel="noopener">_config.yml</a></p>
-<p>相关插件的安装：请参照<a href="http://localhost:4000/2015/12/27/Hexo-plug/" target="_blank" rel="noopener">Hexo插件安装</a></p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">### Header</span><br><span class="line">D:\blog\themes\spfk\_config.yml</span><br><span class="line">menu:</span><br><span class="line">  主页: /</span><br><span class="line">  所有文章: /archives</span><br><span class="line">  # 随笔: /tags/随笔</span><br><span class="line">    #是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key（http://duoshuo-key.duoshuo.com/）</span><br><span class="line">    #若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论</span><br><span class="line">    duoshuo: true</span><br><span class="line">网页侧边栏背景:</span><br><span class="line"># Background | 背景</span><br><span class="line">## &quot;background_sum&quot;: show images form /source/background/的图片数目background_sum: 24</span><br><span class="line">## &quot;on: true&quot;: 自动随机显示这5张图片</span><br><span class="line">## &quot;on: false&quot;: 自定义显示图片设置，background_image: 109</span><br><span class="line">background:</span><br><span class="line">  on: true</span><br><span class="line">  #on: false</span><br><span class="line">  background_sum: 24</span><br><span class="line">  background_image: 109</span><br></pre></td></tr></table></figure>
-<ul>
-<li>多说评论</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">duoshuo: </span><br><span class="line">  on: true</span><br><span class="line">  domain: luuman</span><br><span class="line">  # 是否开启多说评论，http://duoshuo.com/create-site/</span><br><span class="line">  # 使用上面网址登陆你的多说，然后创建站点，在 domain 中填入你设定的域名前半部分</span><br><span class="line">  # http://&lt;要填的部分&gt;.duoshuo.com (domain只填上&lt;&gt;里的内容，不要填整个网址)</span><br><span class="line">J:\Hexo\Hexo\themes\spfk\source\css\多说.css</span><br></pre></td></tr></table></figure>
-<p>添加方法：打开「后台」 &gt; 「多说评论」 &gt; 「设置」 &gt; 「基本设置」 &gt; 然后把样式粘贴到「自定义CSS」文本框 &gt; 「保存」</p>
-<p>具体样式请参照：<a href="https://github.com/luuman/luuman.github.io/blob/master/resoures/%E5%A4%9A%E8%AF%B4.css" target="_blank" rel="noopener">多说.css</a></p>
-<ul>
-<li>头像</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 头像尺寸大概200*200px</span><br><span class="line">D:\blog\themes\spfk\source\img\head.jpg</span><br></pre></td></tr></table></figure>
-<ul>
-<li>icon 图标</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">替换路径: /spfk/source/apple-touch-icon.png</span><br><span class="line">D:\blog\themes\spfk\source\img\favicon.png</span><br></pre></td></tr></table></figure>
-<ul>
-<li>背景</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Background | 背景</span><br><span class="line"><span class="meta">#</span> "background_sum": show images form /source/background/的图片数目</span><br><span class="line"><span class="meta">#</span> "on: true": 自动随机显示这5张图片</span><br><span class="line"><span class="meta">#</span> "on: false": 自定义显示图片设置 background_image: 5</span><br><span class="line">background:</span><br><span class="line">  on: true</span><br><span class="line"><span class="meta">  #</span>on: false</span><br><span class="line">  background_sum: 24</span><br><span class="line">  background_image: 109</span><br></pre></td></tr></table></figure>
-<ul>
-<li>文章摘要</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">title: 前端知识体系</span><br><span class="line">date: 2018-10-07 22:08:02</span><br><span class="line">description: </span><br><span class="line">categories:</span><br><span class="line">- HTML 书籍</span><br><span class="line">- HTML 书籍</span><br><span class="line">tags:</span><br><span class="line">- HTML 标签 </span><br><span class="line">- HTML 标签</span><br><span class="line">toc: true 文章目录</span><br><span class="line">author:</span><br><span class="line">comments:</span><br><span class="line">original:</span><br><span class="line">permalink: </span><br><span class="line">---</span><br><span class="line">　　** 前端知识体系：**&lt;Excerpt in index | 首页摘要&gt; </span><br><span class="line">+ &lt;!-- more --&gt;</span><br><span class="line">&lt;The rest of contents | 余下全文&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>404 Page:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page 404</span><br><span class="line"><span class="meta">#</span>And then set permalink: /404 in /source/404/index.md front matter.</span><br><span class="line"><span class="meta">#</span>在 Hexo 中创建匹配主题的404页面</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="主题结构"><a href="#主题结构" class="headerlink" title="主题结构"></a>主题结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── languages            #多语言</span><br><span class="line">|   ├── default.yml      #默认语言</span><br><span class="line">|   └── zh-CN.yml        #中文语言</span><br><span class="line">├── layout               #布局，根目录下的*.ejs文件是对主页，分页，存档等的控制</span><br><span class="line">|   ├── _partial         #局部的布局，此目录下的*.ejs是对头尾等局部的控制</span><br><span class="line">|   └── _widget          #小挂件的布局，页面下方小挂件的控制</span><br><span class="line">├── source               #源码</span><br><span class="line">|   ├── css              #css源码 </span><br><span class="line">|   |   ├── _base        #*.styl基础css</span><br><span class="line">|   |   ├── _partial     #*.styl局部css</span><br><span class="line">|   |   ├── fonts        #字体</span><br><span class="line">|   |   ├── images       #图片</span><br><span class="line">|   |   └── style.styl   #*.styl引入需要的css源码</span><br><span class="line">|   ├── fancybox         #fancybox效果源码</span><br><span class="line">|   └── js               #javascript源代码</span><br><span class="line">├── _config.yml          #主题配置文件</span><br><span class="line">└── README.md            #用GitHub的都知道</span><br></pre></td></tr></table></figure>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo官方文档</a></p>
-<p><a href="https://github.com/luuman" target="_blank" rel="noopener">luuman</a></p>
-<p><a href="https://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="noopener">hexo从零开始到搭建完整</a></p>
-<p><a href="https://cherryblog.site/Use-Gitpagehexo-to-develop-their-own-blog.html" target="_blank" rel="noopener">Cherryblog</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#content"</span>).emoji(options);</span><br></pre></td></tr></table></figure>
+<p><a href="http://eshengsky.github.io/jQuery-emoji/" target="_blank" rel="noopener">options参数和方法</a></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h5 id="Html部分"><a href="#Html部分" class="headerlink" title="Html部分"></a>Html部分</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ic</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">"message"</span> <span class="attr">placeholder</span>=<span class="string">"请在此输入文本或上传图片"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="Js部分"><a href="#Js部分" class="headerlink" title="Js部分"></a>Js部分</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给元素绑定表情 option里参数参照上面官方</span></span><br><span class="line">$(<span class="string">"#message"</span>).emoji(&#123;</span><br><span class="line">        button:<span class="string">"#face"</span>,</span><br><span class="line">        showTab: <span class="literal">true</span>,</span><br><span class="line">        animation: <span class="string">'fade'</span>,</span><br><span class="line">        icons: [&#123;</span><br><span class="line">            name: <span class="string">"贴吧表情"</span>,</span><br><span class="line">            path: <span class="string">"lib/eshengsky-jQuery-emoji/dist/img/tieba/"</span>,</span><br><span class="line">            maxNum: <span class="number">50</span>,</span><br><span class="line">            file: <span class="string">".jpg"</span>,</span><br><span class="line">            placeholder: <span class="string">"[emoji_&#123;alias&#125;]"</span>,</span><br><span class="line"></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: <span class="string">"QQ高清"</span>,</span><br><span class="line">            path: <span class="string">"lib/eshengsky-jQuery-emoji/dist/img/qq/"</span>,</span><br><span class="line">            maxNum: <span class="number">91</span>,</span><br><span class="line">            excludeNums: [<span class="number">41</span>, <span class="number">45</span>, <span class="number">54</span>],</span><br><span class="line">            file: <span class="string">".gif"</span>,</span><br><span class="line">            placeholder: <span class="string">"[qq_&#123;alias&#125;]"</span></span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            name: <span class="string">"emoji高清"</span>,</span><br><span class="line">            path: <span class="string">"lib/eshengsky-jQuery-emoji/dist/img/emoji/"</span>,</span><br><span class="line">            maxNum: <span class="number">84</span>,</span><br><span class="line">            file: <span class="string">".png"</span>,</span><br><span class="line">            placeholder: <span class="string">"[em_&#123;alias&#125;]"</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="comment">// 解析方法</span></span><br><span class="line">$(<span class="string">'#btn'</span>).click(funtion()&#123;</span><br><span class="line">	<span class="keyword">var</span> contents = $(<span class="string">'#message'</span>).val();</span><br><span class="line">	contents = replace_em(contents);</span><br><span class="line">	onsole.log(contents)；</span><br><span class="line">    $(<span class="string">'#content'</span>).html(contents);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 手动解析规则</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">replace_em</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">        str = str.replace(<span class="regexp">/\&lt;/g</span>,<span class="string">'&amp;lt;'</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\&gt;/g</span>,<span class="string">'&amp;gt;'</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\n/g</span>,<span class="string">'&lt;br/&gt;'</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\[qq_([0-9]*)\]/g</span>,<span class="string">"&lt;img src='lib/eshengsky-jQuery-emoji/dist/img/qq/$1.gif' /&gt;"</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\[em_([0-9]*)\]/g</span>,<span class="string">"&lt;img src='lib/eshengsky-jQuery-emoji/dist/img/emoji/$1.png'  /&gt;"</span>);</span><br><span class="line">        str = str.replace(<span class="regexp">/\[emoji_([0-9]*)\]/g</span>,<span class="string">"&lt;img src='lib/eshengsky-jQuery-emoji/dist/img/tieba/$1.jpg' /&gt;"</span>);</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>官方转换方法有点复杂，转换不了<code>&lt;textarea&gt;</code>输入的值，可能要修改官方的解析方法。</p>
+<p><a href="https://github.com/li914/emoji_jQuery" target="_blank" rel="noopener">延伸插件</a></p>
 
       
 
@@ -575,11 +953,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Blog</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
         		</li>
       		
 		</ul>
@@ -591,7 +969,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Blog//" class="article-tag-list-link color5">Blog</a>
+        			<a href="/categories/jQuer//" class="article-tag-list-link color1">jQuer</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jQuer/JS插件//" class="article-tag-list-link color5">JS插件</a>
         		</li>
       		
 		</ul>
@@ -600,7 +982,209 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/9a98d601.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/59c352fb.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-hexo添加Gitalik评论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/59c352fb.html">hexo添加Gitalik评论</a>
+    </h1>
+  
+
+        
+        <a href="/post/59c352fb.html" class="archive-article-date">
+  	<time datetime="2018-10-08T13:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我使用的是hexo模板是Yilia的，会有些不同。</p>
+<p><a href="https://knightcai.github.io/2017/12/19/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" target="_blank" rel="noopener">参考文档</a></p>
+<p>1、在模板文件里创建一个<code>gitalk.ejs</code>文件，把下面的代码复制进去</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://unpkg.com/gitalk/dist/gitalk.css"</span>&gt;</span><br><span class="line">&lt;div id=<span class="string">"gitalk-container"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"https://unpkg.com/gitalk/dist/gitalk.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> gitalk = <span class="keyword">new</span> Gitalk(&#123;</span><br><span class="line">        clientID: <span class="string">'&lt;%= theme.gitalk.clientID %&gt;'</span>,</span><br><span class="line">        clientSecret: <span class="string">'&lt;%= theme.gitalk.clientSecret %&gt;'</span>,</span><br><span class="line">        id: <span class="built_in">window</span>.location.pathname,</span><br><span class="line">        repo: <span class="string">'&lt;%= theme.gitalk.repo %&gt;'</span>,</span><br><span class="line">        owner: <span class="string">'&lt;%= theme.gitalk.owner %&gt;'</span>,</span><br><span class="line">        admin: <span class="string">'&lt;%= theme.gitalk.admin %&gt;'</span>,</span><br><span class="line">        distractionFreeMode: <span class="string">'&lt;%= theme.gitalk.shade %&gt;'</span>,</span><br><span class="line">        enableHotKey: <span class="string">'&lt;%= theme.gitalk.enableHotKey %&gt;'</span>,</span><br><span class="line">       </span><br><span class="line">    &#125;)</span><br><span class="line">    gitalk.render(<span class="string">'gitalk-container'</span>)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2、在文章页面添加这个模板，一般是在这个路径下<code>layout\_partial\article.ejs</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (theme.gitalk.enable)&#123; %&gt;</span><br><span class="line">    &lt;%- partial(<span class="string">'_partial/post/gitalk'</span>) %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>3、在模板的配置文件里添加</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#gitalk settings</span><br><span class="line">gitalk:</span><br><span class="line">  enable: true #用来做启用判断可以不用</span><br><span class="line">  owner: <span class="string">'Github 用户名'</span></span><br><span class="line">  repo: 'Github 仓库名' #例：safranyu.github.io</span><br><span class="line">  admin: <span class="string">'Github 用户名'</span></span><br><span class="line">  clientID: <span class="string">'Github Application clientID'</span></span><br><span class="line">  clientSecret: <span class="string">'Github Application clientSecret'</span></span><br><span class="line">  shade: true # 遮罩</span><br><span class="line">  enableHotKey: true #启用热键（cmd | ctrl + enter）提交评论</span><br></pre></td></tr></table></figure>
+<p>4、Gitalk 需要一个 <strong>Github Application</strong></p>
+<p><a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">申请页面</a></p>
+<p>填写下面参数：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fmm7jaib6fj30jo0gaacs.jpg" alt=""></p>
+<p>会得到<code>Client ID</code>和<code>Client Secret</code>在配置文件里填好就行。</p>
+<p>我遇到报<code>Error: Bad credentials</code>错误，通过加单引号解决了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jQuer//" class="article-tag-list-link color1">jQuer</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jQuer/JS插件//" class="article-tag-list-link color5">JS插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/59c352fb.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-webstorm永久激活" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/21b2441f.html">webstorm永久激活</a>
+    </h1>
+  
+
+        
+        <a href="/post/21b2441f.html" class="archive-article-date">
+  	<time datetime="2018-10-08T13:20:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><blockquote>
+<p>进入 C:\Windows\System32\drivers\etc\hosts 文件, 在最后一行添加下面代码 (推荐用 Notepad 编辑)</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.0.0.0 account.jetbrains.com</span><br></pre></td></tr></table></figure>
+<p><img src="http://pan.vmccc.cn/images/2018/10/08/Nfo2DLYaPm/webstrom-jihuo.jpg" alt=""></p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><blockquote>
+<p>打开 webstorm将如下代码粘贴到 activation code 内</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EB101IWSWD-eyJsaWNlbnNlSWQiOiJFQjEwMUlXU1dEIiwibGljZW5zZWVOYW1lIjoibGFuIHl1IiwiYXNzaWduZWVOYW1lIjoiIiwiYXNzaWduZWVFbWFpbCI6IiIsImxpY2Vuc2VSZXN0cmljdGlvbiI6IkZvciBlZHVjYXRpb25hbCB1c2Ugb25seSIsImNoZWNrQ29uY3VycmVudFVzZSI6ZmFsc2UsInByb2R1Y3RzIjpbeyJjb2RlIjoiSUkiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJSUzAiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJXUyIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IlJEIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUkMiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IkRCIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUk0iLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJETSIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IkFDIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiRFBOIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUFMiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJDTCIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IlBDIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUlNVIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In1dLCJoYXNoIjoiNjk0NDAzMi8wIiwiZ3JhY2VQZXJpb2REYXlzIjowLCJhdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlLCJpc0F1dG9Qcm9sb25nYXRlZCI6ZmFsc2V9-Gbb7jeR8JWOVxdUFaXfJzVU/O7c7xHQyaidCnhYLp7v32zdeXiHUU7vlrrm5y9ZX0lmQk3plCCsW+phrC9gGAPd6WDKhkal10qVNg0larCR2tQ3u8jfv1t2JAvWrMOJfFG9kKsJuw1P4TozZ/E7Qvj1cupf/rldhoOmaXMyABxNN1af1RV3bVhe4FFZe0p7xlIJF/ctZkFK62HYmh8V3AyhUNTzrvK2k+t/tlDJz2LnW7nYttBLHld8LabPlEEjpTHswhzlthzhVqALIgvF0uNbIJ5Uwpb7NqR4U/2ob0Z+FIcRpFUIAHEAw+RLGwkCge5DyZKfx+RoRJ/In4q/UpA==-MIIEPjCCAiagAwIBAgIBBTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE1MTEwMjA4MjE0OFoXDTE4MTEwMTA4MjE0OFowETEPMA0GA1UEAwwGcHJvZDN5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQC9WZuYgQedSuOc5TOUSrRigMw4/+wuC5EtZBfvdl4HT/8vzMW/oUlIP4YCvA0XKyBaCJ2iX+ZCDKoPfiYXiaSiH+HxAPV6J79vvouxKrWg2XV6ShFtPLP+0gPdGq3x9R3+kJbmAm8w+FOdlWqAfJrLvpzMGNeDU14YGXiZ9bVzmIQbwrBA+c/F4tlK/DV07dsNExihqFoibnqDiVNTGombaU2dDup2gwKdL81ua8EIcGNExHe82kjF4zwfadHk3bQVvbfdAwxcDy4xBjs3L4raPLU3yenSzr/OEur1+jfOxnQSmEcMXKXgrAQ9U55gwjcOFKrgOxEdek/Sk1VfOjvS+nuM4eyEruFMfaZHzoQiuw4IqgGc45ohFH0UUyjYcuFxxDSU9lMCv8qdHKm+wnPRb0l9l5vXsCBDuhAGYD6ss+Ga+aDY6f/qXZuUCEUOH3QUNbbCUlviSz6+GiRnt1kA9N2Qachl+2yBfaqUqr8h7Z2gsx5LcIf5kYNsqJ0GavXTVyWh7PYiKX4bs354ZQLUwwa/cG++2+wNWP+HtBhVxMRNTdVhSm38AknZlD+PTAsWGu9GyLmhti2EnVwGybSD2Dxmhxk3IPCkhKAK+pl0eWYGZWG3tJ9mZ7SowcXLWDFAk0lRJnKGFMTggrWjV8GYpw5bq23VmIqqDLgkNzuoog==</span><br></pre></td></tr></table></figure>
+<p><img src="http://pan.vmccc.cn/images/2018/10/08/wjjS0RrJzs/webstrom-jihuo1.jpg" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Webstrom</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Webstorm//" class="article-tag-list-link color4">Webstorm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/21b2441f.html">展开全文 >></a>
         </p>
       
 
@@ -633,7 +1217,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -645,7 +1229,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Safran
+    		&copy; 2020 Safran
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -728,27 +1312,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+                <a href="javascript:void(0)" class="js-tag color4">AnyProxy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">Thor</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">AndroidStudio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -756,11 +1332,67 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dayjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Moment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ag-grid</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,10 +1420,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
               </li>
              
@@ -808,7 +1436,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,6 +1448,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
               </li>
              
@@ -828,15 +1460,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -845,6 +1469,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">小程序反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">

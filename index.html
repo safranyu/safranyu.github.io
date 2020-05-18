@@ -159,259 +159,51 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-快速搭建Flutter环境-Mac" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-git分支的创建与使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/9a98d699.html">快速搭建Flutter环境-Mac</a>
+      <a class="article-title" href="/post/adk7e5ef.html">git分支的创建与使用</a>
     </h1>
   
 
         
-        <a href="/post/9a98d699.html" class="archive-article-date">
-  	<time datetime="2019-09-15T13:37:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+        <a href="/post/adk7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-04-22T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li>系统要求</li>
-<li>设置FLutter镜像(非必须)</li>
-<li>获取Flutter SDK</li>
-<li>iOS开发环境设置</li>
-<li>Android开发环境设置</li>
-<li>安装Flutter插件</li>
-</ul>
-<h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><p>在Mac上要安装并运行Flutter要满足以下最低要求:</p>
-<ul>
-<li>操作系统: macOS (64-bit)</li>
-<li>磁盘空间: 700 MB (不包括Xcode或Android Studio的磁盘空间）.</li>
-<li>工具: Flutter 依赖下面这些命令行工具：<code>bash curl git 2.x mkdir rm unzip which</code></li>
-</ul>
-<h2 id="设置FLutter镜像-非必须"><a href="#设置FLutter镜像-非必须" class="headerlink" title="设置FLutter镜像(非必须)"></a>设置FLutter镜像(非必须)</h2><p>由于在国内访问Flutter可能会受到限制，Flutter官方为中国开发者搭建了临时镜像，大家可以将如下环境变量加入到用户环境变量中：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Macintosh HD⁩ ▸ ⁨Users⁩ ▸ ⁨你的用户名 ▸ ⁨.bash_profile</span></span><br><span class="line"><span class="keyword">export</span> PUB_HOSTED_URL=https:<span class="comment">//pub.flutter-io.cn</span></span><br><span class="line"><span class="keyword">export</span> FLUTTER_STORAGE_BASE_URL=https:<span class="comment">//storage.flutter-io.cn</span></span><br></pre></td></tr></table></figure>
-<p>注意：此镜像为临时镜像，并不能保证一直可用，大家可以从 <a href="https://flutter.dev/community/china" target="_blank" rel="noopener">Using Flutter in China</a> 上获得有关镜像服务器的最新动态。</p>
-<h2 id="获取Flutter-SDK"><a href="#获取Flutter-SDK" class="headerlink" title="获取Flutter SDK"></a>获取Flutter SDK</h2><p><strong>1.点Flutter官网下载其最新可用的安装包。</strong></p>
-<p><strong>2.解压安装包到你想安装的目录，如：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd ~/development</span><br><span class="line"><span class="meta">$</span> unzip ~/Downloads/flutter_macos_v1.2.1-stable.zip</span><br></pre></td></tr></table></figure>
-<p><strong>3.添加flutter相关工具到path中：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> PATH=<span class="string">"$PATH:`pwd`/flutter/bin"</span></span><br></pre></td></tr></table></figure>
-<p>此代码只能暂时针对当前命令行窗口设置PATH环境变量，要想永久将Flutter添加到PATH中请参考下面做法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd ~</span><br><span class="line"><span class="meta">$</span> vim .bash_profile</span><br></pre></td></tr></table></figure>
-<p>然后添加：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> PATH=<span class="regexp">/Users/</span>safran/Documents/flutter/bin:$PATH</span><br></pre></td></tr></table></figure>
-<p>之后记得保存文件。</p>
-<h3 id="运行-flutter-doctor"><a href="#运行-flutter-doctor" class="headerlink" title="运行 flutter doctor"></a>运行 flutter doctor</h3><p>上面path配置完成之后，需要关闭终端重新打开，然后运行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter doctor</span><br></pre></td></tr></table></figure>
-<p>该命令检查你的环境并在终端窗口中显示报告。Dart SDK已经在捆绑在Flutter里了，没有必要单独安装Dart。 仔细检查命令行输出以获取可能需要安装的其他软件或进一步需要执行的任务（以粗体显示）：</p>
-<p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[-] Android toolchain - develop for Android devices</span><br><span class="line">    • Android SDK at /Users/obiwan/Library/Android/sdk</span><br><span class="line">    ✗ Android SDK is missing command line tools; download from https://goo.gl/XxQghQ</span><br><span class="line">    • Try re-installing or updating your Android SDK,</span><br><span class="line">      visit https://flutter.dev/setup/#android-setup for detailed instructions.</span><br></pre></td></tr></table></figure>
-<p>一般的错误会是XCode或Android Studio版本太低、或者没有<code>ANDROID_HOME</code>环境变量等，可参考一下环境变量的配置来检查你的环境变量：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>flutter环境变量</span><br><span class="line">export PATH=/Users/safran/Desktop/flutter/bin:$PATH</span><br><span class="line"><span class="meta">#</span> flutter镜像</span><br><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br><span class="line"><span class="meta">#</span>Android 环境变量</span><br><span class="line">export ANDROID_HOME=/Users/safran/Library/Android/sdk</span><br><span class="line"><span class="meta">#</span>Android 模拟器路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/emulator</span><br><span class="line"><span class="meta">#</span>Android tools路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/tools</span><br><span class="line"><span class="meta">#</span>Android 平台工具路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/platform-tools</span><br><span class="line"><span class="meta">#</span>Android NDK路径</span><br><span class="line">ANDROID_NDK_HOME=/Users/safran/Library/Android/ndk/android-ndk-r10e</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><em>第一次运行一个flutter命令（如flutter doctor）时，它会下载它自己的依赖项并自行编译。以后再运行就会快得多。</em></p>
-</blockquote>
-<h2 id="iOS开发环境设置"><a href="#iOS开发环境设置" class="headerlink" title="iOS开发环境设置"></a>iOS开发环境设置</h2><h3 id="安装-Xcode"><a href="#安装-Xcode" class="headerlink" title="安装 Xcode"></a>安装 Xcode</h3><p>要用Flutter开发iOS App需要Xcode 9.0 或更高版本:</p>
-<p><strong>1.安装Xcode 9.0或更新版本(通过链接下载或苹果应用商店)</strong></p>
-<p><strong>2.配置Xcode命令行工具以使用新安装的Xcode版本</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</span><br></pre></td></tr></table></figure>
-<p>以上路径时对于最新版Xcode的路径。如果你需要使用不同的Xcode版本，需要指定相应路径。</p>
-<p><strong>3.确保Xcode许可协议是通过打开一次Xcode或通过命令sudo xcodebuild -license同意过了</strong></p>
-<p>接下来就可以使用Xcode，在iOS设备或模拟器上运行Flutter App了。</p>
-<h3 id="设置iOS模拟器"><a href="#设置iOS模拟器" class="headerlink" title="设置iOS模拟器"></a>设置iOS模拟器</h3><p>要准备在iOS模拟器上运行并测试您的Flutter应用，请按以下步骤操作：</p>
-<p><strong>1.在终端输入如下命令打开一个iOS模拟器：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> open -a Simulator</span><br></pre></td></tr></table></figure>
-<p><strong>2.通过模拟器菜单栏的 硬件&gt;设备 ，确保你打开是64位 iPhone 5s或更新的模拟器</strong></p>
-<p><strong>3.如果模拟器过大，可以通过模拟器的 Window&gt; Scale 菜单下设置设备比例</strong></p>
-<h3 id="创建和运行一个简单的Flutter项目"><a href="#创建和运行一个简单的Flutter项目" class="headerlink" title="创建和运行一个简单的Flutter项目"></a>创建和运行一个简单的Flutter项目</h3><p><strong>1.通过如下命令创建一个Flutter项目</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter create my_app</span><br></pre></td></tr></table></figure>
-<p><strong>2.命令运行完成之后会在当前目录下创建一个名为my_app的Flutter项目，然后通过一下命令可以运行它：</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd my_app</span><br><span class="line"><span class="meta">$</span> flutter run</span><br></pre></td></tr></table></figure>
-<h3 id="如何将Flutter安装到iOS真机上？"><a href="#如何将Flutter安装到iOS真机上？" class="headerlink" title="如何将Flutter安装到iOS真机上？"></a>如何将Flutter安装到iOS真机上？</h3><p>要通过<code>lutter run</code>将Flutter应用安装到iOS真机设备，需要一些额外的工具和一个Apple帐户，还需要在Xcode中进行设置：</p>
-<blockquote>
-<p>当然，用XCode来将Flutter运行在真机上更简单，只需要点一下<code>run</code>按钮即可，可以根据需要进行选择这两种不同的运行方式；</p>
-</blockquote>
-<p><strong>1.安装 Homebrew （如果已经安装了brew,跳过此步骤）.</strong></p>
-<p><strong>2.确保homebrew已更新</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew update</span><br></pre></td></tr></table></figure>
-<p><strong>3.打开终端并运行这些命令来安装用于将Flutter应用安装到iOS设备的工具</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew install --HEAD usbmuxd</span><br><span class="line"><span class="meta">$</span> brew link usbmuxd</span><br><span class="line"><span class="meta">$</span> brew install --HEAD libimobiledevice</span><br><span class="line"><span class="meta">$</span> brew install ideviceinstaller ios-deploy cocoapods</span><br><span class="line"><span class="meta">$</span> pod setup</span><br></pre></td></tr></table></figure>
-<p>如果这些命令中的任何一个失败并出现错误，可运行<code>brew doctor</code>并按照说明解决问题。</p>
-<p><strong>4.遵循Xcode签名流程来配置您的项目:</strong></p>
-<ul>
-<li>在你Flutter项目目录中通过 <code>open ios/Runner.xcworkspace</code> 打开默认的Xcode workspace</li>
-<li>在Xcode中，选择导航面板左侧中的Runner项目</li>
-<li>在Runner target设置页面中，确保在 常规&gt;签名&gt;团队 下选择了您的开发团队。当您选择一个团队时，Xcode会创建并下载开发证书，向您的设备注册您的帐户，并创建和下载配置文件（如果需要）<ul>
-<li>要开始您的第一个iOS开发项目，您可能需要使用您的Apple ID登录Xcode</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>任何Apple ID都支持开发和测试，但如果要将应用发布到App Store则需要一个99美刀的开发者账号。</li>
-<li>当你第一次attach真机设备进行iOS开发时，需要同时信任你的Mac和该设备上的开发证书。首次将iOS设备连接到Mac时,请在对话框中选择 <code>Trust</code>。</li>
-</ul>
-<p>然后，转到iOS设备上的设置应用程序，选择 常规&gt;设备管理 并信任您的证书。</p>
-<ul>
-<li>如果Xcode中的自动签名失败，请验证项目的 General &gt; Identity &gt; Bundle Identifier 值是否唯一。</li>
-</ul>
-<p><strong>5.通过flutter run运行启动项目</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter run</span><br></pre></td></tr></table></figure>
-<h2 id="Android开发环境设置-amp-Flutter插件安装"><a href="#Android开发环境设置-amp-Flutter插件安装" class="headerlink" title="Android开发环境设置&amp;Flutter插件安装"></a>Android开发环境设置&amp;Flutter插件安装</h2><h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><p><strong>1.下载并安装 Android Studio</strong></p>
-<ul>
-<li><a href="https://developer.android.com/studio" target="_blank" rel="noopener">https://developer.android.com/studio</a></li>
-<li><a href="https://developer.android.google.cn/studio" target="_blank" rel="noopener">https://developer.android.google.cn/studio</a></li>
-</ul>
-<blockquote>
-<p>因为Android网站设在国外，如果你的网络无法访问第一个地址，可以选择使用Google为中国开发者提供的中国网址进行访问。</p>
-</blockquote>
-<p>另外，关于Android Studio的安装和配置，Android官方有比较详细的说明文档<a href="https://developer.android.google.cn/studio/intro，大家可以根据需要进行查阅；" target="_blank" rel="noopener">https://developer.android.google.cn/studio/intro，大家可以根据需要进行查阅；</a></p>
-<p><strong>2.启动Android Studio，然后执行“Android Studio安装向导”。这将安装最新的Android SDK，Android SDK平台工具和Android SDK构建工具</strong></p>
-<h3 id="Flutter插件安装"><a href="#Flutter插件安装" class="headerlink" title="Flutter插件安装"></a>Flutter插件安装</h3><ul>
-<li>打开Android Studio</li>
-<li>打开Preferences &gt; Plugins (macOS), File &gt; Settings &gt; Plugins (Windows &amp; Linux)</li>
-<li>选择 Browse repositories, 搜索 Flutter plugin</li>
-<li>然后点击安装，然后安装Dart插件</li>
-<li>完成之后选择重启Android Studio</li>
-</ul>
-<h3 id="如何在Android模拟器上运行Flutter？"><a href="#如何在Android模拟器上运行Flutter？" class="headerlink" title="如何在Android模拟器上运行Flutter？"></a>如何在Android模拟器上运行Flutter？</h3><p>要准备在Android模拟器上运行并测试您的Flutter应用，需要按照以下步骤操作：</p>
-<ul>
-<li><p>在你的机器上启用 <a href="https://developer.android.com/studio/run/emulator-acceleration.html#vm-mac" target="_blank" rel="noopener">VM acceleration</a>；</p>
-</li>
-<li><p>启动 Android Studio&gt;Tools&gt;Android&gt;AVD Manager 并选择 <code>Create Virtual Device</code>；</p>
-</li>
-<li><p>选择一个设备并选择 Next；</p>
-</li>
-<li><p>为要模拟的Android版本选择一个或多个系统映像，然后选择 Next. 建议使用 x86 或 x86_64 的镜像；</p>
-</li>
-<li><p>在 Emulated Performance下, 选择 Hardware - GLES 2.0 以启用硬件加速；</p>
-</li>
-<li><p>验证AVD配置是否正确，然后选择 Finish；</p>
-<p>如果对以上步骤还有不清楚的可以参阅Android官方的 <a href="https://developer.android.com/studio/run/managing-avds.html" target="_blank" rel="noopener">Managing AVDs</a>文档。</p>
-</li>
-<li><p>在 Android Virtual Device Manager中, 点击工具栏的 <code>Run</code>，模拟器启动并显示所选操作系统版本或设备的启动画面；</p>
-</li>
-<li><p>通过<code>flutter run</code>运行启动项目；</p>
-</li>
-</ul>
-<h3 id="如何在Android真机运行？"><a href="#如何在Android真机运行？" class="headerlink" title="如何在Android真机运行？"></a>如何在Android真机运行？</h3><p>要准备在Android设备上运行并测试您的Flutter应用，您需要安装Android 4.1（API level 16）或更高版本的Android设备</p>
-<ul>
-<li>在你的设备上启用 <code>开发人员选项</code> 和 <code>USB调试</code> 。详细说明可在<a href="https://developer.android.com/studio/debug/dev-options.html" target="_blank" rel="noopener">Android文档</a>中找到；</li>
-<li>使用USB将手机插入电脑，如果有授权提示需要同意授权；</li>
-<li>在终端中，运行<code>flutter devices</code> 命令以验证Flutter是否识别你连接的Android设备；</li>
-<li>通过<code>flutter run</code>运行启动项目；</li>
-</ul>
-<p>默认情况下，Flutter使用的Android SDK版本是基于你的 <code>adb</code> 工具版本， 如果你想让Flutter使用不同版本的Android SDK，则必须将该 <code>ANDROID_HOME</code> 环境变量修改SDK的目录。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="http://www.devio.org/2019/04/03/development-environment-mac/" target="_blank" rel="noopener">两分钟带你快速搭建Flutter开发环境(Mac)</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Flutter</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Flutter//" class="article-tag-list-link color3">Flutter</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/9a98d699.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-Git拉取远程最新代码，并与当前分支合并" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/e235697f.html">Git拉取远程最新代码，并与当前分支合并</a>
-    </h1>
-  
-
-        
-        <a href="/post/e235697f.html" class="archive-article-date">
-  	<time datetime="2019-04-03T13:30:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在团队开发中，git的使用已经很常见了，在多人协同开发中，我们经常会遇到这样的问题：A在本地开发完成后，将代码推送到远程，这时候B的本地代码的版本就低于远程代码的版本，这时候B该如何从远程拉取最新的代码，并与自己的本地代码合并呢？ 具体步骤如下：</p>
-<h4 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库:"></a>查看远程仓库:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
-<h4 id="看到远程有一个叫origin的仓库，我们可以使用如下命令从origin远程仓库获取最新版本的代码"><a href="#看到远程有一个叫origin的仓库，我们可以使用如下命令从origin远程仓库获取最新版本的代码" class="headerlink" title="看到远程有一个叫origin的仓库，我们可以使用如下命令从origin远程仓库获取最新版本的代码"></a>看到远程有一个叫origin的仓库，我们可以使用如下命令从origin远程仓库获取最新版本的代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin master:temp</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>上面代码的意思是：从远程的origin仓库的master分支下载到本地master并新建一个temp分支</p>
-</li>
-<li><p>注意：不建议使用pull拉取最新代码，因为pull拉取下来后会自动和本地分支合并</p>
-<p>获取最新版本  有两种  拉取 和 获取 pull 和 fetch</p>
-</li>
-</ul>
-<blockquote>
-<p>git  pull     从远程拉取最新版本 到本地  自动合并 merge <code>git pull origin master</code></p>
-<p>git  fetch   从远程获取最新版本 到本地   不会自动合并 merge    <code>git fetch  origin master</code>       <code>git log  -p master ../origin/master</code>    <code>git merge orgin/master</code></p>
-<p>实际使用中  使用git fetch 更安全    在merge之前可以看清楚 更新情况  再决定是否合并</p>
-</blockquote>
-<h4 id="查看temp分支与本地原有分支的不同"><a href="#查看temp分支与本地原有分支的不同" class="headerlink" title="查看temp分支与本地原有分支的不同"></a>查看temp分支与本地原有分支的不同</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff temp</span><br></pre></td></tr></table></figure>
-<h4 id="将temp分支和本地的master分支合并"><a href="#将temp分支和本地的master分支合并" class="headerlink" title="将temp分支和本地的master分支合并"></a>将temp分支和本地的master分支合并</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge temp</span><br></pre></td></tr></table></figure>
-<h4 id="删除temp分支"><a href="#删除temp分支" class="headerlink" title="删除temp分支"></a>删除temp分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D temp</span><br></pre></td></tr></table></figure>
+        <p>在此记录下命令：</p>
+<p>创建命令：<br>git branch 分支名</p>
+<p>切换分支：<br>git checkout 分支名</p>
+<p>创建并切换分支<br>git checkout -b 分支名</p>
+<p>删除分支<br>git branch -d 分支名<br>ps：如果需要删除的分支为合并到主分支git报错，此时可以用-D 大写的d来删除</p>
+<p><img src="http://img.cdn.vmccc.cn/7269362-bf03355a365c8e68.png" alt=""></p>
+<p>合并分支：</p>
+<p>git merge 分支名 （将分支名合并到当前分支！ps:注意是当前分支）<br>注意：若指定分支与当前分支没有冲突，则执行快速合并。若存在冲突则快速合并失败 需要查看冲突的文件并手动解决冲突后在提交文件</p>
+<p>git 后悔药</p>
+<p>重置到上一次的提交</p>
+<p>git reset –hard HEAD^</p>
+<p>重置到上两次的提交</p>
+<p>git reset –hard HEAD^^</p>
+<p>git log 查看日志</p>
+<p>重置到某一个分支</p>
+<p>git reset –hard commitId</p>
+<p>重点：后悔药的后悔药</p>
+<p>git reflog</p>
+<p>查看所有的操作日志,在此可以查到最后一次的的commitid，然后就可以找 最新的commitid使用</p>
+<p>git reset –hard</p>
+<p>最新的commitid即可</p>
+<p>git日志以类图形化显示</p>
+<p>git log –graph –decorate –oneline –all</p>
+<h2 id="快捷语法"><a href="#快捷语法" class="headerlink" title="快捷语法"></a>快捷语法</h2><p>1、<code>ggpush</code> 提交</p>
+<p>2.<code>gcc test</code> 创建分支</p>
 
       
 
@@ -446,7 +238,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/e235697f.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/adk7e5ef.html">展开全文 >></a>
         </p>
       
 
@@ -477,31 +269,216 @@
 
 
   
-    <article id="post-小程序wxml页面进行数据替换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-git 简写" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/fc17f2c8.html">小程序wxml页面进行数据替换</a>
+      <a class="article-title" href="/post/adj7e5ef.html">git 简写</a>
     </h1>
   
 
         
-        <a href="/post/fc17f2c8.html" class="archive-article-date">
-  	<time datetime="2019-04-01T15:39:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
+        <a href="/post/adj7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-04-19T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考1.<a href="https://blog.csdn.net/cangahi09025566/article/details/82589831" target="_blank" rel="noopener">微信小程序WXML页面上直接进行字符串截取实现方式</a></p>
-<p>参考2.<a href="https://www.aiyingli.com/51529.html" target="_blank" rel="noopener">wxs replace 正则用法该怎么用？？？？</a></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//顶部引用</span><br><span class="line"><span class="comment">&lt;!-- 引入wxs脚本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">src</span>=<span class="string">"./subutil.wxs"</span> <span class="attr">module</span>=<span class="string">"tools"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'nameSite'</span>&gt;</span>&#123;&#123;tools.subs(addressModel.address_city)&#125;&#125; <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>wxs脚本文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sub = <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (val.length == <span class="number">0</span> || val == <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> reg = getRegExp(<span class="string">"(\|)"</span>, <span class="string">"g"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(reg);</span><br><span class="line">    <span class="keyword">return</span> val.replace(reg, <span class="string">' '</span>);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.sub = sub;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">g - git</span><br><span class="line">gst - git status</span><br><span class="line">gl - git pull</span><br><span class="line">gup - git pull --rebase</span><br><span class="line">gp - git push</span><br><span class="line">gd - git diff</span><br><span class="line">gdc - git diff --cached</span><br><span class="line">gdv - git diff -w &quot;$@&quot; | view</span><br><span class="line">gc - git commit -v</span><br><span class="line">gc! - git commit -v --amend</span><br><span class="line">gca - git commit -v -a</span><br><span class="line">gca! - git commit -v -a --amend</span><br><span class="line">gcmsg - git commit -m</span><br><span class="line">gco - git checkout</span><br><span class="line">gcm - git checkout master</span><br><span class="line">gr - git remote</span><br><span class="line">grv - git remote -v</span><br><span class="line">grmv - git remote rename</span><br><span class="line">grrm - git remote remove</span><br><span class="line">gsetr - git remote set-url</span><br><span class="line">grup - git remote update</span><br><span class="line">grbi - git rebase -i</span><br><span class="line">grbc - git rebase --continue</span><br><span class="line">grba - git rebase --abort</span><br><span class="line">gb - git branch</span><br><span class="line">gba - git branch -a</span><br><span class="line">gcount - git shortlog -sn</span><br><span class="line">gcl - git config --list</span><br><span class="line">gcp - git cherry-pick</span><br><span class="line">glg - git log --stat --max-count=10</span><br><span class="line">glgg - git log --graph --max-count=10</span><br><span class="line">glgga - git log --graph --decorate --all</span><br><span class="line">glo - git log --oneline --decorate --color</span><br><span class="line">glog - git log --oneline --decorate --color --graph</span><br><span class="line">gss - git status -s</span><br><span class="line">ga - git add</span><br><span class="line">gm - git merge</span><br><span class="line">grh - git reset HEAD</span><br><span class="line">grhh - git reset HEAD --hard</span><br><span class="line">gclean - git reset --hard &amp;&amp; git clean -dfx</span><br><span class="line">gwc - git whatchanged -p --abbrev-commit --pretty=medium</span><br><span class="line">gsts - git stash show --text</span><br><span class="line">gsta - git stash</span><br><span class="line">gstp - git stash pop</span><br><span class="line">gstd - git stash drop</span><br><span class="line">ggpull - git pull origin $(current_branch)</span><br><span class="line">ggpur - git pull --rebase origin $(current_branch)</span><br><span class="line">ggpush - git push origin $(current_branch)</span><br><span class="line">ggpnp - git pull origin $(current_branch) &amp;&amp; git push origin $(current_branch)</span><br><span class="line">glp - _git_log_prettily</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Git//" class="article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/adj7e5ef.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-Mac 下配置Flutter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/adh7e5ef.html">Mac 下配置Flutter</a>
+    </h1>
+  
+
+        
+        <a href="/post/adh7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-04-16T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><a href="https://segmentfault.com/a/1190000014845833" target="_blank" rel="noopener">https://segmentfault.com/a/1190000014845833</a></p>
+</blockquote>
+<p>flutter中文网<a href="https://flutterchina.club" target="_blank" rel="noopener">https://flutterchina.club</a></p>
+<h2 id="系统环境要求"><a href="#系统环境要求" class="headerlink" title="系统环境要求"></a>系统环境要求</h2><p>macOS (64-bit)<br>硬盘空间: 700 MB (不包含android studio等编辑器工具).<br>命令行工具:bash, mkdir, rm, git, curl, unzip, which,brew需要保证上述命令在命令行下能使用，</p>
+<p>如果没有安装brew，那么需要先安装：参考：<a href="https://segmentfault.com/a/1190000013317511" target="_blank" rel="noopener">https://segmentfault.com/a/1190000013317511</a></p>
+<h2 id="下载flutter"><a href="#下载flutter" class="headerlink" title="下载flutter"></a>下载flutter</h2><p>推荐去官网下载，速度并不慢，网址：<br><a href="https://flutter.io/setup-macos/" target="_blank" rel="noopener">https://flutter.io/setup-macos/</a></p>
+<h2 id="设置flutter镜像"><a href="#设置flutter镜像" class="headerlink" title="设置flutter镜像"></a>设置flutter镜像</h2><p>运行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
+<p>增加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br></pre></td></tr></table></figure></p>
+<p>然后运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>先把刚才下载的解压缩，笔者选择使用的目录是Desktop下的flutter文件夹<br><img src="http://note.youdao.com/yws/res/255/WEBRESOURCE1e5a3a8733ba0ec9901abd6ee1eef564" alt="image"><br>配置环境变量,这里笔者使用命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
+<p>将flutter工具添加到您的路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;$PATH:/Users/safran/Desktop/flutter/bin&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这个时候应该能运行flutter命令了，我们运行命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter -h</span><br></pre></td></tr></table></figure></p>
+<h2 id="检查环境"><a href="#检查环境" class="headerlink" title="检查环境"></a>检查环境</h2><p>运行以下命令以查看是否需要安装任何依赖项来完成设置（对于详细输出，添加-v标志）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://note.youdao.com/yws/res/270/WEBRESOURCEf2f8e0838e159a29d02fc0af172c23b1" alt="image"><br>按照检测结果的说明，如果有[!] ✗ 标志，表示本行检测不通过，需要做一些设置或者安装一些软件。<br><img src="http://note.youdao.com/yws/res/274/WEBRESOURCE0b98956a584dcc9460cce0097a821131" alt="image"><br>如果android studio没有安装，那么可以先装下，并使用android studio下载最新的android sdk。android studio下载地址:<a href="http://www.android-studio.org/" target="_blank" rel="noopener">http://www.android-studio.org/</a><br>下载完打开<br>如果有安装，那么很有可能看到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[!]Android toolchain - develop for Android devices (Android SDK version 29.0.0)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">! Some Android licenses not accepted.  To resolve this, run: flutter doctor --android-licens</span><br></pre></td></tr></table></figure>
+<p>需要运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor --android-licenses</span><br></pre></td></tr></table></figure></p>
+<p>一路输入y就行</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Flutter</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Flutter//" class="article-tag-list-link color3">Flutter</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/adh7e5ef.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-解决微信小程序使用switchTab跳转后页面不刷新的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/adg7e5ef.html">解决微信小程序使用switchTab跳转后页面不刷新的问题</a>
+    </h1>
+  
+
+        
+        <a href="/post/adg7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-04-01T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wx.switchTab(&#123;</span><br><span class="line">    url: &apos;/pages/cart/index&apos;,</span><br><span class="line">    success:function () &#123;</span><br><span class="line">        var page = getCurrentPages().pop();</span><br><span class="line">        if (page == undefined || page == null) return;</span><br><span class="line">        page.onLoad();   //重新刷新页面</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
 
@@ -536,7 +513,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/fc17f2c8.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/adg7e5ef.html">展开全文 >></a>
         </p>
       
 
@@ -567,527 +544,126 @@
 
 
   
-    <article id="post-Vue使用路由的钩子函改变单页面的颜色" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Moment.js常见用法总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/276258a.html">Vue使用路由的钩子函改变单页面的颜色</a>
+      <a class="article-title" href="/post/adf7e5ef.html">Moment.js常见用法总结</a>
     </h1>
   
 
         
-        <a href="/post/276258a.html" class="archive-article-date">
-  	<time datetime="2019-03-31T13:47:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
+        <a href="/post/adf7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-03-25T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html" target="_blank" rel="noopener">导航守卫</a></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/1"</span>&gt;</span>Page1<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/2"</span>&gt;</span>Page2<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.bootcss.com/vue/2.3.2/vue.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.bootcss.com/vue-router/2.5.3/vue-router.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> Home = &#123; <span class="attr">template</span>: <span class="string">'&lt;div&gt;Home&lt;/div&gt;'</span> &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> Page1 = &#123;</span></span><br><span class="line"><span class="xml">            template: '<span class="tag">&lt;<span class="name">div</span>&gt;</span>Page1<span class="tag">&lt;/<span class="name">div</span>&gt;</span>',</span></span><br><span class="line"><span class="javascript">            beforeRouteEnter(to, <span class="keyword">from</span>, next) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">'red'</span>;</span></span><br><span class="line"><span class="undefined">                next();</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="javascript">            beforeRouteLeave(to, <span class="keyword">from</span>, next) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">''</span>;</span></span><br><span class="line"><span class="undefined">                next();</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> Page2 = &#123;</span></span><br><span class="line"><span class="xml">            template: '<span class="tag">&lt;<span class="name">div</span>&gt;</span>Page2<span class="tag">&lt;/<span class="name">div</span>&gt;</span>',</span></span><br><span class="line"><span class="javascript">            beforeRouteEnter(to, <span class="keyword">from</span>, next) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">'blue'</span>;</span></span><br><span class="line"><span class="undefined">                next();</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="javascript">            beforeRouteLeave(to, <span class="keyword">from</span>, next) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">''</span>;</span></span><br><span class="line"><span class="undefined">                next();</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span></span><br><span class="line"><span class="undefined">            routes: [</span></span><br><span class="line"><span class="javascript">              &#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">component</span>: Home &#125;,</span></span><br><span class="line"><span class="javascript">              &#123; <span class="attr">path</span>: <span class="string">'/1'</span>, <span class="attr">component</span>: Page1 &#125;,</span></span><br><span class="line"><span class="javascript">              &#123; <span class="attr">path</span>: <span class="string">'/2'</span>, <span class="attr">component</span>: Page2 &#125;</span></span><br><span class="line"><span class="undefined">            ]</span></span><br><span class="line"><span class="undefined">        &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="undefined">            router,</span></span><br><span class="line"><span class="javascript">            template: <span class="string">'#main'</span></span></span><br><span class="line"><span class="javascript">        &#125;).$mount(<span class="string">'#app'</span>)</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在<code>main.js</code>添加</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, form, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 这里使用全局守卫</span></span><br><span class="line">  <span class="keyword">if</span> (to.matched[<span class="number">0</span>].name == <span class="string">"login"</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">'white'</span></span><br><span class="line">    next();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">''</span></span><br><span class="line">    next();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>使用组件内的守卫</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  beforeCreate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 单独更改页面的背景</span></span><br><span class="line">    <span class="built_in">document</span>.body.style.backgroundColor = <span class="string">'#fff'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeDestroy: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 删除添加的背景</span></span><br><span class="line">    <span class="built_in">document</span>.body.removeAttribute(<span class="string">"style"</span>,<span class="string">"backgroundColor"</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Vue//" class="article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/276258a.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-axios-mockjs在vue中使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/2df016a3.html">axios+mockjs在vue中使用</a>
-    </h1>
-  
-
-        
-        <a href="/post/2df016a3.html" class="archive-article-date">
-  	<time datetime="2019-03-30T15:29:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://mockjs.com/" target="_blank" rel="noopener">mockjs官网</a></p>
-<p><a href="https://juejin.im/post/5b17ffcc51882513eb62e985" target="_blank" rel="noopener">参考文档</a></p>
-<h4 id="1、npm安装mockjs"><a href="#1、npm安装mockjs" class="headerlink" title="1、npm安装mockjs"></a>1、npm安装mockjs</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm intsall mockjs --save-dev</span><br></pre></td></tr></table></figure>
-<h4 id="２、在src目录下建立文件夹mock，mock文件夹下建立mock-js文件，js文件代码如下："><a href="#２、在src目录下建立文件夹mock，mock文件夹下建立mock-js文件，js文件代码如下：" class="headerlink" title="２、在src目录下建立文件夹mock，mock文件夹下建立mock.js文件，js文件代码如下："></a>２、在src目录下建立文件夹mock，mock文件夹下建立mock.js文件，js文件代码如下：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'mockjs'</span>;<span class="comment">//es6语法引入mock模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Mock.mock(<span class="string">'http://test.cn/buyRecord'</span>, &#123;<span class="comment">//输出数据</span></span><br><span class="line">  <span class="string">'name'</span>: <span class="string">'@name'</span>,<span class="comment">//随机生成姓名</span></span><br><span class="line">  <span class="string">'age|1-10'</span>: <span class="number">10</span></span><br><span class="line">  <span class="comment">//还可以自定义其他数据</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="3、在vue组件中使用"><a href="#3、在vue组件中使用" class="headerlink" title="3、在vue组件中使用"></a>3、在vue组件中使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import data from &apos;../../assets/js/api/mock/mock.js&apos;</span><br></pre></td></tr></table></figure>
-<h4 id="4、演示请求接口"><a href="#4、演示请求接口" class="headerlink" title="4、演示请求接口"></a>4、演示请求接口</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.$http.get(<span class="string">'http://test.cn/buyRecord'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res.data);</span><br><span class="line">        <span class="keyword">this</span>.msg = res.data.name;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.msg)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="二-安装和使用axios"><a href="#二-安装和使用axios" class="headerlink" title="二.安装和使用axios"></a>二.安装和使用axios</h3><p>这里我把mockjs封装到一起，可以前往<a href="https://safranyu.github.io/post/9bbb323.html" target="_blank" rel="noopener">axios封装</a>。目录结构：</p>
-<h4 id="1、在api目录下建立文件夹mock，mock文件夹下建立mock-js"><a href="#1、在api目录下建立文件夹mock，mock文件夹下建立mock-js" class="headerlink" title="1、在api目录下建立文件夹mock，mock文件夹下建立mock.js"></a>1、在api目录下建立文件夹mock，mock文件夹下建立mock.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'mockjs'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Mock.mock(<span class="string">'http://test.cn/buyRecord'</span>, &#123;</span><br><span class="line">  <span class="string">'name'</span>: <span class="string">'@name'</span>,</span><br><span class="line">  <span class="string">'age|1-10'</span>: <span class="number">10</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="2、在mock文件在新建mockUrl-js用来存放请求的url"><a href="#2、在mock文件在新建mockUrl-js用来存放请求的url" class="headerlink" title="2、在mock文件在新建mockUrl.js用来存放请求的url"></a>2、在mock文件在新建mockUrl.js用来存放请求的url</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * mock 模拟数据</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> baseUrl = <span class="string">'http://test.cn'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">// 首页轮播图</span></span><br><span class="line">  getBuyRecord: baseUrl + <span class="string">'/buyRecord'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3、在当前文件新建index-js配置请求方法"><a href="#3、在当前文件新建index-js配置请求方法" class="headerlink" title="3、在当前文件新建index.js配置请求方法"></a>3、在当前文件新建index.js配置请求方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">'../index'</span></span><br><span class="line"><span class="keyword">import</span> urls <span class="keyword">from</span> <span class="string">'./mockUrl'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> header = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  getBuyRecord(params) &#123;</span><br><span class="line">    <span class="keyword">return</span> api.get(urls.getBuyRecord, params, header)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4、在api目录下apiList-js引入刚配置的请求方法"><a href="#4、在api目录下apiList-js引入刚配置的请求方法" class="headerlink" title="4、在api目录下apiList.js引入刚配置的请求方法"></a>4、在api目录下apiList.js引入刚配置的请求方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matches <span class="keyword">from</span> <span class="string">'./matches'</span></span><br><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">'./mock'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches,</span><br><span class="line">  Mock</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="5、页面引用"><a href="#5、页面引用" class="headerlink" title="5、页面引用"></a>5、页面引用</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'../../assets/js/api/mock/mock.js'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	methods: &#123;</span><br><span class="line">        <span class="keyword">async</span> getBuyRecord() &#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> params = &#123;&#125;</span><br><span class="line">            <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="keyword">this</span>.$api.Mock.getBuyRecord(params)</span><br><span class="line">            <span class="built_in">console</span>.log(res)</span><br><span class="line">          &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(err)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    created() &#123;</span><br><span class="line">       <span class="keyword">this</span>.getBuyRecord()   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">mockjs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">axios</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Vue//" class="article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/2df016a3.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-vue-router-query和params传参-接收参数-的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/36597039.html">vue-router query和params传参(接收参数) 的区别</a>
-    </h1>
-  
-
-        
-        <a href="/post/36597039.html" class="archive-article-date">
-  	<time datetime="2019-03-30T15:18:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1、query方式传参和接收参数"><a href="#1、query方式传参和接收参数" class="headerlink" title="1、query方式传参和接收参数"></a><strong>1、query方式传参和接收参数</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">传参: </span><br><span class="line"><span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">        path:<span class="string">'/xxx'</span>,</span><br><span class="line">        query:&#123;</span><br><span class="line">          id:id</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">  </span><br><span class="line">接收参数:</span><br><span class="line"><span class="keyword">this</span>.$route.query.id</span><br></pre></td></tr></table></figure>
-<p>注意:传参是this.$router,接收参数是this.$route,这里千万要看清了！！！</p>
-<p><strong>this.$router 和this.$route有何区别？</strong></p>
-<p>在控制台打印两者可以很明显的看出两者的一些区别：</p>
-<p><img src="https://segmentfault.com/img/bVbbI7f?w=652&amp;h=425" alt=""></p>
-<ul>
-<li>1.$router为VueRouter实例，想要导航到不同URL，则使用$router.push方法</li>
-<li>2.$route为当前router跳转对象，里面可以获取name、path、query、params等</li>
-</ul>
-<h4 id="2、params方式传参和接收参数"><a href="#2、params方式传参和接收参数" class="headerlink" title="2、params方式传参和接收参数"></a><strong>2、params方式传参和接收参数</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">传参: </span><br><span class="line"><span class="keyword">this</span>.$router.push(&#123;</span><br><span class="line">        name:<span class="string">'xxx'</span>,</span><br><span class="line">        params:&#123;</span><br><span class="line">          id:id</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">  </span><br><span class="line">接收参数:</span><br><span class="line"><span class="keyword">this</span>.$route.params.id</span><br></pre></td></tr></table></figure>
-<p>注意:params传参，push里面只能是 name:’xxxx’,不能是path:’/xxx’,因为params只能用name来引入路由，如果这里写成了path，接收参数页面会是undefined！！！</p>
-<p>转载 <a href="https://segmentfault.com/a/1190000012735168" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012735168</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue-router</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript/Vue//" class="article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/36597039.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-正则表达式获取URL参数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/a2dbbd02.html">正则表达式获取URL参数</a>
-    </h1>
-  
-
-        
-        <a href="/post/a2dbbd02.html" class="archive-article-date">
-  	<time datetime="2019-03-29T15:11:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取所有参数转化为数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseQuery</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> queryObj=&#123;&#125;;</span><br><span class="line">  <span class="keyword">let</span> reg=<span class="regexp">/[?&amp;]([^=&amp;#]+)=([^&amp;#]*)/g</span>;</span><br><span class="line">  <span class="keyword">let</span> querys=url.match(reg);</span><br><span class="line">  <span class="keyword">if</span>(querys)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> querys)&#123;</span><br><span class="line">      <span class="keyword">let</span> query=querys[i].split(<span class="string">'='</span>);</span><br><span class="line">      <span class="keyword">let</span> key=query[<span class="number">0</span>].substr(<span class="number">1</span>),</span><br><span class="line">      value=query[<span class="number">1</span>];</span><br><span class="line">      queryObj[key]?queryObj[key]=[].concat(queryObj[key],value):queryObj[key]=value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> queryObj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取某个字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryByName</span>(<span class="params">url,name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'[?&amp;]'</span>+name+<span class="string">'=([^&amp;#]+)'</span>);</span><br><span class="line">  <span class="keyword">var</span> query=url.match(reg);</span><br><span class="line">  <span class="keyword">return</span> query?query[<span class="number">1</span>]:<span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/a2dbbd02.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-Axios解决post请求数据错误的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/e4ed1a3d.html">Axios解决post请求数据错误的问题</a>
-    </h1>
-  
-
-        
-        <a href="/post/e4ed1a3d.html" class="archive-article-date">
-  	<time datetime="2019-03-24T13:05:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在请求的过程中使用的json数据提交给后台，导致一直请求不到数据，最后请求设置为fromdata请求成功。</p>
-<p>先在文档引入<code>import qs from &#39;qs&#39;</code>在axios.js配置文件里加上</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加请求拦截器</span></span><br><span class="line"></span><br><span class="line">service.interceptors.request.use(</span><br><span class="line"></span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (config.method === <span class="string">'post'</span> || config.method === <span class="string">'put'</span>) &#123;</span><br><span class="line"></span><br><span class="line">      config.data = qs.stringify(config.data) <span class="comment">//转换为表单模式</span></span><br><span class="line"></span><br><span class="line">      config.headers[<span class="string">'Content-Type'</span>] = <span class="string">'application/x-www-form-urlencoded'</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 请求发送前进行处理</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 请求错误处理</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Axios</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Vue//" class="article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/e4ed1a3d.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-AutoJs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/adc7e5ef.html">AutoJs学习</a>
-    </h1>
-  
-
-        
-        <a href="/post/adc7e5ef.html" class="archive-article-date">
-  	<time datetime="2019-03-24T08:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="AutoJs学习"><a href="#AutoJs学习" class="headerlink" title="AutoJs学习"></a>AutoJs学习</h3><blockquote>
-<p><strong>不需要Root权限</strong>的JavaScript自动化软件</p>
+        <p>下载地址：<a href="http://momentjs.cn/" target="_blank" rel="noopener">http://momentjs.cn/</a></p>
+<p>Moment.js是一个轻量级的JavaScript时间库，它方便了日常开发中对时间的操作，提高了开发效率。</p>
+<blockquote>
+<p>日常开发中，通常会对时间进行下面这几个操作：比如获取时间，设置时间，格式化时间，比较时间等等。接下来，我将按照这些操作对Moment.js中的Doc进行整理分类，方便学习和日后的查阅。</p>
 </blockquote>
-<p><a href="https://hyb1996.github.io/AutoJs-Docs/#/" target="_blank" rel="noopener">官方文档</a><br><a href="https://search.bilibili.com/all?keyword=autojs" target="_blank" rel="noopener">视频教学</a></p>
-<h4 id="常见单个控件"><a href="#常见单个控件" class="headerlink" title="常见单个控件"></a>常见单个控件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TextView <span class="comment">//文本控件</span></span><br><span class="line">ImageView <span class="comment">//图片控件</span></span><br><span class="line">CheckBox <span class="comment">//勾选控件</span></span><br><span class="line">EditText <span class="comment">//输入控件</span></span><br><span class="line">View <span class="comment">//视图控件</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>有图片的不一定是图片控件</li>
+<h3 id="获取时间"><a href="#获取时间" class="headerlink" title="获取时间"></a>获取时间</h3><ul>
+<li><p>Start of Time</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(String)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取今天0时0分0秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(&apos;day&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取本周第一天(周日)0时0分0秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(&apos;week&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取本周周一0时0分0秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(&apos;isoWeek&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取当前月第一天0时0分0秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(&apos;month&apos;)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h4 id="常见容器控件"><a href="#常见容器控件" class="headerlink" title="常见容器控件"></a>常见容器控件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LinearLayout <span class="comment">//线性布局容器</span></span><br><span class="line">RelativeLayout <span class="comment">//相对布局容器</span></span><br><span class="line">FrameLayout <span class="comment">//帧布局</span></span><br><span class="line">ListView <span class="comment">//列表容器</span></span><br><span class="line">RecyclerView <span class="comment">//列表容器</span></span><br><span class="line">ScrollView <span class="comment">//滚动容器</span></span><br></pre></td></tr></table></figure>
+<p>End of Time<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().endOf(String)</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>容器与容器之间可以相互嵌套</li>
+<li><p>获取今天23时59分59秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().endOf(&apos;day&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取本周最后一天(周六)23时59分59秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().endOf(&apos;week&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取本周周日23时59分59秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().endOf(&apos;isoWeek&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取当前月最后一天23时59分59秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().endOf(&apos;month&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Days in Month</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().daysInMonth()</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h4 id="单个控件的操作"><a href="#单个控件的操作" class="headerlink" title="单个控件的操作"></a>单个控件的操作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">click	<span class="comment">//点击</span></span><br><span class="line">longClick <span class="comment">//长按</span></span><br><span class="line">scroll... <span class="comment">//滚动</span></span><br><span class="line">setText	<span class="comment">//设置文本</span></span><br><span class="line">children <span class="comment">//遍历</span></span><br><span class="line">find	<span class="comment">//子控件查找</span></span><br><span class="line">parent	<span class="comment">// 父控件查找</span></span><br></pre></td></tr></table></figure>
-<h4 id="获取控件"><a href="#获取控件" class="headerlink" title="获取控件"></a>获取控件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">id(<span class="string">"xxxx"</span>).findOne(<span class="number">1000</span>)</span><br><span class="line">className(<span class="string">"xxxx"</span>).findOne(<span class="number">1000</span>).find(id(<span class="string">"xxxx"</span>))</span><br><span class="line">text(<span class="string">"xxx"</span>)</span><br><span class="line">desc(<span class="string">"xxx"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//完全匹配</span></span><br><span class="line">Contains <span class="comment">//包含</span></span><br><span class="line">StartWith <span class="comment">//开头</span></span><br><span class="line">EndWith <span class="comment">//结尾</span></span><br><span class="line">Matches <span class="comment">//正则</span></span><br></pre></td></tr></table></figure>
-<h4 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">log(<span class="string">"xxxx"</span>) <span class="comment">//控制面板输出</span></span><br><span class="line">toast(<span class="string">"xxxx"</span>) <span class="comment">//手机屏幕上输出</span></span><br></pre></td></tr></table></figure>
-<h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto.waitFor()</span><br><span class="line">auto();<span class="comment">// 自动打开无障碍服务</span></span><br><span class="line">launchApp(<span class="string">"app名字"</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ol>
-<li>有时候手机重新连接vs code总是连接不上，应该是没有正常退出占用端口，最简单的是重启电脑</li>
-</ol>
+<p>获取当前月的总天数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().daysInMonth()</span><br></pre></td></tr></table></figure></p>
+<p>Timestamp</p>
+<ul>
+<li>获取时间戳(以秒为单位)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().format(&apos;X&apos;) // 返回值为字符串类型</span><br><span class="line">moment().unix() // 返回值为数值型</span><br></pre></td></tr></table></figure>
+<p>获取时间戳(以毫秒为单位)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().format(&apos;x&apos;) // 返回值为字符串类型</span><br><span class="line">moment().valueOf() // 返回值为数值型</span><br></pre></td></tr></table></figure>
+<p>Get Time</p>
+<p>获取年<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().year()</span><br><span class="line">moment().get(&apos;year&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>获取月份<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().month() (0~11, 0: January, 11: December)</span><br><span class="line">moment().get(&apos;month&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>获取一个月中的某一天<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().date()</span><br><span class="line">moment().get(&apos;date&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>获取一个星期中的某一天<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">moment().day() (0~6, 0: Sunday, 6: Saturday)</span><br><span class="line">moment().weekday() (0~6, 0: Sunday, 6: Saturday)</span><br><span class="line">moment().isoWeekday() (1~7, 1: Monday, 7: Sunday)</span><br><span class="line">moment().get(&apos;day&apos;)</span><br><span class="line">mment().get(&apos;weekday&apos;)</span><br><span class="line">moment().get(&apos;isoWeekday&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>获取小时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().hours()</span><br><span class="line">moment().get(&apos;hours&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>获取分钟<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().minutes()</span><br><span class="line">moment().get(&apos;minutes&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>获取秒数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().seconds()</span><br><span class="line">moment().get(&apos;seconds&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>获取当前的年月日时分秒<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().toArray() // [years, months, date, hours, minutes, seconds, milliseconds]</span><br><span class="line">moment().toObject() // &#123;years: xxxx, months: x, date: xx ...&#125;</span><br></pre></td></tr></table></figure></p>
+<p>设置时间</p>
+<p>Set Time<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">moment().year(Number), moment().month(Number)...</span><br><span class="line">moment().set(String, Int)</span><br><span class="line">moment().set(Object)</span><br></pre></td></tr></table></figure></p>
+<p>设置年份<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">moment().year(2019)</span><br><span class="line">moment().set(&apos;year&apos;, 2019)</span><br><span class="line">moment().set(&#123;year: 2019&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>设置月份<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().month(11) (0~11, 0: January, 11: December)</span><br><span class="line">moment().set(&apos;month&apos;, 11)</span><br></pre></td></tr></table></figure></p>
+<p>设置某个月中的某一天<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().date(15)</span><br><span class="line">moment().set(&apos;date&apos;, 15)</span><br></pre></td></tr></table></figure></p>
+<p>设置某个星期中的某一天<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">moment().weekday(0) // 设置日期为本周第一天（周日）</span><br><span class="line">moment().isoWeekday(1) // 设置日期为本周周一</span><br><span class="line">moment().set(&apos;weekday&apos;, 0)</span><br><span class="line">moment().set(&apos;isoWeekday&apos;, 1)</span><br></pre></td></tr></table></figure></p>
+<p>设置小时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().hours(12)</span><br><span class="line">moment().set(&apos;hours&apos;, 12)</span><br></pre></td></tr></table></figure></p>
+<p>设置分钟<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().minutes(30)</span><br><span class="line">moment().set(&apos;minutes&apos;, 30)</span><br></pre></td></tr></table></figure></p>
+<p>设置秒数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().seconds(30)</span><br><span class="line">moment().set(&apos;seconds&apos;, 30)</span><br></pre></td></tr></table></figure></p>
+<p>Add Time<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().add(Number, String)</span><br><span class="line">moment().add(Object)</span><br></pre></td></tr></table></figure></p>
+<p>设置年份<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().add(1, &apos;years&apos;)</span><br><span class="line">moment().add(&#123;years: 1&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>设置月份<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(1, &apos;months&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>设置日期<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(1, &apos;days&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>设置星期<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(1, &apos;weeks&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>设置小时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(1, &apos;hours&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>设置分钟<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(1, &apos;minutes&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>设置秒数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(1, &apos;seconds&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>Subtract Time<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(Number, String)</span><br><span class="line">moment().subtract(Object)</span><br></pre></td></tr></table></figure></p>
+<p>设置年份<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(1, &apos;years&apos;)</span><br><span class="line">moment().subtract(&#123;years: 1&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>设置月份<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(1, &apos;months&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>设置日期<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(1, &apos;days&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>设置星期<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(1, &apos;weeks&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>设置小时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(1, &apos;hours&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>设置分钟<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(1, &apos;minutes&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>设置秒数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(1, &apos;seconds&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>格式化时间</p>
+<p>Format Time<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().format()</span><br><span class="line">moment().format(String)</span><br></pre></td></tr></table></figure></p>
+<p>格式化年月日： ‘xxxx年xx月xx日’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(&apos;YYYY年MM月DD日&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>格式化年月日： ‘xxxx-xx-xx’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(&apos;YYYY-MM-DD&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>格式化时分秒(24小时制)： ‘xx时xx分xx秒’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(&apos;HH时mm分ss秒&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>格式化时分秒(12小时制)：’xx:xx:xx am/pm’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(&apos;hh:mm:ss a&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>格式化时间戳(以秒为单位)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(&apos;X&apos;) // 返回值为字符串类型</span><br></pre></td></tr></table></figure></p>
+<p>格式化时间戳(以毫秒为单位)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(&apos;x&apos;) // 返回值为字符串类型</span><br></pre></td></tr></table></figure></p>
+<p>比较时间</p>
+<p>Difference<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().diff(Moment|String|Number|Date|Array)</span><br></pre></td></tr></table></figure></p>
+<p>获取两个日期之间的时间差<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let start_date = moment().subtract(1, &apos;weeks&apos;)</span><br><span class="line">let end_date = moment()</span><br><span class="line"></span><br><span class="line">end_date.diff(start_date) // 返回毫秒数</span><br><span class="line"></span><br><span class="line">end_date.diff(start_date, &apos;months&apos;) // 0</span><br><span class="line">end_date.diff(start_date, &apos;weeks&apos;) // 1</span><br><span class="line">end_date.diff(start_date, &apos;days&apos;) // 7</span><br><span class="line">start_date.diff(end_date, &apos;days&apos;) // -7</span><br></pre></td></tr></table></figure></p>
+<p>转化为JavaScript原生Date对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().toDate()</span><br><span class="line">new Date(moment())</span><br></pre></td></tr></table></figure></p>
+<p>将Moment时间转换为JavaScript原生Date对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let m = moment()</span><br><span class="line">let nativeDate1 = m.toDate()</span><br><span class="line">let nativeDate2 = new Date(m)</span><br><span class="line"></span><br><span class="line">String(nativeDate1) === String(nativeDate2) // true</span><br></pre></td></tr></table></figure></p>
+<p>实战</p>
+<p>获取昨日0时0分0秒到昨日23时59分59秒， 格式：[milliseconds, milliseconds]</p>
+<p>获取上周一到上周日时间范围，格式: [seconds, seconds]</p>
+<p>获取上个月第一天和最后一天时间范围， 格式：[YYYY-MM-DD, YYYY-MM-DD]</p>
+<p>作者：zhouqichao<br>链接：<a href="https://www.jianshu.com/p/9c10543420de" target="_blank" rel="noopener">https://www.jianshu.com/p/9c10543420de</a><br>来源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
 
       
 
@@ -1101,7 +677,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">AutoJs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Moment</a>
         		</li>
       		
 		</ul>
@@ -1113,7 +689,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        			<a href="/categories/Moment//" class="article-tag-list-link color2">Moment</a>
         		</li>
       		
 		</ul>
@@ -1122,7 +698,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/adc7e5ef.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/adf7e5ef.html">展开全文 >></a>
         </p>
       
 
@@ -1153,66 +729,372 @@
 
 
   
-    <article id="post-vue-cli3下的Axios封装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Android Studio 常用快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/9bbb323.html">vue-cli3下的Axios封装</a>
+      <a class="article-title" href="/post/add7e5ef.html">Android Studio 常用快捷键</a>
     </h1>
   
 
         
-        <a href="/post/9bbb323.html" class="archive-article-date">
-  	<time datetime="2019-03-23T15:25:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+        <a href="/post/add7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-03-18T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="axios-简介"><a href="#axios-简介" class="headerlink" title="axios 简介"></a>axios 简介</h2><p>首先要明白的是axios是什么：axios是基于promise（诺言）用于浏览器和node.js是http客户端。</p>
-<p>axios的作用是什么：axios主要是用于向后台发起请求的，还有在请求中做更多是可控功能。</p>
-<ul>
-<li>从浏览器中创建 XMLHttpRequest</li>
-<li>从 node.js 发出 http 请求</li>
-<li>支持 Promise API</li>
-<li>拦截请求和响应</li>
-<li>转换请求和响应数据</li>
-<li>取消请求</li>
-<li>自动转换JSON数据</li>
-<li>客户端支持防止 CSRF/XSRF</li>
+        <ul>
+<li>当前文件查找/替换</li>
 </ul>
-<h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><h5 id="首先当然还是要安装啦："><a href="#首先当然还是要安装啦：" class="headerlink" title="首先当然还是要安装啦："></a>首先当然还是要安装啦：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure>
-<p>之后我们新建一个api文件夹用来放接口和axios的配置。<br>先给大家看看我配置好之后的文件夹目录结构：</p>
-<p><img src="http://pan.vmccc.cn/?/images/2019/03/23/YbxfrFGHXM/hexoVue.png" alt=""></p>
-<p>可以说这次配置是我划分的比较详细的配置方法了，具体每个文件都分别做什么用，我们现在来看看吧。</p>
-<h5 id="axios-js"><a href="#axios-js" class="headerlink" title="axios.js"></a>axios.js</h5><p>这个文件主要创建axios实例并对拦截器进行配置，不理解拦截器的同学可以看看下图：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 axios 实例</span></span><br><span class="line"><span class="keyword">let</span> service = axios.create(&#123;</span><br><span class="line">  <span class="comment">// headers: &#123;'Content-Type': 'application/json'&#125;,</span></span><br><span class="line">  timeout: <span class="number">60000</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 post、put 默认 Content-Type</span></span><br><span class="line">service.defaults.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span></span><br><span class="line">service.defaults.headers.put[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加请求拦截器</span></span><br><span class="line">service.interceptors.request.use(</span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (config.method === <span class="string">'post'</span> || config.method === <span class="string">'put'</span>) &#123;</span><br><span class="line">      <span class="comment">// post、put 提交时，将对象转换为string, 为处理Java后台解析问题</span></span><br><span class="line">      config.data = <span class="built_in">JSON</span>.stringify(config.data)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 请求发送前进行处理</span></span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 请求错误处理</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加响应拦截器</span></span><br><span class="line">service.interceptors.response.use(</span><br><span class="line">  (response) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> &#123; data &#125; = response</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line">  &#125;,</span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> info = &#123;&#125;,</span><br><span class="line">      &#123; status, statusText, data &#125; = error.response</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!error.response) &#123;</span><br><span class="line">      info = &#123;</span><br><span class="line">        code: <span class="number">5000</span>,</span><br><span class="line">        msg: <span class="string">'Network Error'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 此处整理错误信息格式</span></span><br><span class="line">      info = &#123;</span><br><span class="line">        code: status,</span><br><span class="line">        data: data,</span><br><span class="line">        msg: statusText</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建统一封装过的 axios 实例</span></span><br><span class="line"><span class="comment"> * @return &#123;AxiosInstance&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> service</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h5><p>index.js文件主要封装我们几个常用的方法，get、post、put、delete</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'./axios'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance = axios()</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  get(url, params, headers) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">      options.params = params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.get(url, options)</span><br><span class="line">  &#125;,</span><br><span class="line">  post(url, params, headers, data) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">      options.params = params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.post(url, data, options)</span><br><span class="line">  &#125;,</span><br><span class="line">  put(url, params, headers) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.put(url, params, options)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">delete</span>(url, params, headers) &#123;</span><br><span class="line">    <span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">      options.params = params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (headers) &#123;</span><br><span class="line">      options.headers = headers</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance.delete(url, options)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="install-js"><a href="#install-js" class="headerlink" title="install.js"></a>install.js</h5><p>install.js文件可以把我们所有的api接口安装到全局，之后我们在main.js文件中导入就可以了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> apiList <span class="keyword">from</span> <span class="string">'./apiList'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> install = <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (install.installed) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  install.installed = <span class="literal">true</span></span><br><span class="line">  <span class="built_in">Object</span>.defineProperties(Vue.prototype, &#123;</span><br><span class="line">    $api: &#123;</span><br><span class="line">      get() &#123;</span><br><span class="line">        <span class="keyword">return</span> apiList</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  install</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>main.js中添加：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">'./api/install'</span></span><br><span class="line">Vue.use(api)</span><br></pre></td></tr></table></figure>
-<h5 id="apiList-js"><a href="#apiList-js" class="headerlink" title="apiList.js"></a>apiList.js</h5><p>把我们所有的api文件夹导入到这一个文件中来。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matches <span class="keyword">from</span> <span class="string">'./matches'</span></span><br><span class="line"><span class="keyword">import</span> user <span class="keyword">from</span> <span class="string">'./user'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches,</span><br><span class="line">  user</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="baseUrl-js"><a href="#baseUrl-js" class="headerlink" title="baseUrl.js"></a>baseUrl.js</h5><p>根据不同的环境设定不同的baseUrl，在配置这个文件前，我们先需要做如下几件事：<br>1.根目录新建<code>.env.dev</code>文件并在文件内写入<code>NODE_ENV = &#39;dev&#39;</code><br>2.在<code>package.json</code>文件内添加：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"build:dev"</span>: <span class="string">"vue-cli-service build --mode dev"</span>,</span><br><span class="line"><span class="string">"build:pre"</span>: <span class="string">"vue-cli-service build --mode pre"</span>,</span><br></pre></td></tr></table></figure>
-<p>以下是baseUrl.js的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> baseUrl = <span class="string">'/api'</span> <span class="comment">// 本地代理</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (process.env.NODE_ENV) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'dev'</span>:</span><br><span class="line">    baseUrl = <span class="string">'http://testserver.feleti.cn/'</span> <span class="comment">// 测试环境url</span></span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'pre'</span>:</span><br><span class="line">    baseUrl = <span class="string">'https://pre-server.feleti.cn'</span> <span class="comment">// 预上线环境url</span></span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'production'</span>:</span><br><span class="line">    baseUrl = <span class="string">'https://api.feleti.cn'</span> <span class="comment">// 生产环境url</span></span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> baseUrl</span><br></pre></td></tr></table></figure>
-<h5 id="matches、user"><a href="#matches、user" class="headerlink" title="matches、user"></a>matches、user</h5><p>这两个文件夹都是根据api类型进行区分的，在项目以后也建议大家根据api类型划分出不同的文件存放，在小项目中这样做可能显得很麻烦，但如果项目比较大，这样做的优势就体现出来了。</p>
-<p>我们就只看看matches文件夹下的内容：</p>
-<h6 id="urls-js"><a href="#urls-js" class="headerlink" title="urls.js"></a>urls.js</h6><p>把一个类型下的所有url接口放入这一个文件，我只放了一个暂时，可以继续添加。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> baseUrl <span class="keyword">from</span> <span class="string">'../baseUrl'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches: baseUrl + <span class="string">'/matches'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="index-js-1"><a href="#index-js-1" class="headerlink" title="index.js"></a>index.js</h6><p>有些接口需要在header中添加token或是其他，可以按如下配置。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">'../index'</span></span><br><span class="line"><span class="keyword">import</span> urls <span class="keyword">from</span> <span class="string">'./urls'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> header = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  matches(params) &#123;</span><br><span class="line">    <span class="comment">// return出去了一个promise</span></span><br><span class="line">    <span class="keyword">return</span> api.get(urls.matches, params, header)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>配置完上述全部文件就算是大功告成了，下面我们看看如何使用吧。</p>
-<h3 id="组件中调用"><a href="#组件中调用" class="headerlink" title="组件中调用"></a>组件中调用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.matches()</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="keyword">async</span> matches() &#123;</span><br><span class="line">      <span class="comment">// 这里用try catch包裹，请求失败的时候就执行catch里的</span></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//定义参数对象</span></span><br><span class="line">        <span class="keyword">let</span> params = &#123;</span><br><span class="line">          type: <span class="string">'zc'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="keyword">this</span>.$api.matches.matches(params)</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'getMatches -&gt; res'</span>, res)</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'catch -&gt; e'</span>, e)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>之后我们就可以在控制台看到我们调用成功的输出日志啦：</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>在实际工作中，我们尽量要把项目做的细致一些，尤其是项目开始之前的配置，今天所涉及到的很多文件在之后的配置中还会有进步的更改，比如配置用户相关的接口、配置全局loading等，大家只要能把今天的内容完全理解，之后再配置这里就很容易啦。</p>
+<p>cmd + F / cmd + R 使用cmd + G，sft + cmd + G，跳到下一个/上一个高亮的变量</p>
+<ul>
+<li>全局查找/替换</li>
+</ul>
+<p>sft + cmd + F / sft + cmd + R</p>
+<ul>
+<li>全局搜索类</li>
+</ul>
+<p>cmd + O</p>
+<ul>
+<li>快速生成getter／setter方法，构造方法，toString()方法等</li>
+</ul>
+<p>cmd + N</p>
+<ul>
+<li>行尾自动添加分号，if后面自动加“(){ }”</li>
+</ul>
+<p>sft + cmd + enter</p>
+<ul>
+<li>注释与取消注释，注释效果 //…</li>
+</ul>
+<p>cmd + /</p>
+<ul>
+<li>注释与取消注释，注释效果 /…/</li>
+</ul>
+<p>opt + cmd + /</p>
+<ul>
+<li>格式化代码</li>
+</ul>
+<p>opt + cmd + L</p>
+<ul>
+<li>清除无效包引用<br>opt + ctr + O</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AndroidStudio</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AndroidStudio//" class="article-tag-list-link color4">AndroidStudio</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/add7e5ef.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-git clone 太慢" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/ads7e5ef.html">git clone 太慢</a>
+    </h1>
+  
+
+        
+        <a href="/post/ads7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-03-09T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>socks5 代替方法</p>
+<p>1.首先查看自己socks5的端口号</p>
+<p><img src="https://pic4.zhimg.com/50/v2-602f596434a3e19e708c225f457e9283_hd.jpg" alt=""></p>
+<p>2.我这里记下来是127.0.0.1:1086</p>
+<p><img src="https://pic1.zhimg.com/50/v2-8b2c6525c1ec8de284062da5cf85d01a_hd.jpg" alt=""></p>
+<p>3.然后输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config--global http.https://github.com.proxysocks5://127.0.0.1:1086</span><br><span class="line">git config --global https.https://github.com.proxysocks5://127.0.0.1:1086</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Git//" class="article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/ads7e5ef.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-微信小程序父子组件通讯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/ada7e5ef.html">微信小程序父子组件通讯</a>
+    </h1>
+  
+
+        
+        <a href="/post/ada7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-03-07T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>  微信小程序父组件如何传参给子组件Component</p>
+</blockquote>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><ol>
+<li><p>父组件使用可以直接传参或者使用数据绑定向子组件动态传递数据<br>组件在父组件内写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;component-tag-name prop-a=&quot;&#123;&#123;dataFieldA&#125;&#125;&quot; &gt;&lt;/component-tag-name&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>子组件的properties属性内定义’propA’属性，给定type值，比如：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">   properties: &#123;</span><br><span class="line">       propA: &#123;</span><br><span class="line">         type: String</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>然后在子组件js的<code>this.properties.propA.value</code>就可以访问到父组件传进的<code>dataFieldA</code>的值，或者wxml中直接按照data的使用方式，<code></code>来使用</li>
+</ol>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol>
+<li><p>父组件中传参的属性名字可以任意命名，名称符合js命名标准</p>
+</li>
+<li><p>子组件中properties与父组件同名的属性定义可以接收到父组件传进的值。如果父组件的属性名带-，需转为小驼峰形式:<code>prop-a -&gt;propA</code></p>
+</li>
+</ol>
+<ul>
+<li>微信小程序文档中关于组件的properties的设置如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">properties: &#123;</span><br><span class="line">   myProperty: &#123; // 属性名</span><br><span class="line">     type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）</span><br><span class="line">     value: &apos;&apos;, // 属性初始值（可选），如果未指定则会根据类型选择一个</span><br><span class="line">     observer: function(newVal, oldVal, changedPath) &#123;</span><br><span class="line">        // 属性被改变时执行的函数（可选），也可以写成在methods段中定义的方法名字符串, 如：&apos;_propertyChange&apos;</span><br><span class="line">        // 通常 newVal 就是新设置的数据， oldVal 是旧数据</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">   myProperty2: String // 简化的定义方式</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>一定不要设置value, 写成空值也不行。如果一开始设置了value，则无法传参，组件内只能访问到设置的值。</li>
+</ol>
+<blockquote>
+<p>  子组件传值给父组件</p>
+</blockquote>
+<ol>
+<li><p>子组件在需要传值时，使用trriggerEvent传给父组件一个事件( myevent ），并传递想要给父组件的值( sonParam )</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.triggerEvent(&apos;myevent&apos;, &#123;sonParam: true&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在父组件中，子组件的引用处，通过这个myevent事件绑定一个方法( onMyEvent )</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;selector bind:myevent=&quot;onMyEvent&quot;&gt;&lt;/selector&gt;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>在父组件的js中，定义这个方法onMyEvent，在这个方法内就可以获取到子组件传递过来的值了</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onMyEvent(e) &#123;</span><br><span class="line">    console.log(e.detail.sonParam)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/小程序//" class="article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/ada7e5ef.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-为啥 await 不能用在 forEach 中" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/adp7e5ef.html">为啥 await 不能用在 forEach 中</a>
+    </h1>
+  
+
+        
+        <a href="/post/adp7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-03-06T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>在学习node的时候需要在<code>forEach</code>里使用<code>await</code> 导致输出顺序有问题，在forEach里只能使用同步方法；</p>
+</blockquote>
+<ul>
+<li><a href="https://juejin.im/post/5cb68a40e51d456e303db873" target="_blank" rel="noopener">为啥 await 不能用在 forEach 中</a></li>
+</ul>
+<ul>
+<li><a href="https://juejin.im/post/5cb5a669e51d456e845b41f6" target="_blank" rel="noopener">async,await与forEach引发的血案</a></li>
+</ul>
 
       
 
@@ -1227,14 +1109,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Axios</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue-cli3</a>
         		</li>
       		
 		</ul>
@@ -1255,7 +1129,97 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/9bbb323.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/adp7e5ef.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-后端数据优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/ado7e5ef.html">后端数据优化</a>
+    </h1>
+  
+
+        
+        <a href="/post/ado7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-02-21T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://img.cdn.vmccc.cn/%E6%95%B0%E6%8D%AE%281%29.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Node</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据优化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Node//" class="article-tag-list-link color5">Node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/ado7e5ef.html">展开全文 >></a>
         </p>
       
 
@@ -1288,7 +1252,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1300,7 +1264,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Safran
+    		&copy; 2020 Safran
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1383,27 +1347,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+                <a href="javascript:void(0)" class="js-tag color4">AnyProxy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">Thor</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">AndroidStudio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1411,11 +1367,67 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dayjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Moment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ag-grid</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1443,10 +1455,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
               </li>
              
@@ -1463,7 +1471,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1475,6 +1483,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
               </li>
              
@@ -1483,15 +1495,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1500,6 +1504,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">小程序反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">

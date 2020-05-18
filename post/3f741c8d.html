@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://blog.vmccc.cn">
   <title>小程序开发问题集 | Safran Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小程序 请求wx.requestPayment 返回支付场景非法记录一下我遇到的这个问题，先确保前端的数据有没有错，没有的话一般出现在接口的问题。 后端需要排查：  openID要添加还有一个类型要改成JSAPI 签名方式也要注意是不是根据文档一致  小程序 经常报Length错误。当然页面出现length = 0或length != &amp;#39;0&amp;#39;容易出现数据类型错误">
+  <meta name="description" content="目录  Illegal Buffer报错(小程序开发解密encryptedData)) 提出问题   UniApp小程序使用Echarts 小程序中使用echarts-tooltip遇到的问题 extAppid没有授权;  Illegal Buffer报错(小程序开发解密encryptedData) https://blog.csdn.net/xgangzai/article/details/90">
 <meta name="keywords" content="小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小程序开发问题集">
 <meta property="og:url" content="http://blog.vmccc.cn/post/3f741c8d.html">
 <meta property="og:site_name" content="Safran Blog">
-<meta property="og:description" content="小程序 请求wx.requestPayment 返回支付场景非法记录一下我遇到的这个问题，先确保前端的数据有没有错，没有的话一般出现在接口的问题。 后端需要排查：  openID要添加还有一个类型要改成JSAPI 签名方式也要注意是不是根据文档一致  小程序 经常报Length错误。当然页面出现length = 0或length != &amp;#39;0&amp;#39;容易出现数据类型错误">
+<meta property="og:description" content="目录  Illegal Buffer报错(小程序开发解密encryptedData)) 提出问题   UniApp小程序使用Echarts 小程序中使用echarts-tooltip遇到的问题 extAppid没有授权;  Illegal Buffer报错(小程序开发解密encryptedData) https://blog.csdn.net/xgangzai/article/details/90">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-19T14:52:26.000Z">
+<meta property="og:updated_time" content="2020-05-18T15:24:35.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序开发问题集">
-<meta name="twitter:description" content="小程序 请求wx.requestPayment 返回支付场景非法记录一下我遇到的这个问题，先确保前端的数据有没有错，没有的话一般出现在接口的问题。 后端需要排查：  openID要添加还有一个类型要改成JSAPI 签名方式也要注意是不是根据文档一致  小程序 经常报Length错误。当然页面出现length = 0或length != &amp;#39;0&amp;#39;容易出现数据类型错误">
+<meta name="twitter:description" content="目录  Illegal Buffer报错(小程序开发解密encryptedData)) 提出问题   UniApp小程序使用Echarts 小程序中使用echarts-tooltip遇到的问题 extAppid没有授权;  Illegal Buffer报错(小程序开发解密encryptedData) https://blog.csdn.net/xgangzai/article/details/90">
   
     <link rel="alternative" href="/atom.xml" title="Safran Blog" type="application/atom+xml">
   
@@ -179,7 +179,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="小程序-请求wx-requestPayment-返回支付场景非法"><a href="#小程序-请求wx-requestPayment-返回支付场景非法" class="headerlink" title="小程序 请求wx.requestPayment 返回支付场景非法"></a>小程序 请求wx.requestPayment 返回支付场景非法</h2><p>记录一下我遇到的这个问题，先确保前端的数据有没有错，没有的话一般出现在接口的问题。</p>
+        <p>目录</p>
+<ul>
+<li><a href="#IllegalBuffer报错(小程序开发解密encryptedData">Illegal Buffer报错(小程序开发解密encryptedData)</a>)<ul>
+<li><a href="#提出问题">提出问题</a></li>
+</ul>
+</li>
+<li><a href="#UniApp小程序使用Echarts">UniApp小程序使用Echarts</a></li>
+<li><a href="#小程序中使用echarts-tooltip遇到的问题">小程序中使用echarts-tooltip遇到的问题</a></li>
+<li><a href="#extAppid没有授权">extAppid没有授权</a>;</li>
+</ul>
+<h2 id="Illegal-Buffer报错-小程序开发解密encryptedData"><a href="#Illegal-Buffer报错-小程序开发解密encryptedData" class="headerlink" title="Illegal Buffer报错(小程序开发解密encryptedData)"></a>Illegal Buffer报错(小程序开发解密encryptedData)</h2><blockquote>
+<p><a href="https://blog.csdn.net/xgangzai/article/details/90107311" target="_blank" rel="noopener">https://blog.csdn.net/xgangzai/article/details/90107311</a></p>
+</blockquote>
+<h3 id="提出问题"><a href="#提出问题" class="headerlink" title="提出问题:"></a>提出问题:</h3><p>最近在搞一下小程序授权登录(用户注册功能)，在密钥，appId等内容都没问题的情况下，请求授权注册接口等时候一直报错 Illegal Buffer。</p>
+<h3 id="问题原因："><a href="#问题原因：" class="headerlink" title="问题原因："></a>问题原因：</h3><p>在解密encryptedData数据的时候，传过来的数据里面可能会有+等符号，<br>如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">encryptedData: &apos;BQRDHWz16TcmEOkp1yV0eMd8L0a7orJeA1y8uNZycPHO41MBZmYm1jbMMh36tozePbtnbdxovStZhEbMKW9fYBpUKcXDedcChyowIXuYNic2CSItr4lv9TI47kfmBrhYE39wGE20BMtj8ORVQ2xM5A3X1uL7HHI5IZbnEqQS1W38PzGbJBW8IkybFQHXwtvigWquekDe1DmV1LA8vEFflUIjfuA5cWgGJJstzxi8bjtUMjQC/hcPRb+7pNzpo+jmtE0jU9F/a5V95lK6foYTu1ErWjEezaJ3YwujWK5oq581/b5TIL+vJPUn+vdXj71plfrH7WnSoC0ZS3yF6ToBcH17GAZsyaiGqOl88NVtkuwCA/WGMqpvnAUfromw5kaZj1QFA6U/N/lF43HdOyhjQUAkPsIMJLaHkfso6Aww0IYTcIc+qXOV8Rcrh0h61R34Dqkn11iE4mo1fmUc14ynvd4d6KXB2AvqOl+dHOd+SnRGYwTINAkPuyhxQRA/Yqj2F6MlUdKZxth73w2JEUYkoA==&apos;,</span><br><span class="line">iv: &apos;GcF/mmbBBQA7kJOSR9I/7w==&apos;</span><br></pre></td></tr></table></figure>
+<p>这些符号传递给服务器就会消失，导致微信提供等解密函数一直报错。</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法:"></a>解决办法:</h3><p>前端在传递encryptedData和iv向量等时候需要进行encodeURIComponent编码</p>
+<h2 id="UniApp小程序使用Echarts"><a href="#UniApp小程序使用Echarts" class="headerlink" title="UniApp小程序使用Echarts"></a>UniApp小程序使用Echarts</h2><blockquote>
+<p><a href="https://www.jianshu.com/p/5537e5053dc1" target="_blank" rel="noopener">https://www.jianshu.com/p/5537e5053dc1</a><br><a href="https://github.com/Zhuyi731/echarts-for-wx-uniapp" target="_blank" rel="noopener">https://github.com/Zhuyi731/echarts-for-wx-uniapp</a></p>
+</blockquote>
+<h3 id="问题？"><a href="#问题？" class="headerlink" title="问题？"></a>问题？</h3><h4 id="1-通过uniapp打包的小程序formatter-function-不能用"><a href="#1-通过uniapp打包的小程序formatter-function-不能用" class="headerlink" title="1.通过uniapp打包的小程序formatter: function 不能用"></a>1.通过uniapp打包的小程序<code>formatter: function</code> 不能用</h4><p>场景解决：通过隐藏一条<code>series</code>数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    //name,</span><br><span class="line">    type: &apos;line&apos;,</span><br><span class="line">    data: penData,</span><br><span class="line">    yAxisIndex: 0,</span><br><span class="line">    smooth: true,</span><br><span class="line">    symbolSize: 0, // symbol的大小设置为0</span><br><span class="line">    showSymbol: false, // 不显示symbol</span><br><span class="line">    lineStyle: &#123;</span><br><span class="line">      width: 0, // 线宽是0</span><br><span class="line">      color: &apos;rgba(0, 0, 0, 0)&apos;, // 线的颜色是透明的</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h2 id="小程序中使用echarts-tooltip遇到的问题"><a href="#小程序中使用echarts-tooltip遇到的问题" class="headerlink" title="小程序中使用echarts-tooltip遇到的问题"></a>小程序中使用echarts-tooltip遇到的问题</h2><p><a href="https://github.com/ecomfe/echarts-for-weixin/issues/478" target="_blank" rel="noopener">reference</a></p>
+<h3 id="1、如何换行？"><a href="#1、如何换行？" class="headerlink" title="1、如何换行？"></a>1、如何换行？</h3><p>用<code>\n</code>换行，小程序版echarts使用富文本渲染，不支持<code>html</code></p>
+<h3 id="2、怎么显示图例的小圆点？"><a href="#2、怎么显示图例的小圆点？" class="headerlink" title="2、怎么显示图例的小圆点？"></a>2、怎么显示图例的小圆点？</h3><p>用 formatter，彩色的圆点用 <code>&#39;{marker0at0|}&#39;</code>, <code>{marker1at0|}</code>, <code>{marker2at0|}</code>‘ 分别表示第 <code>0、1、2</code> 个系列，可能实现得不是很美，但是至少暂时可以这么用着。</p>
+<h3 id="3、不支持renderMode-html"><a href="#3、不支持renderMode-html" class="headerlink" title="3、不支持renderMode: html"></a>3、不支持<code>renderMode: html</code></h3><p>最终解决🚀</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">formatter : function(params) &#123;</span><br><span class="line">  // 可以打印一下params自行查看</span><br><span class="line">  let res = `$&#123;params[0].name&#125;\n`</span><br><span class="line">  res += `&#123;marker0at0|&#125; $&#123;params[0].seriesName&#125;: $&#123;params[0].value[1]&#125;\n`</span><br><span class="line">  res += `&#123;marker1at0|&#125; $&#123;params[1].seriesName&#125;: $&#123;params[1].value[2]&#125;\n`</span><br><span class="line">  res += `&#123;marker2at0|&#125; $&#123;params[2].seriesName&#125;: $&#123;params[2].value[3]&#125;`</span><br><span class="line">  return res</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="extAppid没有授权"><a href="#extAppid没有授权" class="headerlink" title="extAppid没有授权"></a>extAppid没有授权</h2><p>确保第三代平台已经授权了小程序<br><code>extAppid</code>和<code>appid</code>可以一样</p>
+<h2 id="小程序-请求wx-requestPayment-返回支付场景非法"><a href="#小程序-请求wx-requestPayment-返回支付场景非法" class="headerlink" title="小程序 请求wx.requestPayment 返回支付场景非法"></a>小程序 请求wx.requestPayment 返回支付场景非法</h2><p>记录一下我遇到的这个问题，先确保前端的数据有没有错，没有的话一般出现在接口的问题。</p>
 <p>后端需要排查：</p>
 <ul>
 <li>openID要添加还有一个类型要改成JSAPI</li>
@@ -362,7 +390,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Safran
+    		&copy; 2020 Safran
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -445,27 +473,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+                <a href="javascript:void(0)" class="js-tag color4">AnyProxy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">Thor</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">AndroidStudio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,11 +493,67 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dayjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Moment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ag-grid</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,10 +581,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
               </li>
              
@@ -525,7 +597,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,6 +609,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
               </li>
              
@@ -545,15 +621,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,6 +630,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">小程序反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">

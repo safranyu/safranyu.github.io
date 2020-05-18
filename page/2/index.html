@@ -159,329 +159,285 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-下拉刷新上拉加载组件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于Node计算出现浮点数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/c64071c3.html">下拉刷新上拉加载组件</a>
+      <a class="article-title" href="/post/adu7e5ef.html">关于Node计算出现浮点数</a>
     </h1>
   
 
         
-        <a href="/post/c64071c3.html" class="archive-article-date">
-  	<time datetime="2019-03-22T15:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
+        <a href="/post/adu7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-02-16T11:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="下拉刷新上拉加载组件的使用"><a href="#下拉刷新上拉加载组件的使用" class="headerlink" title="下拉刷新上拉加载组件的使用"></a>下拉刷新上拉加载组件的使用</h1><blockquote>
-<p>在移动端H5网页中，下拉刷新和上拉加载更多数据的交互方式出现频率很高，开源社区也有很多类似的解决方案，如iscroll，pulltorefresh.js库等。下面是对这两种常见交互基本实现原理的阐述。</p>
+        <p>在金额展示的时候出这个问题</p>
+<p>原因：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.09*100 = 109.00000000000001</span><br></pre></td></tr></table></figure></p>
+<p>解决办法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">handleToFixed(origin, n = <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> scale = <span class="built_in">Math</span>.pow(<span class="number">10</span>, n);</span><br><span class="line">  <span class="keyword">const</span> r = origin * scale * <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Number</span>((<span class="built_in">Math</span>.round(<span class="built_in">Math</span>.round(r) / <span class="number">10</span>) / scale).toFixed(n));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Node//" class="article-tag-list-link color5">Node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/adu7e5ef.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-ag-grid" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/ady7e5ef.html">ag-grid</a>
+    </h1>
+  
+
+        
+        <a href="/post/ady7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-02-09T02:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0-项目简介"><a href="#0-项目简介" class="headerlink" title="0. 项目简介"></a>0. 项目简介</h2><blockquote>
+<p>ag-Grid comes in two forms: ag-Grid Community (free for everyone, including production use) and ag-Grid Enterprise (you need a license to use).</p>
 </blockquote>
-<p><a href="https://github.com/minirefresh/minirefresh" target="_blank" rel="noopener">https://github.com/minirefresh/minirefresh</a></p>
-<p><a href="https://github.com/BoxFactura/pulltorefresh.js" target="_blank" rel="noopener">https://github.com/BoxFactura/pulltorefresh.js</a></p>
-<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3><p>实现下拉刷新主要分为三步：</p>
+<p>简单来说就是<code>ag-Grid</code>有社区版和企业版两种，社区版面向全体人员，而企业版则只允许在开发环境使用。它可应用于<code>Angular</code>、<code>React</code>、<code>Vue</code>，由于我们项目使用到的是<code>Vue</code>，所以只从<code>Vue</code>的部分简单介绍。</p>
+<h2 id="1-相关依赖"><a href="#1-相关依赖" class="headerlink" title="1. 相关依赖"></a>1. 相关依赖</h2><p>要想使用<code>ag-Grid</code>，相关的依赖自然是不可避免的，完整的依赖如下：</p>
 <ul>
-<li>监听原生<code>touchstart</code>事件，记录其初始位置的值，<code>e.touches[0].pageY</code>；</li>
-<li>监听原生<code>touchmove</code>事件，记录并计算当前滑动的位置值与初始位置值的差值，大于<code>0</code>表示向下拉动，并借助CSS3的<code>translateY</code>属性使元素跟随手势向下滑动对应的差值，同时也应设置一个允许滑动的最大值；</li>
-<li>监听原生<code>touchend</code>事件，若此时元素滑动达到最大值，则触发<code>callback</code>，同时将<code>translateY</code>重设为<code>0</code>，元素回到初始位置。</li>
+<li><code>@ag-grid-community/all-modules</code>：社区版的全部模块</li>
+<li><code>@ag-grid-community/vue</code>：提供 vue 支持</li>
+<li><code>@ag-grid-enterprise/all-modules</code>：企业版的全部模块</li>
+<li><code>@ag-grid-enterprise/core</code>：ag-Grid 核心逻辑</li>
+<li><code>vue-property-decorator</code>：作为 @ag-grid-community/vue 的依赖引入</li>
 </ul>
-<p>示例。查看链接：<a href="">下拉刷新demo</a>（PC浏览器需调成手机模拟器模式查看）</p>
-<p>html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"refreshText"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"refreshContainer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>222<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>333<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>444<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>555<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>javascript</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _element = <span class="built_in">document</span>.getElementById(<span class="string">'refreshContainer'</span>),</span><br><span class="line">      _refreshText = <span class="built_in">document</span>.querySelector(<span class="string">'.refreshText'</span>),</span><br><span class="line">      _startPos = <span class="number">0</span>,</span><br><span class="line">      _transitionHeight = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    _element.addEventListener(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'初始位置：'</span>, e.touches[<span class="number">0</span>].pageY);</span><br><span class="line">        _startPos = e.touches[<span class="number">0</span>].pageY;</span><br><span class="line">        _element.style.position = <span class="string">'relative'</span>;</span><br><span class="line">        _element.style.transition = <span class="string">'transform 0s'</span>;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">    </span><br><span class="line">    _element.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'当前位置：'</span>, e.touches[<span class="number">0</span>].pageY);</span><br><span class="line">        _transitionHeight = e.touches[<span class="number">0</span>].pageY - _startPos;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (_transitionHeight &gt; <span class="number">0</span> &amp;&amp; _transitionHeight &lt; <span class="number">60</span>) &#123;</span><br><span class="line">            _refreshText.innerText = <span class="string">'下拉刷新'</span>;</span><br><span class="line">            _element.style.transform = <span class="string">'translateY('</span>+_transitionHeight+<span class="string">'px)'</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (_transitionHeight &gt; <span class="number">55</span>) &#123;</span><br><span class="line">              _refreshText.innerText = <span class="string">'释放更新'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;                </span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    _element.addEventListener(<span class="string">'touchend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        _element.style.transition = <span class="string">'transform 0.5s ease 1s'</span>;</span><br><span class="line">        _element.style.transform = <span class="string">'translateY(0px)'</span>;</span><br><span class="line">        _refreshText.innerText = <span class="string">'更新中...'</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// todo...</span></span><br><span class="line"></span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">&#125;)(<span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
-<p>在下拉到松手的过程中，经历了三个状态：</p>
+<h2 id="2-使用介绍"><a href="#2-使用介绍" class="headerlink" title="2. 使用介绍"></a>2. 使用介绍</h2><p>我节选了一段品牌商中使用到较全面的代码来介绍一下日常使用是什么样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;ag-grid-vue</span><br><span class="line">  style=&quot;height: 632px;&quot;</span><br><span class="line">  class=&quot;ag-theme-balham&quot;</span><br><span class="line">  :columnDefs=&quot;columnsAg&quot;</span><br><span class="line">  :rowData=&quot;dataList&quot;</span><br><span class="line">  :suppressDragLeaveHidesColumns=&quot;true&quot;</span><br><span class="line">  :defaultColDef=&quot;defaultColDef&quot;</span><br><span class="line">  :enableCharts=&quot;true&quot;</span><br><span class="line">  :enableRangeSelection=&quot;true&quot;</span><br><span class="line">  :modules=&quot;modules&quot;</span><br><span class="line">  :getContextMenuItems=&quot;getContextMenuItems&quot;</span><br><span class="line">  :sideBar=&quot;&#123; toolPanels: [&apos;columns&apos;,&apos;filters&apos;] &#125;&quot;</span><br><span class="line">  :localeText=&quot;agLangs&quot;</span><br><span class="line">  @gridReady=&quot;onReady&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>从上往下依次介绍：</p>
 <ul>
-<li>当前手势滑动位置与初始位置差值大于零时，提示正在进行下拉刷新操作；</li>
-<li>下拉到一定值时，显示松手释放后的操作提示；</li>
-<li>下拉到达设定最大值松手时，执行回调，提示正在进行更新操作。</li>
-</ul>
-<h3 id="上拉加载"><a href="#上拉加载" class="headerlink" title="上拉加载"></a>上拉加载</h3><p>上拉加载更多数据是在页面滚动时触发的动作，一般是页面滚动到底部时触发，也可以选择在滚动到一定位置的时候触发。</p>
-<p>以滚动到页面底部为例。实现原理是分别获得当前滚动条的<code>scrollTop</code>值、当前可视范围的高度值<code>clientHeight</code>以及文档的总高度<code>scrollHeight</code>。当<code>scrollTop</code>和<code>clientHeight</code>的值之和大于等于<code>scrollHeight</code>时，触发<code>callback</code>。</p>
-<p>示例。查看链接：<a href="">上拉加载demo</a></p>
-<p>html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"refreshContainer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>222<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>333<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>444<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>555<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"refreshText"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 获取当前滚动条的位置 </span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getScrollTop</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">        <span class="keyword">var</span> scrollTop = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.documentElement &amp;&amp; <span class="built_in">document</span>.documentElement.scrollTop) &#123; </span><br><span class="line">            scrollTop = <span class="built_in">document</span>.documentElement.scrollTop; </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.body) &#123; </span><br><span class="line">            scrollTop = <span class="built_in">document</span>.body.scrollTop; </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> scrollTop; </span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取当前可视范围的高度 </span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getClientHeight</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">        <span class="keyword">var</span> clientHeight = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.body.clientHeight &amp;&amp; <span class="built_in">document</span>.documentElement.clientHeight) &#123; </span><br><span class="line">            clientHeight = <span class="built_in">Math</span>.min(<span class="built_in">document</span>.body.clientHeight, <span class="built_in">document</span>.documentElement.clientHeight); </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> &#123; </span><br><span class="line">            clientHeight = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.body.clientHeight, <span class="built_in">document</span>.documentElement.clientHeight); </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> clientHeight; </span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取文档完整的高度 </span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getScrollHeight</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.max(<span class="built_in">document</span>.body.scrollHeight, <span class="built_in">document</span>.documentElement.scrollHeight); </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> _text = <span class="built_in">document</span>.querySelector(<span class="string">'.refreshText'</span>),</span><br><span class="line">      _container = <span class="built_in">document</span>.getElementById(<span class="string">'refreshContainer'</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 节流函数</span></span><br><span class="line">    <span class="keyword">var</span> throttle = <span class="function"><span class="keyword">function</span>(<span class="params">method, context</span>)</span>&#123;</span><br><span class="line">      clearTimeout(method.tId);</span><br><span class="line">      method.tId = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        method.call(context);</span><br><span class="line">      &#125;, <span class="number">300</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fetchData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            _container.insertAdjacentHTML(<span class="string">'beforeend'</span>, <span class="string">'&lt;li&gt;new add...&lt;/li&gt;'</span>);</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (getScrollTop() + getClientHeight() == getScrollHeight()) &#123;</span><br><span class="line">          _text.innerText = <span class="string">'加载中...'</span>;</span><br><span class="line">          throttle(fetchData);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">&#125;)(<span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
-<p>页面绑定<code>onscroll</code>事件时加入了节流函数，其作用就是忽略滚动条300毫秒内的连续多次触发。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>上拉刷新的实现主要依靠的是<code>touch</code>事件的三个阶段，以及借助CSS3动画效果；下拉加载主要依靠页面的<code>onscroll</code>事件，需要注意的是页面滚动时可能要考虑函数节流。</p>
-<h2 id="学习实现"><a href="#学习实现" class="headerlink" title="学习实现"></a>学习实现</h2><p>滚动加载待实现。。。</p>
-<p>html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"atmosphere"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ptr--ptr"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ptr--box"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ptr--content"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ptr--icon"</span>&gt;</span>⇣<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ptr--text"</span>&gt;</span>下拉即可刷新...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ptr"</span> <span class="attr">class</span>=<span class="string">"ptr--top"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"list-card"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-card"</span>&gt;</span></span><br><span class="line">                1</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-card"</span>&gt;</span></span><br><span class="line">                2</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-card"</span>&gt;</span></span><br><span class="line">                ...</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><code>javascript</code> 只有下拉刷新，滚动加载还没有</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下拉刷新</span></span><br><span class="line">    <span class="keyword">var</span> slide = <span class="function"><span class="keyword">function</span> (<span class="params">option</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> defaults=&#123;</span><br><span class="line">            container:<span class="string">''</span>,</span><br><span class="line">            next:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> start,</span><br><span class="line">            end,</span><br><span class="line">            length,</span><br><span class="line">            isLock = <span class="literal">false</span>,<span class="comment">//是否锁定整个操作</span></span><br><span class="line">            isCanDo = <span class="literal">false</span>,<span class="comment">//是否移动滑块</span></span><br><span class="line">            isTouchPad = (<span class="regexp">/hp-tablet/gi</span>).test(navigator.appVersion),</span><br><span class="line">            hasTouch = <span class="string">'ontouchstart'</span> <span class="keyword">in</span> <span class="built_in">window</span> &amp;&amp; !isTouchPad;</span><br><span class="line">        <span class="keyword">var</span> obj = <span class="built_in">document</span>.querySelector(option.container);</span><br><span class="line">        <span class="keyword">var</span> loading=obj.firstElementChild;</span><br><span class="line">        <span class="keyword">var</span> textLoading = loading.firstElementChild.firstElementChild.lastElementChild</span><br><span class="line">        <span class="keyword">var</span> offset=loading.clientHeight;</span><br><span class="line">        <span class="keyword">var</span> objparent = obj.parentElement;</span><br><span class="line">        <span class="comment">/*操作方法*/</span></span><br><span class="line">        <span class="keyword">var</span> fn =</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//移动容器</span></span><br><span class="line">                translate: <span class="function"><span class="keyword">function</span> (<span class="params">diff</span>) </span>&#123;</span><br><span class="line">                    obj.style.webkitTransform=<span class="string">'translate3d(0,'</span>+diff+<span class="string">'px,0)'</span>;</span><br><span class="line">                    obj.style.transform=<span class="string">'translate3d(0,'</span>+diff+<span class="string">'px,0)'</span>;</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="comment">//设置效果时间</span></span><br><span class="line">                setTransition: <span class="function"><span class="keyword">function</span> (<span class="params">time</span>) </span>&#123;</span><br><span class="line">                    obj.style.webkitTransition=<span class="string">'all '</span>+time+<span class="string">'s'</span>;</span><br><span class="line">                    obj.style.transition=<span class="string">'all '</span>+time+<span class="string">'s'</span>;</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="comment">//返回到初始位置</span></span><br><span class="line">                back: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    fn.translate(<span class="number">0</span> - offset);</span><br><span class="line">                    <span class="comment">//标识操作完成</span></span><br><span class="line">                    isLock = <span class="literal">false</span>;</span><br><span class="line">                &#125;,</span><br><span class="line">                addEvent:<span class="function"><span class="keyword">function</span>(<span class="params">element,event_name,event_fn</span>)</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> (element.addEventListener) &#123;</span><br><span class="line">                        element.addEventListener(event_name, event_fn, <span class="literal">false</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) &#123;</span><br><span class="line">                        element.attachEvent(<span class="string">'on'</span> + event_name, event_fn);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        element[<span class="string">'on'</span> + event_name] = event_fn;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">        fn.translate(<span class="number">0</span>-offset);</span><br><span class="line">        fn.addEvent(obj,<span class="string">'touchstart'</span>,start);</span><br><span class="line">        fn.addEvent(obj,<span class="string">'touchmove'</span>,move);</span><br><span class="line">        fn.addEvent(obj,<span class="string">'touchend'</span>,end);</span><br><span class="line">        fn.addEvent(obj,<span class="string">'mousedown'</span>,start)</span><br><span class="line">        fn.addEvent(obj,<span class="string">'mousemove'</span>,move)</span><br><span class="line">        fn.addEvent(obj,<span class="string">'mouseup'</span>,end)</span><br><span class="line"></span><br><span class="line">        <span class="comment">//滑动开始</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (objparent.scrollTop &lt;= <span class="number">0</span> &amp;&amp; !isLock) &#123;</span><br><span class="line">                <span class="keyword">var</span> even = <span class="keyword">typeof</span> event == <span class="string">"undefined"</span> ? e : event;</span><br><span class="line">                <span class="comment">//标识操作进行中</span></span><br><span class="line">                isLock = <span class="literal">true</span>;</span><br><span class="line">                isCanDo = <span class="literal">true</span>;</span><br><span class="line">                <span class="comment">//保存当前鼠标Y坐标</span></span><br><span class="line">                start = hasTouch ? even.touches[<span class="number">0</span>].pageY : even.pageY;</span><br><span class="line">                <span class="comment">//消除滑块动画时间</span></span><br><span class="line">                fn.setTransition(<span class="number">0</span>);</span><br><span class="line">                textLoading.innerHTML=<span class="string">'下拉即可刷新'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//滑动中</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (objparent.scrollTop &lt;= <span class="number">0</span> &amp;&amp; isCanDo) &#123;</span><br><span class="line">                <span class="keyword">var</span> even = <span class="keyword">typeof</span> event == <span class="string">"undefined"</span> ? e : event;</span><br><span class="line">                <span class="comment">//保存当前鼠标Y坐标</span></span><br><span class="line">                end = hasTouch ? even.touches[<span class="number">0</span>].pageY : even.pageY;</span><br><span class="line">                <span class="keyword">if</span> (start &lt; end) &#123;</span><br><span class="line">                    even.preventDefault();</span><br><span class="line">                    <span class="comment">//消除滑块动画时间</span></span><br><span class="line">                    fn.setTransition(<span class="number">0</span>);</span><br><span class="line">                    <span class="comment">//移动滑块</span></span><br><span class="line">                    <span class="keyword">if</span>((end-start-offset)/<span class="number">2</span>&lt;=<span class="number">50</span>) &#123;</span><br><span class="line">                        length=(end - start - offset) / <span class="number">2</span>;</span><br><span class="line">                        fn.translate(length);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        length+=<span class="number">0.3</span>;</span><br><span class="line">                        fn.translate(length);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//滑动结束</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">end</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (isCanDo) &#123;</span><br><span class="line">                isCanDo = <span class="literal">false</span>;</span><br><span class="line">                <span class="comment">//判断滑动距离是否大于等于指定值</span></span><br><span class="line">                <span class="keyword">if</span> (end - start &gt;= offset) &#123;</span><br><span class="line">                    <span class="comment">//设置滑块回弹时间</span></span><br><span class="line">                    fn.setTransition(<span class="number">1</span>);</span><br><span class="line">                    <span class="comment">//保留提示部分</span></span><br><span class="line">                    fn.translate(<span class="number">0</span>);</span><br><span class="line">                    <span class="comment">//执行回调函数</span></span><br><span class="line">                    textLoading.innerHTML=<span class="string">'释放即可刷新'</span>;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">typeof</span> option.next == <span class="string">"function"</span>) &#123;</span><br><span class="line">                        option.next.call(fn, e);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//返回初始状态</span></span><br><span class="line">                    fn.back();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    slide(&#123;<span class="attr">container</span>:<span class="string">".atmosphere"</span>,<span class="attr">next</span>: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            <span class="comment">//松手之后执行逻辑,ajax请求数据，数据返回后隐藏加载中提示</span></span><br><span class="line">            <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">            setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                that.back.call();</span><br><span class="line">            &#125;, <span class="number">2000</span>);</span><br><span class="line">        &#125;&#125;);</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript·//" class="article-tag-list-link color2">JavaScript·</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/c64071c3.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-IOS端微信页面下拉刷新会触发滚动事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/9b47786.html">IOS端微信页面下拉刷新会触发滚动事件</a>
-    </h1>
-  
-
-        
-        <a href="/post/9b47786.html" class="archive-article-date">
-  	<time datetime="2019-03-21T15:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在开发的过程中如果设置了滚动加载数据，在ios微信端下拉触发了滚动事件因此重复加载了一次数据。</p>
-<p>解决：判断当前文档的高度有没有大于浏览器视口高度</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> token = <span class="literal">true</span>;</span><br><span class="line">    $(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> AllHeight = $(<span class="built_in">document</span>).height(); <span class="comment">//整个文档高度</span></span><br><span class="line">        <span class="keyword">let</span>  visual = $(<span class="built_in">window</span>).height() <span class="comment">// 浏览器的高度</span></span><br><span class="line">        <span class="keyword">let</span> heightNow = $(<span class="built_in">window</span>).scrollTop(); <span class="comment">// 滚动卷去的高度</span></span><br><span class="line">        <span class="keyword">if</span>((AllHeight - heightNow) &lt; visual+<span class="number">150</span> &amp;&amp; token &amp;&amp; AllHeight &gt; visual)&#123;</span><br><span class="line">            token = <span class="literal">false</span>;</span><br><span class="line">            getList();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/9b47786.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-js或jquery如何获取父、子、兄元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/b72c2fe5.html">js或jquery如何获取父、子、兄元素</a>
-    </h1>
-  
-
-        
-        <a href="/post/b72c2fe5.html" class="archive-article-date">
-  	<time datetime="2019-03-21T14:55:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原生javascript方法:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementById(<span class="string">"dom"</span>);</span><br><span class="line">del_space(a); <span class="comment">//清理空格</span></span><br><span class="line"><span class="keyword">var</span> b = a.childNodes; <span class="comment">//获取a的全部子节点；</span></span><br><span class="line"><span class="keyword">var</span> c = a.parentNode; <span class="comment">//获取a的父节点；</span></span><br><span class="line"><span class="keyword">var</span> d = a.nextSibling; <span class="comment">//获取a的下一个兄弟节点</span></span><br><span class="line"><span class="keyword">var</span> e = a.previousSibling; <span class="comment">//获取a的上一个兄弟节点</span></span><br><span class="line"><span class="keyword">var</span> f = a.firstChild; <span class="comment">//获取a的第一个子节点</span></span><br><span class="line"><span class="keyword">var</span> g = a.lastChild; <span class="comment">//获取a的最后一个子节点</span></span><br></pre></td></tr></table></figure>
-<p>jQuery方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">jQuery.parent(expr) <span class="comment">//找父亲节点，可以传入expr进行过滤，比如$("span").parent()或者$("span").parent(".class")</span></span><br><span class="line"></span><br><span class="line">jQuery.parents(expr) <span class="comment">//类似于jQuery.parents(expr),但是是查找所有祖先元素，不限于父元素</span></span><br><span class="line"></span><br><span class="line">jQuery.children(expr) <span class="comment">//返回所有子节点，这个方法只会返回直接的孩子节点，不会返回所有的子孙节点</span></span><br><span class="line"></span><br><span class="line">jQuery.contents() <span class="comment">//返回下面的所有内容，包括节点和文本。这个方法和children()的区别就在于，包括空白文本，也会被作为一个jQuery对象返回，children()则只会返回节点</span></span><br><span class="line"></span><br><span class="line">jQuery.prev() <span class="comment">//返回上一个兄弟节点，不是所有的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.prevAll() <span class="comment">//返回所有之前的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.next() <span class="comment">//返回下一个兄弟节点，不是所有的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.nextAll() <span class="comment">//返回所有之后的兄弟节点</span></span><br><span class="line"></span><br><span class="line">jQuery.siblings() <span class="comment">//返回兄弟姐妹节点，不分前后</span></span><br><span class="line"></span><br><span class="line">jQuery.find(expr)  <span class="comment">//跟jQuery.filter(expr)完全不一样。</span></span><br><span class="line"></span><br><span class="line">jQuery.filter() <span class="comment">//是从初始的jQuery对象集合中筛选出一部分，而jQuery.find()的返回结果，不会有初始集合中的内容，比如$("p"),find("span"),是从p元素开始找,等同于$("p span").</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/b72c2fe5.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-pulltorefresh-js插件滚动重复刷新" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/d9939f07.html">pulltorefresh.js插件滚动重复刷新</a>
-    </h1>
-  
-
-        
-        <a href="/post/d9939f07.html" class="archive-article-date">
-  	<time datetime="2019-03-21T14:49:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>触发下拉事件</p>
-<p>采用这个属性解决</p>
+<li><p><code>class</code>：支持三种主题:</p>
 <ul>
-<li><strong>shouldPullToRefresh</strong>（函数）pullToRefresh要触发哪个条件？<br>- 默认为<code>!window.scrollY</code></li>
+<li>ag-theme-balham</li>
+<li>ag-theme-balham-dark</li>
+<li>ag-theme-material</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PullToRefresh.init(&#123;</span><br><span class="line">    mainElement: <span class="string">'.atmosphere'</span>,</span><br><span class="line">    <span class="comment">// triggerElement:'.atmosphere', //哪个元素应该触发刷新</span></span><br><span class="line">    shouldPullToRefresh: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !(<span class="built_in">document</span>.documentElement.scrollTop||<span class="built_in">document</span>.body.scrollTop)</span><br><span class="line">    &#125;,</span><br><span class="line">    onRefresh: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  <span class="comment">//get请求</span></span><br><span class="line">    <span class="comment">// console.log('加载中。。。')</span></span><br><span class="line">    alert(<span class="string">'加载中。。。'</span>)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>columnDefs</code>：对比 iView 的 columns，具体内容下面会详细介绍</p>
+</li>
+<li><code>rowData</code>：对比 iView 的 data</li>
+<li><code>suppressDragLeaveHidesColumns</code>：设置为 true 的时候可以防止将一列拖到表格外后隐藏</li>
+<li><code>defaultColDef</code>：默认行、列属性:<ul>
+<li>sortable:：可排序</li>
+<li>resizable：可调整尺寸</li>
+<li>filter：可过滤</li>
+<li>autoHeight：自适应高度</li>
+<li>// …….</li>
+</ul>
+</li>
+<li><code>enableCharts</code>：开启极差图（与 enableRangeSelection 和 modules 同时使用）</li>
+<li><code>enableRangeSelection</code>：允许表格内范围选择</li>
+<li><code>modules</code>：加载模块</li>
+<li><code>getContextMenuItems</code>：定义表格内右键菜单项</li>
+<li><code>sideBar</code>：设置侧边功能栏，具体可看 <a href="https://www.ag-grid.com/javascript-grid-side-bar/" target="_blank" rel="noopener">Side Bar</a>，推荐使用对象设置:<ul>
+<li>toolPanels：这个设置也非常复杂，好在有幼儿版供我们使用—[‘columns’, ‘filters’]，就不展开了</li>
+<li>defaultToolPanel：默认展开的侧边栏</li>
+<li>hiddenByDefault：是否隐藏侧边栏</li>
+<li>position：侧边栏的位置（left、right）</li>
+</ul>
+</li>
+<li><code>localeText</code>：语言包</li>
+<li><code>gridReady</code>：ag-Grid 初始完成事件，可以获得一个 params 对象:<ul>
+<li>type：事件名（”gridReady”）</li>
+<li>api：ag-Grid API</li>
+<li>columnApi：columns API，内部一个 columnController 对象，接着才是具体一些属性</li>
+</ul>
+</li>
+</ul>
+<p>基础的一些设置就是以上了，剩下的可以根据业务需求进行具体的查阅：</p>
+<ul>
+<li><a href="https://www.ag-grid.com/javascript-grid-properties/" target="_blank" rel="noopener">ag-grid-vue 属性 VIP超全版</a></li>
+<li><a href="https://www.ag-grid.com/javascript-grid-api/" target="_blank" rel="noopener">ag-Grid API 头晕脑胀功能特别多版</a></li>
+<li><a href="https://www.ag-grid.com/javascript-grid-events/" target="_blank" rel="noopener">ag-Grid Events SVIP一览无余版</a></li>
+<li><a href="https://www.ag-grid.com/javascript-grid-callbacks/" target="_blank" rel="noopener">ag-Grid Callbacks 不知道可以干些什么版</a></li>
+</ul>
+<h2 id="3-表格行列"><a href="#3-表格行列" class="headerlink" title="3. 表格行列"></a>3. 表格行列</h2><p>上面主要是一些基础设置，这个部分才是一个表格的灵魂。</p>
+<p>下面抽取一段比较有代表性的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> columns = [</span><br><span class="line">  &#123;</span><br><span class="line">    headerName: <span class="string">'商品名称'</span>,</span><br><span class="line">    field: <span class="string">'ProductVO.Name'</span>,</span><br><span class="line">    width: <span class="number">300</span>,</span><br><span class="line">    cellClass: <span class="string">'special-cell'</span>,</span><br><span class="line">    cellRenderer: <span class="string">'agGroupCellRenderer'</span>,</span><br><span class="line">    valueGetter: <span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> data &amp;&amp; data.ProductVO.Name,</span><br><span class="line">    cellRendererParams: &#123;</span><br><span class="line">      innerRendererFramework: Vue.extend(&#123;</span><br><span class="line">        template: <span class="string">`</span></span><br><span class="line"><span class="string">          &lt;div v-if="params.data" style="display: flex;align-items: center;height:100%;"&gt;</span></span><br><span class="line"><span class="string">            &lt;div style="width: 60px;text-align: center;"&gt;</span></span><br><span class="line"><span class="string">              &lt;img</span></span><br><span class="line"><span class="string">                v-fancybox</span></span><br><span class="line"><span class="string">                style="max-width: 60px;max-height: 60px;"</span></span><br><span class="line"><span class="string">               :src="params.data.ProductVO.ImageUrl + '?x-oss-process=image/resize,h_60'"&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div style="margin: 0 0 0 10px;flex: 1;textAlign: left;"&gt;</span></span><br><span class="line"><span class="string">              &lt;p&gt;&#123;&#123; params.data.ProductVO.Name &#125;&#125;&lt;/p&gt;</span></span><br><span class="line"><span class="string">              &lt;p&gt;&#123;&#123; params.data.ProductVO.BarCode &#125;&#125;&lt;/p&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">          &lt;/div&gt;</span></span><br><span class="line"><span class="string">        `</span>,</span><br><span class="line">      &#125;),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    headerName: <span class="string">'交易额'</span>,</span><br><span class="line">    field: <span class="string">'TotalPrice'</span>,</span><br><span class="line">    width: <span class="number">100</span>,</span><br><span class="line">    valueGetter: <span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> data &amp;&amp; <span class="built_in">Number</span>((data.TotalPrice / <span class="number">100</span>).toFixed(<span class="number">2</span>)),</span><br><span class="line">    cellRenderer: <span class="function">(<span class="params">params</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (params.data) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`￥<span class="subst">$&#123;(params.data.TotalPrice <span class="regexp">/ 100).toFixed(2)&#125;`;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">      &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">      return priceCellRender(params);</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">    &#125;,</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">  &#125;,</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">  &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">    headerName: '成交额',</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">    field: 'TotalPayPrice',</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">    width: 100,</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">    valueGetter: (&#123; data &#125;) =&gt; data &amp;&amp; Number((data.TotalPayPrice /</span> <span class="number">100</span>).toFixed(<span class="number">2</span>)),</span></span></span><br><span class="line"><span class="string"><span class="subst">    valueFormatter: (params) =&gt; &#123;</span></span></span><br><span class="line"><span class="string"><span class="subst">      <span class="keyword">if</span> (params.data) &#123;</span></span></span><br><span class="line"><span class="string"><span class="subst">        <span class="keyword">return</span> <span class="string">`￥<span class="subst">$&#123;(params.data.TotalPayPrice <span class="regexp">/ 100).toFixed(2)&#125;`;</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">      &#125;</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">      return priceCellRender(params);</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">    &#125;,</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">  &#125;,</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">  &#123;</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">    headerName: '场地名称',</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">    field: 'TerminalVO.TerminalConfigVO.PlaceVO.Name',</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">    width: 130,</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">    valueGetter: (&#123; data &#125;) =&gt; &#123;</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">      let i = data &amp;&amp; data.TerminalVO;</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">      if (isDef(i) &amp;&amp; isDef(i = i.TerminalConfigVO) &amp;&amp; isDef(i = i.PlaceVO)) &#123;</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">        return i.Name || '';</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">      &#125;</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">      return '';</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">    &#125;,</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">  &#125;,</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">  &#123;</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">    headerName: '设备名称',</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">    field: 'TerminalVO.Name',</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">    width: 150,</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">  &#125;,</span></span></span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string"><span class="subst"><span class="regexp">];</span></span></span></span></span></span><br></pre></td></tr></table></figure>
+<h3 id="3-1-主要参数"><a href="#3-1-主要参数" class="headerlink" title="3.1 主要参数"></a>3.1 主要参数</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">headerName</th>
+<th style="text-align:center">headerValueGetter</th>
+<th style="text-align:center">field</th>
+<th style="text-align:center">width</th>
+<th style="text-align:center">hide</th>
+<th style="text-align:center">pinned</th>
+<th style="text-align:center">sortable</th>
+<th style="text-align:center">…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">列的名称</td>
+<td style="text-align:center">动态列名称</td>
+<td style="text-align:center">data 中的字段</td>
+<td style="text-align:center">设置列宽</td>
+<td style="text-align:center">隐藏列</td>
+<td style="text-align:center">固定位置</td>
+<td style="text-align:center">排序</td>
+<td style="text-align:center">其他</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-2-表格渲染"><a href="#3-2-表格渲染" class="headerlink" title="3.2 表格渲染"></a>3.2 表格渲染</h3><p>表格渲染部分有很丶东西，比起<code>iView</code>的<code>render</code>来说，<code>ag-Grid</code>实在是<code>太太太太太太太</code>复杂了，从我上面的例子中也可见一斑，下面来从容易到复杂来介绍一下<code>ag-Grid</code>的渲染方式。</p>
+<p>渲染方法主要有三种：</p>
+<ol>
+<li><code>valueGetter</code>：取代 field 字段，值是一个函数，形参有如下字段</li>
+</ol>
+<ul>
+<li><p>与 valueFormatter 相同的字段</p>
+</li>
+<li><p>getValue：函数，返回当前 value 的值</p>
+</li>
+</ul>
+<ol start="2">
+<li><code>valueFormatter</code></li>
+</ol>
+<ul>
+<li>与 valueGetter 相同的字段<ul>
+<li>value：改变前的 value 值</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><code>cellRenderer</code></li>
+</ol>
+<ul>
+<li>undefined / null：把 value 作为 string 渲染<ul>
+<li>String：grid 内置的组件名</li>
+<li>Class：自己定义的组件</li>
+<li>Function：一个返回 HTML 字符串或者 DOM 元素的函数</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li><code>cellRendererFramework</code>：这是 cellRenderer 的变体，可以直接引用组件类</li>
+</ol>
+<p>==valueGetter、valueFormatter 相同字段==（<del>这两货还接收类似 eval 里的写法，不推荐不介绍</del>）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">data</th>
+<th style="text-align:center">node</th>
+<th style="text-align:center">column</th>
+<th style="text-align:center">colDef</th>
+<th style="text-align:center">api</th>
+<th style="text-align:center">columnApi</th>
+<th style="text-align:center">context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">rowData 数据</td>
+<td style="text-align:center">行对象</td>
+<td style="text-align:center">列对象</td>
+<td style="text-align:center">行列配置项</td>
+<td style="text-align:center">Grid API</td>
+<td style="text-align:center">行列 API</td>
+<td style="text-align:center">上下文</td>
+</tr>
+</tbody>
+</table>
+<p>更多内容自行参考<a href="https://www.ag-grid.com/javascript-grid-cell-rendering/" target="_blank" rel="noopener">官网</a>，在下学不动了。</p>
+<p>下图展示了<code>ag-Grid</code>如何来协作渲染的：</p>
+<p><img src="https://www.ag-grid.com/javascript-grid-value-getters/valueGetterFlow.svg" alt="valueGetterFlow"></p>
+<p>经过我的一些简单摸(cai)索(keng)，建议渲染方式如下：</p>
+<ol>
+<li><p>直接输出：这种属于直接输出 data 里的值，通过<code>field</code>就可以了，例如上面的==设备名称==</p>
+</li>
+<li><p>格式化后输出：常见于状态方面渲染，通过<code>valueGetter</code>使用，例如<code>Status</code>为0|1|2，渲染成==在线|离线|待投放==</p>
+</li>
+<li><p>重组 value 与格式化输出：这种属于渲染内容与复制内容不同的情况，通过<code>valueGetter</code>和<code>vueFormatter</code>组合使用</p>
+</li>
+<li><p>组件渲染：常见于==产品经理==，这种我又分为了两种情况:</p>
+<ul>
+<li><p>不需要分组：可直接通过<code>cellRendererFramework</code>渲染组件，例如一些操作类的 button、input、select 等</p>
+</li>
+<li><p>需要分组，例如上面的==商品名称==</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> columns = [</span><br><span class="line">  &#123;</span><br><span class="line">    valueGetter: <span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> data &amp;&amp; data.XXX</span><br><span class="line">    cellRenderer: <span class="string">'agGroupCellRenderer'</span>,</span><br><span class="line">    cellRendererParams: &#123;</span><br><span class="line">      innerRendererFramework: Vue.exntend(),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<p>如果大家还有其他的发现，欢迎探讨来《深入浅出 ag-Grid》。</p>
 
       
 
@@ -495,11 +451,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js插件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ag-grid</a>
         		</li>
       		
 		</ul>
@@ -511,7 +467,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        			<a href="/categories/Vue//" class="article-tag-list-link color4">Vue</a>
         		</li>
       		
 		</ul>
@@ -520,7 +476,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/d9939f07.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/ady7e5ef.html">展开全文 >></a>
         </p>
       
 
@@ -551,37 +507,82 @@
 
 
   
-    <article id="post-多行文本溢出隐藏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-安装Docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/d177a72b.html">多行文本溢出隐藏</a>
+      <a class="article-title" href="/post/adt7e5ef.html">安装Docker</a>
     </h1>
   
 
         
-        <a href="/post/d177a72b.html" class="archive-article-date">
-  	<time datetime="2019-03-19T15:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+        <a href="/post/adt7e5ef.html" class="archive-article-date">
+  	<time datetime="2020-01-20T08:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><code>text-overflow:ellipsis</code> 显示省略符号来代表被修剪的文本。还有其他两个属性<br><code>clip</code> 修剪文本<br><code>string</code> 使用给定的字符串来代表被修剪的文本</p>
-<h3 id="实现单行隐藏"><a href="#实现单行隐藏" class="headerlink" title="实现单行隐藏"></a>实现单行隐藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    white-space: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>适用于WebKit浏览器或移动端的页面<br><code>display: -webkit-box</code> 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示<br><code>-webkit-box-orient</code>必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式<br><code>text-overflow: ellipsis</code> 可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本</p>
-<h3 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h3><p>需要设置元素的高度，也一样适用于WebKit内核浏览器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    text-overflow: ellipsis;</span><br><span class="line">    display: -webkit-box;</span><br><span class="line">    -webkit-line-clamp: 2;</span><br><span class="line">    -webkit-box-orient: vertical;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="设置相对定位的容器高度，用包含省略号-…-的元素模拟实现"><a href="#设置相对定位的容器高度，用包含省略号-…-的元素模拟实现" class="headerlink" title="设置相对定位的容器高度，用包含省略号(…)的元素模拟实现"></a>设置相对定位的容器高度，用包含省略号(…)的元素模拟实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    position: relative;</span><br><span class="line">    line-height: 1.4em;</span><br><span class="line">    height: 2.8em;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    div::after &#123;</span><br><span class="line">        content: &quot;...&quot;;</span><br><span class="line">        font-weight: bold;</span><br><span class="line">        position: absolute;</span><br><span class="line">        bottom: 0;</span><br><span class="line">        right: 0;</span><br><span class="line">        padding: 0 20px 1px 45px;</span><br><span class="line">        background: url(http://css88.b0.upaiyun.com/css88/2014/09/ellipsis_bg.png) repeat-y;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>需要注意：<br>height高度真好是line-height的倍数；</p>
-<p>结束的省略好用了半透明的png做了减淡的效果，或者设置背景颜色；</p>
-<p>IE6-7不显示content内容，所以要兼容IE6-7可以是在内容中加入一个标签，比如用<code>&lt;span class=&quot;line-clamp&quot;&gt;...&lt;/span&gt;</code>去模拟；</p>
-<p>要支持IE8，需要将::after替换成:after；</p>
-<h3 id="jQuery插件-jQuery-dotdotdot-实现"><a href="#jQuery插件-jQuery-dotdotdot-实现" class="headerlink" title="jQuery插件-jQuery.dotdotdot 实现"></a>jQuery插件-jQuery.dotdotdot 实现</h3>
+        <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><blockquote>
+<p>Docker — 从入门到实践<br><a href="https://yeasy.gitbooks.io/docker_practice/content/" target="_blank" rel="noopener">https://yeasy.gitbooks.io/docker_practice/content/</a><br><a href="https://juejin.im/post/5cce4b1cf265da0373719819" target="_blank" rel="noopener">https://juejin.im/post/5cce4b1cf265da0373719819</a></p>
+</blockquote>
+<p>详细的分步骤的安装说明可以参见官方文档，<a href="https://docs.docker.com/engine/installation/linux/ubuntu/" target="_blank" rel="noopener">https://docs.docker.com/engine/installation/linux/ubuntu/</a></p>
+<p>在官方文档中详细说明了不同Linux系统的安装方法，安装流程根据文档一步步执行即可安装成功。</p>
+<p>但是为了使得安装更加方便，Docker官方还提供了一键安装脚本，使用它会使得安装更加便捷，不用再去一步步执行命令安装了，在此介绍一下一键脚本安装方式。</p>
+<p>首先是Docker官方提供的安装脚本，相比其他脚本，官方提供的一定更靠谱，安装命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在安装过程中会出现<code>sudo usermod -aG docker your-user</code>只需要把<code>your-user</code>改成你当前的用户。</p>
+</blockquote>
+<p><em>将当前用户加入到docker用户组中</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker your-user</span><br></pre></td></tr></table></figure></p>
+<p><em>重新启动docker服务或者重新登录终端再运行docker命令</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker restart</span><br></pre></td></tr></table></figure></p>
+<p>只要执行如上一条命令，等待一会儿Docker便会安装完成，非常方便。</p>
+<p>但是官方脚本安装有一个缺点，那就是慢，也可能下载超时，所以为了加快下载速度，我们可以使用国内的镜像来安装，所以在这里还有DaoCloud的安装脚本。</p>
+<ul>
+<li>DaoCloud安装脚本：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>等待脚本执行完毕之后，就可以使用Docker相关命令了，如运行测试Hello World镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image &apos;hello-world:latest&apos; locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">1b930d010525: Pull complete </span><br><span class="line">Digest: sha256:4fe721ccc2e8dc7362278a29dc660d833570ec2682f4e4194f4ee23e415e1064</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br></pre></td></tr></table></figure>
+<p>如果出现上文类似提示内容则证明Docker可以正常使用了。</p>
+<h2 id="一、删除Docker镜像"><a href="#一、删除Docker镜像" class="headerlink" title="一、删除Docker镜像"></a>一、删除Docker镜像</h2><blockquote>
+<p>在删除镜像前需要先删除docker，因为该image被对应的container引用，所以image删除失败</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_12_centos app]# docker images</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">node                8-slim              9cd4d5af4312        8 days ago          146MB</span><br><span class="line">hello-world         latest              fce289e99eb9        12 months ago       1.84kB</span><br></pre></td></tr></table></figure>
+<p><strong>1. 主要希望删除这两个imgae,根据image的id到container中找(由于已经删了是空的)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_12_centos app]# docker ps -a</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                   PORTS               NAMES</span><br><span class="line">1c3632d52e9f        node:8-slim         &quot;docker-entrypoint.s…&quot;   3 hours ago         Exited (0) 3 hours ago                       sweet_feynman</span><br><span class="line">0f6128a6443e        node:8-slim         &quot;docker-entrypoint.s…&quot;   3 hours ago         Exited (0) 3 hours ago                       determined_aryabhata</span><br><span class="line">45aff5568711        hello-world         &quot;/hello&quot;                 4 hours ago         Exited (0) 4 hours ago</span><br></pre></td></tr></table></figure>
+<p>删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_12_centos app]# docker rm 0f6128a6443e</span><br><span class="line">0f6128a6443e</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. 现在就可以删除docker了</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi 9cd4d5af4312</span><br></pre></td></tr></table></figure>
+<p><em>官方建议的批量删除停止容器使用<code>docker rm $(sudo docker ps -a -q)</code></em></p>
+<p><em>千万不要用 <code>docker rm -f $(sudo docker ps -a -q)</code>,会删除全部容器的</em></p>
+<blockquote>
+<p>1、删除所有容器<code>docker rm docker ps -a -q</code>\<br>2、删除所有镜像 <code>docker rmi docker images -q</code></p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/sddai/p/10427785.html" target="_blank" rel="noopener">引用Docker 删除镜像</a></p>
+<ol start="3">
+<li>修改容器名字<ul>
+<li>修改容器(第一个参数可以是name和id)<br><a href="https://docs.docker.com/engine/reference/commandline/rename/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/commandline/rename/</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br><span class="line"></span><br><span class="line">docker rename &lt;my_container&gt; &lt;my_new_container&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="二、进入容器"><a href="#二、进入容器" class="headerlink" title="二、进入容器"></a>二、进入容器</h1><p><strong>1. 进入容器内部</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_12_centos ~]# docker exec -ti wepy/mall /bin/bash</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.docker安装nginx静态文件服务器</strong><br><a href="https://blog.csdn.net/wugenqiang/article/details/86513257" target="_blank" rel="noopener">https://blog.csdn.net/wugenqiang/article/details/86513257</a></p>
+<h1 id="三、Dockerfile配置"><a href="#三、Dockerfile配置" class="headerlink" title="三、Dockerfile配置"></a>三、Dockerfile配置</h1><p><img src="http://img.cdn.vmccc.cn/16ead7303985b8fd.png" alt=""></p>
+<h1 id="参数对应"><a href="#参数对应" class="headerlink" title="参数对应"></a>参数对应</h1><ul>
+<li>docker run 基于镜像启动一个容器</li>
+<li>-p 3000:80 端口映射，将宿主的3000端口映射到容器的80端口</li>
+<li>-d 后台方式运行</li>
+<li>–name 容器名 查看 docker 进程</li>
+</ul>
+
       
 
       
@@ -594,7 +595,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
         		</li>
       		
 		</ul>
@@ -606,7 +607,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
+        			<a href="/categories/Docker//" class="article-tag-list-link color2">Docker</a>
         		</li>
       		
 		</ul>
@@ -615,7 +616,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/d177a72b.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/adt7e5ef.html">展开全文 >></a>
         </p>
       
 
@@ -646,28 +647,430 @@
 
 
   
-    <article id="post-bootstrap导航缩小折叠问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Dayjs API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/2665f262.html">bootstrap导航缩小折叠问题</a>
+      <a class="article-title" href="/post/adr7e5ef.html">Dayjs API</a>
     </h1>
   
 
         
-        <a href="/post/2665f262.html" class="archive-article-date">
-  	<time datetime="2019-03-19T14:57:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+        <a href="/post/adr7e5ef.html" class="archive-article-date">
+  	<time datetime="2019-11-02T08:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar navbar-inverse navbar-fixed-top mr-nav "</span>&gt;</span><br><span class="line">       &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container"</span>&gt;</span><br><span class="line">           &lt;div id=<span class="string">"navbar"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"collapse navbar-collapse"</span>&gt;</span><br><span class="line">               &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"nav navbar-nav"</span>&gt;</span><br><span class="line">                   &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"active"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#about"</span>&gt;</span>关于我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"product.html"</span>&gt;</span>产品介绍<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"joinus.html"</span>&gt;</span>加入我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                   &lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"series.html"</span>&gt;</span>联系我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">               &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">           &lt;/</span>div&gt;</span><br><span class="line">       &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">   &lt;/</span>nav&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="css解决办法"><a href="#css解决办法" class="headerlink" title="css解决办法"></a>css解决办法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*解决bootstarp导航缩小折叠问题*/</span></span><br><span class="line">@media (max-width: <span class="number">768</span>px)&#123;</span><br><span class="line">    .navbar-nav &#123;</span><br><span class="line">        visibility: visible;</span><br><span class="line">        width: <span class="number">1000</span>px;</span><br><span class="line">        margin: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.navbar-collapse&#123;</span><br><span class="line">    display: block !important;</span><br><span class="line">    height: auto !important;</span><br><span class="line">    padding-bottom: <span class="number">0</span>;</span><br><span class="line">    overflow: visible !important;</span><br><span class="line">    visibility: visible !important;</span><br><span class="line">&#125;</span><br><span class="line">.nav&gt;li&#123;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">#navbar&#123;</span><br><span class="line">    border: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><blockquote>
+<p><a href="https://github.com/iamkun/dayjs/blob/master/docs/zh-cn/README.zh-CN.md" target="_blank" rel="noopener">https://github.com/iamkun/dayjs/blob/master/docs/zh-cn/README.zh-CN.md</a></p>
+</blockquote>
+<p><code>Dayjs</code> 并没有改变或覆盖 Javascript 原生的 <code>Date.prototype</code>， 而是创造了一个全新的包含 <code>Javascript Date</code> 对象的 <code>Dayjs</code> 的对象。</p>
+<p><code>Dayjs</code> 对象是不可变的, 所有的 API 操作都将返回一个新的 <code>Dayjs</code> 对象。</p>
+<ul>
+<li><a href="#解析">解析</a><ul>
+<li><a href="#当前时间">当前时间</a></li>
+<li><a href="#时间字符串">时间字符串</a></li>
+<li><a href="#date-对象">Date 对象</a></li>
+<li><a href="#unix-时间戳-毫秒">Unix 时间戳 (毫秒)</a></li>
+<li><a href="#unix-时间戳-秒">Unix 时间戳 (秒)</a></li>
+<li><a href="#自定义时间格式">自定义时间格式</a></li>
+<li><a href="#复制">复制</a></li>
+<li><a href="#验证">验证</a></li>
+</ul>
+</li>
+<li><a href="#获取设置">获取+设置</a><ul>
+<li><a href="#年">年</a></li>
+<li><a href="#月">月</a></li>
+<li><a href="#日">日</a></li>
+<li><a href="#星期">星期</a></li>
+<li><a href="#时">时</a></li>
+<li><a href="#分">分</a></li>
+<li><a href="#秒">秒</a></li>
+<li><a href="#毫秒">毫秒</a></li>
+<li><a href="#获取">获取</a></li>
+<li><a href="#设置">设置</a></li>
+</ul>
+</li>
+<li><a href="#操作">操作</a><ul>
+<li><a href="#增加">增加</a></li>
+<li><a href="#减少">减少</a></li>
+<li><a href="#开头时间">开头时间</a></li>
+<li><a href="#末尾时间">末尾时间</a></li>
+</ul>
+</li>
+<li><a href="#显示">显示</a><ul>
+<li><a href="#格式化">格式化</a></li>
+<li><a href="#时间差">时间差</a></li>
+<li><a href="#unix-时间戳-毫秒-1">Unix 时间戳 (毫秒)</a></li>
+<li><a href="#unix-时间戳-秒">Unix 时间戳 (秒)</a></li>
+<li><a href="#utc-偏移量-分">UTC 偏移量 (分)</a></li>
+<li><a href="#天数-月">天数 (月)</a></li>
+<li><a href="#date-对象-1">Date 对象</a></li>
+<li><a href="#as-json">JSON</a></li>
+<li><a href="#iso-8601-字符串">ISO 8601 字符串</a></li>
+<li><a href="#字符串">字符串</a></li>
+</ul>
+</li>
+<li><a href="#查询">查询</a><ul>
+<li><a href="#是否之前">是否之前</a></li>
+<li><a href="#是否相同">是否相同</a></li>
+<li><a href="#是否之后">是否之后</a></li>
+<li><a href="#是否是-dayjs-isdayjscompared-any">是否是 Dayjs <code>.isDayjs()</code></a></li>
+</ul>
+</li>
+<li><a href="#utc">UTC</a></li>
+<li><a href="#plugin-apis">插件 APIs</a></li>
+</ul>
+<hr>
+<p>如果没有特别说明，Day.js 的返回值都是新的 <code>Dayjs</code> 对象。</p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>在 <code>dayjs()</code> 中传入支持的格式</p>
+<h4 id="当前时间"><a href="#当前时间" class="headerlink" title="当前时间"></a>当前时间</h4><p>直接运行 <code>dayjs()</code>，得到包含当前时间和日期的 <code>Dayjs</code> 对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs()</span><br></pre></td></tr></table></figure>
+<h3 id="时间字符串"><a href="#时间字符串" class="headerlink" title="时间字符串"></a>时间字符串</h3><p>可以解析传入的一个标准的<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601</a>时间字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs(<span class="built_in">String</span>)</span><br><span class="line">dayjs(<span class="string">'1995-12-25'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Date-对象"><a href="#Date-对象" class="headerlink" title="Date 对象"></a>Date 对象</h3><p>可以解析传入的一个 Javascript Date 对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs(<span class="built_in">Date</span>)</span><br><span class="line">dayjs(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2018</span>, <span class="number">8</span>, <span class="number">18</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="Unix-时间戳-毫秒"><a href="#Unix-时间戳-毫秒" class="headerlink" title="Unix 时间戳 (毫秒)"></a>Unix 时间戳 (毫秒)</h3><p>可以解析传入的一个 Unix 时间戳 (13 位数字)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs(<span class="built_in">Number</span>)</span><br><span class="line">dayjs(<span class="number">1318781876406</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Unix-时间戳-秒"><a href="#Unix-时间戳-秒" class="headerlink" title="Unix 时间戳 (秒)"></a>Unix 时间戳 (秒)</h3><p>可以解析传入的一个 Unix 时间戳 (10 位数字)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs.unix(<span class="built_in">Number</span>)</span><br><span class="line">dayjs.unix(<span class="number">1318781876</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="自定义时间格式"><a href="#自定义时间格式" class="headerlink" title="自定义时间格式"></a>自定义时间格式</h3><ul>
+<li>解析自定义时间格式如 <code>dayjs(&quot;12-25-1995&quot;, &quot;MM-DD-YYYY&quot;)</code> 可以使用插件 <a href="./Plugin.md#customparseformat"><code>CustomParseFormat</code></a></li>
+</ul>
+<h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p><code>Dayjs</code> 对象是不可变的，如果您想获得一个对象的拷贝，请执行 <code>.clone()</code>。<br>向 <code>dayjs()</code> 里传入一个 <code>Dayjs</code> 对象也能实现同样的效果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs(Dayjs)</span><br><span class="line">dayjs().clone()</span><br></pre></td></tr></table></figure>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><ul>
+<li>return Boolean</li>
+</ul>
+<p>检测当前 <code>Dayjs</code> 对象是否是一个有效的时间。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs().isValid()</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="获取-设置"><a href="#获取-设置" class="headerlink" title="获取+设置"></a>获取+设置</h3><p>获取和改变日期。</p>
+<h4 id="年"><a href="#年" class="headerlink" title="年"></a>年</h4><p>获取或设置年份。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().year()</span><br><span class="line">dayjs().year(<span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="月"><a href="#月" class="headerlink" title="月"></a>月</h4><p>获取或设置月份。从 0 开始</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().month()</span><br><span class="line">dayjs().month(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="日"><a href="#日" class="headerlink" title="日"></a>日</h4><p>获取或设置日期。从 1 开始</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().date()</span><br><span class="line">dayjs().date(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="星期"><a href="#星期" class="headerlink" title="星期"></a>星期</h4><p>获取或设置星期。从星期天 0 开始</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().day()</span><br><span class="line">dayjs().day(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="时"><a href="#时" class="headerlink" title="时"></a>时</h4><p>获取或设置小时。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().hour()</span><br><span class="line">dayjs().hour(<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="分"><a href="#分" class="headerlink" title="分"></a>分</h4><p>获取或设置分钟。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().minute()</span><br><span class="line">dayjs().minute(<span class="number">59</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="秒"><a href="#秒" class="headerlink" title="秒"></a>秒</h4><p>获取或设置秒。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().second()</span><br><span class="line">dayjs().second(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="毫秒"><a href="#毫秒" class="headerlink" title="毫秒"></a>毫秒</h4><p>获取或设置毫秒。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().millisecond()</span><br><span class="line">dayjs().millisecond(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h4><p>获取从 <code>Dayjs</code> 对象中取到的信息<br>传入的单位 (unit) 对大小写不敏感。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dayjs().get(unit : <span class="built_in">String</span>)</span><br><span class="line">dayjs().get(<span class="string">'month'</span>) <span class="comment">// 从 0 开始</span></span><br><span class="line">dayjs().get(<span class="string">'day'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="可用单位"><a href="#可用单位" class="headerlink" title="可用单位"></a>可用单位</h4><table>
+<thead>
+<tr>
+<th>单位</th>
+<th>缩写</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td></td>
+<td>日期</td>
+</tr>
+<tr>
+<td><code>day</code></td>
+<td><code>d</code></td>
+<td>星期几 (星期天 0, 星期六 6)</td>
+</tr>
+<tr>
+<td><code>month</code></td>
+<td><code>M</code></td>
+<td>月 (一月 0, 十二月 11)</td>
+</tr>
+<tr>
+<td><code>year</code></td>
+<td><code>y</code></td>
+<td>年</td>
+</tr>
+<tr>
+<td><code>hour</code></td>
+<td><code>h</code></td>
+<td>时</td>
+</tr>
+<tr>
+<td><code>minute</code></td>
+<td><code>m</code></td>
+<td>分</td>
+</tr>
+<tr>
+<td><code>second</code></td>
+<td><code>s</code></td>
+<td>秒</td>
+</tr>
+<tr>
+<td><code>millisecond</code></td>
+<td><code>ms</code></td>
+<td>毫秒</td>
+</tr>
+</tbody>
+</table>
+<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><p>设置时间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dayjs().set(unit : <span class="built_in">String</span>, <span class="attr">value</span> : Int);</span><br><span class="line">dayjs().set(<span class="string">'date'</span>, <span class="number">1</span>);</span><br><span class="line">dayjs().set(<span class="string">'month'</span>, <span class="number">3</span>); <span class="comment">// 四月</span></span><br><span class="line">dayjs().set(<span class="string">'second'</span>, <span class="number">30</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><p>您可以对 <code>Dayjs</code> 对象如下增加减少之类的操作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dayjs()</span><br><span class="line">  .startOf(<span class="string">'month'</span>)</span><br><span class="line">  .add(<span class="number">1</span>, <span class="string">'day'</span>)</span><br><span class="line">  .subtract(<span class="number">1</span>, <span class="string">'year'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h4><p>增加时间并返回一个新的 <code>Dayjs()</code> 对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().add(value : <span class="built_in">Number</span>, <span class="attr">unit</span> : <span class="built_in">String</span>);</span><br><span class="line">dayjs().add(<span class="number">7</span>, <span class="string">'day'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="减少"><a href="#减少" class="headerlink" title="减少"></a>减少</h4><p>减少时间并返回一个新的 <code>Dayjs()</code> 对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().subtract(value : <span class="built_in">Number</span>, <span class="attr">unit</span> : <span class="built_in">String</span>);</span><br><span class="line">dayjs().subtract(<span class="number">7</span>, <span class="string">'year'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="开头时间"><a href="#开头时间" class="headerlink" title="开头时间"></a>开头时间</h4><p>返回当前时间的开头时间的 <code>Dayjs()</code> 对象，如月份的第一天。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().startOf(unit : <span class="built_in">String</span>);</span><br><span class="line">dayjs().startOf(<span class="string">'week'</span>); <span class="comment">// 取决于 locale 文件里 `weekStart` 的值</span></span><br></pre></td></tr></table></figure>
+<h4 id="末尾时间"><a href="#末尾时间" class="headerlink" title="末尾时间"></a>末尾时间</h4><p>返回当前时间的末尾时间的 <code>Dayjs()</code> 对象，如月份的最后一天。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs().endOf(unit : <span class="built_in">String</span>);</span><br><span class="line">dayjs().endOf(<span class="string">'month'</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h3><p>格式化 <code>Dayjs</code> 对象并展示。</p>
+<h4 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h4><ul>
+<li>return String</li>
+</ul>
+<p>接收一系列的时间日期字符串并替换成相应的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dayjs().format(<span class="built_in">String</span>)</span><br><span class="line">dayjs(<span class="string">'2019-01-25'</span>).format(<span class="string">'[YYYY] YYYY-MM-DDTHH:mm:ssZ[Z]'</span>) <span class="comment">// 'YYYY 2019-01-25T00:00:00-02:00Z'</span></span><br><span class="line">dayjs().format(<span class="string">'&#123;YYYY&#125; MM-DDTHH:mm:ssZ[Z]'</span>) <span class="comment">// "&#123;2014&#125; 09-08T08:02:17-05:00Z"</span></span><br></pre></td></tr></table></figure>
+<p>详情如下:</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>输出</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>YY</code></td>
+<td>18</td>
+<td>两位数的年份</td>
+</tr>
+<tr>
+<td><code>YYYY</code></td>
+<td>2018</td>
+<td>四位数的年份</td>
+</tr>
+<tr>
+<td><code>M</code></td>
+<td>1-12</td>
+<td>月份，从 1 开始</td>
+</tr>
+<tr>
+<td><code>MM</code></td>
+<td>01-12</td>
+<td>月份，两位数</td>
+</tr>
+<tr>
+<td><code>MMM</code></td>
+<td>Jan-Dec</td>
+<td>简写的月份名称</td>
+</tr>
+<tr>
+<td><code>MMMM</code></td>
+<td>January-December</td>
+<td>完整的月份名称</td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>1-31</td>
+<td>月份里的一天</td>
+</tr>
+<tr>
+<td><code>DD</code></td>
+<td>01-31</td>
+<td>月份里的一天，两位数</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>0-6</td>
+<td>一周中的一天，星期天是 0</td>
+</tr>
+<tr>
+<td><code>dd</code></td>
+<td>Su-Sa</td>
+<td>最简写的一周中一天的名称</td>
+</tr>
+<tr>
+<td><code>ddd</code></td>
+<td>Sun-Sat</td>
+<td>简写的一周中一天的名称</td>
+</tr>
+<tr>
+<td><code>dddd</code></td>
+<td>Sunday-Saturday</td>
+<td>一周中一天的名称</td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>0-23</td>
+<td>小时</td>
+</tr>
+<tr>
+<td><code>HH</code></td>
+<td>00-23</td>
+<td>小时，两位数</td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td>1-12</td>
+<td>小时, 12 小时制</td>
+</tr>
+<tr>
+<td><code>hh</code></td>
+<td>01-12</td>
+<td>Hours, 12 小时制, 两位数</td>
+</tr>
+<tr>
+<td><code>m</code></td>
+<td>0-59</td>
+<td>分钟</td>
+</tr>
+<tr>
+<td><code>mm</code></td>
+<td>00-59</td>
+<td>分钟，两位数</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>0-59</td>
+<td>秒</td>
+</tr>
+<tr>
+<td><code>ss</code></td>
+<td>00-59</td>
+<td>秒 两位数</td>
+</tr>
+<tr>
+<td><code>SSS</code></td>
+<td>000-999</td>
+<td>毫秒 三位数</td>
+</tr>
+<tr>
+<td><code>Z</code></td>
+<td>+05:00</td>
+<td>UTC 的偏移量</td>
+</tr>
+<tr>
+<td><code>ZZ</code></td>
+<td>+0500</td>
+<td>UTC 的偏移量，数字前面加上 0</td>
+</tr>
+<tr>
+<td><code>A</code></td>
+<td>AM PM</td>
+<td></td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>am pm</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>更多格式化的选项 <code>Q Do k kk X x ...</code> 可以使用插件 <a href="./Plugin.md#advancedformat"><code>AdvancedFormat</code></a></li>
+<li>本地化的长日期格式 <code>L LT LTS ...</code> 可以使用插件 <a href="./Plugin.md#localizedFormat"><code>LocalizedFormat</code></a></li>
+</ul>
+<h4 id="时间差"><a href="#时间差" class="headerlink" title="时间差"></a>时间差</h4><ul>
+<li>return Number</li>
+</ul>
+<p>获取两个 <code>Dayjs</code> 对象的时间差，默认毫秒。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> date1 = dayjs(<span class="string">'2019-01-25'</span>)</span><br><span class="line"><span class="keyword">const</span> date2 = dayjs(<span class="string">'2018-06-05'</span>)</span><br><span class="line">date1.diff(date2) <span class="comment">// 20214000000</span></span><br><span class="line">date1.diff(date2, <span class="string">'month'</span>) <span class="comment">// 7</span></span><br><span class="line">date1.diff(date2, <span class="string">'month'</span>, <span class="literal">true</span>) <span class="comment">// 7.645161290322581</span></span><br><span class="line">date1.diff(date2, <span class="string">'day'</span>) <span class="comment">// 233</span></span><br></pre></td></tr></table></figure>
+<h4 id="Unix-时间戳-毫秒-1"><a href="#Unix-时间戳-毫秒-1" class="headerlink" title="Unix 时间戳 (毫秒)"></a>Unix 时间戳 (毫秒)</h4><ul>
+<li>return Number</li>
+</ul>
+<p>返回 Unix 时间戳 (毫秒)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs().valueOf()</span><br></pre></td></tr></table></figure>
+<h4 id="Unix-时间戳-秒-1"><a href="#Unix-时间戳-秒-1" class="headerlink" title="Unix 时间戳 (秒)"></a>Unix 时间戳 (秒)</h4><ul>
+<li>return Number</li>
+</ul>
+<p>返回 Unix 时间戳 (秒)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs().unix()</span><br></pre></td></tr></table></figure>
+<h3 id="UTC-偏移量-分"><a href="#UTC-偏移量-分" class="headerlink" title="UTC 偏移量 (分)"></a>UTC 偏移量 (分)</h3><p>返回 UTC 偏移量 (分)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs().utcOffset()</span><br></pre></td></tr></table></figure>
+<h4 id="天数-月"><a href="#天数-月" class="headerlink" title="天数 (月)"></a>天数 (月)</h4><ul>
+<li>return Number</li>
+</ul>
+<p>返回月份的天数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs().daysInMonth()</span><br></pre></td></tr></table></figure>
+<h4 id="Date-对象-1"><a href="#Date-对象-1" class="headerlink" title="Date 对象"></a>Date 对象</h4><ul>
+<li>return Javascript <code>Date</code> object</li>
+</ul>
+<p>返回原生的 <code>Date</code> 对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs().toDate()</span><br></pre></td></tr></table></figure>
+<h4 id="As-JSON"><a href="#As-JSON" class="headerlink" title="As JSON"></a>As JSON</h4><ul>
+<li>return JSON String</li>
+</ul>
+<p>当序列化 <code>Dayjs</code> 对象时，会返回 ISO8601 格式的字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs().toJSON() <span class="comment">//"2018-08-08T00:00:00.000Z"</span></span><br></pre></td></tr></table></figure>
+<h4 id="ISO-8601-字符串"><a href="#ISO-8601-字符串" class="headerlink" title="ISO 8601 字符串"></a>ISO 8601 字符串</h4><ul>
+<li>return String</li>
+</ul>
+<p>返回 ISO8601 格式的字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs().toISOString()</span><br></pre></td></tr></table></figure>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ul>
+<li>return String</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs().toString()</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><h4 id="是否之前"><a href="#是否之前" class="headerlink" title="是否之前"></a>是否之前</h4><ul>
+<li>return Boolean</li>
+</ul>
+<p>检查一个 <code>Dayjs</code> 对象是否在另一个 <code>Dayjs</code> 对象时间之前。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dayjs().isBefore(Dayjs, unit? : <span class="built_in">String</span>);</span><br><span class="line">dayjs().isBefore(dayjs()); <span class="comment">// false</span></span><br><span class="line">dayjs().isBefore(dayjs(), <span class="string">'year'</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h4 id="是否相同"><a href="#是否相同" class="headerlink" title="是否相同"></a>是否相同</h4><ul>
+<li>return Boolean</li>
+</ul>
+<p>检查一个 <code>Dayjs</code> 对象是否和另一个 <code>Dayjs</code> 对象时间相同。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dayjs().isSame(Dayjs, unit? : <span class="built_in">String</span>);</span><br><span class="line">dayjs().isSame(dayjs()); <span class="comment">// true</span></span><br><span class="line">dayjs().isSame(dayjs(), <span class="string">'year'</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h4 id="是否之后"><a href="#是否之后" class="headerlink" title="是否之后"></a>是否之后</h4><ul>
+<li>return Boolean</li>
+</ul>
+<p>检查一个 <code>Dayjs</code> 对象是否在另一个 <code>Dayjs</code> 对象时间之后。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dayjs().isAfter(Dayjs, unit? : <span class="built_in">String</span>);</span><br><span class="line">dayjs().isAfter(dayjs()); <span class="comment">// false</span></span><br><span class="line">dayjs().isAfter(dayjs(), <span class="string">'year'</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h3 id="是否是-Dayjs-isDayjs-compared-any"><a href="#是否是-Dayjs-isDayjs-compared-any" class="headerlink" title="是否是 Dayjs .isDayjs(compared: any)"></a>是否是 Dayjs <code>.isDayjs(compared: any)</code></h3><p>返回一个 <code>boolean</code> 验证传入值是否是一个 Dayjs 对象.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dayjs.isDayjs(dayjs()) <span class="comment">// true</span></span><br><span class="line">dayjs.isDayjs(<span class="keyword">new</span> <span class="built_in">Date</span>()) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>也可以使用 <code>instanceof</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dayjs() <span class="keyword">instanceof</span> dayjs <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="UTC"><a href="#UTC" class="headerlink" title="UTC"></a>UTC</h2><p>如果想要使用 UTC 模式来解析和展示时间，<code>.utc</code> <code>.local</code> <code>.isUTC</code> 可以使用插件 <a href="./Plugin.md#utc"><code>UTC</code></a></p>
+<h2 id="插件-APIs"><a href="#插件-APIs" class="headerlink" title="插件 APIs"></a>插件 APIs</h2><h3 id="相对时间"><a href="#相对时间" class="headerlink" title="相对时间"></a>相对时间</h3><p><code>.from</code> <code>.to</code> <code>.fromNow</code> <code>.toNow</code> 获得相对时间</p>
+<p>插件 <a href="./Plugin.md#relativetime"><code>RelativeTime</code></a></p>
+<h3 id="是否是闰年"><a href="#是否是闰年" class="headerlink" title="是否是闰年"></a>是否是闰年</h3><p><code>.isLeapYear</code> 获得是否闰年</p>
+<p>插件 <a href="./Plugin.md#isleapyear"><code>IsLeapYear</code></a></p>
+<h3 id="年中的第几周"><a href="#年中的第几周" class="headerlink" title="年中的第几周"></a>年中的第几周</h3><p><code>.week</code> 获取是第几个周</p>
+<p>插件 <a href="./Plugin.md#weekofyear"><code>WeekOfYear</code></a></p>
+<h3 id="星期-1"><a href="#星期-1" class="headerlink" title="星期"></a>星期</h3><p><code>.weekday</code> 来获取或设置当前语言的星期</p>
+<p>plugin <a href="./Plugin.md#weekday"><code>WeekDay</code></a></p>
+<h3 id="年中有几周-ISO"><a href="#年中有几周-ISO" class="headerlink" title="年中有几周 ISO"></a>年中有几周 ISO</h3><p><code>.isoWeeksInYear</code> 获得年中有几周</p>
+<p>plugin <a href="./Plugin.md#isoweeksinyear"><code>IsoWeeksInYear</code></a></p>
+<h3 id="是否相同或之后"><a href="#是否相同或之后" class="headerlink" title="是否相同或之后"></a>是否相同或之后</h3><p><code>.isSameOrAfter</code> 返回一个时间和一个时间相同或在一个时间之后</p>
+<p>插件 <a href="./Plugin.md#issameorafter"><code>IsSameOrAfter</code></a></p>
+<h3 id="是否相同或之前"><a href="#是否相同或之前" class="headerlink" title="是否相同或之前"></a>是否相同或之前</h3><p><code>.isSameOrBefore</code> 返回一个时间是否和一个时间相同或在一个时间之前</p>
+<p>插件 <a href="./Plugin.md#issameorbefore"><code>IsSameOrBefore</code></a></p>
+<h3 id="是否之间"><a href="#是否之间" class="headerlink" title="是否之间"></a>是否之间</h3><p><code>.isBetween</code> 返回一个时间是否介于两个时间之间</p>
+<p>插件 <a href="./Plugin.md#isbetween"><code>IsBetween</code></a></p>
+<h3 id="年中第几季度"><a href="#年中第几季度" class="headerlink" title="年中第几季度"></a>年中第几季度</h3><p><code>.quarter</code> 返回年中第几季度</p>
+<p>插件 <a href="./Plugin.md#quarterofyear"><code>QuarterOfYear</code></a></p>
+<h3 id="转成数组"><a href="#转成数组" class="headerlink" title="转成数组"></a>转成数组</h3><p><code>.toArray</code> 返回包含时间数值的数组。</p>
+<p>插件 <a href="./Plugin.md#toarray"><code>ToArray</code></a></p>
+<h3 id="转成对象"><a href="#转成对象" class="headerlink" title="转成对象"></a>转成对象</h3><p><code>.toObject</code> 返回包含时间数值的对象</p>
+<p>插件 <a href="./Plugin.md#toobject"><code>ToObject</code></a></p>
+<h3 id="最小最大"><a href="#最小最大" class="headerlink" title="最小最大"></a>最小最大</h3><p><code>.min</code> <code>.max</code> 比较传入的 dayjs 实例的大小</p>
+<p>plugin <a href="./Plugin.md#minmax"><code>MinMax</code></a></p>
+<h3 id="日历时间"><a href="#日历时间" class="headerlink" title="日历时间"></a>日历时间</h3><p><code>.calendar</code> 来显示日历时间</p>
+<p>plugin <a href="./Plugin.md#calendar"><code>Calendar</code></a></p>
+<h3 id="更新语言配置"><a href="#更新语言配置" class="headerlink" title="更新语言配置"></a>更新语言配置</h3><p><code>.updateLocale</code> 来更新语言配置的属性</p>
+<p>plugin <a href="./Plugin.md#updateLocale"><code>UpdateLocale</code></a></p>
+
       
 
       
@@ -680,11 +1083,107 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Bootstrap</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Dayjs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Dayjs//" class="article-tag-list-link color1">Dayjs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/adr7e5ef.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-AnyProxy抓取http、https请求" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/adi7e5ef.html">AnyProxy抓取http、https请求与Thor IOS抓包工具</a>
+    </h1>
+  
+
+        
+        <a href="/post/adi7e5ef.html" class="archive-article-date">
+  	<time datetime="2019-10-08T08:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="AnyProxy-Web和移动抓包工具"><a href="#AnyProxy-Web和移动抓包工具" class="headerlink" title="AnyProxy Web和移动抓包工具"></a>AnyProxy Web和移动抓包工具</h3><p><a href="https://www.jianshu.com/p/a1c53fab95ac" target="_blank" rel="noopener">文档</a></p>
+<p><a href="https://github.com/alibaba/anyproxy/blob/master/docs/cn/src_doc.md" target="_blank" rel="noopener">官方文档</a></p>
+<p><a href="https://www.cnblogs.com/yoyoketang/p/10867050.html" target="_blank" rel="noopener">anyproxy学习1-windows平台安装和抓手机app上https请求</a></p>
+<p><a href="https://www.cnblogs.com/yoyoketang/p/10873026.html" target="_blank" rel="noopener">anyproxy学习2-rule模块实现接口mock功能</a></p>
+<p><a href="https://www.cnblogs.com/yoyoketang/p/10878193.html" target="_blank" rel="noopener">anyproxy学习3-修改返回内容(beforeSendResponse)</a></p>
+<p><a href="https://www.cnblogs.com/yoyoketang/p/10879404.html" target="_blank" rel="noopener">anyproxy学习4-Linux（Centos）搭建anyproxy环境</a></p>
+<h3 id="Thor-IOS抓包工具"><a href="#Thor-IOS抓包工具" class="headerlink" title="Thor IOS抓包工具"></a>Thor IOS抓包工具</h3><p><a href="https://www.jianshu.com/p/bb8231f48a07" target="_blank" rel="noopener">使用教程</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AnyProxy</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Thor</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">抓包</a>
         		</li>
       		
 		</ul>
@@ -696,7 +1195,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
+        			<a href="/categories/AnyProxy//" class="article-tag-list-link color4">AnyProxy</a>
         		</li>
       		
 		</ul>
@@ -705,7 +1204,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/2665f262.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/adi7e5ef.html">展开全文 >></a>
         </p>
       
 
@@ -736,33 +1235,453 @@
 
 
   
-    <article id="post-小程序开发问题集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mac 管理Node版本工-n" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/3f741c8d.html">小程序开发问题集</a>
+      <a class="article-title" href="/post/b72i3fe5.html">Mac 管理Node版本工-n</a>
     </h1>
   
 
         
-        <a href="/post/3f741c8d.html" class="archive-article-date">
-  	<time datetime="2019-03-19T14:49:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+        <a href="/post/b72i3fe5.html" class="archive-article-date">
+  	<time datetime="2019-09-21T14:55:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="小程序-请求wx-requestPayment-返回支付场景非法"><a href="#小程序-请求wx-requestPayment-返回支付场景非法" class="headerlink" title="小程序 请求wx.requestPayment 返回支付场景非法"></a>小程序 请求wx.requestPayment 返回支付场景非法</h2><p>记录一下我遇到的这个问题，先确保前端的数据有没有错，没有的话一般出现在接口的问题。</p>
-<p>后端需要排查：</p>
-<ul>
-<li>openID要添加还有一个类型要改成JSAPI</li>
-<li>签名方式也要注意是不是根据文档一致</li>
+        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>npm install -g n</code></p>
+<h3 id="安装-激活版本"><a href="#安装-激活版本" class="headerlink" title="安装/激活版本"></a>安装/激活版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">只需执行n &lt;version&gt;即可安装node。如果&lt;version&gt;已经安装（通过n），n将激活该版本。</span><br><span class="line">例如：</span><br><span class="line">    $ n 8.16.2</span><br><span class="line">    $ n 12.12.0</span><br></pre></td></tr></table></figure>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><blockquote>
+<p>n单独执行是查看当前安装的版本，使用向上和向下箭头键导航并按enter或右箭头键进行选择，使用command+ C（控制+ C）退出选择屏幕。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$n</span><br><span class="line">    node/8.16.2</span><br><span class="line">  ο node/12.12.0</span><br><span class="line">    node/14.2.0</span><br></pre></td></tr></table></figure>
+<h3 id="使用或安装最新的官方发布："><a href="#使用或安装最新的官方发布：" class="headerlink" title="使用或安装最新的官方发布："></a>使用或安装最新的官方发布：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>n latest</span><br></pre></td></tr></table></figure>
+<h3 id="使用或安装稳定的官方发布："><a href="#使用或安装稳定的官方发布：" class="headerlink" title="使用或安装稳定的官方发布："></a>使用或安装稳定的官方发布：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$n stable</span><br></pre></td></tr></table></figure>
+<h3 id="使用或安装最新的LTS官方版本："><a href="#使用或安装最新的LTS官方版本：" class="headerlink" title="使用或安装最新的LTS官方版本："></a>使用或安装最新的LTS官方版本：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$n lts</span><br></pre></td></tr></table></figure>
+<h3 id="删除版本，删除一些版本："><a href="#删除版本，删除一些版本：" class="headerlink" title="删除版本，删除一些版本："></a>删除版本，删除一些版本：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$n rm 8.16.2 v12.12.0</span><br></pre></td></tr></table></figure>
+<h3 id="或者，您可以使用以下-代替rm："><a href="#或者，您可以使用以下-代替rm：" class="headerlink" title="或者，您可以使用以下 - 代替rm："></a>或者，您可以使用以下 - 代替rm：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$n - 0.9.4</span><br></pre></td></tr></table></figure>
+<h3 id="相关用法也可以"><a href="#相关用法也可以" class="headerlink" title="相关用法也可以"></a>相关用法也可以</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$n --help</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.npmjs.com/package/n" target="_blank" rel="noopener">官方文档</a></p>
+<p><a href="https://nodejs.org/en/blog/release/" target="_blank" rel="noopener">Node历史版本</a></p>
+<p><img src="http://nimit.io/images/n/n.gif" alt="image"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Mac</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Mac//" class="article-tag-list-link color4">Mac</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/b72i3fe5.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-快速搭建Flutter环境-Mac" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/9a98d699.html">快速搭建Flutter环境-Mac</a>
+    </h1>
+  
+
+        
+        <a href="/post/9a98d699.html" class="archive-article-date">
+  	<time datetime="2019-09-15T13:37:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>系统要求</li>
+<li>设置FLutter镜像(非必须)</li>
+<li>获取Flutter SDK</li>
+<li>iOS开发环境设置</li>
+<li>Android开发环境设置</li>
+<li>安装Flutter插件</li>
 </ul>
-<h2 id="小程序-经常报Length错误。"><a href="#小程序-经常报Length错误。" class="headerlink" title="小程序 经常报Length错误。"></a>小程序 经常报Length错误。</h2><p>当然页面出现<code>length = 0</code>或<code>length != &#39;0&#39;</code>容易出现数据类型错误</p>
+<h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><p>在Mac上要安装并运行Flutter要满足以下最低要求:</p>
+<ul>
+<li>操作系统: macOS (64-bit)</li>
+<li>磁盘空间: 700 MB (不包括Xcode或Android Studio的磁盘空间）.</li>
+<li>工具: Flutter 依赖下面这些命令行工具：<code>bash curl git 2.x mkdir rm unzip which</code></li>
+</ul>
+<h2 id="设置FLutter镜像-非必须"><a href="#设置FLutter镜像-非必须" class="headerlink" title="设置FLutter镜像(非必须)"></a>设置FLutter镜像(非必须)</h2><p>由于在国内访问Flutter可能会受到限制，Flutter官方为中国开发者搭建了临时镜像，大家可以将如下环境变量加入到用户环境变量中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Macintosh HD⁩ ▸ ⁨Users⁩ ▸ ⁨你的用户名 ▸ ⁨.bash_profile</span></span><br><span class="line"><span class="keyword">export</span> PUB_HOSTED_URL=https:<span class="comment">//pub.flutter-io.cn</span></span><br><span class="line"><span class="keyword">export</span> FLUTTER_STORAGE_BASE_URL=https:<span class="comment">//storage.flutter-io.cn</span></span><br></pre></td></tr></table></figure>
+<p>注意：此镜像为临时镜像，并不能保证一直可用，大家可以从 <a href="https://flutter.dev/community/china" target="_blank" rel="noopener">Using Flutter in China</a> 上获得有关镜像服务器的最新动态。</p>
+<h2 id="获取Flutter-SDK"><a href="#获取Flutter-SDK" class="headerlink" title="获取Flutter SDK"></a>获取Flutter SDK</h2><p><strong>1.点Flutter官网下载其最新可用的安装包。</strong></p>
+<p><strong>2.解压安装包到你想安装的目录，如：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd ~/development</span><br><span class="line"><span class="meta">$</span> unzip ~/Downloads/flutter_macos_v1.2.1-stable.zip</span><br></pre></td></tr></table></figure>
+<p><strong>3.添加flutter相关工具到path中：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> PATH=<span class="string">"$PATH:`pwd`/flutter/bin"</span></span><br></pre></td></tr></table></figure>
+<p>此代码只能暂时针对当前命令行窗口设置PATH环境变量，要想永久将Flutter添加到PATH中请参考下面做法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd ~</span><br><span class="line"><span class="meta">$</span> vim .bash_profile</span><br></pre></td></tr></table></figure>
+<p>然后添加：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> PATH=<span class="regexp">/Users/</span>safran/Documents/flutter/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>之后记得保存文件。</p>
+<h3 id="运行-flutter-doctor"><a href="#运行-flutter-doctor" class="headerlink" title="运行 flutter doctor"></a>运行 flutter doctor</h3><p>上面path配置完成之后，需要关闭终端重新打开，然后运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter doctor</span><br></pre></td></tr></table></figure>
+<p>该命令检查你的环境并在终端窗口中显示报告。Dart SDK已经在捆绑在Flutter里了，没有必要单独安装Dart。 仔细检查命令行输出以获取可能需要安装的其他软件或进一步需要执行的任务（以粗体显示）：</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[-] Android toolchain - develop for Android devices</span><br><span class="line">    • Android SDK at /Users/obiwan/Library/Android/sdk</span><br><span class="line">    ✗ Android SDK is missing command line tools; download from https://goo.gl/XxQghQ</span><br><span class="line">    • Try re-installing or updating your Android SDK,</span><br><span class="line">      visit https://flutter.dev/setup/#android-setup for detailed instructions.</span><br></pre></td></tr></table></figure>
+<p>一般的错误会是XCode或Android Studio版本太低、或者没有<code>ANDROID_HOME</code>环境变量等，可参考一下环境变量的配置来检查你的环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>flutter环境变量</span><br><span class="line">export PATH=/Users/safran/Desktop/flutter/bin:$PATH</span><br><span class="line"><span class="meta">#</span> flutter镜像</span><br><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br><span class="line"><span class="meta">#</span>Android 环境变量</span><br><span class="line">export ANDROID_HOME=/Users/safran/Library/Android/sdk</span><br><span class="line"><span class="meta">#</span>Android 模拟器路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/emulator</span><br><span class="line"><span class="meta">#</span>Android tools路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/tools</span><br><span class="line"><span class="meta">#</span>Android 平台工具路径</span><br><span class="line">export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/platform-tools</span><br><span class="line"><span class="meta">#</span>Android NDK路径</span><br><span class="line">ANDROID_NDK_HOME=/Users/safran/Library/Android/ndk/android-ndk-r10e</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><em>第一次运行一个flutter命令（如flutter doctor）时，它会下载它自己的依赖项并自行编译。以后再运行就会快得多。</em></p>
+</blockquote>
+<h2 id="iOS开发环境设置"><a href="#iOS开发环境设置" class="headerlink" title="iOS开发环境设置"></a>iOS开发环境设置</h2><h3 id="安装-Xcode"><a href="#安装-Xcode" class="headerlink" title="安装 Xcode"></a>安装 Xcode</h3><p>要用Flutter开发iOS App需要Xcode 9.0 或更高版本:</p>
+<p><strong>1.安装Xcode 9.0或更新版本(通过链接下载或苹果应用商店)</strong></p>
+<p><strong>2.配置Xcode命令行工具以使用新安装的Xcode版本</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</span><br></pre></td></tr></table></figure>
+<p>以上路径时对于最新版Xcode的路径。如果你需要使用不同的Xcode版本，需要指定相应路径。</p>
+<p><strong>3.确保Xcode许可协议是通过打开一次Xcode或通过命令sudo xcodebuild -license同意过了</strong></p>
+<p>接下来就可以使用Xcode，在iOS设备或模拟器上运行Flutter App了。</p>
+<h3 id="设置iOS模拟器"><a href="#设置iOS模拟器" class="headerlink" title="设置iOS模拟器"></a>设置iOS模拟器</h3><p>要准备在iOS模拟器上运行并测试您的Flutter应用，请按以下步骤操作：</p>
+<p><strong>1.在终端输入如下命令打开一个iOS模拟器：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> open -a Simulator</span><br></pre></td></tr></table></figure>
+<p><strong>2.通过模拟器菜单栏的 硬件&gt;设备 ，确保你打开是64位 iPhone 5s或更新的模拟器</strong></p>
+<p><strong>3.如果模拟器过大，可以通过模拟器的 Window&gt; Scale 菜单下设置设备比例</strong></p>
+<h3 id="创建和运行一个简单的Flutter项目"><a href="#创建和运行一个简单的Flutter项目" class="headerlink" title="创建和运行一个简单的Flutter项目"></a>创建和运行一个简单的Flutter项目</h3><p><strong>1.通过如下命令创建一个Flutter项目</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter create my_app</span><br></pre></td></tr></table></figure>
+<p><strong>2.命令运行完成之后会在当前目录下创建一个名为my_app的Flutter项目，然后通过一下命令可以运行它：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd my_app</span><br><span class="line"><span class="meta">$</span> flutter run</span><br></pre></td></tr></table></figure>
+<h3 id="如何将Flutter安装到iOS真机上？"><a href="#如何将Flutter安装到iOS真机上？" class="headerlink" title="如何将Flutter安装到iOS真机上？"></a>如何将Flutter安装到iOS真机上？</h3><p>要通过<code>lutter run</code>将Flutter应用安装到iOS真机设备，需要一些额外的工具和一个Apple帐户，还需要在Xcode中进行设置：</p>
+<blockquote>
+<p>当然，用XCode来将Flutter运行在真机上更简单，只需要点一下<code>run</code>按钮即可，可以根据需要进行选择这两种不同的运行方式；</p>
+</blockquote>
+<p><strong>1.安装 Homebrew （如果已经安装了brew,跳过此步骤）.</strong></p>
+<p><strong>2.确保homebrew已更新</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew update</span><br></pre></td></tr></table></figure>
+<p><strong>3.打开终端并运行这些命令来安装用于将Flutter应用安装到iOS设备的工具</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> brew install --HEAD usbmuxd</span><br><span class="line"><span class="meta">$</span> brew link usbmuxd</span><br><span class="line"><span class="meta">$</span> brew install --HEAD libimobiledevice</span><br><span class="line"><span class="meta">$</span> brew install ideviceinstaller ios-deploy cocoapods</span><br><span class="line"><span class="meta">$</span> pod setup</span><br></pre></td></tr></table></figure>
+<p>如果这些命令中的任何一个失败并出现错误，可运行<code>brew doctor</code>并按照说明解决问题。</p>
+<p><strong>4.遵循Xcode签名流程来配置您的项目:</strong></p>
+<ul>
+<li>在你Flutter项目目录中通过 <code>open ios/Runner.xcworkspace</code> 打开默认的Xcode workspace</li>
+<li>在Xcode中，选择导航面板左侧中的Runner项目</li>
+<li>在Runner target设置页面中，确保在 常规&gt;签名&gt;团队 下选择了您的开发团队。当您选择一个团队时，Xcode会创建并下载开发证书，向您的设备注册您的帐户，并创建和下载配置文件（如果需要）<ul>
+<li>要开始您的第一个iOS开发项目，您可能需要使用您的Apple ID登录Xcode</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>任何Apple ID都支持开发和测试，但如果要将应用发布到App Store则需要一个99美刀的开发者账号。</li>
+<li>当你第一次attach真机设备进行iOS开发时，需要同时信任你的Mac和该设备上的开发证书。首次将iOS设备连接到Mac时,请在对话框中选择 <code>Trust</code>。</li>
+</ul>
+<p>然后，转到iOS设备上的设置应用程序，选择 常规&gt;设备管理 并信任您的证书。</p>
+<ul>
+<li>如果Xcode中的自动签名失败，请验证项目的 General &gt; Identity &gt; Bundle Identifier 值是否唯一。</li>
+</ul>
+<p><strong>5.通过flutter run运行启动项目</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> flutter run</span><br></pre></td></tr></table></figure>
+<h2 id="Android开发环境设置-amp-Flutter插件安装"><a href="#Android开发环境设置-amp-Flutter插件安装" class="headerlink" title="Android开发环境设置&amp;Flutter插件安装"></a>Android开发环境设置&amp;Flutter插件安装</h2><h3 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h3><p><strong>1.下载并安装 Android Studio</strong></p>
+<ul>
+<li><a href="https://developer.android.com/studio" target="_blank" rel="noopener">https://developer.android.com/studio</a></li>
+<li><a href="https://developer.android.google.cn/studio" target="_blank" rel="noopener">https://developer.android.google.cn/studio</a></li>
+</ul>
+<blockquote>
+<p>因为Android网站设在国外，如果你的网络无法访问第一个地址，可以选择使用Google为中国开发者提供的中国网址进行访问。</p>
+</blockquote>
+<p>另外，关于Android Studio的安装和配置，Android官方有比较详细的说明文档<a href="https://developer.android.google.cn/studio/intro，大家可以根据需要进行查阅；" target="_blank" rel="noopener">https://developer.android.google.cn/studio/intro，大家可以根据需要进行查阅；</a></p>
+<p><strong>2.启动Android Studio，然后执行“Android Studio安装向导”。这将安装最新的Android SDK，Android SDK平台工具和Android SDK构建工具</strong></p>
+<h3 id="Flutter插件安装"><a href="#Flutter插件安装" class="headerlink" title="Flutter插件安装"></a>Flutter插件安装</h3><ul>
+<li>打开Android Studio</li>
+<li>打开Preferences &gt; Plugins (macOS), File &gt; Settings &gt; Plugins (Windows &amp; Linux)</li>
+<li>选择 Browse repositories, 搜索 Flutter plugin</li>
+<li>然后点击安装，然后安装Dart插件</li>
+<li>完成之后选择重启Android Studio</li>
+</ul>
+<h3 id="如何在Android模拟器上运行Flutter？"><a href="#如何在Android模拟器上运行Flutter？" class="headerlink" title="如何在Android模拟器上运行Flutter？"></a>如何在Android模拟器上运行Flutter？</h3><p>要准备在Android模拟器上运行并测试您的Flutter应用，需要按照以下步骤操作：</p>
+<ul>
+<li><p>在你的机器上启用 <a href="https://developer.android.com/studio/run/emulator-acceleration.html#vm-mac" target="_blank" rel="noopener">VM acceleration</a>；</p>
+</li>
+<li><p>启动 Android Studio&gt;Tools&gt;Android&gt;AVD Manager 并选择 <code>Create Virtual Device</code>；</p>
+</li>
+<li><p>选择一个设备并选择 Next；</p>
+</li>
+<li><p>为要模拟的Android版本选择一个或多个系统映像，然后选择 Next. 建议使用 x86 或 x86_64 的镜像；</p>
+</li>
+<li><p>在 Emulated Performance下, 选择 Hardware - GLES 2.0 以启用硬件加速；</p>
+</li>
+<li><p>验证AVD配置是否正确，然后选择 Finish；</p>
+<p>如果对以上步骤还有不清楚的可以参阅Android官方的 <a href="https://developer.android.com/studio/run/managing-avds.html" target="_blank" rel="noopener">Managing AVDs</a>文档。</p>
+</li>
+<li><p>在 Android Virtual Device Manager中, 点击工具栏的 <code>Run</code>，模拟器启动并显示所选操作系统版本或设备的启动画面；</p>
+</li>
+<li><p>通过<code>flutter run</code>运行启动项目；</p>
+</li>
+</ul>
+<h3 id="如何在Android真机运行？"><a href="#如何在Android真机运行？" class="headerlink" title="如何在Android真机运行？"></a>如何在Android真机运行？</h3><p>要准备在Android设备上运行并测试您的Flutter应用，您需要安装Android 4.1（API level 16）或更高版本的Android设备</p>
+<ul>
+<li>在你的设备上启用 <code>开发人员选项</code> 和 <code>USB调试</code> 。详细说明可在<a href="https://developer.android.com/studio/debug/dev-options.html" target="_blank" rel="noopener">Android文档</a>中找到；</li>
+<li>使用USB将手机插入电脑，如果有授权提示需要同意授权；</li>
+<li>在终端中，运行<code>flutter devices</code> 命令以验证Flutter是否识别你连接的Android设备；</li>
+<li>通过<code>flutter run</code>运行启动项目；</li>
+</ul>
+<p>默认情况下，Flutter使用的Android SDK版本是基于你的 <code>adb</code> 工具版本， 如果你想让Flutter使用不同版本的Android SDK，则必须将该 <code>ANDROID_HOME</code> 环境变量修改SDK的目录。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.devio.org/2019/04/03/development-environment-mac/" target="_blank" rel="noopener">两分钟带你快速搭建Flutter开发环境(Mac)</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Flutter</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Flutter//" class="article-tag-list-link color3">Flutter</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/9a98d699.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-Git拉取远程最新代码，并与当前分支合并" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/e235697f.html">Git拉取远程最新代码，并与当前分支合并</a>
+    </h1>
+  
+
+        
+        <a href="/post/e235697f.html" class="archive-article-date">
+  	<time datetime="2019-04-03T13:30:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在团队开发中，git的使用已经很常见了，在多人协同开发中，我们经常会遇到这样的问题：A在本地开发完成后，将代码推送到远程，这时候B的本地代码的版本就低于远程代码的版本，这时候B该如何从远程拉取最新的代码，并与自己的本地代码合并呢？ 具体步骤如下：</p>
+<h4 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库:"></a>查看远程仓库:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<h4 id="看到远程有一个叫origin的仓库，我们可以使用如下命令从origin远程仓库获取最新版本的代码"><a href="#看到远程有一个叫origin的仓库，我们可以使用如下命令从origin远程仓库获取最新版本的代码" class="headerlink" title="看到远程有一个叫origin的仓库，我们可以使用如下命令从origin远程仓库获取最新版本的代码"></a>看到远程有一个叫origin的仓库，我们可以使用如下命令从origin远程仓库获取最新版本的代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin master:temp</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>上面代码的意思是：从远程的origin仓库的master分支下载到本地master并新建一个temp分支</p>
+</li>
+<li><p>注意：不建议使用pull拉取最新代码，因为pull拉取下来后会自动和本地分支合并</p>
+<p>获取最新版本  有两种  拉取 和 获取 pull 和 fetch</p>
+</li>
+</ul>
+<blockquote>
+<p>git  pull     从远程拉取最新版本 到本地  自动合并 merge <code>git pull origin master</code></p>
+<p>git  fetch   从远程获取最新版本 到本地   不会自动合并 merge    <code>git fetch  origin master</code>       <code>git log  -p master ../origin/master</code>    <code>git merge orgin/master</code></p>
+<p>实际使用中  使用git fetch 更安全    在merge之前可以看清楚 更新情况  再决定是否合并</p>
+</blockquote>
+<h4 id="查看temp分支与本地原有分支的不同"><a href="#查看temp分支与本地原有分支的不同" class="headerlink" title="查看temp分支与本地原有分支的不同"></a>查看temp分支与本地原有分支的不同</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff temp</span><br></pre></td></tr></table></figure>
+<h4 id="将temp分支和本地的master分支合并"><a href="#将temp分支和本地的master分支合并" class="headerlink" title="将temp分支和本地的master分支合并"></a>将temp分支和本地的master分支合并</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge temp</span><br></pre></td></tr></table></figure>
+<h4 id="删除temp分支"><a href="#删除temp分支" class="headerlink" title="删除temp分支"></a>删除temp分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D temp</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Git//" class="article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/post/e235697f.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-小程序wxml页面进行数据替换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/fc17f2c8.html">小程序wxml页面进行数据替换</a>
+    </h1>
+  
+
+        
+        <a href="/post/fc17f2c8.html" class="archive-article-date">
+  	<time datetime="2019-04-01T15:39:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考1.<a href="https://blog.csdn.net/cangahi09025566/article/details/82589831" target="_blank" rel="noopener">微信小程序WXML页面上直接进行字符串截取实现方式</a></p>
+<p>参考2.<a href="https://www.aiyingli.com/51529.html" target="_blank" rel="noopener">wxs replace 正则用法该怎么用？？？？</a></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//顶部引用</span><br><span class="line"><span class="comment">&lt;!-- 引入wxs脚本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">src</span>=<span class="string">"./subutil.wxs"</span> <span class="attr">module</span>=<span class="string">"tools"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'nameSite'</span>&gt;</span>&#123;&#123;tools.subs(addressModel.address_city)&#125;&#125; <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>wxs脚本文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sub = <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (val.length == <span class="number">0</span> || val == <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> reg = getRegExp(<span class="string">"(\|)"</span>, <span class="string">"g"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(reg);</span><br><span class="line">    <span class="keyword">return</span> val.replace(reg, <span class="string">' '</span>);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.sub = sub;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -797,7 +1716,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/3f741c8d.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/fc17f2c8.html">展开全文 >></a>
         </p>
       
 
@@ -828,28 +1747,32 @@
 
 
   
-    <article id="post-网页结构命名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Vue使用路由的钩子函改变单页面的颜色" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/34da003d.html">网页结构命名</a>
+      <a class="article-title" href="/post/276258a.html">Vue使用路由的钩子函改变单页面的颜色</a>
     </h1>
   
 
         
-        <a href="/post/34da003d.html" class="archive-article-date">
-  	<time datetime="2019-03-18T15:34:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
+        <a href="/post/276258a.html" class="archive-article-date">
+  	<time datetime="2019-03-31T13:47:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>按功能命名：<br>头：header<br>内容：content/container<br>页脚：footer<br>导航：nav<br>子导航：subnav<br>侧栏：sidebar<br>栏目：column<br>广告条：banner<br>主体：main<br>左中右：left/right/center<br>菜单：menu<br>子菜单：submenu<br>注册：register<br>登陆：login<br>标志：logo<br>按钮：btn<br>图标：icon<br>热点：hot<br>新闻：news<br>下载：download<br>搜索：search<br>滚动条：scroll<br>标签页：tab<br>小技巧：tips<br>标题：title<br>加入：joinus<br>文章列表：list<br>注释：note<br>友情链接：friendlink<br>服务：service<br>状态：status<br>合作伙伴：partner<br>摘要：summary<br>版权：copyright<br>指南：guid<br>提示信息：msg</p>
-<p>按页面结构命名：<br>容器：container 。就是将页面中的所有元素包在一起的部分，这部分还可以命名为：“wrapper”，“wrap”，”page”.<br>页头：header。网站页面的头部部分，包含网站的logo和一些其他元素。还可以命名为“page-header”(或pageHeader).<br>内容：content/container<br>页面主体：main。<br>页尾：footer。包含网站的一些附加信息。还可以命名为copyright。<br>导航：nav。等同于横向的导航栏，还可以命名为：“navigation”，“nav-wrapper”,” navbar”.<br>侧栏：sidebar。可以包含网站的次要内容，比如最近更新内容列表、关于网站的介绍或广告元素等。还可以命名为：subNav、side-panel、secondary-content。<br>栏目：column</p>
+        <p><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html" target="_blank" rel="noopener">导航守卫</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/1"</span>&gt;</span>Page1<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/2"</span>&gt;</span>Page2<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.bootcss.com/vue/2.3.2/vue.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.bootcss.com/vue-router/2.5.3/vue-router.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> Home = &#123; <span class="attr">template</span>: <span class="string">'&lt;div&gt;Home&lt;/div&gt;'</span> &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> Page1 = &#123;</span></span><br><span class="line"><span class="xml">            template: '<span class="tag">&lt;<span class="name">div</span>&gt;</span>Page1<span class="tag">&lt;/<span class="name">div</span>&gt;</span>',</span></span><br><span class="line"><span class="javascript">            beforeRouteEnter(to, <span class="keyword">from</span>, next) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">'red'</span>;</span></span><br><span class="line"><span class="undefined">                next();</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="javascript">            beforeRouteLeave(to, <span class="keyword">from</span>, next) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">''</span>;</span></span><br><span class="line"><span class="undefined">                next();</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> Page2 = &#123;</span></span><br><span class="line"><span class="xml">            template: '<span class="tag">&lt;<span class="name">div</span>&gt;</span>Page2<span class="tag">&lt;/<span class="name">div</span>&gt;</span>',</span></span><br><span class="line"><span class="javascript">            beforeRouteEnter(to, <span class="keyword">from</span>, next) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">'blue'</span>;</span></span><br><span class="line"><span class="undefined">                next();</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="javascript">            beforeRouteLeave(to, <span class="keyword">from</span>, next) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">''</span>;</span></span><br><span class="line"><span class="undefined">                next();</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span></span><br><span class="line"><span class="undefined">            routes: [</span></span><br><span class="line"><span class="javascript">              &#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">component</span>: Home &#125;,</span></span><br><span class="line"><span class="javascript">              &#123; <span class="attr">path</span>: <span class="string">'/1'</span>, <span class="attr">component</span>: Page1 &#125;,</span></span><br><span class="line"><span class="javascript">              &#123; <span class="attr">path</span>: <span class="string">'/2'</span>, <span class="attr">component</span>: Page2 &#125;</span></span><br><span class="line"><span class="undefined">            ]</span></span><br><span class="line"><span class="undefined">        &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="undefined">            router,</span></span><br><span class="line"><span class="javascript">            template: <span class="string">'#main'</span></span></span><br><span class="line"><span class="javascript">        &#125;).$mount(<span class="string">'#app'</span>)</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在<code>main.js</code>添加</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, form, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 这里使用全局守卫</span></span><br><span class="line">  <span class="keyword">if</span> (to.matched[<span class="number">0</span>].name == <span class="string">"login"</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">'white'</span></span><br><span class="line">    next();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.document.body.style.backgroundColor = <span class="string">''</span></span><br><span class="line">    next();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>使用组件内的守卫</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  beforeCreate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 单独更改页面的背景</span></span><br><span class="line">    <span class="built_in">document</span>.body.style.backgroundColor = <span class="string">'#fff'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeDestroy: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 删除添加的背景</span></span><br><span class="line">    <span class="built_in">document</span>.body.removeAttribute(<span class="string">"style"</span>,<span class="string">"backgroundColor"</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -863,7 +1786,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -875,7 +1798,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/HTML//" class="article-tag-list-link color5">HTML</a>
+        			<a href="/categories/Vue//" class="article-tag-list-link color4">Vue</a>
         		</li>
       		
 		</ul>
@@ -884,232 +1807,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/post/34da003d.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-在Chrome中模拟微信浏览器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/c37c62e0.html">在Chrome中模拟微信浏览器</a>
-    </h1>
-  
-
-        
-        <a href="/post/c37c62e0.html" class="archive-article-date">
-  	<time datetime="2019-03-18T15:23:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Chrome 修改 user agent 简单模拟微信内置浏览器</p>
-<h2 id="微信和QQ内置浏览器UA"><a href="#微信和QQ内置浏览器UA" class="headerlink" title="微信和QQ内置浏览器UA"></a>微信和QQ内置浏览器UA</h2><ul>
-<li>安卓QQ内置浏览器UA:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &gt; Chrome/37.0.0.0 Mobile Safari/537.36 V1_AND_SQ_5.3.1_196_YYB_D &gt; QQ/5.3.1.2335 NetType/WIFI</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安卓微信内置浏览器UA:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (Linux; Android 5.0; SM-N9100 Build/LRX21V) &gt; AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 &gt; Chrome/37.0.0.0 Mobile Safari/537.36 &gt; MicroMessenger/6.0.2.56_r958800.520 NetType/WIFI</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>IOSQQ内置浏览器UA:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) &gt; AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 &gt; QQ/5.2.1.302 NetType/WIFI Mem/28</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>IOS微信内置浏览器UA:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) &gt; AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 &gt; MicroMessenger/6.0.1 NetType/WIFI</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="在Chrome添加UA"><a href="#在Chrome添加UA" class="headerlink" title="在Chrome添加UA"></a>在Chrome添加UA</h3><ul>
-<li><p>打开Chrome调试工具（F12），点击右上角竖着的三个点，如下图</p>
-<p><img src="http://ww3.sinaimg.cn/large/6aedb651gw1fazm90jatmj20bc09ggof.jpg" alt=""></p>
-</li>
-<li><p>打开后选择Setting，如下图</p>
-<p><img src="http://ww1.sinaimg.cn/large/6aedb651gw1fazma2xwtqj206n06ewew.jpg" alt=""></p>
-</li>
-<li><p>选择左边栏Devices，如下图</p>
-<p><img src="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg" alt=""></p>
-</li>
-<li><p>选择右边栏Add custom device</p>
-<p><img src="http://ww2.sinaimg.cn/large/6aedb651gw1fazmcukbx4j20b30a4752.jpg" alt=""></p>
-</li>
-<li><p>填写要模拟的设备，添加，如下图</p>
-<p><img src="http://ww4.sinaimg.cn/large/6aedb651gw1fazmhu5yg4j20br06v74o.jpg" alt=""></p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信//" class="article-tag-list-link color3">微信</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信/调试工具//" class="article-tag-list-link color5">调试工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/c37c62e0.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-关于PC端缩小浏览器窗口，右边背景空白并出现滚动条" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/488e492e.html">关于PC端缩小浏览器窗口，右边背景空白并出现滚动条</a>
-    </h1>
-  
-
-        
-        <a href="/post/488e492e.html" class="archive-article-date">
-  	<time datetime="2018-11-15T14:23:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>出现原因</p>
-<p>因为出现空白的元素设置了宽度100%，缩小窗口相当于减小了宽度值，那么为什么出现滚动条呢？是因为页面中至少有一个元素a的width大于窗口的width，导致把页面撑开，出现了滚动条，而此时那个width：100%的元素宽度等于窗口宽度且小于元素a的宽度，所以右侧的空白长度=a的宽度-窗口宽度。  </p>
-<h3 id="解决这个问题其实很简单"><a href="#解决这个问题其实很简单" class="headerlink" title="解决这个问题其实很简单"></a>解决这个问题其实很简单</h3><ul>
-<li><p>给body设置最小宽度<code>min-width</code>,在ie6下不兼容</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">     <span class="attribute">min-width</span>: <span class="number">1000px</span>;</span><br><span class="line">     <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>还可以给div元素设置最小宽度，如果页面元素复杂，要一个个设置</p>
-</li>
-<li><p>给CSS样式设置<code>width:expression(document.body.clientWidth &lt;= 960? &quot;960px&quot;: &quot;auto&quot;);</code></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#wrap</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#ddd</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="built_in">expression</span>(document.body.clientWidth &lt;= 960? <span class="string">"960px"</span>: <span class="string">"auto"</span>);</span><br><span class="line">    <span class="attribute">min-width</span>:<span class="number">960px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>推荐第一种</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/post/488e492e.html">展开全文 >></a>
+          <a class="article-more-a" href="/post/276258a.html">展开全文 >></a>
         </p>
       
 
@@ -1142,7 +1840,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1154,7 +1852,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Safran
+    		&copy; 2020 Safran
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1237,27 +1935,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+                <a href="javascript:void(0)" class="js-tag color4">AnyProxy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">Thor</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+                <a href="javascript:void(0)" class="js-tag color3">抓包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">AndroidStudio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1265,11 +1955,67 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">AutoJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSS技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dayjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Moment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Vue插件</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ag-grid</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1297,10 +2043,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JS插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">jQuer</a>
               </li>
              
@@ -1317,7 +2059,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Axios</a>
+                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1329,6 +2071,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
               </li>
              
@@ -1337,15 +2083,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-router</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1354,6 +2092,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">小程序反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
